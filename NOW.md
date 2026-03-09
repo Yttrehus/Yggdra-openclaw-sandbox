@@ -16,7 +16,7 @@ M3: Terminal/Shell (WSL) — Zsh, prompt, aliases
 - Fixede keybinding: Ctrl+½ → toggle terminal (oem_5)
 - Oprettede workspace-fil og NOW.md
 - Forsøgte hooks til automatisk NOW.md-opdatering — virker ikke fordi Claude Code kører Windows Bash, ikke WSL. Alle git commits sker i WSL.
-- Konklusion: NOW.md opdateres via CLAUDE.md-regel + disciplin, ikke automation
+- Konklusion: Windows git konfigureret → Claude kan selv committe → hook virker nu
 
 ## Vigtig kontekst
 
