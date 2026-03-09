@@ -15,15 +15,17 @@ M3: Terminal/Shell (WSL) — Zsh, prompt, aliases
 - CLAUDE.md fik workflow-regler
 - Fixede keybinding: Ctrl+½ → toggle terminal (oem_5)
 - Oprettede workspace-fil og NOW.md
-- Forsøgte hooks til automatisk NOW.md-opdatering — virker ikke fordi Claude Code kører Windows Bash, ikke WSL. Alle git commits sker i WSL.
-- Konklusion: Windows git konfigureret → Claude kan selv committe → hook virker nu
+- Windows git konfigureret (user, email, SSH-nøgle) → Claude kan selv committe+pushe
+- PostToolUse hook: opfanger git commit fra Claude → minder om NOW.md opdatering
+- Oprettede global skill: session-state.md (NOW.md/PLAN.md workflow)
 
 ## Vigtig kontekst
 
-- Claude Code Bash-tool kører i Windows, ikke WSL — git commits sker i WSL
-- Hooks kan ikke opfange WSL-kommandoer
-- CLAUDE.md-reglen er den eneste mekanisme for NOW.md-opdatering
-- Yttre holder Claude ansvarlig — og bør gøre det
+- Claude Code Bash-tool kører i Windows, ikke WSL
+- Windows git er nu konfigureret med SSH — Claude kan commit+push selv
+- WSL git bruges til manuelle commits fra terminalen
+- PostToolUse hook i ~/.claude/settings.json opfanger Claudes git commits
+- Global skill session-state.md gælder alle projekter
 
 ## Åbne tråde
 
@@ -31,4 +33,3 @@ M3: Terminal/Shell (WSL) — Zsh, prompt, aliases
 - JetBrains Mono font ikke installeret
 - Notion-struktur venter
 - Context engineering som M5
-- git add/commit/push flow stadig nyt
