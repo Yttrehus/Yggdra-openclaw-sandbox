@@ -101,6 +101,10 @@ Detaljer i PLAN.v1.md.
 - Notion-spejling af VS Code-struktur
 - Voice-integration
 - Adobe Acrobat Pro (afvent behov)
+- MCP/Skills kompendium som separat projekt (scan mcpmarket.com top 100)
+- Abonnement-overblik (alle services: Firecrawl, GitHub, osv.)
+- PDF Official Toolkit skill (professionel PDF-generering: fakturaer, rapporter, OCR — til bogføring/rejseselskab)
+- Professionel webscraping-setup (Firecrawl allerede installeret — optimér til research og link-analyse)
 
 ---
 
