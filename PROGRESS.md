@@ -133,6 +133,53 @@ Alle 12 parkerede idéer auditeret med effort/paralleliserbarhed. 7 task briefs 
 
 ---
 
+## Session 9 — 2026-03-11
+
+### Kontekst
+
+Sessionen startede med M5 step 10 (bloatware-fjernelse) men eskalerede hurtigt til et fundamentalt arkitektur-redesign af hele projektstyringen.
+
+### Hvad skete der
+
+**M5 step 10:** 11 bloatware-apps fjernet via PowerShell. Derefter opdagede Yttre at PLAN.md ikke var opdateret — step 2-10 var udført men ikke afkrydset. Det afslørede et strukturelt hul i checkpoint-skillen.
+
+**Auto-chatlog:** Yttre spurgte om chatloggen kunne opdatere sig selv automatisk. Det startede en kaskade: vi byggede chatlog-engine.js (parser: .jsonl → live.md + archive.md), itererede tre gange på formatet (dansk tid, under-index med 2-timers blokke, nøgleord). Yttre kalibrerede: "spørg før du bygger" — Claude gik i bygge-mode for tidligt.
+
+**Google AI Mode session:** Parallelt kørte Yttre en samtale med Google AI Mode om R&D-mappestruktur og ADR-templates. Samtalen validerede og forfinede idéen om en livscyklus-pipeline. Pipeline-navne gennemgik flere iterationer: TRL/DLR/SIP/BMS → RAW/DEV/STG/CORE → PoC/DLR/SIP/BMS.
+
+**Project Reformation:** Kulminationen af sessionen. Det blev klart at Basic Setup ikke bare er "opsætning af udviklermiljø" — det er ved at blive et framework for hvordan Yttre arbejder med AI. Reformation designede:
+
+- **Pipeline:** Backlog → PoC → DLR → SIP → BMS (roden er BMS)
+- **To dimensioner:** Stage (hvor i pipeline) og Status (Active/Deprecated/Archived)
+- **ADR-template** med 11 sektioner: Origin Story øverst (kontekst først), Original ADR nederst (frosset snapshot)
+- **Governance-manualer** for alle 5 stages + Backlog med do/don't-eksempler og promotion/demotion criteria
+- **Brief-format** for backlog-idéer (opsummering → origin story → rå input)
+- **Changelog i dagbogsstil** — nok kontekst til at forstå hvad der skete og hvorfor, ikke bare "promoted til DLR"
+
+**Test-session (9343d480):** Yttre testede en ny session for at se om kontekst overlevede. Det tog 5+ beskeder at genfinde konteksten — live.md var forældet, NOW.md var ufuldstændig. Dette bekræftede behovet for reformationen.
+
+**Checkpoint-analyse:** Yttre opdagede at checkpoint ikke kørte alle 5 trin (NOW.md, PROGRESS.md, PLAN.md, chatlog-dump, git commit+push). Kun NOW.md blev opdateret. Årsag: skillen er en instruktion uden verifikation — ingen gate der sikrer komplet gennemførsel. Det er et generelt skill-arkitektur-problem, ikke specifikt for checkpoint.
+
+### Beslutninger
+
+- PoC/DLR/SIP/BMS som pipeline-navne (1-3 stavelser, professionelle)
+- Stage og Status som to separate dimensioner
+- ADR bor med det den beskriver (ikke central mappe)
+- "brief" som term for backlog-idéer
+- Origin Story i toppen af ADR, Original ADR i bunden
+- Alle mapper har README.md med governance
+- Checkpoint-hul noteret — skill-arkitektur brief planlagt til _backlog/
+
+### Filer oprettet
+
+- `project-reformation/ADR.md` — levende ADR for reformationen
+- `project-reformation/ADR-template.md` — skabelon
+- `project-reformation/README-Backlog.md`, `README-PoC.md`, `README-DLR.md`, `README-SIP.md`, `README-BMS.md`
+- `auto-chatlog/chatlog-engine.js`, `live.md`, `archive.md`
+- `references/google-ai-samtale-rd-framework.md`
+
+---
+
 ## Session 8 — 2026-03-10
 
 ### M4 afsluttet

@@ -37,19 +37,31 @@ Detaljer i PLAN.v1.md.
 
 ---
 
-## M5: PC-setup (Windows) — NÆSTE
+## M5: PC-setup (Windows) — I GANG
 
 **Formål:** Windows konfigureret som en professionels arbejdsstation. Fuldt professionelt.
 
-1. [ ] Taskbar og startmenu — hvad skal være der, hvad skal væk
-2. [ ] Software-audit — installeret, mangler, skal fjernes
-3. [ ] Filsystem — C:\Users\Krist organiseret med klar mappestruktur
-4. [ ] Windows settings — privacy, startup-apps, notifications
-5. [ ] Poppler PATH-verifikation (installeret, mangler restart)
-6. [ ] JetBrains Mono font
-7. [ ] Mermaid Preview extension i VS Code
+1. [x] Research: professionelle dev setups, X1 Carbon Gen 13, privacy, creators (Hanselman, Janetakis, ThePrimeagen)
+2. [x] PowerToys — installeret + konfigureret: FancyZones, Command Palette, Peek, File Locksmith
+3. [x] Privacy-hardening — Settings UI (4 steder), Group Policy (Pro), DiagTrack service, notifications
+4. [x] Taskbar + startmenu — clutter fjernet, daglige apps pinned, left-aligned
+5. [x] Windows settings — Developer Mode, File Explorer (vis extensions), clipboard history, default terminal, End Task
+6. [x] Tema + display — dark mode, accent color, scaling (100% på 1920x1200), Night Light
+7. [x] Input — touchpad gestures, mus-acceleration, scroll gennemgået
+8. [x] Default apps + lyd — browser sat, filassociationer gennemgået
+9. [x] Power settings — timeouts, lid close, OneDrive kontrol gennemgået
+10. [x] Software-audit — 7-Zip + Everything installeret, 11 bloatware-apps fjernet
+11. [ ] Filsystem — C:\Users\Krist organiseret, Downloads oprydning, Desktop ryddet
+12. [ ] X1 Carbon specifikt — BIOS-check (VT-x/VT-d), Lenovo Vantage (battery threshold 80%), 400 MHz bug check
+13. [ ] .wslconfig — sæt RAM/CPU-grænser for WSL2
+14. [ ] Fonts + extensions — JetBrains Mono, Mermaid Preview
+15. [ ] Dev Drive — evaluer om det giver mening (kræver 50GB+, flyt ~/dev/)
+16. [ ] Poppler PATH-verifikation (installeret, mangler restart)
+17. [ ] Quick reference — PowerToys genveje, Windows shortcuts, touchpad gestures (én reference-fil til daglig brug)
 
-**Done-kriterie:** Skrivebord, taskbar og filsystem organiseret. Alle tools installeret. Reference-fil.
+**Done-kriterie:** Skrivebord, taskbar og filsystem organiseret. Privacy hardened. PowerToys konfigureret. Alle tools installeret. Reference-filer opdateret.
+
+**Research-filer:** references/windows-setup-research.md, references/x1-carbon-gen13-dev-setup.md
 
 ---
 
