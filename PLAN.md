@@ -61,7 +61,7 @@ Detaljer i PLAN.v1.md.
 
 **Done-kriterie:** Skrivebord, taskbar og filsystem organiseret. Privacy hardened. PowerToys konfigureret. Alle tools installeret. Reference-filer opdateret.
 
-**Research-filer:** references/windows-setup-research.md, references/x1-carbon-gen13-dev-setup.md
+**Research-filer:** research/_ARC/windows-setup-research.md, research/_ARC/x1-carbon-gen13-dev-setup.md
 
 ---
 
@@ -136,28 +136,11 @@ Eksempel (session-management, implementeret session 3-4):
 
 ---
 
-## Idé-parkering
+## Idé-parkering → pipeline/0_backlog/
 
-- Research/vidensbank som separat projekt ("personligt forskningsinstitut")
-- Visualisering/infographics som separat projekt
-- Notion-spejling af VS Code-struktur
-- Voice-integration
-- Adobe Acrobat Pro (afvent behov)
-- MCP/Skills kompendium som separat projekt (scan mcpmarket.com top 100)
-- Abonnement-overblik (alle services: Firecrawl, GitHub, osv.)
-- PDF Official Toolkit skill (professionel PDF-generering: fakturaer, rapporter, OCR — til bogføring/rejseselskab)
-- Professionel webscraping-setup (Firecrawl allerede installeret — optimér til research og link-analyse)
-- **Projekt-omdøbning (evaluer efter M4):** Basic Setup er ikke basic — det er hovedprojektet, et personligt udvikler-fundament. "Basic Setup" som koncept bliver et *output*: en reproducerbar pakke (installationsguide + AI-instruktioner + manifest med rationale for alle beslutninger). Manifestet forklarer *hvorfor*, ikke bare *hvad*. Chatlog-embedding i Qdrant giver fuld kontekst ("hvorfor valgte vi X?"). Beslut nyt navn og scope ved M4 PDCA-evaluering. (Detaljer: PROGRESS.md, Session 4)
-- **Session-drift pipeline (M7):** Automatisér den daglige drift-loop: state-capture (NOW.md, PROGRESS.md, chatlog) ved commits, session-kontinuitet ved start, og OODA-baseret løbende state-audit. Tre lag: (1) hook-baseret auto-capture ved commits (delvist implementeret — hooks *minder* men *udfører* ikke), (2) taksonomi (beslutning/handling/diskussion) + auto-referencer i plan-filer, (3) embedding i Qdrant ved behov. Nuværende gap: PROGRESS.md opdateres ikke automatisk ved commit; session-slut har ingen mekanisme; hooks er passiv reminder, ikke aktiv udførelse. Inkluderer chatlog-ID'er (T001...) og central JSONL event log (timestamp/session_id/project/type/content). Målet er nul-friktion. (Detaljer: PROGRESS.md, Session 4+5)
-- **Cross-session peer review:** To parallelle sessioner der reviewer hinandens output med Yttre som mediator. Primitiv men effektiv evalueringsmetode for planlægnings- og beslutningsfaser.
-- **Integrationer (M5-scope):** Gmail, Hotmail, Google (Drev, Calendar, Sheets), evt. mobil-adgang. Alle tjenester der kan MCP-integreres eller API-tilgås. Mobil-adgang (gennemse/redigere/rydde op i telefon-indhold via Claude, ligesom VPS-adgang via SSH) er muligvis et separat projekt — afvent scope-vurdering.
-- **7 parallelle task briefs oprettet (session 5):** ~/parallel-tasks/ med briefs for: MCP-kompendium, abonnement-overblik, PDF-skill, webscraping-audit, Notion-spejling, session-drift research, research-vidensbank scope. Klar til Cowork eller parallelle sessioner.
+Alle idéer er nu briefs i `pipeline/0_backlog/`. Se brief-filer der. Migreret i session 12 (reformation fase 3).
 
----
-
-## Automatiseringer
-
-Dokumenteret i references/automation.md. Opdateres ved hver ændring.
+Ikke-migreret: Adobe Acrobat Pro (for tynd til brief — tilføjes ved behov).
 
 ---
 
@@ -171,4 +154,4 @@ Basic Setup er opsætning af professionelt udviklermiljø. Alt der vokser ud ove
 
 M5 (færdiggør) → Project Reformation til BMS → M6 → M7/CE → M8
 
-**Project Reformation status:** Fase 0.5 (fil-audit) DONE. Fase 1-2 (mappestruktur + fil-flytning) næste. Se `project-reformation/adr.project-reformation.md` sektion 8 for detaljer.
+**Project Reformation status:** Fase 1-3 DONE. Næste: fase 4 (ADR'er). Se `pipeline/2_DLR/project-reformation/adr.project-reformation.md` sektion 8.
