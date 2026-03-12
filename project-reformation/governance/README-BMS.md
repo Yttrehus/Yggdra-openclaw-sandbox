@@ -12,7 +12,7 @@ Fundamentet. Her lever de etablerede, stabile moduler der er systemets rygrad. A
 - Andre moduler (i PoC/DLR/SIP) kan referere til og bygge ovenpå BMS-moduler
 
 ## Krav
-- ADR er komplet med alle sektioner inklusiv Origin Story og Original ADR (sektion 10)
+- ADR er komplet med alle 12 sektioner inklusiv Origin Story og Original ADR (sektion 11)
 - Current State afspejler virkeligheden (ikke bare hvad vi håbede)
 - Evaluering bestået med dokumenterede resultater
 - Ingen kendte kritiske fejl

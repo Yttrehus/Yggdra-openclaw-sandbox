@@ -12,7 +12,7 @@ Sandboxen. Her bliver planer til virkelighed — men i et kontrolleret miljø. K
 - Regelmæssig evaluering: matcher virkeligheden vores Exit Criteria?
 
 ## Krav
-- ADR fuldt udfyldt (alle sektioner 0-9)
+- ADR fuldt udfyldt (alle 12 sektioner, 0-11)
 - Fungerende implementation der kan testes
 - Evalueringsdata indsamles (ikke bare "det føles som om det virker")
 - Mindst én runde feedback fra faktisk brug
