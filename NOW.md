@@ -1,100 +1,55 @@
 # NOW — Hvor vi er
 
-**Sidst opdateret:** 2026-03-11 23:10 (session 9, afslutning)
-**Status:** M5 step 1-10 DONE. Project Reformation i DLR-fase — framework designet, triage udført, klar til fil-flytning.
+**Sidst opdateret:** 2026-03-12 14:00 (session 10)
+**Status:** Project Reformation DLR — design komplet, klar til fil-audit og implementering.
 
 ## Næste step (start her)
 
-**Næste session:** Implementér mappestrukturen (den store flytning).
-1. Opret `_backlog/`, `PoC/`, `DLR/`, `SIP/`, `_ARC/` med README.md i hver
-2. Flyt project-reformation/ → DLR/project-reformation/
-3. Flyt auto-chatlog/ → SIP/auto-chatlog/
-4. Opret backlog-briefs (13 stk) med cowork-output som rå input
-5. Opret ADR.md for auto-chatlog, session-drift-pipeline, file-watcher, projekt-omdøbning, skill-arkitektur
-6. Flyt implementation journals → _ARC/, PLAN.v1.md → _ARC/
-7. ADR-INDEX.md i roden
-8. Derefter: M5 step 11-17
+**Næste session:** Fil-audit (fase 0.5) → derefter implementering (fase 1-4).
+1. Komplet fil-audit: hver fil i repoet → destination + begrundelse
+2. Opret _backlog/, PoC/, DLR/, SIP/, _ARC/ med README.md
+3. Flyt filer ifølge audit-manifest
+4. Opret briefs i _backlog/ fra idé-parkering + ~/parallel-tasks/
+5. Opret ADR'er for auto-chatlog og omdøbning
+6. Derefter: CONTEXT.md (fase 5, egen session)
 
-## Hvad sessionen producerede
+## Hvad session 10 producerede
 
-### M5 bloatware-fjernelse (step 10)
-- 11 bloatware-apps fjernet via PowerShell
-- PLAN.md step 2-10 markeret done (var glemt af checkpoint — strukturelt problem identificeret)
+### Beslutninger
+- **Repo-omdøbning:** Basic Setup → Yggdra (ét system, ét navn)
+- **CONTEXT.md:** NOW + PLAN + PROGRESS → ét dokument med graduated summary
+- **PLAN.md v3:** Pipeline-baseret, lagdelt evolution (v1→v2→v3 synlig i ét dokument)
+- **M7 udtrukket:** Context engineering → selvstændigt DLR-projekt (ikke modulstep)
+- **ADR filnavn:** `emne.adr.md` (søgbart, selvforklarende)
+- **IMPLEMENTATION.md merged i ADR:** Sektion 8 i ADR-template (12 sektioner total)
+- **Ét dokument per ting:** CONTEXT.md (rod), emne.adr.md (projekt), README.md (mappe)
 
-### Project Reformation (hovedfokus)
+### Filer ændret
+- CLAUDE.md (projekt): omskrevet — pipeline-ref, @import, compaction, "spørg før du bygger"
+- ~/CLAUDE.md (global): context rot rettet — forældet state, slettet scripts/, skills-antal
+- project-reformation.adr.md: omdøbt fra ADR.md, Implementation-sektion tilføjet (12 sektioner)
+- ADR-template.md: Implementation-sektion tilføjet
+- IMPLEMENTATION.md: merged ind i ADR, slettet som separat fil
+- references/context-engineering-research.md: oprettet (8 kilder, Anthropic + community)
 
-**Pipeline besluttet:** Backlog → PoC → DLR → SIP → BMS (roden)
-- Stage = hvor i pipelinen (Backlog/PoC/DLR/SIP/BMS)
-- Status = er det levende (Active/Deprecated/Archived)
-
-**Filer oprettet i `project-reformation/`:**
-- `ADR.md` — levende ADR for selve reformationen (DLR, Active)
-- `ADR-template.md` — skabelon med 11 sektioner (Origin Story → Original ADR)
-- `README-Backlog.md` — governance + brief-format for idéer
-- `README-PoC.md` — governance for rå eksperimenter
-- `README-DLR.md` — governance for aktiv research
-- `README-SIP.md` — governance for sandbox/test
-- `README-BMS.md` — governance for etableret fundament
-
-**Design-beslutninger:**
-- Roden ER BMS — etablerede ting flyttes ikke
-- ADR bor med det den beskriver
-- Stage og Status er to separate dimensioner
-- Backlog-idéer bruger brief-format (opsummering → origin story → rå input)
-- "brief" som term for idé-dokumenter
-- Alle README'er har do/don't eksempler
-- Origin Story øverst i ADR, Original ADR (frosset snapshot) nederst
-- Current State med narrativ der forklarer hvad der er sket siden oprettelsen
-- Changelog i dagbogsstil (nok kontekst, ikke telegram)
-
-### Auto-chatlog (SIP)
-- `auto-chatlog/chatlog-engine.js` — parser virker (503 beskeder, dansk tid, 2-timers blokke)
-- Mangler: navigationslinks, file-watcher
-- Kører parallelt med gammel `chatlogs/`
-
-### Google AI Mode session
-- Validerede pipeline-konceptet
-- Gemt i `references/google-ai-samtale-rd-framework.md`
-
-## Fil-status
-
-```
-project-reformation/     ← DLR: framework-design (7 filer)
-auto-chatlog/            ← SIP: chatlog-prototype (3 filer)
-chatlogs/                ← BMS: gammel chatlog (kører stadig)
-references/              ← BMS (12 filer)
-template/                ← BMS (8 filer)
-.claude/skills/          ← BMS (6 skills)
-.claude/implementation journals/  ← DEPRECATED: erstattes af ADR
-```
-
-## Planlagt rækkefølge
-
-1. ~~Pipeline-navne~~ → DONE (Backlog/PoC/DLR/SIP/BMS)
-2. ~~ADR-template~~ → DONE
-3. ~~README'er per stage~~ → DONE
-4. Triage PLAN.md idé-parkering → briefs i _backlog/ ← NÆSTE
-5. Map eksisterende filer til ny mappestruktur
-6. ADR-INDEX.md i roden
-7. Navigationslinks i chatlog-engine.js
-8. M5 step 11-17
+### Research
+- Context engineering: 8 kilder (Anthropic officiel, community patterns)
+- ~80% session-kontinuitet er realistisk med hybrid memory
+- @import, .claude/rules/, compaction-instruktioner — nye værktøjer vi kan bruge
+- Graduated summary: progressiv komprimering af progress-sektionen
 
 ## Vigtig kontekst
 
-- Claude Code Bash-tool kører i Windows, ikke WSL
-- Windows git konfigureret med SSH — Claude kan commit+push
-- gh CLI autentificeret som Yttrehus (HTTPS)
-- **INGEN session-save hook på PC** — NOW.md skal opdateres manuelt
-- **Regel:** Spørg før du bygger. Diskussion færdig → bekræftelse → kode.
+- Fil-audit (fase 0.5) SKAL ske før noget flyttes — IMPLEMENTATION.md var et intent doc, ikke en manual
+- references/ er en blanding: opslagsværk + research + arkiv-materiale. Audit sorterer
+- chatlogs/ (gammel) kører stadig parallelt med SIP/auto-chatlog — pensioneringsplan mangler
+- Push-system (automatisk checkpoint) er det langsigtede mål — session-drift-pipeline i DLR
+- **INGEN session-save hook på PC** — NOW.md opdateres manuelt
 
 ## Åbne tråde
 
 - M5 step 11-17 (filsystem, X1, fonts, Dev Drive, wslconfig, quick reference)
-- JetBrains Mono + Mermaid Preview extension
-- Notion-struktur venter
+- Checkpoint-skill: ADR-check mangler, push-system diskuteret men parkeret
+- ~/parallel-tasks/ 7 outputs → mapping til briefs
 - Poppler PATH-verifikation efter restart
-- /new-project skill aldrig testet
 - Prettier mangler .prettierrc
-- 7 parallel task briefs i ~/parallel-tasks/
-- Integrationer parkeret: Gmail, Hotmail, Google, mobil-adgang
-- implementation journals/ → migreres til ADR ved fil-mapping

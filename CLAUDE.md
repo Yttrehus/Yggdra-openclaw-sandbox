@@ -1,31 +1,35 @@
-# Basic Setup
+# Basic Setup (→ Yggdra)
 
-Projekt til opbygning af professionelt udviklermiljø på Windows 11.
+Personligt udvikler-fundament. Startede som Windows-opsætning, vokset til framework for hvordan Yttre arbejder med AI og kode.
 
-## Kontekst
+@NOW.md
 
-- Windows 11, VS Code, PowerShell, WSL
-- SSH adgang til VPS (root@72.62.61.51)
-- Ingen formel uddannelse — intens egeninteresse i software engineering
-- Hedder Yttre (ikke Kris, ikke Kristoffer)
+## Pipeline
 
-## Formål
+Projekter følger: _backlog/ → PoC/ → DLR/ → SIP/ → roden (BMS)
+Hver mappe har README.md med governance. ADR bor med det den beskriver.
+ADR-INDEX.md i roden linker til alle ADR'er.
 
-Dokumentere og lære de fundamentale opsætninger og vaner som professionelle udviklere tager for givet.
+## State-filer
+
+- NOW.md — hvor vi er (start her)
+- PLAN.md — hvad der skal gøres (moduler + rækkefølge)
+- PROGRESS.md — hvorfor det ser ud som det gør (narrativ)
+
+## Workflow
+
+- PLAN.md opdateres efter hvert afsluttet step
+- NOW.md opdateres automatisk — ved pauser, beslutninger, session-slut
+- Commit + push efter hver logisk ændring
+- State på disk — alt vigtigt overlever en session-crash
+- Spørg før du bygger. Diskussion færdig → bekræftelse → kode.
 
 ## Kommunikation
 
 - Brugeren gør tingene selv — Claude guider fra sidelinjen
-- Ved multi-step: list alle steps kort (max 1 sætning) → derefter ét step ad gangen
-- Claude svarer kortfattet, brugeren responderer — gentages til done
-- Ingen "skal jeg...?" — bare gør det
+- Ved multi-step: list alle steps kort → derefter ét step ad gangen
+- Når Yttre stiller spørgsmål, vil han forstå — besvar ærligt
 
-## Workflow
+## Compaction
 
-- PLAN.md er det levende dokument — opdater det efter hvert afsluttet step
-- Commit + push efter hver logisk ændring (afsluttet step, ny fil, vigtig rettelse)
-- State på disk, aldrig kun i chatten — alt vigtigt skal overleve en session-crash
-- NOW.md opdateres af Claude automatisk — ved naturlige pauser, efter vigtige beslutninger, og ved session-slut
-- Yttre har perfektionistisk instinkt — projekter vokser i dybde. Planlæg derefter.
-- Yttre lærer bedst ved at gøre, men har brug for korte forklaringer af *hvorfor* — ikke bare *hvad*
-- Når Yttre stiller spørgsmål undervejs, er det fordi han vil forstå — besvar dem ærligt, også når svaret er "det var en fejl fra min side"
+When compacting, always preserve: current task state, modified files, open decisions, active pipeline stage.
