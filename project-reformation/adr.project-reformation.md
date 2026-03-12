@@ -166,7 +166,14 @@ Den store konsolidering. Bør have sin egen session.
 - Opdatér checkpoint-skill til at scanne ADR'er og CONTEXT.md
 - Context engineering som selvstændigt projekt i DLR — research i references/context-engineering-research.md
 - Push-system (automatisk checkpoint ved Stop/PreCompact) — session-drift-pipeline projekt
-- Graduated summary: hovedregel er seneste 3 sessioner ≥85-90%, derefter progressiv komprimering. Kontekstuel undtagelse for ældre sessioner der stadig er aktive. Evaluér i praksis før yderligere specifikation
+- Graduated summary komprimeringsregler (besluttet session 10):
+  - **Seneste session:** Alt. Fuld detalje.
+  - **Session 2-3:** Alt væsentligt. Kun gentagelser og tangenter skæres.
+  - **Session 4-6:** Beslutninger + resultater + refs. Ingen narrativ.
+  - **Session 7-10:** 1 afsnit: hvad skete, hvad blev besluttet. Ref til _ARC/.
+  - **Session 11+:** 1-3 sætninger + dato + ref.
+  - **Undtagelse:** Ældre sessioner der stadig er direkte aktive forbliver på deres niveau.
+  - **Fuld detalje altid i _ARC/.** Evaluér i praksis før yderligere justering.
 
 ## 11. Original ADR
 
