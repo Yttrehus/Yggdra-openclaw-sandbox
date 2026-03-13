@@ -19,12 +19,72 @@ const PROJECT_DIR =
 const OUTPUT_FILE = path.resolve(__dirname, "../../chatlog.md");
 const ABSTRACTS_FILE = path.resolve(__dirname, "abstracts.json");
 const DIGEST_FILE = path.resolve(__dirname, "sections-digest.json");
+const PATTERNS_FILE = path.resolve(__dirname, "redact-patterns.json");
 const TIMEZONE = "Europe/Copenhagen";
 const GAP_THRESHOLD_MS = 90 * 60 * 1000; // 90 minutes
 
 const DANISH_DAYS = [
   "søndag", "mandag", "tirsdag", "onsdag", "torsdag", "fredag", "lørdag",
 ];
+
+// --- Secret redaction ---
+
+const BUILTIN_PATTERNS = [
+  { regex: /ntn_[A-Za-z0-9_-]{20,}/g, label: "NOTION_TOKEN" },
+  { regex: /sk-[A-Za-z0-9_-]{20,}/g, label: "API_KEY" },
+  { regex: /ghp_[A-Za-z0-9]{36,}/g, label: "GITHUB_TOKEN" },
+  { regex: /xoxb-[A-Za-z0-9-]{20,}/g, label: "SLACK_TOKEN" },
+  { regex: /gho_[A-Za-z0-9]{36,}/g, label: "GITHUB_OAUTH" },
+  { regex: /xoxp-[A-Za-z0-9-]{20,}/g, label: "SLACK_USER_TOKEN" },
+  { regex: /AKIA[A-Z0-9]{16}/g, label: "AWS_KEY" },
+];
+
+function loadDynamicPatterns() {
+  try {
+    const data = JSON.parse(fs.readFileSync(PATTERNS_FILE, "utf8"));
+    return data.map((p) => ({
+      regex: new RegExp(p.regex, p.flags || "g"),
+      label: p.label,
+    }));
+  } catch (e) {
+    return [];
+  }
+}
+
+const dynamicPatterns = loadDynamicPatterns();
+const ALL_PATTERNS = [...BUILTIN_PATTERNS, ...dynamicPatterns];
+
+function redactSecrets(text) {
+  for (const { regex, label } of ALL_PATTERNS) {
+    regex.lastIndex = 0;
+    text = text.replace(regex, `[${label}]`);
+  }
+  return text;
+}
+
+// Heuristic: find strings that look like API tokens but aren't covered by known patterns
+function scanSuspiciousTokens(text) {
+  const found = [];
+  // Pattern: short_prefix + underscore + long alphanum (e.g. fc_abc123def456...)
+  // Must use underscore (not hyphen — hyphens catch URLs and slugs)
+  const prefixPattern = /\b([a-z]{2,6}_)[A-Za-z0-9]{20,}\b/g;
+  let match;
+  while ((match = prefixPattern.exec(text)) !== null) {
+    const token = match[0];
+    const prefix = match[1];
+    // Skip tool call IDs and known non-secrets
+    if (prefix === "toolu_") continue;
+    if (prefix === "msg_") continue;
+    if (prefix === "chatcmpl_") continue;
+    // Skip if already covered by known patterns
+    const covered = ALL_PATTERNS.some((p) => {
+      p.regex.lastIndex = 0;
+      return p.regex.test(token);
+    });
+    if (!covered) found.push(token);
+  }
+  return [...new Set(found)];
+}
 
 // --- Time helpers ---
 
@@ -113,11 +173,8 @@ function parseSessionFiles() {
         if (content.startsWith("<local-command")) continue;
         if (content.startsWith("<command-name>")) continue;
 
-        // Redact secrets
-        content = content.replace(/ntn_[A-Za-z0-9_-]{20,}/g, "[NOTION_TOKEN]");
-        content = content.replace(/sk-[A-Za-z0-9_-]{20,}/g, "[API_KEY]");
-        content = content.replace(/ghp_[A-Za-z0-9]{36,}/g, "[GITHUB_TOKEN]");
-        content = content.replace(/xoxb-[A-Za-z0-9-]{20,}/g, "[SLACK_TOKEN]");
+        // Redact secrets (built-in + dynamic patterns)
+        content = redactSecrets(content);
 
         const danish = toDanish(
           entry.timestamp || "1970-01-01T00:00:00Z",
@@ -325,12 +382,27 @@ function generateDigest(messages) {
     return digest;
   });
 
-  return { sections: sectionDigests, dates: Object.keys(dateMap).sort().map((d) => ({
-    date: d,
-    prettyDate: formatDanishDate(d),
-    sectionCount: dateMap[d].length,
-    totalMsgs: dateMap[d].reduce((s, sec) => s + sec.msgCount, 0),
-  }))};
+  // Scan all messages for suspicious tokens (pre-redaction content is already redacted,
+  // so we scan the raw JSONL again for anything the built-in patterns missed)
+  const allSuspicious = [];
+  for (const section of sections) {
+    for (const msg of section) {
+      const found = scanSuspiciousTokens(msg.content);
+      allSuspicious.push(...found);
+    }
+  }
+  const uniqueSuspicious = [...new Set(allSuspicious)];
+
+  return {
+    sections: sectionDigests,
+    dates: Object.keys(dateMap).sort().map((d) => ({
+      date: d,
+      prettyDate: formatDanishDate(d),
+      sectionCount: dateMap[d].length,
+      totalMsgs: dateMap[d].reduce((s, sec) => s + sec.msgCount, 0),
+    })),
+    suspiciousTokens: uniqueSuspicious.length > 0 ? uniqueSuspicious : undefined,
+  };
 }
 
 // --- Main ---
@@ -347,6 +419,13 @@ console.log(`Parsed ${messages.length} messages total.`);
 const digest = generateDigest(messages);
 fs.writeFileSync(DIGEST_FILE, JSON.stringify(digest, null, 2));
 console.log(`sections-digest.json: ${digest.sections.length} sections → ${DIGEST_FILE}`);
+
+if (digest.suspiciousTokens && digest.suspiciousTokens.length > 0) {
+  console.log(`\n⚠ ${digest.suspiciousTokens.length} suspicious token(s) found — subagent should review:`);
+  for (const t of digest.suspiciousTokens.slice(0, 10)) {
+    console.log(`  ${t.substring(0, 8)}...${t.substring(t.length - 4)} (${t.length} chars)`);
+  }
+}
 
 if (!digestOnly) {
   const chatlog = generateChatlog(messages);
