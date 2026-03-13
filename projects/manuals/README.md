@@ -9,6 +9,7 @@ Levende håndbøger for daglig brug. Startede som cheatsheets, vokser til operat
 | `git.md` | Git kommandoer, workflow, ordliste | M1 |
 | `vscode.md` | VS Code genveje, settings, extensions | M2 |
 | `terminal.md` | Shell aliases, installeret software, config-filer | M3 |
+| `git-concepts.md` | Git-koncepter og mentale modeller | M1 |
 
 ## Regler
 
