@@ -18,3 +18,37 @@ Opstod fra idé-parkering: "PDF Official Toolkit skill (professionel PDF-generer
 
 **Fra PLAN.md idé-parkering:**
 > PDF Official Toolkit skill (professionel PDF-generering: fakturaer, rapporter, OCR — til bogføring/rejseselskab)
+
+## Cowork Output (2026-03-10)
+
+### Spec (output-03-pdf-skill-spec.md)
+
+**MVP (Phase 1):**
+- Faktura-generering: JSON → HTML → PDF via weasyprint (Python)
+- Tekst-udtræk: pdftotext (Poppler, allerede installeret)
+- Merge/split: pdfunite/pdfseparate (Poppler)
+
+**Phase 2 (deferred):**
+- OCR via Tesseract + pytesseract + Pillow (WSL)
+
+**Arkitektur:** Windows PATH for Poppler + Python venv for weasyprint. OCR fremtidigt via WSL.
+
+**Krav:** weasyprint (pip install), Poppler (antaget installeret), Tesseract (deferred).
+
+### SKILL.md udkast (output-03-pdf-SKILL.md)
+
+Komplet SKILL.md med 5 commands:
+- `pdf:generate-invoice` — JSON → PDF faktura (travel template med HTML/CSS)
+- `pdf:extract-text` — PDF → plaintext (born-digital kun)
+- `pdf:merge` — sammenlæg multiple PDF'er
+- `pdf:split` — opdel PDF i enkeltsider
+- `pdf:ocr` — OCR på scans (Phase 2, kræver Tesseract)
+
+Inkluderer: installationsguide (Windows + WSL), HTML faktura-template med professionelt layout, workflow-eksempler, troubleshooting, og fremtidige faser (signaturer, form-udfyldning, Notion-integration).
+
+### Action items
+- [ ] Test weasyprint installation på Windows
+- [ ] Verificér Poppler i PATH (pdftotext, pdfunite, pdfseparate)
+- [ ] Afgør faktura-layout med rejseselskabet (logo, betalingsbetingelser, moms, bankoplysninger)
+- [ ] Opret Python venv for pdf-skill
+- [ ] Phase 2: Installér Tesseract i WSL

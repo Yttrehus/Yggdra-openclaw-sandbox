@@ -16,3 +16,43 @@ Opstod fra idé-parkering: "Notion-spejling af VS Code-struktur." Problemet: mar
 
 **Fra PLAN.md idé-parkering:**
 > Notion-spejling af VS Code-struktur
+
+## Cowork Output (2026-03-10)
+
+### Designprincipper
+1. Disk forbliver master for kode-kontekst (CLAUDE.md, PLAN.md, NOW.md)
+2. Notion er ligeværdigt for overblik og planlægning — du *må* skrive direkte
+3. Synk er en-vejs per felt (disk→Notion for status, Notion-only for mobil-noter)
+4. Start simpelt, iterer baseret på brug
+
+### Database: "Projekter" (8 properties)
+Projektnavn (title), Status (select: Aktiv/Pauset/Venter/Arkiveret), Milepæl (text, fra PLAN.md), Næste step (text, fra NOW.md), Type (select: Dev/Research/Setup/Rejseselskab/Personlig), Prioritet (select: Fokus/Normal/Baggrund), Sidst opdateret (date), Noter (text, Notion-only).
+
+### Views
+- **Fokus:** Kanban grupperet på Status (dagligt overblik)
+- **Alt:** Tabel med alle properties
+- **Arkiv:** Filtreret Status=Arkiveret
+- **Rejseselskab:** Filtreret Type=Rejseselskab
+
+### Synkronisering
+- **Disk → Notion:** Projektnavn, milepæl, status, næste step, session-noter
+- **Kun Notion:** Hurtige noter fra mobil, idéer, links
+- **Kun disk:** CLAUDE.md, kode, chatlogger, git-historik
+- **Trigger:** Manuelt først, post-commit hook senere, evt. session-slut hook
+
+### Implementeringsplan
+- Dag 1: Opret database, ét projekt manuelt, 2-3 views, test på mobil
+- Dag 2-3: Juster properties, tilføj projekter, test mobil-noter
+- Dag 4+: sync-to-notion.py script (skeleton klar med parsere for PLAN.md/NOW.md/PROGRESS.md)
+
+### Mulige udvidelser (ikke nu)
+Inbox-side, Rejseselskab-database, Ugeplan/Sprint-view, Reference-side, Lærte-ting-database.
+
+### Risici
+Største risiko: properties passer ikke til virkeligheden (sandsynlighed: høj, konsekvens: lav — juster løbende). Notion-føles-ikke-nyttigt er lav risiko og koster intet at droppe.
+
+### Action items
+- [ ] Opret "Projekter" database i Notion med 8 properties
+- [ ] Opret "Basic Setup" som første projekt med ægte data
+- [ ] Test mobiloplevelsen
+- [ ] Kør sync-to-notion.py skeleton med --list (dry run)
