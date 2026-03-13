@@ -111,7 +111,7 @@ chatlog-engine.js v3 parser ~2500 beskeder fra 30 sessions. Producerer `chatlog.
 - 2026-03-12 (session 12): 1098 beskeder fra 6 sessions. Datoskift håndteret korrekt.
 - 2026-03-13 (session 13): Strukturændring: projects/auto-chatlog/. ADR → CONTEXT.md. V2 krav defineret. V2 implementeret: live.md+archive.md → chatlog.md i roden. Hovedindeks + dato-kapitler + prev/next navigation.
 - 2026-03-13 (session 14, tidlig): Sessions fra 5 Claude-projektmapper samlet i c--Users-Krist-dev-projects-Yggdra/. Input-sti opdateret. 2476 beskeder fra 30 sessions.
-- 2026-03-13 (session 14, sen): v3 implementeret: gap-baseret sektionering (90 min), subagent-abstracts (dato + sektion), danske datoer. Frekvens-nøgleord erstattet. 2-timers blokke erstattet.
+- 2026-03-13 (session 14, sen): v3 implementeret: gap-baseret sektionering (90 min), subagent-abstracts (dato + sektion), danske datoer, secret-redaction + token-scanner. Checkpoint og chatlog-search integreret som workflows. Archive ryddet, template opdateret. Reformation done.
 
 ## 10. Backlog
 - Automatisering (file-watcher eller hook)

@@ -1,6 +1,31 @@
-# Progress — Basic Setup
+# Progress — Yggdra
 
-Fortællende dagbog. Formålet er at en ny Claude-session kan læse dette og forstå *hvorfor* vi er hvor vi er, ikke bare *hvad* der er gjort. NOW.md er state, dette er kontekst.
+Fortællende dagbog. Formålet er at en ny Claude-session kan læse dette og forstå *hvorfor* vi er hvor vi er, ikke bare *hvad* der er gjort. CONTEXT.md er state, dette er kontekst.
+
+---
+
+## Session 14 (2026-03-13)
+
+Session 14 startede med et praktisk problem: Claude-sessions var spredt over 5 projektmapper fordi workspace-stien havde ændret sig over tid. Alle 30 .jsonl-filer blev samlet i én mappe (c--Users-Krist-dev-projects-Yggdra), og chatlog-engine'ens input-sti blev rettet.
+
+Derefter blev chatlog-engine opgraderet til v3. Tre store ændringer: (1) faste 2-timers tidsblokke erstattet af gap-baseret sektionering — 90 minutters pause mellem beskeder = nyt afsnit, virker på tværs af sessions. (2) Frekvens-baserede nøgleord (der var ubrugelige) erstattet af subagent-genererede abstracts — en haiku-subagent læser en komprimeret digest og skriver 1-4 sætnings dato-abstracts + 1-2 sætnings sektions-abstracts. (3) Danske datoer med ugedage i hovedindeks ("fredag d. 13/3-2026").
+
+GitHub push protection blokerede push pga Notion API tokens i chatlog.md. Secret-redaction tilføjet: built-in patterns (Notion, OpenAI, GitHub, Slack, AWS) + dynamisk via redact-patterns.json + heuristisk token-scanner der flagger suspekte strenge til subagent-review.
+
+Checkpoint og chatlog-search skills blev konsolideret ind i auto-chatlog-projektet. Skills-filerne i .claude/skills/ reduceret til korte pointere — fuld dokumentation i projects/auto-chatlog/CONTEXT.md. Mønstret: skill = pointer, projekt = sandhed.
+
+Archive ryddet: implementation-journals, manuelle chatlogs, dump-chatlog.js slettet (alt i git). git-concepts.md → manuals/. google-ai-samtale → architecture.R&D/ (med ny CONTEXT.md der forklarer hvad det var og hvorfor det blev arkiveret).
+
+Template opdateret: NOW.md + PLAN.md slettet, CONTEXT.md template oprettet. CLAUDE.md template og new-project skill opdateret til nyt format.
+
+Reformation fase 6 (oprydning) og fase 7 (omdøbning) afsluttet. "Basic Setup" → "Yggdra" i alle interne referencer. Project Reformation er done.
+
+**Beslutninger:**
+- Gap-baseret sektionering (90 min) fremfor faste tidsblokke
+- Subagent-abstracts fremfor lokal LLM (Ollama parkeret)
+- Skills som pointere, projekter som sandhed
+- CONTEXT.md som eneste state-fil-konvention (NOW+PLAN droppet overalt)
+- Secret-redaction i chatlog-engine (ikke .gitignore)
 
 ---
 
