@@ -1,0 +1,280 @@
+# VPS Sandbox v2 — Samlet autonom kørsel
+
+Tre projekter i én session. Denne fil er reference for PC'en.
+Selve filerne deployes til VPS'en: CLAUDE.md + DELEGATION_PLAN.md.
+
+## Baggrund
+
+### v1 Audit
+**Virkede:** Reviewer-rollen, progressiv indsnævring, disk-first, kill conditions.
+**Fejlede:** Research spawner research, "done" ≠ done, meta-output, overdesign, hallucerede kilder.
+
+### Prompt-skabeloner handoff (session github-workflow)
+Chatlog.md uploadet til VPS (21K linjer). prompt.md + the-fool reference-skill allerede i `/root/Yggdra/yggdra-pc/prompt-skabeloner/`. Cross-session peer review absorberet som iteration. Prompt-skabeloner prompt.md absorberet i samlet DELEGATION_PLAN nedenfor.
+
+---
+
+## CLAUDE.md
+
+Erstatter `/root/Yggdra/yggdra-pc/CLAUDE.md`.
+
+```markdown
+# Yggdra Sandbox v2
+
+Du er Yggdra sandbox-instansen. Du arbejder på en kopi af PC-repoet. Yttre er ikke tilgængelig — du kører autonomt.
+
+Læs DELEGATION_PLAN.md i V1/ for iterationsstruktur og opgaveliste.
+
+## Mission
+
+Tre projekter:
+
+### Projekt A: Research Architecture
+Byg en minimal, brugbar research-praksis for én person. Input: /root/Yggdra/research/ (81 filer, 7.4 MB). Output: projektmappe med INDEX.md, CONTEXT.md, og en praksis der kan testes.
+
+### Projekt B: TransportIntra Arkiv
+Konstruér en komplet projektmappe for alt TransportIntra-relateret arbejde. Mappen skal føles som om den altid har eksisteret — ét kontinuerligt stykke arbejde fra dag ét. INDEX.md er det vigtigste deliverable.
+
+**Kronologisk sammenhæng er kritisk.** Gammel viden (3 mnd) kan være mere værdifuld end nyt. Scannerne SKAL tagge alt med dato. PROGRESS.md sorterer kronologisk. INDEX.md prioriterer efter substans, ikke aktualitet. En tidlig arkitekturbeslutning der stadig holder er vigtigere end en nylig session der bare tweakede CSS.
+
+### Projekt C: Prompt-skabeloner
+Mine chatlog.md (21K linjer, ligger i ./chatlog.md) for gentagne instruksmønstre Yttre bruger. Byg 3-5 genanvendelige Claude Code skills. Detaljer i prompt-skabeloner/prompt.md — den er allerede skrevet og klar.
+
+## Regler
+
+### Build > Research
+- Hver iteration SKAL producere filer på disk der kan verificeres
+- Research er tilladt KUN som input til noget der bygges i SAMME iteration
+- Ingen rapporter der ikke direkte informerer en deliverable
+
+### Done = Verified
+- Intet er "done" før det er testet: `ls`, `cat`, `wc -l`, `grep`
+- Reviewer SKAL teste med kommandoer, ikke bare læse og sige "ser godt ud"
+- Fejl fixes i DENNE iteration, ikke næste
+
+### Scope-kontrol
+- Maks 2 åbne opgaver per iteration. Færdiggør begge før nye åbnes
+- Ingen dokumenter der opsummerer andre dokumenter
+- Hvis en opgave tager mere end 2 iterationer: simplificér eller kill
+
+### Kvalitet
+- Citer ikke kilder du ikke kan verificere. "Ukendt" > halluceret reference
+- Det simpleste der virker. Kompleksitet KUN når simpelt beviseligt fejler
+- Kill condition på alt
+
+### Miljø
+- Du er PÅ VPS'en. Brug lokale kommandoer, ALDRIG SSH til dig selv
+- Qdrant kører lokalt på port 6333 — brug `curl localhost:6333/...`
+- GDrive-data ligger lokalt i `/root/Yggdra/data/gdrive_import/` — brug filsystemet, der er INGEN GDrive API-adgang
+- Session JSONLs er i `/root/.claude/` — parse med `python3` eller `jq`
+- Kompendier er PDFs — brug `pdftotext` eller læs HTML-versioner hvor de findes
+- SØG IKKE på nettet. Alt ligger lokalt
+
+## Anti-patterns (fra v1)
+- ❌ Markér ting som "done" uden at teste dem
+- ❌ Brug en iteration på at skrive en oversigt over dit eget arbejde
+- ❌ Overdesign for én person (kvalitets-gates, multi-step pipelines, taxonomier)
+- ❌ Kør `ssh root@VPS` når du allerede er på VPS'en
+- ❌ Sagely justify valg med akademiske kilder
+- ❌ Producér tomme skelet-mapper uden indhold
+- ❌ Kopier store datamapper — brug pointer-filer i stedet
+- ❌ Saml >10 kandidater til noget som helst (collector's trap)
+
+## State
+- V1/LOOP_STATE.md — akkumuleret state, opdateres efter HVER iteration
+- Alt output på disk. Orchestrator får kun summaries fra subagents
+```
+
+---
+
+## DELEGATION_PLAN.md
+
+Erstatter `/root/Yggdra/yggdra-pc/V1/DELEGATION_PLAN.md`.
+
+```markdown
+# Delegation Plan v2
+
+## Roller
+- **Orchestrator:** Planlægger, delegerer, verificerer. Bygger selv når opgaven er < 50 linjer
+- **Builder:** Skriver filer/config/scripts. Alt output på disk. Summary til orchestrator
+- **Reviewer:** TESTER output med kommandoer. Returnerer: virker/virker ikke + specifik fejl
+- **Scanner:** Gennemsøger en specifik kilde for relevant indhold. Output: fundliste med stier og one-line summaries, skrevet til disk
+- **Miner:** Gennemsøger chatlog for mønstre. Output: kandidatliste med eksempler, skrevet til disk
+
+Researcher og Architect er DROPPET.
+
+## Iterationsstruktur
+
+Per iteration:
+1. **Plan** (5 linjer max): Hvad bygger vi? Done-kriterie?
+2. **Build/Scan/Mine**: Subagents producerer output på disk
+3. **Verify**: Reviewer tester med kommandoer
+4. **Fix eller next**: Fejl → fix nu. Virker → næste opgave
+
+## Opgaveliste
+
+### Projekt A: Research Architecture (iteration 1-3)
+1. Audit /root/Yggdra/research/ — kategoriser 81 filer (duplikater, værdifulde, støj). Output: `projects/research-architecture/_audit.md`
+2. Design minimal praksis + byg INDEX.md for det værdifulde
+3. CONTEXT.md med kill condition + ærlig evaluering
+
+### Projekt B: TransportIntra Arkiv (iteration 2-8)
+
+**Kilder der SKAL gennemsøges:**
+- Session JSONLs i `/root/.claude/` (parse med python3/jq)
+- `/root/Yggdra/projects/transport/` (CONTEXT.md, NOW.md)
+- `/root/Yggdra/app/` (hele webapp'en + sub-apps: classic/, v2/, redesign/, command-center/, mindmap/, voice, chat)
+- `/root/Yggdra/data/routes/` (577 JSON-filer, rute-data 2024-2026)
+- `/root/Yggdra/data/api_logs/` (14 filer, API traffic)
+- `/root/Yggdra/data/TRANSPORTINTRA_API_REFERENCE.md` + `GETRUTE_SCHEMA.md` + `JS_CHAUFFORHAANDBOG.md`
+- `/root/Yggdra/data/voice_memos/` (13 filer, transkriberede voice memos)
+- `/root/Yggdra/data/gdrive_import/` (860 MB — scan for TI: n8n flows, API captures, webapp.txt, route CSV)
+- `/root/Yggdra/data/chatlogs/` (42 filer, 2.7 MB tmux sessions)
+- `/root/Yggdra/data/episodes.jsonl` (382 episoder)
+- `/root/Yggdra/data/inbox/` (kompendium PDFs v1-v5)
+- `/root/Yggdra/docs/TRANSPORTINTRA_PROFIL.md` + `TRANSPORTINTRA_REDESIGN.md`
+- `/root/Yggdra/docs/YDRASIL_ATLAS.md` (sektion 1.1.1 + 2.7)
+- `/root/Yggdra/app/UI_ELEMENTS.md`
+- `/root/transportintra-universe/` (229 MB — bot/, brain/, data/, scripts/)
+- Qdrant: `routes` (40K), `sessions` (42K), `docs` (1.1K) — via `curl localhost:6333/...`
+- `/root/Yggdra/scripts/` (fetch_route_history.py, analyze_route_history.py, embed_routes_v2.py, navigator.py, webapp_server.py, dashboard_api.py, api_logger.py)
+- `/root/Yggdra/app/*.pdf` (kompendium_v4, v5, rapporter)
+- `/root/Yggdra/data/intelligence/` (daily/weekly briefs — scan for TI)
+- Research filer der nævner TI i /root/Yggdra/research/
+
+**Opgaver:**
+1. **Scan-fase:** 3-4 parallelle Scanners:
+   - Scanner 1: Session JSONLs + chatlogs + episodes.jsonl → TI sessioner og beslutninger
+   - Scanner 2: gdrive_import/ (lokale filer, IKKE API) + kompendier + voice memos → TI-materiale
+   - Scanner 3: App-kodebase + scripts + data/ → teknisk inventar
+   - Scanner 4: Qdrant sessions + routes + docs → semantisk søgning
+   Output: én fundliste per scanner → `projects/transportintra/_scan/`. HVERT fund SKAL have dato (eller "ukendt dato"). Sortér kronologisk
+2. **Build PROGRESS.md:** Kronologisk narrativ baseret på scan. Sessionerne samles til én historie fra dag ét. Prioritér substans over aktualitet — en tidlig beslutning der stadig holder er vigtigere end en nylig CSS-tweak
+3. **Build INDEX.md:** Crown jewels, kategorier, abstracts per sektion, "hvornår du bruger den"-kolonner, hurtigreference. FORMAT: som projects/ydrasil/INDEX.md i yggdra-pc mappen — men dybere
+4. **Build subproject CONTEXT.md'er:** Én per underprojekt (navigation, sorting, redesign, voice, chat, tidsregistrering, diesel, command-center, + andre fundet i scan)
+5. **Build CONTEXT.md:** Samlet state — hvad er TI, hvad er done, hvad mangler, beslutninger
+6. **Populate archive/:** Flyt/link pre-reformation materiale (brain/TELOS.md, PLAYBOOK.md, DECISIONS.md fra transportintra-universe), API captures fra GDrive, n8n flows, webapp TI.txt
+
+**Output-struktur:**
+```
+projects/transportintra/
+├── CONTEXT.md
+├── PROGRESS.md
+├── INDEX.md                ← VIGTIGSTE DELIVERABLE
+├── archive/
+│   ├── pre-reformation/
+│   ├── api-captures/
+│   ├── n8n-flows/
+│   └── raw-webapp/
+├── research/
+│   ├── api-reference.md
+│   ├── getrute-schema.md
+│   └── ...
+├── kompendier/
+├── design/
+├── data/                   ← pointer-filer, IKKE kopier
+├── subprojects/
+│   ├── navigation/
+│   ├── sorting/
+│   ├── redesign/
+│   ├── voice/
+│   ├── chat/
+│   ├── tidsregistrering/
+│   ├── diesel/
+│   ├── command-center/
+│   └── ...
+└── scripts/                ← pointer-filer
+```
+
+### Projekt C: Prompt-skabeloner (iteration 4-7)
+
+Detaljer i `prompt-skabeloner/prompt.md`. Kort version:
+
+**Kilde:** chatlog.md (21K linjer, ./chatlog.md). Reference-skill: prompt-skabeloner/reference-skill/SKILL.md (the-fool format).
+
+**Kendte mønster-kandidater (fra PC-session):**
+- "hvad tænker du?" — diskussionsinvitation med krav om ærlig vurdering (20+ gange i chatlog)
+- "gør skarpere" — brief-skærpning
+- "kør the fool / red team" — adversarial/dialektisk proces
+- Projekt-kickoff fra brief
+- Session-koordinering ("se hvad andre sessions laver")
+- Checkpoint-flow
+
+**Opgaver:**
+1. **Mine chatlog.md:** Find Yttres beskeder >100 ord der starter genkendte workflows. Output: `prompt-skabeloner/MINING_RESULTS.md` med maks 10 kandidater
+2. **Kategorisér:** Kompleks (multi-step → skill) vs. simpel (one-liner → ikke et skill). Max 5 skills
+3. **Byg skills:** Ét skill per iteration. Format: SKILL.md + references/ (se reference-skill/)
+4. **Peer review:** Frisk subagent evaluerer: ville en session UDEN kontekst kunne bruge dette skill korrekt? Collector's trap check: >5 skills = filteret er for svagt
+
+**Output:** `prompt-skabeloner/skills/` med færdige skills + `prompt-skabeloner/EVALUATION.md`
+
+## Iteration budget (maks 10)
+
+| Iteration | Projekt A | Projekt B | Projekt C |
+|-----------|-----------|-----------|-----------|
+| 1 | Audit 81 filer | — | — |
+| 2 | INDEX.md | Scan-fase (parallel) | — |
+| 3 | CONTEXT.md ✓ | PROGRESS.md | — |
+| 4 | — | INDEX.md (stort) | Mine chatlog |
+| 5 | — | Subproject CONTEXT.md'er | Kategorisér + byg skill 1 |
+| 6 | — | CONTEXT.md + archive | Byg skill 2-3 |
+| 7 | — | Reviewer: alt TI output | Peer review |
+| 8 | — | Fixes | — |
+| 9-10 | Reserve til fixes eller kills | | |
+
+## Prompt templates
+
+### Scanner
+"Gennemsøg [specifik kilde] for alt relateret til TransportIntra. Output: fundliste med [filsti, one-line summary, dato hvis mulig]. Skriv til projects/transportintra/_scan/[scanner-navn].md. Vær udtømmende."
+
+### Miner
+"Gennemsøg chatlog.md for Yttres beskeder >100 ord der instruerer et genkendbart workflow. Output: maks 10 kandidater med [mønster-navn, eksempel-citat, frekvens]. Skriv til prompt-skabeloner/MINING_RESULTS.md."
+
+### Builder
+"Byg [specifik fil]. Input: [stier]. Format: [reference]. Done når [testbart kriterie]."
+
+### Reviewer
+"Test [specifik fil]. Kør: `wc -l`, `grep -c`, `cat | head -50`. Check: [minimumskrav]? Rapportér: virker/virker ikke + specifik mangel."
+```
+
+---
+
+## Deployment
+
+Kør fra PC (eller fra telefon via SSH):
+
+```bash
+# 1. Arkivér v1 state
+ssh root@72.62.61.51 "cp /root/Yggdra/yggdra-pc/V1/LOOP_STATE.md /root/Yggdra/yggdra-pc/V1/LOOP_STATE_V1.md 2>/dev/null; echo done"
+
+# 2. Deploy CLAUDE.md (kopier blokken ovenfor)
+# 3. Deploy DELEGATION_PLAN.md (kopier blokken ovenfor)
+# 4. Nulstil LOOP_STATE
+ssh root@72.62.61.51 "printf '# Loop State v2\n\nStartet: %s\nIterationer: 0\n' \"\$(date)\" > /root/Yggdra/yggdra-pc/V1/LOOP_STATE.md"
+
+# 5. Start session
+ssh root@72.62.61.51
+cd /root/Yggdra/yggdra-pc
+claude --dangerously-skip-permissions --print "Læs CLAUDE.md og V1/DELEGATION_PLAN.md. Udfør missionen. Start med iteration 1. Opdatér V1/LOOP_STATE.md efter hver iteration."
+```
+
+## Når VPS er færdig
+
+Review via SSH:
+```bash
+# State
+ssh root@72.62.61.51 "cat /root/Yggdra/yggdra-pc/V1/LOOP_STATE.md"
+
+# Projekt A
+ssh root@72.62.61.51 "cat /root/Yggdra/yggdra-pc/projects/research-architecture/INDEX.md"
+
+# Projekt B
+ssh root@72.62.61.51 "cat /root/Yggdra/yggdra-pc/projects/transportintra/INDEX.md"
+ssh root@72.62.61.51 "ls /root/Yggdra/yggdra-pc/projects/transportintra/subprojects/"
+
+# Projekt C
+ssh root@72.62.61.51 "cat /root/Yggdra/yggdra-pc/prompt-skabeloner/EVALUATION.md"
+ssh root@72.62.61.51 "ls /root/Yggdra/yggdra-pc/prompt-skabeloner/skills/"
+```
+
+Gode resultater flyttes til PC-repo bagefter.

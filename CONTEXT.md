@@ -1,15 +1,22 @@
 # Yggdra
 
 ## Metadata
-- **Status:** Session 18 checkpoint. Ydrasil-projekt + MCP/Skills kompendium aktive. Struktur konsolideret.
-- **Sidst opdateret:** 2026-03-14 (session 18)
+- **Status:** Session 19 checkpoint. VPS sandbox v2 deployed (3 projekter: research-arch, TI-arkiv, prompt-skabeloner). Kører autonomt.
+- **Sidst opdateret:** 2026-03-14 (session 19)
 
 ## Hvad er det
 Personligt udvikler-fundament. Startede som "Basic Setup" (Windows-opsætning), vokset til framework for hvordan Yttre arbejder med AI og kode.
 
 ## Hvor er vi
 
-### Seneste session (18 — 2026-03-14)
+### Seneste session (19 — 2026-03-14)
+VPS sandbox v2 designet og deployed. Tre projekter kører autonomt i Ralph loop (10 iterationer):
+- **A: Research Architecture** — audit 81 research-filer, byg INDEX.md + CONTEXT.md
+- **B: TransportIntra Arkiv** — komplet projektmappe fra alle kilder. TI_KOMPLET_KILDEINDEX.md (519 linjer) som input. INDEX.md er vigtigste deliverable
+- **C: Prompt-skabeloner** — mine chatlog for instruksmønstre, byg 1-2 skills
+VPS v1 output kvalitetsauditeret (3 subagents): direction-analysis 8/10, context-engineering 7.5/10, research-arch-report 6/10. Brief.research-architecture opdateret med audit. Prompt evalueret af 3 subagents (token-efficiency, deliverable-quality, failure-modes) og justeret. Handoff fra github-workflow session absorberet (prompt-skabeloner).
+
+### Session 18 (2026-03-14)
 Ydrasil-projekt startet: VPS research+docs indekseret (INDEX.md). MCP/Skills kompendium research gennemført (adversarial proces). Nye skills tilføjet (context-search, debugging-wizard, mcp-builder, spec-miner, strategic-compact, the-fool, verification-loop). Nye backlog briefs (project-taxonomy, session-blindhed). data/ og scripts/ mapper oprettet i roden. Checkpoint-skill rettet: chatlog-engine kører nu først. Underscore-prefix fjernet fra projektmapper.
 
 ### Session 17 (2026-03-14)
@@ -95,6 +102,7 @@ Yggdra/
 ## Changelog
 Komprimeret overblik. Fuld detalje i PROGRESS.md.
 
+- **Session 19** (2026-03-14): VPS sandbox v2 deployed (3 projekter), v1 kvalitetsauditeret, prompt evalueret+justeret, github-workflow handoff absorberet. → PROGRESS.md#session-19
 - **Session 18** (2026-03-14): Ydrasil-projekt startet, MCP/Skills kompendium research done, 7 skills tilføjet, checkpoint-skill rettet, underscore-prefix fjernet. → PROGRESS.md#session-18
 - **Session 17** (2026-03-14): Skills-synlighed afklaret, MCP/Skills kompendium brief→projekt, adversarial research-proces designet. → PROGRESS.md#session-17
 - **Session 16** (2026-03-15): Backlog-audit (14→11 briefs), VPS research downloaded, research-kvalitet vurderet, prioritering diskuteret. → PROGRESS.md#session-16
