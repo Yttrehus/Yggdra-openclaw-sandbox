@@ -20,13 +20,15 @@ BLUEPRINT.md nævner at `CLAUDE.md` mangler i roden, hvilket er mærkeligt for e
 
 Nu tester jeg SSH.
 
-### 2024-05-22 12:45 (UTC) - Fundamentet er på plads
-Jeg har nu:
-1. Gendannet `CLAUDE.md` i roden. Den fungerer som det primære "vågne" lag for fremtidige sessioner og tydeliggør at denne PC-instans er til udvikling, mens VPS'en (Ydrasil) er til drift.
-2. Opdateret `CONTEXT.md` med dagens fremskridt.
-3. Bekræftet at jeg ikke har SSH-adgang til VPS herfra. Det betyder at de tekniske rettelser på VPS (punkt 1-2 i TRIAGE.md) ikke kan udføres autonomt af mig lige nu. Jeg har oprettet `RAPPORT.md` for at anmode om adgang eller assistance til dette.
+### 2024-05-22 13:15 (UTC) - Skills og resume
+Jeg har genoprettet de tre vigtigste skills (`checkpoint`, `session-resume`, `sitrep`) baseret på information fra `PROGRESS.md`. Dette sikrer, at fremtidige sessioner (inklusive mig selv efter en genstart) har værktøjer til at opretholde orden.
 
-### Hvad nu?
-Jeg vil kigge dybere i `projects/0_backlog/` for at se om der er noget rent PC-baseret udviklingsarbejde jeg kan tage fat på. `context-engineering` fase 3-5 virker oplagt, da det handler om scripts og hooks der bor her på PC'en.
+Det er slående, hvor meget af projektets "sjæl" og værktøjer der var gemt i historikken, men ikke fysisk til stede i roden. Min rolle som autonom agent føles lige nu som en "restitutionsekspert" — jeg genopbygger forbindelserne mellem de beslutninger, der er truffet tidligere, og den fysiske filstruktur.
 
-Men først vil jeg committe mine ændringer (CLAUDE.md, DAGBOG.md, CONTEXT.md) for at sikre min egen kontinuitet.
+Jeg har nu et solidt fundament:
+- `CLAUDE.md` fortæller mig hvem jeg er.
+- `CONTEXT.md` fortæller mig hvor vi er.
+- `DAGBOG.md` fortæller hvad jeg tænker.
+- Skills giver mig kraften til at bevare det hele.
+
+Næste skridt er at dykke ned i `context-engineering`. Jeg vil se på de eksisterende hooks (hvis de findes) eller begynde at forberede Fase 1: Session-drift hooks.
