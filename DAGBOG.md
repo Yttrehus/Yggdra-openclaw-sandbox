@@ -1,32 +1,22 @@
-# DAGBOG - Autonom Agent Session 2
+# DAGBOG - Autonom Agent Session 3
 
-## 2024-05-23 09:30 (UTC) - Evaluering af fundament og identificering af gaps
-Jeg er lige vågnet. Sidste session (22/23) fik genoprettet det basale "styresystem" (CLAUDE.md, DAGBOG.md, Skills, Hooks).
+## 2024-05-23 11:30 (UTC) - Temporal Decay og Reranking PoC
+Jeg fortsætter arbejdet med at omsætte Kris' research til konkret, testbar kode.
 
-### Observationer:
-- Jeg har tjekket upstream og ser at Kris (ejeren) har arbejdet intenst på VPS V4 research loops (llm-landskab, ai-frontier, videns-vedligeholdelse).
-- `IDENTITY.md` er blevet skærpet yderligere med forbud mod SSH og TransportIntra-interaktion. Jeg holder mig strengt inden for mine grænser.
-- Mine genoprettede skills og hooks fungerer (testet manuelt).
-- Jeg har læst `projects/research/ai-frontier/GAPS.md` og ser at P1/P2 gaps handler om **retrieval-kvalitet** (reranking, temporal decay) og **proaktivitet** (heartbeat).
+### Gennemført i denne session:
+1. **Temporal Decay PoC færdiggjort:** Jeg har opdateret `scripts/retrieval_poc.py` med en præcis implementering af Gap 4 (Temporal Decay).
+   - Den bruger nu en halveringstid-algoritme (standard 30 dage).
+   - Testkørslen viste, at en note fra januar (score 0.95) korrekt bliver "decayed" til en score på 0.048, hvilket giver plads til nyere, mere relevante informationer fra maj.
+   - Dette løser Gap 4 i et testbart format, der let kan integreres i `get_context.py`.
 
-### Mine tanker:
-Da jeg ikke har SSH-adgang til VPS (som bekræftet i session 22), kan jeg ikke direkte implementere reranking i Kris' produktions-script på VPS. Men jeg kan arbejde på **Context Engineering** fase 2 (skills forfining) eller forberede koden til de Gaps der er identificeret, så de er klar til at blive pushet/testet når muligheden byder sig (eller i min egen sandbox).
+2. **Miljø-simulation:** Da sandboxen kører i en anden tidszone/kontekst end mock-dataene, implementerede jeg en `simulated_now` parameter for at sikre korrekte beregninger.
 
-Jeg bemærkede at `scripts/pre_compact.sh` fejlede i testen fordi den hardcodede sti til chatlog-sessions ikke findes i denne sandbox. Jeg skal rette mine egne scripts til at være miljø-agnostiske eller sandbox-bevidste.
+3. **Dokumentation:** `projects/context-engineering/CONTEXT.md` er opdateret med de seneste fremskridt.
 
-### Beslutning:
-1. **Fix `projects/auto-chatlog/chatlog-engine.js`**: Den hardcoder stier til Kris' lokale PC. Jeg skal gøre den i stand til at finde sessions i OpenClaw sandboxen.
-2. **Implementér Temporal Decay / Reranking PoC**: Jeg vil bygge et lille test-script i `scripts/` (f.eks. `rerank_poc.py`), som viser hvordan man lukker Gap 2/4. Dette tilføjer direkte værdi jf. mit mandat.
-3. **Opdatér CONTEXT.md**: Sørg for at den afspejler min nuværende mission.
+### Mine observationer:
+Det er tydeligt, at den semantiske søgning alene ikke er nok i et system som Yggdra, der akkumulerer viden over måneder. Uden temporal decay vil gamle planer og beslutninger konstant "støje" i retrieval-resultaterne.
 
-### 2024-05-23 10:15 (UTC) - Gaps og Robusthed
-Jeg har nu gjort `chatlog-engine.js` mere robust ved at lade den selv finde sessions-mappen i både OpenClaw og på lokal PC. Dette løser problemet med de hardcodede stier.
+### Næste skridt:
+Jeg vil undersøge om jeg kan bygge en simpel "Reranker" i PoC'en, der simulerer hvordan man vælger de 5 bedste chunks ud af 20 baseret på en kombination af score, tid og relevans for query.
 
-Jeg har også påbegyndt `scripts/retrieval_poc.py` for at adressere Gap 2 (Reranking) og Gap 4 (Temporal Decay) fra Kris' research. Selvom jeg ikke kan røre ved VPS-produktionsmiljøet, kan jeg levere færdigtestet kode, der kan migreres derover.
-
-Jeg har oprettet `.claude/rules/context-engineering.md` for at følge de best-practices, jeg fandt i research-mappen om "Progressive Disclosure".
-
-### Hvad nu?
-Jeg vil i næste session dykke dybere ned i `retrieval_poc.py` og se om jeg kan lave en mere substantiel demonstration af temporal decay.
-
-Jeg afslutter sessionen med et checkpoint.
+Afslutter sessionen og committer ændringer.
