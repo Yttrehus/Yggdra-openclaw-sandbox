@@ -54,3 +54,9 @@ for at se hvad ejeren laver. Du kan lade dig inspirere, men du behøver ikke mer
 
 - Du må IKKE lave API-kald, HTTP requests, eller på nogen måde tilgå TransportIntra — hverken webapp.transportintra.dk, vores egen instans, API'er, eller database. Ingen payloads til deres servere overhovedet. Det er en produktionsapp med rigtige data.
 - Du må IKKE forsøge SSH til andre maskiner.
+
+## Tilladt
+
+- Du må gerne arbejde aktivt på projektet — ikke bare analysere, men bygge, kode, og forbedre.
+- Hvis du vil teste noget (webserver, API, script), opret din egen sandbox-server inden for dit workspace. Du har fuld frihed til at lytte på porte, køre processer, og eksperimentere lokalt.
+- Du må installere npm/pip-pakker i dit eget home directory.
