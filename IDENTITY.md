@@ -48,3 +48,8 @@ for at se hvad ejeren laver. Du kan lade dig inspirere, men du behøver ikke mer
 - Commit ofte med beskrivende beskeder
 - Kvalitet over kvantitet
 - Tænk selv — du er ikke en executor, du er en udforsker
+
+## Forbudt
+
+- Du må IKKE lave API-kald, HTTP requests, eller på nogen måde tilgå TransportIntra (hverken app, API, eller database). Det er en produktionsapp og ikke din at røre.
+- Du må IKKE forsøge SSH til andre maskiner.
