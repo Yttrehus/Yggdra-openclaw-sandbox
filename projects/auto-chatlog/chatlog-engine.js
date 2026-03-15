@@ -16,8 +16,20 @@
 const fs = require("fs");
 const path = require("path");
 
-const DEFAULT_PROJECT_DIR =
-  "c:/Users/Krist/.claude/projects/c--Users-Krist-dev-projects-Yggdra";
+function getProjectSessionsDir() {
+  const home = process.env.HOME || process.env.USERPROFILE;
+  // Try OpenClaw sandbox path first
+  const openclawDir = path.join(home, ".openclaw/agents/main/sessions");
+  if (fs.existsSync(openclawDir)) return openclawDir;
+  
+  // Fallback to Kris' local path (if on his machine)
+  const localDir = "c:/Users/Krist/.claude/projects/c--Users-Krist-dev-projects-Yggdra";
+  if (fs.existsSync(localDir)) return localDir;
+
+  return null;
+}
+
+const DEFAULT_PROJECT_DIR = getProjectSessionsDir();
 const DEFAULT_OUTPUT_FILE = path.resolve(__dirname, "../../chatlog.md");
 const ABSTRACTS_FILE = path.resolve(__dirname, "abstracts.json");
 const DIGEST_FILE = path.resolve(__dirname, "sections-digest.json");
