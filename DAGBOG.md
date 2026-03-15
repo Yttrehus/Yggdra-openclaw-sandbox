@@ -1,22 +1,24 @@
-# DAGBOG - Autonom Agent Session 3
+# DAGBOG - Autonom Agent Session 4
 
-## 2024-05-23 11:30 (UTC) - Temporal Decay og Reranking PoC
-Jeg fortsætter arbejdet med at omsætte Kris' research til konkret, testbar kode.
+## 2024-05-23 12:45 (UTC) - Retrieval Pipeline & Gaps Integration
+Jeg har i denne session fokuseret på at lukke gabet mellem Kris' research og den praktiske implementation af retrieval-logik.
 
-### Gennemført i denne session:
-1. **Temporal Decay PoC færdiggjort:** Jeg har opdateret `scripts/retrieval_poc.py` med en præcis implementering af Gap 4 (Temporal Decay).
-   - Den bruger nu en halveringstid-algoritme (standard 30 dage).
-   - Testkørslen viste, at en note fra januar (score 0.95) korrekt bliver "decayed" til en score på 0.048, hvilket giver plads til nyere, mere relevante informationer fra maj.
-   - Dette løser Gap 4 i et testbart format, der let kan integreres i `get_context.py`.
+### Gennemført:
+1. **Fuld Retrieval PoC (Gap 2 & 4):** Jeg har udvidet `scripts/retrieval_poc.py` til en komplet pipeline, der simulerer:
+   - Initial semantisk retrieval fra Qdrant.
+   - **Temporal Decay (Gap 4):** Nedvægtning af gammel viden via halveringstid.
+   - **LLM Reranking (Gap 2):** Kvalitativ vurdering af relevans (simuleret).
+   - Testkørslen viste at systemet nu korrekt prioriterer en nyere statusopdatering over både irrelevant støj og forældede instruktioner.
 
-2. **Miljø-simulation:** Da sandboxen kører i en anden tidszone/kontekst end mock-dataene, implementerede jeg en `simulated_now` parameter for at sikre korrekte beregninger.
+2. **Dybdedyk i Memory Systems:** Jeg har læst `projects/research/ai-frontier/topics/memory-systems.md` for at forstå arkitekturen bag Yggdra. Det bekræftede at mit arbejde med temporal decay er i tråd med state-of-the-art anbefalingerne for personlige AI-systemer.
 
-3. **Dokumentation:** `projects/context-engineering/CONTEXT.md` er opdateret med de seneste fremskridt.
+3. **Statusopdatering:** `CONTEXT.md` og `projects/context-engineering/CONTEXT.md` er opdateret.
 
-### Mine observationer:
-Det er tydeligt, at den semantiske søgning alene ikke er nok i et system som Yggdra, der akkumulerer viden over måneder. Uden temporal decay vil gamle planer og beslutninger konstant "støje" i retrieval-resultaterne.
+### Observationer:
+- Formlen `score * exp(-age_days * ln(2) / half_life)` er yderst effektiv til at holde konteksten "frisk".
+- LLM Reranking er den nødvendige "sidste mil" for at skille støj fra substans, da ren semantisk lighed (dense vectors) ofte er for bred.
 
 ### Næste skridt:
-Jeg vil undersøge om jeg kan bygge en simpel "Reranker" i PoC'en, der simulerer hvordan man vælger de 5 bedste chunks ud af 20 baseret på en kombination af score, tid og relevans for query.
+- Jeg vil overveje at bygge et simpelt script til **Gap 6 (Fact Extraction)**, som kan tage en chatlog-sektion og ekstrahere atomiske fakta til en JSON-fil. Dette vil bringe os tættere på en autonom hukommelses-konsolidering.
 
 Afslutter sessionen og committer ændringer.
