@@ -8,7 +8,7 @@
 
 To systemer der tilsammen giver overblik over hvad der eksisterer og hvad der skal gøres:
 
-1. **Backlog taxonomy** — filnavne-konvention der viser modenhed: `raw.` → `brief.` → `r2g.`
+1. **Backlog taxonomy** — filnavne-konvention der viser modenhed: `raw.` → `brief.` → `RDY.`
 2. **Project taxonomy** — mappenavne-konvention der viser stage: `BMS.` / `REF.` / `LIB.` / `KNB.` / `DLR.` / `SIP.` / `PoC.`
 3. **TRIAGE.md** — prioriteret overblik, session-forslag, afhængigheder
 
@@ -18,7 +18,7 @@ To systemer der tilsammen giver overblik over hvad der eksisterer og hvad der sk
 |---------|-----------|---------|
 | `raw.` | Rå idé, scope uklart | `raw.visualisering.md` |
 | `brief.` | Skrevet ud, men kræver forberedelse | `brief.notion-spejling.md` |
-| `r2g.` | Ready to go — kan startes som projekt | `r2g.context-engineering.md` |
+| `RDY.` | Ready to go — kan startes som projekt | `RDY.context-engineering.md` |
 
 ## Project taxonomy (mappenavne i projects/)
 
@@ -58,7 +58,7 @@ Indeholder: prioriteret liste, modenhed, afhængigheder, session-forslag.
 1. Ét præfiks per mappe. `SIP.DLR.projekt` findes ikke
 2. Præfiks er sandheden. Mapper > metadata
 3. Demotion er OK. SIP → DLR når antagelser fejler
-4. Backlog-filer har `raw.`/`brief.`/`r2g.` præfiks. Stage-præfikser starter når brief bliver projektmappe
+4. Backlog-filer har `raw.`/`brief.`/`RDY.` præfiks. Stage-præfikser starter når brief bliver projektmappe
 5. Archive er for døde ting. Færdigt-men-brugt = BMS/REF/LIB/KNB
 
 ## Status
