@@ -53,24 +53,25 @@ Yggdra/
 ├── data/                     ← data-filer
 ├── scripts/                  ← utility scripts
 ├── projects/
-│   ├── 0_backlog/            ← 12 briefs + TRIAGE.md + raw/
-│   ├── 1_archive/            ← afsluttede projekter
-│   ├── auto-chatlog/         ← chatlog-engine + checkpoint + chatlog-search
-│   ├── manuals/              ← git, vscode, terminal, git-concepts
-│   ├── mcp-skills-kompendium/← MCP+skills research + kompendier
-│   ├── prompt-skabeloner/    ← chatlog mining, MINING_RESULTS.md
-│   ├── research/             ← INDEX.md v3, llm-landskab/, ai-frontier/, videns-vedligeholdelse/
-│   ├── transportintra/       ← TI arkiv: INDEX, PROGRESS, 8 subprojects, research, archive
-│   ├── vps-sandbox/          ← VPS sandbox proces-dokumentation
-│   └── ydrasil/              ← VPS INDEX.md, research, sessions, docs
+│   ├── 0_backlog/                ← raw./brief./r2g. briefs + TRIAGE.md
+│   ├── 9_archive/                ← døde projekter
+│   ├── BMS.auto-chatlog/         ← chatlog-engine, kører automatisk
+│   ├── DLR.session-blindhed/     ← aktiv research
+│   ├── KNB.manuals/              ← git, terminal, vscode guides
+│   ├── LIB.research/             ← INDEX.md, llm-landskab/, ai-frontier/, videns-vedligeholdelse/
+│   ├── LIB.ydrasil/              ← VPS-æra research, docs, sessions
+│   ├── REF.mcp-skills-kompendium/← MCP+skills opslagsværk
+│   ├── REF.prompt-skabeloner/    ← templates, MINING_RESULTS
+│   ├── REF.transportintra/       ← TI arkiv, API docs, 8 subprojects
+│   └── REF.vps-sandbox/          ← v1-v4 historik, evaluations
 └── .claude/                  ← skills (13 stk), template, settings
 ```
 
 ### Aktive projekter
-- **VPS Sandbox:** v1-v4 gennemført. V4 output hentet (19 filer). → `projects/vps-sandbox/CONTEXT.md`
-- **Research:** V4 tilføjede llm-landskab (7 profiler), ai-frontier (5 topics+GAPS+WHAT_IF), videns-vedligeholdelse (6 filer). → `projects/research/`
-- **Auto-chatlog:** v3 fungerer (~3000 beskeder, 39 sessions). → `projects/auto-chatlog/CONTEXT.md`
-- **TransportIntra arkiv:** Komplet. → `projects/transportintra/CONTEXT.md`
+- **REF.vps-sandbox:** v1-v4 gennemført. V4 output hentet (19 filer). → `projects/REF.vps-sandbox/CONTEXT.md`
+- **LIB.research:** V4 output (llm-landskab, ai-frontier, videns-vedligeholdelse). → `projects/LIB.research/`
+- **BMS.auto-chatlog:** v3 fungerer (~3000 beskeder, 39 sessions). → `projects/BMS.auto-chatlog/CONTEXT.md`
+- **REF.transportintra:** Komplet arkiv. → `projects/REF.transportintra/CONTEXT.md`
 
 ### Afsluttede moduler
 - **M1-M3:** Git, VS Code, Terminal (SSH, extensions, WSL, Zsh, Starship)

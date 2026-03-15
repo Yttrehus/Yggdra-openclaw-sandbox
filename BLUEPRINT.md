@@ -45,14 +45,17 @@ yggdra-pc/
 │   ├── _archive/              ← pre-reformation VPS-research
 │   └── reports/               ← 5 rapporter (direction, context-eng, research-arch, automation, session-drift)
 ├── projects/
-│   ├── 0_backlog/             ← 15 briefs
-│   ├── 1_archive/             ← 3 afsluttede (architecture R&D, reformation, omdøbning)
-│   ├── auto-chatlog/          ← chatlog-engine v3
-│   ├── context-engineering/   ← hooks, compaction, progressive disclosure
-│   ├── research-architecture/ ← Zettelkasten + PARA, hybrid search
-│   │   └── mcp-skills-kompendium/ ← arkiveret 2026-03-14
-│   ├── manuals/               ← git, vscode, terminal håndbøger
-│   └── research/              ← VPS Ydrasil-æra filer (~160 filer)
+│   ├── 0_backlog/                 ← raw./brief./r2g. briefs + TRIAGE.md
+│   ├── 1_archive/                 ← døde projekter
+│   ├── BMS.auto-chatlog/          ← chatlog-engine v3, kører automatisk
+│   ├── DLR.session-blindhed/      ← aktiv research
+│   ├── KNB.manuals/               ← git, terminal, vscode guides
+│   ├── LIB.research/              ← INDEX.md, llm-landskab/, ai-frontier/, videns-vedligeholdelse/
+│   ├── LIB.ydrasil/               ← VPS-æra research+docs (~160 filer)
+│   ├── REF.mcp-skills-kompendium/ ← MCP+skills opslagsværk
+│   ├── REF.prompt-skabeloner/     ← templates, MINING_RESULTS
+│   ├── REF.transportintra/        ← TI arkiv, API docs, 8 subprojects
+│   └── REF.vps-sandbox/           ← v1-v4 historik, evaluations
 ├── docs/                      ← eksterne docs (Qdrant m.m.)
 └── .claude/
     ├── settings.local.json    ← 4 hooks + permissions
@@ -63,9 +66,9 @@ yggdra-pc/
 
 | Projekt | Status | Sti |
 |---------|--------|-----|
-| context-engineering | Fase 1-2 done (CLAUDE.md + 4 hooks). Fase 3-5 venter. | `projects/context-engineering/` |
-| research-architecture | Design done. Fase 1 (mappestruktur + INDEX.md) udført. Fase 2-5 venter. | `projects/research-architecture/` |
-| auto-chatlog | v3 fungerer (chatlog-engine, secret-redaction, subagent-abstracts). | `projects/auto-chatlog/` |
+| BMS.auto-chatlog | v3 fungerer (chatlog-engine, secret-redaction, subagent-abstracts) | `projects/BMS.auto-chatlog/` |
+| LIB.research | V4 output: llm-landskab, ai-frontier, videns-vedligeholdelse | `projects/LIB.research/` |
+| REF.vps-sandbox | v1-v4 gennemført, V5 implementering deployet | `projects/REF.vps-sandbox/` |
 
 ## Hook-system
 
@@ -121,7 +124,7 @@ Alle briefs: `projects/0_backlog/` (15 stk).
 - **M1-M3:** Git, VS Code, Terminal (SSH, WSL, Zsh, Starship)
 - **M4:** Projektstruktur (~/dev/, template, /checkpoint, dotfiles-repo)
 - **M5:** PC-setup (downloads, .wslconfig, JetBrains Mono) — step 12+15 venter fysisk adgang
-- **mcp-skills-kompendium:** Adversarial-reviewed opslagsværk (25+ MCP-servere, 20+ skills). Arkiveret 2026-03-14. `projects/1_archive/mcp-skills-kompendium/`
+- **REF.mcp-skills-kompendium:** Adversarial-reviewed opslagsværk (25+ MCP-servere, 20+ skills)
 
 ## Åbne spørgsmål
 

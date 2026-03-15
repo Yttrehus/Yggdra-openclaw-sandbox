@@ -1,57 +1,81 @@
-# Work Intake
+# Work Intake & Project Taxonomy
 
-**Dato:** 2026-03-14
-**Status:** Backlog
+**Dato:** 2026-03-15
+**Status:** Delvist implementeret
 **Priority:** Medium-high (enabler for alt andet arbejde)
 
 ## Opsummering
-- Prioriteret overblik over briefs og projekter i en enkelt fil — "hvad er vigtigst, og hvad er klar?"
-- Modenhedstags i briefs (sketch → spec'd → ready) så man kan se forskel uden at åbne filen
-- Synlige afhængigheder ("X blokerer Y") ét sted
-- Session-forslag: baseret på prioritet + modenhed, hvad giver mening at tage fat på næste gang?
 
-## Problem Statement
-12 briefs i en mappe. Ingen rækkefølge. Prioritering sker i hovedet, afhængigheder lever i memory-filer (session 19: MCP/Skills ventede på Ydrasil INDEX.md). "Hvad skal næste session handle om?" er en beslutning uden systematisk input.
+To systemer der tilsammen giver overblik over hvad der eksisterer og hvad der skal gøres:
 
-## Hvad det IKKE er
-- Ikke sprints, ikke Jira-light, ikke acceptance criteria per task
-- Ikke project-taxonomy (det dækker livscyklus — hvad et projekt ER. Dette dækker rækkefølge — hvad du GØR)
-- Ikke et framework der kræver vedligeholdelse. Hvis det tager længere at opdatere end at gøre arbejdet, er det forkert
+1. **Backlog taxonomy** — filnavne-konvention der viser modenhed: `raw.` → `brief.` → `r2g.`
+2. **Project taxonomy** — mappenavne-konvention der viser stage: `BMS.` / `REF.` / `LIB.` / `KNB.` / `DLR.` / `SIP.` / `PoC.`
+3. **TRIAGE.md** — prioriteret overblik, session-forslag, afhængigheder
 
-## Deliverables
-1. **TRIAGE.md** i `projects/0_backlog/` — sorteret liste med modenhed + prioritet + afhængigheder. Én fil, flat, scanbar på 10 sekunder
-2. **Frontmatter-tags** i eksisterende briefs — `maturity: sketch|brief|spec'd|ready` og `blocks: [...]` / `blocked-by: [...]`
-3. **Triage-rytme** — ikke et møde, bare en vane: start af session → scan TRIAGE.md → vælg
+## Backlog taxonomy (filnavne i 0_backlog/)
 
-## Skitse: TRIAGE.md format
-```markdown
-# Triage — Prioriteret overblik
+| Præfiks | Betydning | Eksempel |
+|---------|-----------|---------|
+| `raw.` | Rå idé, scope uklart | `raw.visualisering.md` |
+| `brief.` | Skrevet ud, men kræver forberedelse | `brief.notion-spejling.md` |
+| `r2g.` | Ready to go — kan startes som projekt | `r2g.context-engineering.md` |
 
-Sidst opdateret: YYYY-MM-DD
+## Project taxonomy (mappenavne i projects/)
 
-## Klar
-| Brief | Modenhed | Blokerer | Noter |
-|-------|----------|----------|-------|
-| research-architecture | ready | context-engineering | Kører på VPS sandbox v2 |
+Format: `STAGE.projektnavn/`
 
-## Næste op
-| Brief | Modenhed | Blokeret af | Mangler |
-|-------|----------|-------------|---------|
-| context-engineering | spec'd | research-architecture | Venter på INDEX.md |
+### Pipeline-stages (aktiv udvikling)
 
-## Ideer (ingen tidspres)
-| Brief | Modenhed | One-liner |
-|-------|----------|-----------|
-| voice-integration | sketch | Voice memos → struktureret input |
-```
+| Præfiks | Navn | Betydning |
+|---------|------|-----------|
+| **PoC** | Proof of Concept | Eksperiment. "Virker det?" |
+| **DLR** | Discovery-Led Roadmap | Aktiv research/design |
+| **SIP** | Staged Implementation Plan | Under opbygning |
 
-## Scope-check
-- Løser det et reelt problem? Ja — session-start beslutninger er uinformerede
-- Er det værd at investere tid? Ja, men KUN hvis det forbliver en flad fil + et par tags. Minutters vedligeholdelse, ikke timers
-- Overlap med project-taxonomy? Nej — taxonomy = livscyklus, dette = prioritering og rækkefølge
+### Done-stages (færdige, i brug)
+
+| Præfiks | Navn | Betydning | Analogi |
+|---------|------|-----------|---------|
+| **BMS** | Baseline Module System | Kører automatisk, vedligeholdes | Motor |
+| **REF** | Reference | Statisk opslagsværk, slå op | Ordbog |
+| **LIB** | Library | Stor samling, browse | Bibliotek |
+| **KNB** | Knowledge Base | Kurateret viden, forståelse | Lærebog |
+
+### Specielle mapper
+
+| Mappe | Rolle |
+|-------|-------|
+| `0_backlog/` | Idéer (raw/brief/r2g). Ikke en stage |
+| `1_archive/` | Døde projekter. Ikke i brug |
+
+## TRIAGE.md
+
+Flat fil i `0_backlog/`. Scanbar på 10 sekunder. Opdateres ved session-start.
+Indeholder: prioriteret liste, modenhed, afhængigheder, session-forslag.
+
+## Regler
+
+1. Ét præfiks per mappe. `SIP.DLR.projekt` findes ikke
+2. Præfiks er sandheden. Mapper > metadata
+3. Demotion er OK. SIP → DLR når antagelser fejler
+4. Backlog-filer har `raw.`/`brief.`/`r2g.` præfiks. Stage-præfikser starter når brief bliver projektmappe
+5. Archive er for døde ting. Færdigt-men-brugt = BMS/REF/LIB/KNB
+
+## Status
+
+- [x] TRIAGE.md oprettet og brugt (session 20+21)
+- [x] Project taxonomy designet (session 17, brief.project-taxonomy.md)
+- [x] Backlog taxonomy designet (session 21)
+- [ ] Migration: `git mv` alle mapper + backlog-filer
+- [ ] Opdater CONTEXT.md, CLAUDE.md, BLUEPRINT.md med nye stier
 
 ## Kill condition
-Hvis TRIAGE.md ikke konsulteres i 5 sessioner efter oprettelse, slet den. Den skal være nyttig nok til at du faktisk åbner den.
 
-## Origin Story
-Session 20. Yttre delte en Google-guide om backlog management med Claude Code. 80% var ting Yggdra allerede gør. De 20% der manglede kogte ned til: der er ingen sorteret liste, ingen synlige afhængigheder, og "hvad skal jeg lave?" er en hovedbeslutning.
+Hvis præfiks-omdøbning skaber mere friktion end det løser efter 3 projekter (~4-6 uger): drop præfikser, brug CONTEXT.md metadata i stedet.
+
+## Origin
+
+- Session 11-13: PoC/DLR/SIP/BMS designet, droppet som for tungt
+- Session 17: REF/LIB/KNB tilføjet for done-stages
+- Session 20: TRIAGE.md oprettet som work-intake deliverable
+- Session 21: Backlog taxonomy (raw/brief/r2g), merger med project-taxonomy

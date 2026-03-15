@@ -10,3 +10,5 @@ data/CREDENTIALS.md
 # VPS data (contains secrets)
 projects/ydrasil/sessions/
 projects/ydrasil/vps-chatlog.md
+projects/lib.ydrasil/sessions/
+projects/lib.ydrasil/vps-chatlog.md

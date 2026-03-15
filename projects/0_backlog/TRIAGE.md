@@ -20,6 +20,7 @@ Prioriteret efter impact × (1/effort). Alle fra VPS V4 research loops.
 
 | Brief | Modenhed | Blokerer | Noter |
 |-------|----------|----------|-------|
+| memory-architecture | spec'd | — | Fase 1 (reranking+decay) = V4 handlinger 3+5. Samler 2500L research til arkitektur |
 | context-engineering | spec'd | research-architecture (delvist) | Hooks fase 1-2 done. GAPS.md P7 (context engineering discipline) er direkte input |
 | automation-index | brief | — | 80% dækket af V4 ai-frontier/automation-patterns.md. Resterende: formalisér som index |
 | research-architecture | spec'd | — | INDEX.md v3 hentet. V4 tilføjer 5 topic-filer + GAPS + WHAT_IF. Fase 2+ venter |
@@ -61,6 +62,7 @@ Prioriteret efter impact × (1/effort). Alle fra VPS V4 research loops.
 
 ```
 research-architecture ──→ context-engineering (INDEX.md som input)
+memory-architecture fase 1 ──→ V4 handlinger 3+5 (same work)
 notion MCP ──→ notion-spejling
 faktura-layout ──→ pdf-skill
 V4 handlinger 1-2 ──→ VPS session (direkte implementering)

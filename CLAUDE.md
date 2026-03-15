@@ -6,8 +6,8 @@ Personligt udvikler-fundament. Startede som "Basic Setup" (Windows-opsætning), 
 
 ## Projekter
 
-Alle projekter bor i `projects/`. Hvert projekt har en CONTEXT.md (samme format som rod-CONTEXT.md).
-Idéer starter som briefs i `projects/0_backlog/`. Arkiv i `projects/1_archive/`.
+Alle projekter bor i `projects/` med stage-præfiks: `BMS.`/`REF.`/`LIB.`/`KNB.`/`DLR.`/`SIP.`/`PoC.`
+Hvert projekt har en CONTEXT.md. Backlog-briefs bruger `raw.`/`brief.`/`r2g.` præfiks i `0_backlog/`.
 
 ## Hvad læses automatisk
 
@@ -17,7 +17,7 @@ Kun denne fil (CLAUDE.md) og CONTEXT.md (via @import). Alt andet læses efter be
 
 - PROGRESS.md — fuld narrativ per session, destilleret
 - BLUEPRINT.md — systemarkitektur (5 emergente lag, filstruktur, designprincipper)
-- chatlog.md — komplet sessionsdata (roden, genereret af projects/auto-chatlog/chatlog-engine.js)
+- chatlog.md — komplet sessionsdata (roden, genereret af projects/BMS.auto-chatlog/chatlog-engine.js)
 - projects/0_backlog/TRIAGE.md — prioriteret backlog-overblik med modenhed og afhængigheder
 - projects/*/CONTEXT.md — projekt-specifik kontekst
 
