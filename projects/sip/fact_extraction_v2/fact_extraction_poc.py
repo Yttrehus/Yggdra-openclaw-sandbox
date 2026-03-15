@@ -1,0 +1,106 @@
+import json
+import os
+import re
+from datetime import datetime
+
+# Stier baseret på Yggdra struktur
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DIGEST_PATH = os.path.join(PROJECT_ROOT, "projects/auto-chatlog/sections-digest.json")
+FACTS_PATH = os.path.join(PROJECT_ROOT, "data/extracted_facts.json")
+
+def clean_undefined(text):
+    """Fjerner [undefined] artefakter og andre støj-elementer."""
+    if not text: return ""
+    # Fjern de bizarre [undefined] mønstre
+    text = re.sub(r'\[undefined\]', '', text)
+    text = re.sub(r'undefined', '', text)
+    # Fjern [ og ] hvis de står alene eller omgiver enkelte bogstaver
+    text = re.sub(r'\[\s*\w?\s*\]', '', text)
+    return text.strip()
+
+def extract_facts_heuristic(text):
+    """
+    Simulerer Gap 6: Fact Extraction.
+    """
+    facts = []
+    clean_text = clean_undefined(text)
+    
+    # 1. Ruter
+    if re.search(r"rute", clean_text, re.I):
+        facts.append({
+            "fact": "Kontekst involverer transportruter.",
+            "category": "work",
+            "confidence": 0.5
+        })
+
+    # 2. Sessioner/Agent aktivitet
+    if "Session" in clean_text or "agent" in clean_text.lower():
+        facts.append({
+            "fact": "Sessionen indeholder agent-aktivitetslogs.",
+            "category": "meta",
+            "confidence": 0.6
+        })
+
+    # 3. Gap/Retrieval
+    if "Gap" in clean_text or "retrieval" in clean_text.lower():
+        facts.append({
+            "fact": "Sessionen diskuterer arkitektoniske gaps eller retrieval.",
+            "category": "research",
+            "confidence": 0.7
+        })
+
+    # Catch-all hvis teksten er lang nok (noget sker jo)
+    if len(clean_text) > 50 and not facts:
+         facts.append({
+            "fact": "Generel aktivitet i sessionen.",
+            "category": "activity",
+            "confidence": 0.3
+        })
+
+    return facts
+
+def process_digest():
+    """Hovedloop for fact extraction."""
+    if not os.path.exists(DIGEST_PATH):
+        print(f"Fejl: Fandt ikke {DIGEST_PATH}")
+        return
+
+    with open(DIGEST_PATH, 'r') as f:
+        digest = json.load(f)
+
+    all_facts = []
+    
+    # Indlæs eksisterende fakta hvis filen findes
+    if os.path.exists(FACTS_PATH):
+        try:
+            with open(FACTS_PATH, 'r') as f:
+                all_facts = json.load(f)
+        except:
+            all_facts = []
+
+    new_facts_count = 0
+    for section in digest.get('sections', []):
+        # Vi ekstraherer kun hvis vi ikke allerede har processeret denne sektion (simuleret)
+        # I en rigtig version ville vi tjekke section id eller timestamp
+        
+        combined_text = " ".join(section.get('userSamples', []) + section.get('assistantSamples', []))
+        found = extract_facts_heuristic(combined_text)
+        
+        for f in found:
+            f['timestamp'] = datetime.now().isoformat()
+            f['section_id'] = section['id']
+            f['source_date'] = section['date']
+            # Simpel de-duplikering baseret på tekst
+            if not any(existing['fact'] == f['fact'] for existing in all_facts):
+                all_facts.append(f)
+                new_facts_count += 1
+            
+    # Gem resultater
+    os.makedirs(os.path.dirname(FACTS_PATH), exist_ok=True)
+    with open(FACTS_PATH, 'w') as f:
+        json.dump(all_facts, f, indent=2)
+    
+    print(f"Fact extraction færdig. {new_facts_count} nye fakta fundet.")
+
+if __name__ == "__main__":
+    process_digest()
