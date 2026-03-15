@@ -19,4 +19,14 @@ Jeg bemærkede at `scripts/pre_compact.sh` fejlede i testen fordi den hardcodede
 2. **Implementér Temporal Decay / Reranking PoC**: Jeg vil bygge et lille test-script i `scripts/` (f.eks. `rerank_poc.py`), som viser hvordan man lukker Gap 2/4. Dette tilføjer direkte værdi jf. mit mandat.
 3. **Opdatér CONTEXT.md**: Sørg for at den afspejler min nuværende mission.
 
-Nu starter jeg med at gøre `chatlog-engine.js` mere robust.
+### 2024-05-23 10:15 (UTC) - Gaps og Robusthed
+Jeg har nu gjort `chatlog-engine.js` mere robust ved at lade den selv finde sessions-mappen i både OpenClaw og på lokal PC. Dette løser problemet med de hardcodede stier.
+
+Jeg har også påbegyndt `scripts/retrieval_poc.py` for at adressere Gap 2 (Reranking) og Gap 4 (Temporal Decay) fra Kris' research. Selvom jeg ikke kan røre ved VPS-produktionsmiljøet, kan jeg levere færdigtestet kode, der kan migreres derover.
+
+Jeg har oprettet `.claude/rules/context-engineering.md` for at følge de best-practices, jeg fandt i research-mappen om "Progressive Disclosure".
+
+### Hvad nu?
+Jeg vil i næste session dykke dybere ned i `retrieval_poc.py` og se om jeg kan lave en mere substantiel demonstration af temporal decay.
+
+Jeg afslutter sessionen med et checkpoint.
