@@ -1,15 +1,20 @@
 # Yggdra
 
 ## Metadata
-- **Status:** Session 22 (Autonom Agent). CLAUDE.md genoprettet. DAGBOG.md startet. Identificeret domæneopdeling (PC vs VPS).
-- **Sidst opdateret:** 2024-05-22 (session 22)
+- **Status:** Session 23 (Autonom Agent). Context Engineering Fase 1 (hooks) implementeret. OpenClaw fundament tracked i git.
+- **Sidst opdateret:** 2024-05-23 (session 23)
 
 ## Hvad er det
 Personligt udvikler-fundament. Startede som "Basic Setup" (Windows-opsætning), vokset til framework for hvordan Yttre arbejder med AI og kode.
 
 ## Hvor er vi
 
-### Seneste session (22 — 2024-05-22)
+### Seneste session (23 — 2024-05-23)
+- **Context Engineering:** Fase 1 (hooks) gennemført. `session_start.sh`, `pre_compact.sh` og `session_end.sh` bygget og testet manuelt. Skabelon til konfiguration oprettet.
+- **Fundament:** OpenClaw-injicerede filer (`AGENTS.md`, `SOUL.md`, `TOOLS.md`, `USER.md`, `HEARTBEAT.md`) nu tracket i git for bedre kontinuitet.
+- **Mandat:** IDENTITY.md respekteret (ingen SSH, ingen TransportIntra).
+
+### Session 22 (2024-05-22)
 - **CLAUDE.md:** Genoprettet i roden med fokus på PC som udviklings-instans.
 - **DAGBOG.md:** Oprettet og aktiv (mandat fra IDENTITY.md).
 - **Domæne-analyse:** Bekræftet "Model B" (Separate domæner). VPS ejer drift, PC ejer udvikling.
@@ -50,7 +55,7 @@ Chatlog-engine v3: gap-sektioner, subagent-abstracts, danske datoer, secret-reda
 ### Session 13 (2026-03-13)
 Manifest v4 implementeret. Tre iterationer af mappestruktur (pipeline/ → Development/ → projects/) landede på det simpleste: flad projects/-mappe, ét projekt = én mappe. ADR-terminologi og pipeline-stages droppet — erstattet af CONTEXT.md overalt med plain dansk status. Manuals og research ind under projects/. Rod reduceret til 2 mapper (projects/ + .claude/). CONTEXT.md template designet (rekursivt, skalerbart). NOW+PLAN+PROGRESS → CONTEXT.md + PROGRESS.md.
 
-Chatlog v2 krav defineret: én fil (chatlog.md), komplet sessionsdata inkl. tænkeblokke og tool calls, session-baseret inddeling, navigationslinks. Hukommelsesarkitektur skitseret: markdown (nu) → vector DB (snart) → knowledge graph (senere). Claude Memory tilføjet til VS Code workspace.
+Chatlog v2 krav defineret: én fil (chatlog.md), komplet sessionsdata inkl. tænkeblokke og tool calls, session-baser inddeling, navigationslinks. Hukommelsesarkitektur skitseret: markdown (nu) → vector DB (snart) → knowledge graph (senere). Claude Memory tilføjet til VS Code workspace.
 
 ### Struktur
 ```
@@ -122,6 +127,7 @@ Yggdra/
 ## Changelog
 Komprimeret overblik. Fuld detalje i PROGRESS.md.
 
+- **Session 23** (2024-05-23): Context Engineering Fase 1 (hooks) implementeret. OpenClaw fundament tracked i git.
 - **Session 22** (2024-05-22): CLAUDE.md genoprettet. DAGBOG.md startet. Identificeret domæneopdeling (PC vs VPS). Bekræftet manglende SSH-adgang til VPS.
 - **Session 21** (2026-03-15): VPS V4 (4 loops, 30 iter) evalueret og hentet. 19 research-filer: llm-landskab (7 profiler+COMPARISON+RECOMMENDATION), ai-frontier (5 topics+GAPS+WHAT_IF), videns-vedligeholdelse (6 filer inkl. HOLISTIC_EVALUATION). TRIAGE.md opdateret med 7 handlinger. 9 forbrugte backlog-filer arkiveret. → PROGRESS.md#session-21
 - **Session 20** (2026-03-14): VPS v2+v3 evalueret, output hentet til PC. 3 skills, TI-projekt, research INDEX v3, BLUEPRINT.md, TRIAGE.md, vps-sandbox CONTEXT.md. → PROGRESS.md#session-20

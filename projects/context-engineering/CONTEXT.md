@@ -1,20 +1,21 @@
 # Context Engineering
 
 ## Metadata
-- **Status:** Fase 1 (Session-drift hooks) i gang. Designet af PC-specifikke hooks.
-- **Sidst opdateret:** 2024-05-22 (session 22)
+- **Status:** Fase 1 (Session-drift hooks) afsluttet (scripts bygget). Fase 2 påbegyndt.
+- **Sidst opdateret:** 2024-05-23 (session 23)
 
 ## Hvad er det
 Systematisering af Claude Code brug for maksimal kontinuitet. Fokus på hooks, compaction og state-filer.
 
 ## Hvor er vi
-- **Fase 1:** Session-drift hooks. Vi skal bygge:
-  - `scripts/session_start.sh`
-  - `scripts/pre_compact.sh`
-  - `scripts/session_end.sh`
-- **Udfordring:** Claude Code hooks i OpenClaw sandbox er begrænsede. Vi kan ikke bruge `settings.local.json` globalt, men vi kan simulere dem eller dokumentere dem til ejeren.
+- **Fase 1:** Session-drift hooks. Scripts er implementeret i `scripts/`:
+  - `session_start.sh`: Injekterer status og dagbog ved start.
+  - `pre_compact.sh`: Advarer om compaction og kører auto-chatlog.
+  - `session_end.sh`: Logger episoden og tjekker for ucommittede ændringer.
+- **Konfiguration:** `hooks_config_example.json` oprettet som skabelon til ejeren.
 
 ## Næste skridt
-1. Skitsér indholdet af de 3 hook-scripts.
-2. Forbered en `settings.json` konfiguration som ejeren kan importere.
-3. Implementér script-logikken i `scripts/`.
+1. **Fase 2:** CLAUDE.md & skills best practices.
+   - Evaluere om de genoprettede skills (`checkpoint`, `session-resume`, `sitrep`) skal forfines.
+   - Sikre at `CLAUDE.md` i roden altid afspejler de nyeste principper.
+2. Teste hooks manuelt for at verificere output-formatet.
