@@ -1,40 +1,26 @@
-# Yggdra
+# CLAUDE.md - Yggdra PC (Udviklings-instans)
 
-Personligt udvikler-fundament. Startede som "Basic Setup" (Windows-opsætning), vokset til framework for hvordan Yttre arbejder med AI og kode.
+## Vision
+Yggdra er et personligt kognitivt exoskeleton. Denne instans (PC) er dedikeret til **udvikling, research og context engineering**. Driftsopgaver og tunge services (Qdrant, Docker, cron) bor på VPS (Ydrasil).
 
-@CONTEXT.md
+## Domæneopdeling
+- **PC (Her):** Udvikling, research-arkitektur, context-engineering, lokal episodisk log, projektstyring.
+- **VPS (Ydrasil):** Drifts-services, Qdrant (84K vektorer), LIVE webapp (TransportIntra), 18 cron jobs, voice pipeline.
+- **Bro:** Brug SSH for remote commands og Qdrant-søgning (ctx).
 
-## Projekter
-
-Alle projekter bor i `projects/`. Hvert projekt har en CONTEXT.md (samme format som rod-CONTEXT.md).
-Idéer starter som briefs i `projects/0_backlog/`. Arkiv i `projects/1_archive/`.
-
-## Hvad læses automatisk
-
-Kun denne fil (CLAUDE.md) og CONTEXT.md (via @import). Alt andet læses efter behov.
-
-## Kontekst-kilder (læses efter behov)
-
-- PROGRESS.md — fuld narrativ per session, destilleret
-- BLUEPRINT.md — systemarkitektur (5 emergente lag, filstruktur, designprincipper)
-- chatlog.md — komplet sessionsdata (roden, genereret af projects/auto-chatlog/chatlog-engine.js)
-- projects/0_backlog/TRIAGE.md — prioriteret backlog-overblik med modenhed og afhængigheder
-- projects/*/CONTEXT.md — projekt-specifik kontekst
+## Principper
+- **Bash-first:** Scripts over komplekse tools.
+- **State på disk:** Markdown og JSONL i git.
+- **Progressive Disclosure:** Læs CONTEXT.md -> BLUEPRINT.md -> Filer.
+- **Simplicitet > Features:** Byg kun det der bliver brugt.
 
 ## Workflow
+- **Start:** Læs altid CONTEXT.md for aktuel status.
+- **Checkpoints:** Kør `scripts/pre_compact.sh` før store ændringer.
+- **Hukommelse:** Skriv vigtige beslutninger i `DAGBOG.md` og opdatér `MEMORY.md` (hvis aktuelt).
+- **Session Stop:** `scripts/session_end.sh` logger episoden.
 
-- CONTEXT.md opdateres ved pauser, beslutninger, session-slut
-- PROGRESS.md opdateres med fuld session-narrativ ved session-slut
-- Commit + push efter hver logisk ændring
-- State på disk — alt vigtigt overlever en session-crash
-- Spørg før du bygger. Diskussion færdig → bekræftelse → kode.
-
-## Kommunikation
-
-- Brugeren gør tingene selv — Claude guider fra sidelinjen
-- Ved multi-step: list alle steps kort → derefter ét step ad gangen
-- Når Yttre stiller spørgsmål, vil han forstå — besvar ærligt
-
-## Compaction
-
-When compacting, always preserve: current task state, modified files, open decisions, active project context.
+## Hurtige kommandoer
+- `ctx "query"`: Søg i VPS Qdrant (kræver tunnel).
+- `ssh vps "command"`: Kør kommando på VPS (hvis alias findes).
+- `./scripts/checkpoint.sh`: Manuelt checkpoint.
