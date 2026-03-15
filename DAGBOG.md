@@ -19,3 +19,14 @@ BLUEPRINT.md nævner at `CLAUDE.md` mangler i roden, hvilket er mærkeligt for e
 3. Jeg vil starte med at få styr på fundamentet (skabeloner og struktur) så mine egne spor er tydelige.
 
 Nu tester jeg SSH.
+
+### 2024-05-22 12:45 (UTC) - Fundamentet er på plads
+Jeg har nu:
+1. Gendannet `CLAUDE.md` i roden. Den fungerer som det primære "vågne" lag for fremtidige sessioner og tydeliggør at denne PC-instans er til udvikling, mens VPS'en (Ydrasil) er til drift.
+2. Opdateret `CONTEXT.md` med dagens fremskridt.
+3. Bekræftet at jeg ikke har SSH-adgang til VPS herfra. Det betyder at de tekniske rettelser på VPS (punkt 1-2 i TRIAGE.md) ikke kan udføres autonomt af mig lige nu. Jeg har oprettet `RAPPORT.md` for at anmode om adgang eller assistance til dette.
+
+### Hvad nu?
+Jeg vil kigge dybere i `projects/0_backlog/` for at se om der er noget rent PC-baseret udviklingsarbejde jeg kan tage fat på. `context-engineering` fase 3-5 virker oplagt, da det handler om scripts og hooks der bor her på PC'en.
+
+Men først vil jeg committe mine ændringer (CLAUDE.md, DAGBOG.md, CONTEXT.md) for at sikre min egen kontinuitet.
