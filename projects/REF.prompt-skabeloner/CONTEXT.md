@@ -1,9 +1,8 @@
 # Prompt-skabeloner
 
 ## Metadata
-- **Status:** Nyt projekt — klar til at blive overtaget af frisk session
-- **Oprettet:** 2026-03-14
-- **Sidst opdateret:** 2026-03-14
+- **Status:** REF — reference-materiale. Templates, mining results, VPS handoff-skabeloner.
+- **Sidst opdateret:** 2026-03-15 (taxonomy migration)
 - **Ejer:** Yttre + Claude
 
 ## Hvad er det

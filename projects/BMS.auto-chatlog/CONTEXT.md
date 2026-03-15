@@ -1,9 +1,8 @@
 # Auto-chatlog
 
 ## 0. Metadata
-- **Status:** v3 fungerer — gap-baseret sektioner, subagent-abstracts, danske datoer. Mangler automatisering.
-- **Oprettet:** 2026-03-11
-- **Sidst opdateret:** 2026-03-14 (session 18)
+- **Status:** BMS — v3 kører, brugt aktivt. Mangler automatisering (fase 3).
+- **Sidst opdateret:** 2026-03-15 (taxonomy migration)
 - **Ejer:** Yttre + Claude
 
 ## 1. Origin Story

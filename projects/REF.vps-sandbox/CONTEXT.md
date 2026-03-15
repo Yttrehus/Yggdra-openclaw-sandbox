@@ -1,8 +1,8 @@
 # VPS Sandbox
 
 ## Metadata
-- **Status:** V4 afsluttet (4 parallelle loops, 30 iterationer). Output evalueret, klar til hentning.
-- **Sidst opdateret:** 2026-03-15 (session 21)
+- **Status:** REF — V4 hentet til PC. V5 deployet (5+3 iter). V6 deployet (session 22).
+- **Sidst opdateret:** 2026-03-15 (session 22)
 
 ## Hvad er det
 Autonom sandkasse på VPS (72.62.61.51) der kører Claude i Ralph loop — 10 iterationer per run, state på disk, ingen menneskelig interaktion undervejs. Producerer deliverables der evalueres og hentes til PC.
