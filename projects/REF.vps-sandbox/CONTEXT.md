@@ -50,6 +50,21 @@ Nøglefund:
 - `videns-vedligeholdelse/` — HOLISTIC_EVALUATION.md, PIPELINE_DESIGN.md, DECAY_MODEL.md, SOURCE_REGISTRY.md, MAINTENANCE_PROTOCOL.md, YGGDRA_SCAN.md
 - youtube-pipeline-v2: kode allerede på VPS (frame_extractor.py, udvidet youtube_monitor.py, 3 nye kanaler)
 
+### V5 (session 22)
+5+3 iterationer. RSS bug fix, heartbeat genaktivering, temporal decay, reranking, health check, blog feeds, automation inventory. Deployet på VPS.
+
+### V6 (session 22 — PC-konsolidering)
+Research-konsolidering: 14 nye destillater/filer hentet fra VPS `/root/Yggdra/research/` → `projects/2_research/`. 40 absorberede filer + LaTeX-artefakter slettet fra `LIB.ydrasil/research/` (91→51 filer). ARCHITECTURE_CONTINUOUS_MEMORY.md slettet fra docs/. Sources/ synkroniseret.
+
+Nye filer i 2_research/:
+- DESTILLAT_memory_retrieval.md, DESTILLAT_agents_automation.md (merged destillater)
+- visual_llm_landscape_2026.md, zero_token_pipeline_architecture.md
+- RESEARCH_CATALOG.md, RESEARCH_DEEP_STUDY_2026-03-15.md, RED_TEAM_EVALUERING_2026-03-15.md
+- hyperempati_klinisk_psykologi.md, klinisk_profilering_frameworks.md, mbti_vs_big_five_evidens.md
+- openclaw_deep_dive_2026-03-15.md, personal_data_pipeline_best_practices.md
+- skattepenge_ekspertkilder_2026.md, solo_dev_google_maps_ai_2026.md
+- sources/README.md (ny)
+
 ## Infrastruktur
 - Placering: `/root/Yggdra/yggdra-pc/`
 - Loop: `claude --print` i for-loop (10 iterationer)

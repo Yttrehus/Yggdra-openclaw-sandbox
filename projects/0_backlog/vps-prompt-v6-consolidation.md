@@ -1,80 +1,121 @@
-# VPS Prompt — V6 Research Consolidation
+# V6 — Research Consolidation
 
-## Formål
-Konsolidér VPS research-banken. Gamle filer der er absorberet i destillater skal slettes. Resultatet sammenholdes med PC-projektmappen (klonet fra GitHub) for at vurdere overlap, huller og næste skridt.
+## Baggrund
 
-## Start
+VPS'en (72.62.61.51) har kørt en session der:
+1. Klonede dette PC-repo til `/root/Yggdra/yggdra-pc/`
+2. Læste ALLE gamle research-filer fra `projects/LIB.ydrasil/research/` (~90 filer) og `projects/2_research/` (V4 output)
+3. Destillerede og mergede dem til **nye, bedre filer** der nu ligger i `/root/Yggdra/research/`
+4. Slettede 4 rene duplikater og 23 orphaned filer PÅ VPS
+5. Men de **gamle filer på PC er ikke slettet endnu**
 
+## Opgaven
+
+Hent de nye destillater fra VPS via SSH → slet de gamle filer de erstatter på PC → resultatet er en mindre, skarpere research-bank.
+
+## Konkret
+
+### Step 1 — Forstå hvad VPS producerede
+
+SSH til VPS og læs disse filer:
 ```bash
-cd /root/Yggdra
-git -C /root/Yggdra/yggdra-pc pull origin main
+ssh root@72.62.61.51 "cat /root/Yggdra/research/RESEARCH_CATALOG.md"
+ssh root@72.62.61.51 "cat /root/Yggdra/research/RED_TEAM_EVALUERING_2026-03-15.md"
 ```
 
-## Fase 1 — Identifikér hvad der er absorberet (iteration 1-2)
+RESEARCH_CATALOG.md indeholder en komplet liste over alle 79 research-filer med kategorier og kvalitetsvurdering. RED_TEAM_EVALUERING er en ærlig evaluering af de nye filer.
 
-### Iteration 1: Mapping
-Læs RESEARCH_CATALOG.md og begge DESTILLAT-filer. For HVER gammel research-fil, vurdér:
-- Er den **fuldt absorberet** i et destillat? → mærk SLET
-- Er den **delvist absorberet** men har unikt indhold? → mærk MERGE (specificér hvad der mangler)
-- Er den **ikke dækket** af noget destillat? → mærk BEHOLD
+### Step 2 — Hent nye filer fra VPS
 
-Skriv resultatet til `/root/Yggdra/research/CONSOLIDATION_MAP.md`:
+Disse filer er NYE (produceret af VPS-sessionen) og skal hentes til PC:
+
 ```
-| Fil | Status | Absorberet af | Unikt indhold |
+/root/Yggdra/research/DESTILLAT_memory_retrieval.md      → merged fra ~12 memory-filer
+/root/Yggdra/research/DESTILLAT_agents_automation.md      → merged fra ~11 agent-filer
+/root/Yggdra/research/visual_llm_landscape_2026.md        → ny vision/LLM research
+/root/Yggdra/research/zero_token_pipeline_architecture.md → pipeline design
+/root/Yggdra/research/RESEARCH_CATALOG.md                 → katalog over alle filer
+/root/Yggdra/research/RESEARCH_DEEP_STUDY_2026-03-15.md   → meta-analyse
+/root/Yggdra/research/RED_TEAM_EVALUERING_2026-03-15.md   → adversarial evaluering
+/root/Yggdra/research/hyperempati_klinisk_psykologi.md    → psykologi
+/root/Yggdra/research/klinisk_profilering_frameworks.md   → psykologi
+/root/Yggdra/research/mbti_vs_big_five_evidens.md         → psykologi
+/root/Yggdra/research/openclaw_deep_dive_2026-03-15.md    → agent arkitektur
+/root/Yggdra/research/personal_data_pipeline_best_practices.md → pipeline
+/root/Yggdra/research/skattepenge_ekspertkilder_2026.md   → økonomi/politik
+/root/Yggdra/research/solo_dev_google_maps_ai_2026.md     → transport
+/root/Yggdra/research/sources/                            → 8 kuraterede kildefiler
 ```
 
-### Iteration 2: Slet og verificér
-- Slet alle filer mærket SLET
-- For filer mærket MERGE: tilføj det unikke indhold til det relevante destillat, derefter slet
-- Tæl filer før og efter. Rapportér reduktion.
+Hent via: `ssh root@72.62.61.51 "cat /root/Yggdra/research/FILNAVN"` → Write til PC.
+Placer dem i `projects/2_research/` (den aktive research-mappe).
 
-## Fase 2 — Sammenhold med PC-projekt (iteration 3-4)
+### Step 3 — Slet gamle filer der er absorberet
 
-### Iteration 3: Scan PC-repo
-Læs `/root/Yggdra/yggdra-pc/` — specifikt:
-- `CONTEXT.md` (overordnet state)
-- `BLUEPRINT.md` (arkitektur)
-- `projects/0_backlog/TRIAGE.md` (backlog)
-- `projects/2_research/` (hvad PC allerede har af V4 output)
-- `projects/REF.vps-sandbox/CONTEXT.md` (VPS historik)
-- Alle CONTEXT.md filer i projektmapper
+Brug RESEARCH_CATALOG.md til at afgøre hvilke gamle filer i `projects/LIB.ydrasil/research/` der er absorberet i destillaterne. Princip:
 
-Sammenhold med hvad VPS har i `/root/Yggdra/research/` efter konsolidering.
+**DESTILLAT_memory_retrieval.md** erstatter (verificeret fra VPS agent-prompt):
+1. ai_memory_research.md
+2. memory_autonomy_research_2026-02-23.md
+3. memory_bridge_research.md
+4. human_memory_research.md
+5. nate_jones_memory_video.md
+6. context_window_workarounds_2026.md
+7. AI_MEMORY_SYSTEMS_SURVEY.md
+8. openclaw_deep_dive_2026-03-15.md ← ny fil, beholdes OGSÅ separat
+9. personal_data_pipeline_best_practices.md ← ny fil, beholdes OGSÅ separat
+10. zero_token_pipeline_architecture.md ← ny fil, beholdes OGSÅ separat
+11. Fra PC: `2_research/ai-frontier/topics/memory-systems.md` ← V4 output, BEHOLD
+12. Fra PC: `LIB.ydrasil/docs/ARCHITECTURE_CONTINUOUS_MEMORY.md` ← absorberet, SLET
 
-### Iteration 4: Vurdering
-Skriv `/root/Yggdra/research/VPS_PC_ALIGNMENT.md`:
-1. **Overlap**: Hvad findes begge steder? Er versionen på PC eller VPS nyere/bedre?
-2. **Kun på VPS**: Hvad har VPS som PC mangler? Er det værd at hente?
-3. **Kun på PC**: Hvad har PC som VPS ikke kender til?
-4. **Huller**: Hvad mangler begge steder?
-5. **Anbefalinger**: Konkrete handlinger med prioritet
+Slet altså nr. 1-7 + nr. 12 fra LIB.ydrasil. Nr. 8-11 er nye filer der hentes i step 2.
 
-## Fase 3 — Briefs og oprydning (iteration 5-6)
+**DESTILLAT_agents_automation.md** erstatter (fra RESEARCH_CATALOG kategori 1 "AI Agents & Automation"):
+1. agents_framework_comparison.md
+2. agents_langgraph_deep_dive.md
+3. agents_evaluation_observability.md
+4. agents_context_engineering.md
+5. agent_implementation_notes.md
+6. autonomous_ai_setup.md
+7. armin_ronacher_agent_philosophy_2026.md
+8. mario_zechner_pi_research_2026-03-06.md
+9. HOW_TO_BUILD_AGENTS.md ← absorberet
+10. CH6_AGENTS_AUTOMATION.md
+11. CH6_AGENTS_PRODUCTION.md
+12. CH6_AGENTS_PRACTICE.md
 
-### Iteration 5: Nye briefs
-Baseret på VPS_PC_ALIGNMENT og RED_TEAM_EVALUERING, opret nye briefs i `/root/Yggdra/yggdra-pc/projects/0_backlog/`:
-- Brug `raw.` præfiks for sketches, `brief.` for gennemtænkte
-- Opdatér TRIAGE.md med de nye briefs
-- Opdatér eksisterende briefs der er påvirket af ny viden
+Slet alle 12 fra LIB.ydrasil/research/.
 
-### Iteration 6: Final review
-- Tæl research-filer før og efter hele processen
-- Kvalitetsvurdér de overlevende filer (1-10, med kriterier: korrekthed, aktualitet, actionability)
-- Skriv CONSOLIDATION_REPORT.md med:
-  - Filer slettet (med begrundelse)
-  - Filer merged (hvad og hvorhen)
-  - Filer beholdt (med kvalitetsscore)
-  - Anbefalinger til PC
-  - Ærlig vurdering: er research-banken nu i en tilstand der understøtter implementering?
+**Rene duplikater** (allerede slettet på VPS, slet også her):
+- KAP1_RESEARCH_METODIK.md
+- KAP2_CONTEXT_WINDOW.md
+- CH8_TOOLS_ECOSYSTEM.md (mellemversion, CH8_TOOLS_PRACTICE.md er final)
+- RESEARCH_INDEX.md (erstattet af RESEARCH_CATALOG.md)
 
-## Regler
-- Build > Research. Du sorterer og rydder op, du producerer IKKE ny research.
-- Slet modigt. En fil der er absorberet i et destillat har ingen værdi som selvstændig fil.
-- Vær ærlig i vurderingen. Red team's pointe ("IMPLEMENTATION_LOG, ikke RESEARCH") er korrekt.
-- Brug PC-repoet som sandhed for hvad der allerede er gjort.
+**LaTeX-artefakter** (ingen research-værdi):
+- *.aux, *.out, *.toc, *.log, *.tex
+- template.latex, md_to_latex.py, prepare_for_pandoc.py
+- HOW_TO_BUILD_AGENTS.pdf, HOW_TO_BUILD_AGENTS_pandoc.md (pandoc-versioner)
+- claude_code_ecosystem_2026.pdf (PDF af .md)
+- figures/ (LaTeX figurer)
 
-## Start-kommando
+**VERIFICÉR** ved at læse RESEARCH_CATALOG.md fra VPS (`ssh root@72.62.61.51 "cat /root/Yggdra/research/RESEARCH_CATALOG.md"`) — den har den autoritative kategori-liste over alle 79 filer. Brug den til at afgøre resterende filer der ikke er nævnt ovenfor.
 
-```bash
-cd /root/Yggdra && for i in $(seq 1 6); do echo "=== Iteration $i === $(date)"; timeout 600 /root/.local/bin/claude --print "Du er iteration $i af 6. Læs denne fil for kontekst: /root/Yggdra/yggdra-pc/projects/0_backlog/vps-prompt-v6-consolidation.md — følg instrukserne for iteration $i."; sleep 10; done
-```
+### Step 4 — Vurdér hvad der er tilbage
+
+Efter sletning: tæl filer i LIB.ydrasil/research/. Hvad overlevede? Er det filer der stadig har unik værdi, eller er det bare noget der ikke blev nået? Overvej om hele LIB.ydrasil/ kan arkiveres når research er flyttet.
+
+Bemærk: `projects/LIB.ydrasil/docs/` og `projects/LIB.ydrasil/sessions/` er IKKE research — docs er VPS-dokumentation, sessions er rå session-logs. De er ikke berørt af destillaterne.
+
+### Step 5 — Opdatér state
+
+- Opdatér `projects/REF.vps-sandbox/CONTEXT.md` med V6-sektion
+- Opdatér `projects/0_backlog/TRIAGE.md` hvis der er ændringer
+- Opdatér `CONTEXT.md` med session-entry
+
+## Vigtigt
+
+- Brug subagents parallelt til SSH-hentning (én agent per fil eller filgruppe)
+- Slet MODIGT. En fil der er absorberet i et destillat har ingen værdi som selvstændig fil.
+- Red team's pointe er korrekt: "Den næste fil bør hedde IMPLEMENTATION_LOG, ikke RESEARCH."
+- Sessions-filer i LIB.ydrasil/sessions/ (~130 .jsonl filer) — rør dem IKKE med mindre Yttre siger det.

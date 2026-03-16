@@ -1,20 +1,24 @@
 # Yggdra
 
 ## Metadata
-- **Status:** Session 22. Backlog burn planlagt. VPS V6 deployet (7 iter). PC-plan klar (8 briefs).
-- **Sidst opdateret:** 2026-03-15 (session 22)
+- **Status:** Session 23. V6 research-konsolidering gennemført. LIB.ydrasil reduceret 91→8 filer. 14 destillater hentet til 2_research/.
+- **Sidst opdateret:** 2026-03-16 (session 23)
 
 ## Hvad er det
 Personligt udvikler-fundament. Startede som "Basic Setup" (Windows-opsætning), vokset til framework for hvordan Yttre arbejder med AI og kode.
 
 ## Hvor er vi
 
-### Seneste session (22 — 2026-03-15)
-Backlog burn — mål: luk max briefs i én session.
-- **VPS V6 deployet:** 7 iterationer (RSS bug, heartbeat, temporal decay, reranking, health check, blog feeds, automation inventory) → `/root/Yggdra/yggdra-pc/v6-backlog-burn/`
-- **PC-plan klar:** `projects/0_backlog/RDY.backlog-burn.md` — taxonomy migration, terminal-auto, Notion, automation-index, context-eng hooks, luk briefs
-- **Forventet:** 8 briefs lukket + 6 V4 handlinger done
-- **VPS IKKE startet endnu** — Yttre starter manuelt
+### Seneste session (23 — 2026-03-16)
+V6 research-konsolidering — VPS destillater hentet, gamle filer slettet.
+- **14 nye filer hentet fra VPS** → `projects/2_research/` (2 destillater, 5 standalone, 3 psykologi, 2 transport/økonomi, catalog+deep study+red team)
+- **83 filer slettet fra LIB.ydrasil/research/** (91→8): absorberede memory/agent-filer, CH-kapitler (bog-projekt), duplikater, LaTeX-artefakter, forældede snapshots
+- **8 filer beholdt:** 4 visualization, 2 voice, 1 notion, sources/ — understøtter aktive briefs
+- **ARCHITECTURE_CONTINUOUS_MEMORY.md** slettet fra docs/ (absorberet i destillat)
+- **State opdateret:** REF.vps-sandbox/CONTEXT.md (V6-sektion), TRIAGE.md (V6 afsluttet)
+
+### Session 22 (2026-03-15)
+Backlog burn planlagt. VPS V6 deployet (7 iter: RSS+heartbeat+decay+reranking+healthcheck+feeds+inventory). PC-plan klar (8 briefs).
 
 ### Session 21 (2026-03-15)
 VPS V4 research loops (4 parallelle, 30 iterationer, alle PASS) evalueret og hentet til PC:
@@ -65,8 +69,8 @@ Yggdra/
 │   ├── BMS.auto-chatlog/         ← chatlog-engine, kører automatisk
 │   ├── DLR.session-blindhed/     ← aktiv research
 │   ├── KNB.manuals/              ← git, terminal, vscode guides
-│   ├── LIB.research/             ← INDEX.md, llm-landskab/, ai-frontier/, videns-vedligeholdelse/
-│   ├── LIB.ydrasil/              ← VPS-æra research, docs, sessions
+│   ├── 2_research/               ← V4+V6 destillater, llm-landskab/, ai-frontier/, videns-vedligeholdelse/
+│   ├── LIB.ydrasil/              ← VPS-æra docs, sessions, 8 resterende research-filer
 │   ├── REF.mcp-skills-kompendium/← MCP+skills opslagsværk
 │   ├── REF.prompt-skabeloner/    ← templates, MINING_RESULTS
 │   ├── REF.transportintra/       ← TI arkiv, API docs, 8 subprojects
@@ -75,8 +79,8 @@ Yggdra/
 ```
 
 ### Aktive projekter
-- **REF.vps-sandbox:** v1-v4 gennemført. V4 output hentet (19 filer). → `projects/REF.vps-sandbox/CONTEXT.md`
-- **LIB.research:** V4 output (llm-landskab, ai-frontier, videns-vedligeholdelse). → `projects/LIB.research/`
+- **REF.vps-sandbox:** v1-v6 gennemført. V6: research-konsolidering, 14 filer hentet. → `projects/REF.vps-sandbox/CONTEXT.md`
+- **2_research:** V4+V6 destillater (llm-landskab, ai-frontier, videns-vedligeholdelse, memory+agents destillater). → `projects/2_research/`
 - **BMS.auto-chatlog:** v3 fungerer (~3000 beskeder, 39 sessions). → `projects/BMS.auto-chatlog/CONTEXT.md`
 - **REF.transportintra:** Komplet arkiv. → `projects/REF.transportintra/CONTEXT.md`
 
@@ -123,6 +127,7 @@ Yggdra/
 ## Changelog
 Komprimeret overblik. Fuld detalje i PROGRESS.md.
 
+- **Session 23** (2026-03-16): V6 research-konsolidering. 14 destillater hentet fra VPS. 83 filer slettet fra LIB.ydrasil/research/ (91→8). CH-kapitler, duplikater, LaTeX, forældede snapshots fjernet. → PROGRESS.md#session-23
 - **Session 22** (2026-03-15): Backlog burn planlagt. VPS V6 deployet (7 iter: RSS+heartbeat+decay+reranking+healthcheck+feeds+inventory). PC-plan: 8 briefs lukkes. RDY.backlog-burn.md skrevet. → PROGRESS.md#session-22
 - **Session 21** (2026-03-15): VPS V4 (4 loops, 30 iter) evalueret og hentet. 19 research-filer: llm-landskab (7 profiler+COMPARISON+RECOMMENDATION), ai-frontier (5 topics+GAPS+WHAT_IF), videns-vedligeholdelse (6 filer inkl. HOLISTIC_EVALUATION). TRIAGE.md opdateret med 7 handlinger. 9 forbrugte backlog-filer arkiveret. → PROGRESS.md#session-21
 - **Session 20** (2026-03-14): VPS v2+v3 evalueret, output hentet til PC. 3 skills, TI-projekt, research INDEX v3, BLUEPRINT.md, TRIAGE.md, vps-sandbox CONTEXT.md. → PROGRESS.md#session-20

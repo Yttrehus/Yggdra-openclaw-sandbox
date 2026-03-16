@@ -4,6 +4,24 @@ Fortællende dagbog. Formålet er at en ny Claude-session kan læse dette og for
 
 ---
 
+## Session 23 (2026-03-16)
+
+V6 research-konsolidering gennemført. Opgaven: hent VPS-destillater, slet absorberede filer fra PC.
+
+**Step 1-2: Hent fra VPS.** 3 parallelle subagents hentede 14 filer + sources/README.md via SSH fra `/root/Yggdra/research/` → `projects/2_research/`. Nye filer: 2 destillater (memory_retrieval 553L, agents_automation 501L), visual_llm_landscape, zero_token_pipeline, RESEARCH_CATALOG, RESEARCH_DEEP_STUDY, RED_TEAM_EVALUERING, 3 psykologi-filer, openclaw, personal_data_pipeline, skattepenge, solo_dev_google_maps.
+
+**Step 3: Første sletning (40 filer).** 19 absorberede research-filer (7 memory + 12 agent), 4 duplikater (KAP1, KAP2, CH8_TOOLS_ECOSYSTEM, RESEARCH_INDEX), 16 LaTeX-artefakter + figures/, ARCHITECTURE_CONTINUOUS_MEMORY.md fra docs/. 91→51 filer.
+
+**Step 4: Anden sletning (19 filer).** Vurdering af resterende 51 filer: LAYER1-LAYER2 rapporter (mellemprodukter, absorberet i destillat), CH-kapitler (bog-projekt feb 2026, velskrevet men forældet/overhalet), meta-filer (methodology, academic writing — googleable), forældede snapshots (AI_CLAUDE_ANTHROPIC, ai_tools_uge10, hardware-priser). Yttre godkendte sletning. 51→32 filer.
+
+**Step 5: Tredje sletning (24 filer).** CH-kapitler og gråzone-filer vurderet individuelt — indholdet er enten absorberet i destillater, overhalet af nyere research (llm-landskab, ai-frontier), internaliseret i systemer (CLAUDE.md, hooks, skills), eller googleable. Bogprojektet var værdifuldt som research-tvang, men produktet er et feb 2026-snapshot. Yttre sagde "slet". 32→8 filer.
+
+**Resultat:** LIB.ydrasil/research/ reduceret fra 91 til 8 filer. De 8 overlevende: brainmap (v1+v2), knowledge_visualization (survey+pass2), notion-best-practices, voice_app_project_state, whisper_pricing, sources/. Alle understøtter aktive backlog-briefs.
+
+**State opdateret:** REF.vps-sandbox/CONTEXT.md (V6-sektion), TRIAGE.md (V6 afsluttet), CONTEXT.md (session 23).
+
+---
+
 ## Session 22 (2026-03-15)
 
 Backlog burn planlagt. VPS V6 deployet. Taxonomy-migration staged fra session 21 verificeret.
