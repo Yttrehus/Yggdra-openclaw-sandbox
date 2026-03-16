@@ -4,7 +4,11 @@ import re
 from datetime import datetime
 
 # Stier baseret på Yggdra struktur
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Scripts bor i projects/sip/fact_extraction_v2/
+# Roden er tre niveauer oppe
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "../../.."))
+
 DIGEST_PATH = os.path.join(PROJECT_ROOT, "projects/auto-chatlog/sections-digest.json")
 FACTS_PATH = os.path.join(PROJECT_ROOT, "data/extracted_facts.json")
 
@@ -49,8 +53,24 @@ def extract_facts_heuristic(text):
             "confidence": 0.7
         })
 
+    # 4. Specifikke beslutninger (PoC relateret)
+    if "temporal decay" in clean_text.lower():
+        facts.append({
+            "fact": "Agenten arbejder på temporal decay PoC.",
+            "category": "action",
+            "confidence": 0.9
+        })
+
+    # 5. Beslutninger/Valg
+    if re.search(r"besluttet|valgt|prioriteret", clean_text, re.I):
+        facts.append({
+            "fact": f"Beslutning identificeret: {clean_text[:100]}...",
+            "category": "action",
+            "confidence": 0.75
+        })
+
     # Catch-all hvis teksten er lang nok (noget sker jo)
-    if len(clean_text) > 50 and not facts:
+    if len(clean_text) > 100 and not facts:
          facts.append({
             "fact": "Generel aktivitet i sessionen.",
             "category": "activity",
@@ -80,9 +100,6 @@ def process_digest():
 
     new_facts_count = 0
     for section in digest.get('sections', []):
-        # Vi ekstraherer kun hvis vi ikke allerede har processeret denne sektion (simuleret)
-        # I en rigtig version ville vi tjekke section id eller timestamp
-        
         combined_text = " ".join(section.get('userSamples', []) + section.get('assistantSamples', []))
         found = extract_facts_heuristic(combined_text)
         

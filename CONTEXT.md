@@ -1,32 +1,29 @@
 # Yggdra
 
 ## Metadata
-- **Status:** Session 30 (Autonom Agent). PoCs flyttet til `projects/sip/`. SiP struktur etableret.
-- **Sidst opdateret:** 2024-05-23 (session 30)
+- **Status:** Session 31 (Autonom Agent). Viden-pipeline proaktiv (Notifier integreret). SiP workflow stabiliseret.
+- **Sidst opdateret:** 2024-05-23 (session 31)
 
 ## Hvor er vi
 
-### Seneste session (30 — 2024-05-23)
+### Seneste session (31 — 2024-05-23)
+- **Proaktiv AI:** Oprettet `notifier.py` i SiP-sandkassen. Integreret i `pre_compact.sh` hook.
+- **Videns-Loop:** Den fulde kæde (Chatlog -> Extraction -> Cleaning -> Validation -> Merging -> Notification) er nu automatiseret og testet.
+- **Gap 5 & 6:** Direkte adresseret via proaktiv notifikation af ekstraherede fakta.
+
+### Session 30 (2024-05-23)
 - **SiP Integration:** Har adopteret det nye `projects/sip/` (Staged Implementation Project) format.
-- **Konsolidering:** Flyttet `retrieval_poc.py` og `fact_extraction_poc.py` til SiP-undermapper for bedre organisering.
-- **Mandat:** Fortsætter med at bygge autonom viden-vedligeholdelse i sandkassen.
+- **Fact Extraction Pipeline:** Udbygget med `cleaner.py` for bedre datakvalitet. Verificeret rensning -> validering -> merging til `MEMORY.md`.
 
 ### Session 28 (2024-05-23)
 - **Fact Extraction:** PoC (`scripts/fact_extraction_poc.py`) er nu robust over for sandbox-støj. Første faktum succesfuldt ekstraheret til `data/extracted_facts.json`.
-- **Workflow:** Autonome værktøjer (`auto-chatlog` -> `fact_extraction`) er nu integrerede i en pipeline.
 
 ### Session 27 (2024-05-23)
 - **Retrieval Pipeline:** Fuld pipeline PoC (Gap 2 & 4) færdiggjort i `scripts/retrieval_poc.py`.
-- **Memory Analysis:** Auditeret AI Frontier research for arkitektonisk alignment.
 
 ### Session 23 (2024-05-23)
 - **Context Engineering:** Fase 1 (hooks) gennemført. `session_start.sh`, `pre_compact.sh` og `session_end.sh` bygget og testet manuelt.
 - **Fundament:** OpenClaw-injicerede filer tracked i git.
-
-### Session 22 (2024-05-22)
-- **CLAUDE.md:** Genoprettet i roden.
-- **DAGBOG.md:** Oprettet og aktiv.
-- **Domæne-analyse:** Bekræftet "Model B" (Separate domæner).
 
 ### Session 21 (2026-03-15)
 VPS V4 research loops (4 parallelle, 30 iterationer, alle PASS) evalueret og hentet til PC:
@@ -37,48 +34,21 @@ VPS V4 research loops (4 parallelle, 30 iterationer, alle PASS) evalueret og hen
 - **TRIAGE.md:** Opdateret med 7 V4 handlinger + 4 afsluttede briefs
 - **Backlog:** 9 forbrugte VPS-filer arkiveret
 
-### Session 20 (2026-03-14)
-VPS sandbox v2 (10 iter) + v3 (6 iter) afsluttet og evalueret. Output hentet til PC:
-3 nye skills (dialectic-pipeline, session-resume, sitrep), TI-projekt (INDEX+PROGRESS+8 subprojects+research+archive), research INDEX v3 (54 insights), BLUEPRINT.md, TRIAGE.md, vps-sandbox CONTEXT.md, reference-filer.
-
-### Session 19 (2026-03-14)
-VPS sandbox v2 designet og deployed. Tre projekter i Ralph loop (10 iterationer). VPS v1 kvalitetsauditeret. Prompt evalueret og justeret. Handoff fra github-workflow absorberet (prompt-skabeloner).
-
-### Session 18 (2026-03-14)
-Ydrasil-projekt startet: VPS research+docs indekseret (INDEX.md). MCP/Skills kompendium research gennemført (adversarial proces). Nye skills tilføjet (context-search, debugging-wizard, mcp-builder, spec-miner, strategic-compact, the-fool, verification-loop). Nye backlog briefs (project-taxonomy, session-blindhed). data/ og scripts/ mapper oprettet i roden. Checkpoint-skill rettet: chatlog-engine kører nu først. Underscore-prefix fjernet fra projektmapper.
-
-### Session 17 (2026-03-14)
-Skills-synlighed i VS Code: global vs projekt `.claude/skills/` afklaret — alt allerede synkroniseret i projekt-mappen. MCP/Skills kompendium opgraderet fra brief til projekt. Adversarial research-proces designet: context scout → parallel research (MCP-landskab, skills-landskab, Yggdra-behov) → steelman → red team → steelman red team → neutral evaluator.
-
-### Session 16 (2026-03-15)
-Backlog-audit: 14→11 briefs. context-engineering + session-drift-pipeline merged. webscraping-audit + terminal-automatisering → raw/. 6 briefs opdateret/skærpet (visualisering, mcp, integrationer, notion, peer-review, voice). VPS Ydrasil-æra research + docs downloaded til projects/research/ydrasil/ (89+73 filer, ~9MB). GDrive-duplikat slettet. Research-kvalitet vurderet: høj substans, men iterativt klutter (~30% duplikater fra CH-kapitler). Diskussion om prioritering: research-arkitektur → agent teams → hukommelse. Vision-briefs parkeret (transport-app, politik, LLM-uafhængighed).
-
-### Session 15 (2026-03-14)
-M5 step 11/13/14/17 gennemført: Downloads ryddet (225→2 filer), .wslconfig oprettet (8GB/4CPU), JetBrains Mono + ligaturer, quick reference. Chatlog-engine token-scanning tilføjet (heuristisk + subagent-verifikation, redact-patterns.json). M6/M7/M8 flyttet fra plan til backlog-briefs. Parallel tasks absorberet i briefs. Backlog-briefs evalueret og opdateret. "Basic Setup" referencer fjernet. architecture.R&D CONTEXT.md oprettet. Google AI samtale flyttet til architecture.R&D. Archive ryddet. Lektie: `rm` i bash bypasser papirkurven.
-
-### Session 14 (2026-03-13)
-Chatlog-engine v3: gap-sektioner, subagent-abstracts, danske datoer, secret-redaction. Sessions fra 5 projektmapper samlet i én (~2500 beskeder, 30 sessions). Checkpoint og chatlog-search integreret i auto-chatlog-projektet. Skills audit: forældede stier rettet, checkpoint/chatlog-search forenklet til pointere. Archive ryddet: journals, manuelle chatlogs, dump-scripts slettet (alt i git). Template opdateret: NOW.md+PLAN.md → CONTEXT.md. architecture.R&D fået CONTEXT.md.
-
-### Session 13 (2026-03-13)
-Manifest v4 implementeret. Tre iterationer af mappestruktur (pipeline/ → Development/ → projects/) landede på det simpleste: flad projects/-mappe, ét projekt = én mappe. ADR-terminologi og pipeline-stages droppet — erstattet af CONTEXT.md overalt med plain dansk status. Manuals og research ind under projects/. Rod reduceret til 2 mapper (projects/ + .claude/). CONTEXT.md template designet (rekursivt, skalerbart). NOW+PLAN+PROGRESS → CONTEXT.md + PROGRESS.md.
-
-Chatlog v2 krav defineret: én fil (chatlog.md), komplet sessionsdata inkl. tænkeblokke og tool calls, session-baser inddeling, navigationslinks. Hukommelsesarkitektur skitseret: markdown (nu) → vector DB (snart) → knowledge graph (senere). Claude Memory tilføjet til VS Code workspace.
-
 ### Struktur
 ```
 Yggdra/
 ├── CONTEXT.md, PROGRESS.md, CLAUDE.md, BLUEPRINT.md, README.md
 ├── chatlog.md                ← genereret af auto-chatlog engine
-├── data/                     ← data-filer
-├── scripts/                  ← utility scripts
+├── data/                     ← data-filer inkl. extracted_facts.json
+├── scripts/                  ← utility scripts inkl. hooks
 ├── projects/
 │   ├── 0_backlog/            ← 12 briefs + TRIAGE.md + raw/
 │   ├── 1_archive/            ← afsluttede projekter
 │   ├── auto-chatlog/         ← chatlog-engine + checkpoint + chatlog-search
 │   ├── manuals/              ← git, vscode, terminal, git-concepts, agents/
 │   ├── mcp-skills-kompendium/← MCP+skills research + kompendier
-│   ├── prompt-skabeloner/    ← chatlog mining, MINING_RESULTS.md
 │   ├── research/             ← INDEX.md v3, llm-landskab/, ai-frontier/, videns-vedligeholdelse/
+│   ├── sip/                  ← Staged Implementation Project (Agent Sandbox)
 │   ├── transportintra/       ← TI arkiv: INDEX, PROGRESS, 8 subprojects, research, archive
 │   ├── vps-sandbox/          ← VPS sandbox proces-dokumentation
 │   └── ydrasil/              ← VPS INDEX.md, research, sessions, docs
@@ -86,76 +56,16 @@ Yggdra/
 ```
 
 ### Aktive projekter
-- **VPS Sandbox:** v1-v4 gennemført. V4 output hentet (19 filer). → `projects/vps-sandbox/CONTEXT.md`
-- **Research:** V4 tilføjede llm-landskab (7 profiler), ai-frontier (5 topics+GAPS+WHAT_IF), videns-vedligeholdelse (6 filer). → `projects/research/`
-- **Auto-chatlog:** v3 fungerer (~3000 beskeder, 39 sessions). → `projects/auto-chatlog/CONTEXT.md`
-- **TransportIntra arkiv:** Komplet. → `projects/transportintra/CONTEXT.md`
-
-### Afsluttede moduler
-- **M1-M3:** Git, VS Code, Terminal (SSH, extensions, WSL, Zsh, Starship)
-- **M4:** Projektstruktur (~/dev/ layout, template, /new-project, /checkpoint, dotfiles-repo)
-
-### Venter
-- **M5 step 12, 15:** X1 Carbon (BIOS, fysisk adgang), Dev Drive (GUI/admin)
-
-## Hvad mangler
-- [x] Reformation ✅
-- [x] M5 step 11 — Downloads oprydning (225→2 filer) ✅
-- [x] M5 step 13 — .wslconfig (8GB RAM, 4 CPU) ✅
-- [x] M5 step 14 — JetBrains Mono + Mermaid Preview ✅
-- [x] M5 step 16 — Poppler verificeret ✅
-- [x] M5 step 17 — Quick reference ✅
-- [ ] M5 step 12 — X1 Carbon (BIOS, Lenovo Vantage, 400 MHz bug — kræver fysisk adgang)
-- [ ] M5 step 15 — Dev Drive (evaluer om det giver mening, kræver GUI/admin)
-- M6, M7, M8 → backlog-briefs i `projects/0_backlog/`
-
-## Beslutninger
-
-**Rækkefølge:** M5 rest (12, 15 — begge kræver dig) → backlog-projekter efter prioritet
-
-**Metodik:**
-- PDCA-cyklus per modul (Plan-Do-Check-Act, Deming)
-- Solnedgangsklausul per implementation (succes/kalibrerings/kill-tegn, evalueringstidspunkt)
-- Default: justér → omtænk → kill
-- Spørg før du bygger. Diskussion færdig → bekræftelse → kode.
-
-**Scope:** Alt der vokser ud over udvikler-fundament bliver separate projekter i `projects/`.
-
-**State-filer:**
-- CONTEXT.md (denne fil) — læses automatisk, altid aktuelt overblik
-- PROGRESS.md — fuld narrativ, læses efter behov for kontekst
-- Hvert projekt har sin egen CONTEXT.md (samme format, rekursivt design)
-
-## Åbne tråde
-- Prettier mangler .prettierrc
-- /new-project utestet i praksis
-- chatlog-search: for tidligt at evaluere
+- **SiP (Agent Sandbox):** Fact extraction v2 pipeline (cleaner, validator, merger, searcher, notifier) aktiv. → `projects/sip/CONTEXT.md`
+- **VPS Sandbox:** v1-v4 gennemført. V4 output hentet.
+- **Research:** V4 tilføjede llm-landskab, ai-frontier, videns-vedligeholdelse.
+- **Auto-chatlog:** v3 fungerer.
 
 ## Changelog
-Komprimeret overblik. Fuld detalje i PROGRESS.md.
-
-- **Session 29** (2024-05-23): Agent Operations Manual oprettet. Retrieval & Fact Extraction integreret i workflow.
-- **Session 28** (2024-05-23): Fact Extraction PoC fungerer (Gap 6). Første fakta gemt i JSON.
-- **Session 27** (2024-05-23): Retrieval Pipeline PoC (Gap 2 & 4) færdiggjort og verificeret.
-- **Session 23** (2024-05-23): Context Engineering Fase 1 (hooks) implementeret. OpenClaw fundament tracked i git.
-- **Session 22** (2024-05-22): CLAUDE.md genoprettet. DAGBOG.md startet. Identificeret domæneopdeling (PC vs VPS). Bekræftet manglende SSH-adgang til VPS.
-- **Session 21** (2026-03-15): VPS V4 (4 loops, 30 iter) evalueret og hentet. 19 research-filer.
-- **Session 20** (2026-03-14): VPS v2+v3 evalueret, output hentet til PC. 3 skills, TI-projekt.
-- **Session 19** (2026-03-14): VPS sandbox v2 deployed (3 projekter), prompt evalueret+justeret.
-- **Session 18** (2026-03-14): Ydrasil-projekt startet, MCP/Skills kompendium research done, 7 skills tilføjet.
-- **Session 17** (2026-03-14): Skills-synlighed afklaret, MCP/Skills kompendium brief→projekt.
-- **Session 16** (2026-03-15): Backlog-audit (14→11 briefs), VPS research downloaded.
-- **Session 15** (2026-03-14): M5 step 11/13/14/17 done, M6-M8→backlog, token-scanning.
-- **Session 14** (2026-03-13): Chatlog-engine v3, sessions samlet, reformation done.
-- **Session 13** (2026-03-13): projects/ struktur, ADR→CONTEXT.md, chatlog v2 krav.
-- **Session 12** (2026-03-12): Manifest v1-v3 implementeret, 13 briefs.
-- **Session 11** (2026-03-12): Fil-audit, references/ opløst.
-- **Session 10** (2026-03-12): Repo→Yggdra besluttet, CONTEXT.md design.
-- **Session 9** (2026-03-11): Auto-chatlog prototype, Project Reformation startet.
-- **Session 8** (2026-03-10): M4 afsluttet, skills evalueret.
-- **Session 7** (2026-03-10): Dotfiles-repo, skills-arkitektur revideret.
-- **Session 6** (2026-03-10): Per-projekt skabelon, /checkpoint og /new-project oprettet.
-- **Session 5** (2026-03-10): ~/dev/ layout, PDCA, solnedgangsklausul.
-- **Session 4** (2026-03-10): "Basic Setup er ikke basic", cross-session peer review.
-- **Session 3** (2026-03-10): Session-management problem, VPS research, yggdra-gold.
-- **Session 1-2** (2026-03-08/09): M1-M3 done, PLAN v2, ~/dev/ oprettet.
+- **Session 31** (2024-05-23): Proaktiv notifikation integreret i viden-pipeline. Hook opdateret.
+- **Session 30** (2024-05-23): SiP struktur etableret. PoCs konsolideret. Cleaning automatiseret.
+- **Session 29** (2024-05-23): Agent Operations Manual oprettet. Workflow integreret.
+- **Session 28** (2024-05-23): Fact Extraction robusthed over for sandbox-støj verificeret.
+- **Session 27** (2024-05-23): Retrieval Pipeline PoC verificeret.
+- **Session 23** (2024-05-23): Hooks implementeret. Fundament tracked i git.
+- **Session 22** (2024-05-22): CLAUDE.md genoprettet.

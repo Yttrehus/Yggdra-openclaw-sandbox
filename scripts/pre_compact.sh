@@ -16,6 +16,16 @@ echo "Sørg for at CONTEXT.md og DAGBOG.md er opdateret med dine seneste tanker.
 if [ -f "$PROJECT_ROOT/projects/auto-chatlog/chatlog-engine.js" ]; then
     echo "Opdaterer chatlog..."
     node "$PROJECT_ROOT/projects/auto-chatlog/chatlog-engine.js"
+    
+    # Automatisk Fact Extraction efter chatlog opdatering
+    if [ -f "$PROJECT_ROOT/projects/sip/fact_extraction_v2/fact_extraction_poc.py" ]; then
+        echo "Ekstraherer fakta..."
+        python3 "$PROJECT_ROOT/projects/sip/fact_extraction_v2/fact_extraction_poc.py"
+        python3 "$PROJECT_ROOT/projects/sip/fact_extraction_v2/cleaner.py"
+        python3 "$PROJECT_ROOT/projects/sip/fact_extraction_v2/validator.py"
+        python3 "$PROJECT_ROOT/projects/sip/fact_extraction_v2/merger.py"
+        python3 "$PROJECT_ROOT/projects/sip/fact_extraction_v2/notifier.py"
+    fi
 fi
 
 echo "--- HOOK AFSLUTTET ---"

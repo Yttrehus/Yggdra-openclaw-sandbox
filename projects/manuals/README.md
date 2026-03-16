@@ -10,6 +10,7 @@ Levende håndbøger for daglig brug. Startede som cheatsheets, vokser til operat
 | `vscode.md` | VS Code genveje, settings, extensions | M2 |
 | `terminal.md` | Shell aliases, installeret software, config-filer | M3 |
 | `git-concepts.md` | Git-koncepter og mentale modeller | M1 |
+| `agents/OPERATIONS.md` | SOPs og værktøjer for autonome agenter | Session 29 |
 
 ## Regler
 
