@@ -1,0 +1,178 @@
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#2d3748', 'primaryTextColor': '#fff', 'primaryBorderColor': '#4a5568', 'lineColor': '#718096', 'secondaryColor': '#f7fafc', 'tertiaryColor': '#edf2f7', 'fontSize': '13px'}, 'flowchart': {'rankSpacing': 50, 'nodeSpacing': 30, 'curve': 'basis'}}}%%
+
+graph TD
+    %% === KRIS ===
+    Kris["🧑 <b>KRIS</b><br/>Android + Termux"]
+
+    Kris -->|SSH| Claude
+    Kris -->|Telegram| TG
+    Kris -->|Voice m4a| GDrive
+
+    %% === CLAUDE ===
+    Claude["<b>CLAUDE</b><br/>Opus 4.6 · Claude Code CLI<br/>VPS 72.62.61.51"]
+
+    %% === HUKOMMELSE ===
+    subgraph MEM["📂 HUKOMMELSE"]
+        direction LR
+        Episodes["episodes.jsonl<br/><i>episodisk log<br/>+ pre-compact flush</i>"]
+        Now["NOW.md<br/><i>checkpoint</i>"]
+        ClMD["CLAUDE.md<br/><i>instruktioner</i>"]
+        AutoMem["MEMORY.md<br/><i>auto-memory</i>"]
+    end
+
+    Claude --- MEM
+
+    %% === HOOKS ===
+    subgraph HOOKS["⚡ HOOKS"]
+        direction LR
+        H1["<b>SessionStart</b><br/>load_checkpoint.sh<br/><i>→ læs episoder + NOW</i>"]
+        H2["<b>PreCompact</b><br/>save_checkpoint.py<br/><i>→ Groq flush</i>"]
+        H3["<b>Stop</b><br/>save_checkpoint.py<br/><i>→ Groq episodisk log</i>"]
+        H4["<b>Notification</b><br/>check_trello.sh"]
+    end
+
+    Claude --- HOOKS
+    H2 & H3 -->|Llama 3.3| Groq
+
+    %% === QDRANT ===
+    subgraph QD["🔍 QDRANT — hybrid search (dense + BM25 RRF)"]
+        direction LR
+        Q1["advisor_brain<br/>453 · <b>evergreen</b>"]
+        Q2["sessions<br/>42.106 · <b>decay 30d</b>"]
+        Q3["routes<br/>40.053 · <b>decay 30d</b>"]
+        Q4["conversations<br/>81 · <b>decay 30d</b>"]
+        Q5["miessler_bible<br/>102 · <b>evergreen</b>"]
+        Q6["knowledge<br/>246 · <b>evergreen</b>"]
+    end
+
+    Claude <-->|"query → embed → search → decay → rerank"| QD
+    Claude -->|OpenAI embed| OpenAI
+
+    %% === INTEGRATIONER ===
+    subgraph INT["🌐 INTEGRATIONER"]
+        direction TB
+
+        subgraph GOOGLE["Google (OAuth via token_manager.py)"]
+            direction LR
+            GDrive["Drive<br/><i>rclone gdrive:</i>"]
+            Gmail["Gmail"]
+            GCal["Calendar"]
+            GTasks["Tasks<br/><i>Inbox widget</i>"]
+        end
+
+        subgraph OTHER["Andre"]
+            direction LR
+            Trello["Trello<br/><i>4 boards<br/>key + token</i>"]
+            TG["Telegram<br/><i>bot token</i>"]
+            Hotmail["Hotmail<br/><i>MS OAuth</i>"]
+            YT["YouTube<br/><i>transcript-api<br/>via Tor :9050</i>"]
+        end
+    end
+
+    Claude --> GDrive & Gmail & GCal & GTasks
+    Claude --> Trello & Hotmail & YT
+
+    %% === CRON ===
+    subgraph CRON["⏰ CRON JOBS"]
+        direction TB
+
+        subgraph C_FAST["Hvert 1-2 min"]
+            direction LR
+            CF1["trello_comment_watch<br/>+ responder"]
+            CF2["voice_memo_pipeline<br/><i>Drive→Whisper→.md</i>"]
+        end
+
+        subgraph C_30["Hvert 30 min · 08-21"]
+            CH["heartbeat.py<br/><i>5 kilder → Telegram</i>"]
+        end
+
+        subgraph C_HOUR["Hver time"]
+            direction LR
+            CT1[":00 tmux log"]
+            CT2[":05 logbog"]
+            CT3[":15 score_knowledge"]
+            CT4[":30 huskeliste"]
+            CT5[":45 hotmail_sort"]
+        end
+
+        subgraph C_DAY["Dagligt"]
+            direction LR
+            CD1["04:00 backup"]
+            CD2["07:00 morning_brief<br/><i>Groq</i>"]
+            CD3["07:05 sync_inbox<br/><i>Tasks↔Trello</i>"]
+            CD4["08:00 daily_sweep"]
+            CD5["23:55 auto_dagbog<br/><i>Groq</i>"]
+        end
+
+        subgraph C_WEEK["Ugentligt · søndag"]
+            direction LR
+            CW1["05:00 embed_advisor<br/>+ embed_docs"]
+            CW2["06:00 weekly_audit"]
+        end
+
+        C6H["Hver 6t: process_session_log → Qdrant"]
+    end
+
+    CH -->|alert| TG
+    CF1 --> Trello
+    CF2 -->|Groq Whisper| Groq
+    CD2 -->|Llama| Groq
+    CD5 -->|Llama| Groq
+    CD3 --> GTasks & Trello
+    CT5 --> Hotmail
+    CW1 & C6H --> QD
+
+    %% === API KEYS ===
+    subgraph API["🔑 API-NØGLER"]
+        direction LR
+        Groq["<b>Groq</b> free tier<br/><i>Llama 3.3 70B + Whisper</i><br/>Kost: 0 kr"]
+        OpenAI["<b>OpenAI</b><br/><i>embed-3-small 1536d</i><br/>~$1/md"]
+        Anthropic["<b>Anthropic</b><br/><i>kun Claude Max CLI</i><br/>Scripts: 0 kr"]
+    end
+
+    %% === DOCKER ===
+    subgraph DOCKER["🐳 DOCKER"]
+        direction LR
+        DW["webapp :80<br/><i>TransportIntra</i>"]
+        DT["traefik :443<br/><i>SSL proxy</i>"]
+        DQ["qdrant :6333"]
+        DN["n8n :5678"]
+        DL["api-logger"]
+        DTO["tor-proxy :9050"]
+    end
+
+    DT --> DW
+    YT -.->|proxy| DTO
+
+    %% === PIPELINES ===
+    subgraph PIPE["📊 PIPELINES"]
+        direction TB
+        P1["<b>Voice memo</b><br/>Kris optager → m4a → Drive<br/>→ rclone → Groq Whisper<br/>→ .md → Qdrant embed"]
+        P2["<b>Session livscyklus</b><br/>Start: læs episoder + NOW<br/>PreCompact: Groq flush<br/>Stop: episodisk log"]
+        P3["<b>Søgning</b><br/>Query → OpenAI embed<br/>→ Qdrant hybrid (dense+BM25)<br/>→ temporal decay → rerank"]
+        P4["<b>YouTube</b><br/>Link → transcript-api + Tor<br/>→ tekst → chunk → embed"]
+        P5["<b>Morning brief</b><br/>07:00 → Trello+Gmail+Cal+Tasks<br/>→ Groq Llama → .md"]
+    end
+
+    %% Styling
+    classDef kris fill:#d69e2e,stroke:#b7791f,color:#000,stroke-width:3px
+    classDef claude fill:#2b6cb0,stroke:#2c5282,color:#fff,stroke-width:3px
+    classDef mem fill:#2f855a,stroke:#276749,color:#fff
+    classDef hook fill:#6b46c1,stroke:#553c9a,color:#fff
+    classDef qdrant fill:#285e61,stroke:#234e52,color:#fff
+    classDef integ fill:#c53030,stroke:#9b2c2c,color:#fff
+    classDef cron fill:#744210,stroke:#5a3510,color:#fff
+    classDef api fill:#1a202c,stroke:#171923,color:#fff
+    classDef docker fill:#553c9a,stroke:#44337a,color:#fff
+    classDef pipe fill:#2a4365,stroke:#1a365d,color:#fff
+
+    class Kris kris
+    class Claude claude
+    class Episodes,Now,ClMD,AutoMem mem
+    class H1,H2,H3,H4 hook
+    class Q1,Q2,Q3,Q4,Q5,Q6 qdrant
+    class GDrive,Gmail,GCal,GTasks,Trello,TG,Hotmail,YT integ
+    class CF1,CF2,CH,CT1,CT2,CT3,CT4,CT5,CD1,CD2,CD3,CD4,CD5,CW1,CW2,C6H cron
+    class Groq,OpenAI,Anthropic api
+    class DW,DT,DQ,DN,DL,DTO docker
+    class P1,P2,P3,P4,P5 pipe

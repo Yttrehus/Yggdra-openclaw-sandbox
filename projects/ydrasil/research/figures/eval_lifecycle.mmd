@@ -1,9 +1,0 @@
-graph LR
-    A["Offline Eval\n(CI pipeline)"] -->|deploy| B["Production"]
-    B --> C["Online Eval\n(live scoring)"]
-    C -->|anomaly| D["Ad-hoc\nInvestigation"]
-    D -->|new test case| A
-    style A stroke:#333,fill:#fff
-    style B stroke:#333,fill:#fff
-    style C stroke:#333,fill:#fff
-    style D stroke:#333,fill:#fff

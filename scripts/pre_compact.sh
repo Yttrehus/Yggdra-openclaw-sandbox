@@ -12,12 +12,12 @@ echo "Tid: $(date)"
 echo "ADVARSEL: Context compaction forestående."
 echo "Sørg for at CONTEXT.md og DAGBOG.md er opdateret med dine seneste tanker."
 
-# Evt. kørsel af auto-chatlog hvis den findes
-if [ -f "$PROJECT_ROOT/projects/auto-chatlog/chatlog-engine.js" ]; then
+# Kørsel af auto-chatlog (BMS.auto-chatlog)
+if [ -f "$PROJECT_ROOT/projects/BMS.auto-chatlog/chatlog-engine.js" ]; then
     echo "Opdaterer chatlog..."
-    node "$PROJECT_ROOT/projects/auto-chatlog/chatlog-engine.js"
+    node "$PROJECT_ROOT/projects/BMS.auto-chatlog/chatlog-engine.js"
     
-    # Automatisk Fact Extraction efter chatlog opdatering
+    # Automatisk Fact Extraction efter chatlog opdatering (SiP sandbox)
     if [ -f "$PROJECT_ROOT/projects/sip/fact_extraction_v2/fact_extraction_poc.py" ]; then
         echo "Ekstraherer fakta..."
         python3 "$PROJECT_ROOT/projects/sip/fact_extraction_v2/fact_extraction_poc.py"

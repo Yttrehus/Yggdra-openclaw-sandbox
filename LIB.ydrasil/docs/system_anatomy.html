@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ydrasil — System Anatomi</title>
+<style>
+  body { margin: 0; padding: 0; background: #1a202c; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; overflow: hidden; }
+  #controls { position: fixed; top: 10px; left: 10px; z-index: 100; display: flex; gap: 8px; }
+  #controls button { background: #4a5568; color: #fff; border: none; border-radius: 6px; padding: 8px 14px; font-size: 14px; cursor: pointer; }
+  #controls button:hover { background: #718096; }
+  #info { position: fixed; bottom: 10px; left: 10px; color: #a0aec0; font-size: 12px; z-index: 100; }
+  #container { width: 100vw; height: 100vh; overflow: hidden; cursor: grab; }
+  #container:active { cursor: grabbing; }
+  #diagram { transform-origin: 0 0; transition: transform 0.1s ease; }
+</style>
+</head>
+<body>
+<div id="controls">
+  <button onclick="zoomIn()">＋ Zoom</button>
+  <button onclick="zoomOut()">－ Zoom</button>
+  <button onclick="resetView()">↻ Reset</button>
+</div>
+<div id="info">Drag for at panorere · Pinch/scroll for zoom</div>
+<div id="container">
+<div id="diagram">
+<pre class="mermaid">
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryColor': '#2d3748', 'primaryTextColor': '#e2e8f0', 'primaryBorderColor': '#4a5568', 'lineColor': '#718096', 'secondaryColor': '#2d3748', 'tertiaryColor': '#1a202c', 'fontSize': '14px', 'clusterBkg': '#2d374880', 'clusterBorder': '#4a5568'}, 'flowchart': {'rankSpacing': 60, 'nodeSpacing': 25, 'curve': 'basis'}}}%%
+
+graph TD
+    Kris["🧑 KRIS · Android + Termux"]
+
+    Kris -->|SSH/Terminal| Claude
+    Kris -->|Telegram| TG
+    Kris -->|"Voice m4a → Drive"| GDrive
+
+    Claude["⚡ CLAUDE · Opus 4.6<br/>Claude Code CLI · VPS 72.62.61.51"]
+
+    subgraph MEM["💾 HUKOMMELSE"]
+        Episodes["episodes.jsonl · episodisk log + flush"]
+        Now["NOW.md · checkpoint"]
+        ClMD["CLAUDE.md · instruktioner + skills"]
+        AutoMem["MEMORY.md · auto-memory"]
+    end
+    Claude --- MEM
+
+    subgraph HOOKS["🔗 HOOKS"]
+        H1["SessionStart → load_checkpoint.sh → læs episoder"]
+        H2["PreCompact → Groq flush → red kritisk viden"]
+        H3["Stop → Groq episodisk log → 3-5 linjer"]
+        H4["Notification → check_trello_pending"]
+    end
+    Claude --- HOOKS
+    H2 & H3 -->|"Llama 3.3 70B"| Groq
+
+    subgraph QD["🔍 QDRANT · hybrid (dense + BM25 RRF) + temporal decay"]
+        Q1["advisor_brain · 453 · evergreen"]
+        Q2["sessions · 42.106 · decay 30d"]
+        Q3["routes · 40.053 · decay 30d"]
+        Q4["conversations · 81 · decay 30d"]
+        Q5["miessler_bible · 102 · evergreen"]
+        Q6["knowledge · 246 · evergreen"]
+    end
+    Claude <-->|"OpenAI embed → search → decay → rerank"| QD
+
+    subgraph GOOGLE["🔵 GOOGLE · OAuth via token_manager.py"]
+        GDrive["Drive · rclone gdrive:"]
+        Gmail["Gmail"]
+        GCal["Calendar"]
+        GTasks["Tasks · Inbox widget"]
+    end
+
+    subgraph OTHER["🔴 ANDRE INTEGRATIONER"]
+        Trello["Trello · 4 boards"]
+        TG["Telegram Bot"]
+        Hotmail["Hotmail · MS OAuth"]
+        YT["YouTube · transcript-api + Tor"]
+    end
+
+    Claude --> GDrive & Gmail & GCal & GTasks
+    Claude --> Trello & Hotmail & YT
+
+    subgraph CRON_FAST["⏱ HVERT 1-2 MIN"]
+        CF1["trello_comment_watch + responder"]
+        CF2["voice_memo_pipeline · Drive→Whisper→md"]
+    end
+
+    subgraph CRON_30["⏱ HVERT 30 MIN · 08-21"]
+        CH["heartbeat.py · 5 kilder → Telegram alert"]
+    end
+
+    subgraph CRON_HOUR["⏱ HVER TIME"]
+        CT[":00 tmux · :05 logbog · :15 score_knowledge<br/>:30 huskeliste · :45 hotmail_sort"]
+    end
+
+    subgraph CRON_DAY["📅 DAGLIGT"]
+        CD1["04:00 backup_offsite"]
+        CD2["07:00 morning_brief · Groq"]
+        CD3["07:05 sync_inbox · Tasks↔Trello"]
+        CD4["08:00 daily_sweep"]
+        CD5["23:55 auto_dagbog · Groq"]
+    end
+
+    subgraph CRON_WEEK["📅 UGENTLIGT · søndag"]
+        CW["05:00 embed_advisor + docs<br/>06:00 weekly_audit"]
+    end
+
+    C6H["Hver 6t · process_session_log → Qdrant"]
+
+    CH -->|alert| TG
+    CF1 --> Trello
+    CF2 -->|"Groq Whisper"| Groq
+    CD2 & CD5 -->|Llama| Groq
+    CD3 --> GTasks & Trello
+    CW & C6H --> QD
+
+    subgraph API["🔑 API-NØGLER"]
+        Groq["Groq free · Llama + Whisper · 0 kr"]
+        OpenAI["OpenAI · embed-3-small · ~$1/md"]
+        Anthropic["Anthropic · kun Max CLI · 0 kr"]
+    end
+    Claude -->|embeddings| OpenAI
+
+    subgraph DOCKER["🐳 DOCKER"]
+        DW["webapp :80 · TransportIntra"]
+        DT["traefik :443 · SSL"]
+        DQ["qdrant :6333"]
+        DN["n8n :5678"]
+        DTO["tor-proxy :9050"]
+    end
+    DT --> DW
+    YT -.->|proxy| DTO
+
+    subgraph PIPE["📊 PIPELINES · dataflow"]
+        P1["Voice: optag→m4a→Drive→rclone→Whisper→md→Qdrant"]
+        P2["Session: Start:læs → arbejde → PreCompact:flush → Stop:log"]
+        P3["Søgning: query→embed→Qdrant hybrid→decay→rerank→svar"]
+        P4["YouTube: link→transcript-api+Tor→tekst→chunk→embed"]
+        P5["Morning: 07:00→Trello+Gmail+Cal→Groq→brief.md"]
+    end
+
+    classDef kris fill:#d69e2e,stroke:#b7791f,color:#000,stroke-width:3px
+    classDef claude fill:#2b6cb0,stroke:#2c5282,color:#fff,stroke-width:3px
+    classDef mem fill:#276749,stroke:#22543d,color:#e2e8f0
+    classDef hook fill:#6b46c1,stroke:#553c9a,color:#e2e8f0
+    classDef qdrant fill:#285e61,stroke:#1d4044,color:#e2e8f0
+    classDef integ fill:#c53030,stroke:#9b2c2c,color:#fff
+    classDef google fill:#2b6cb0,stroke:#2c5282,color:#fff
+    classDef cron fill:#975a16,stroke:#744210,color:#fff
+    classDef api fill:#1a202c,stroke:#4a5568,color:#e2e8f0
+    classDef docker fill:#6b46c1,stroke:#553c9a,color:#e2e8f0
+    classDef pipe fill:#2a4365,stroke:#1a365d,color:#e2e8f0
+
+    class Kris kris
+    class Claude claude
+    class Episodes,Now,ClMD,AutoMem mem
+    class H1,H2,H3,H4 hook
+    class Q1,Q2,Q3,Q4,Q5,Q6 qdrant
+    class GDrive,Gmail,GCal,GTasks google
+    class Trello,TG,Hotmail,YT integ
+    class CF1,CF2,CH,CT,CD1,CD2,CD3,CD4,CD5,CW,C6H cron
+    class Groq,OpenAI,Anthropic api
+    class DW,DT,DQ,DN,DTO docker
+    class P1,P2,P3,P4,P5 pipe
+</pre>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+mermaid.initialize({ startOnLoad: true, securityLevel: 'loose' });
+
+// Pan & zoom
+let scale = 0.8, panX = 50, panY = 20;
+const diagram = document.getElementById('diagram');
+const container = document.getElementById('container');
+let isDragging = false, startX, startY;
+
+function updateTransform() {
+  diagram.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+}
+
+function zoomIn() { scale = Math.min(scale * 1.2, 5); updateTransform(); }
+function zoomOut() { scale = Math.max(scale / 1.2, 0.1); updateTransform(); }
+function resetView() { scale = 0.8; panX = 50; panY = 20; updateTransform(); }
+
+container.addEventListener('mousedown', e => { isDragging = true; startX = e.clientX - panX; startY = e.clientY - panY; });
+container.addEventListener('mousemove', e => { if (!isDragging) return; panX = e.clientX - startX; panY = e.clientY - startY; updateTransform(); });
+container.addEventListener('mouseup', () => isDragging = false);
+container.addEventListener('mouseleave', () => isDragging = false);
+container.addEventListener('wheel', e => { e.preventDefault(); e.deltaY < 0 ? zoomIn() : zoomOut(); }, { passive: false });
+
+// Touch support
+let lastDist = 0;
+container.addEventListener('touchstart', e => {
+  if (e.touches.length === 1) { isDragging = true; startX = e.touches[0].clientX - panX; startY = e.touches[0].clientY - panY; }
+  if (e.touches.length === 2) { lastDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY); }
+});
+container.addEventListener('touchmove', e => {
+  e.preventDefault();
+  if (e.touches.length === 1 && isDragging) { panX = e.touches[0].clientX - startX; panY = e.touches[0].clientY - startY; updateTransform(); }
+  if (e.touches.length === 2) {
+    const dist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+    if (lastDist > 0) { scale = Math.max(0.1, Math.min(5, scale * (dist / lastDist))); updateTransform(); }
+    lastDist = dist;
+  }
+}, { passive: false });
+container.addEventListener('touchend', () => { isDragging = false; lastDist = 0; });
+
+updateTransform();
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "hooks": {
+    "sessionStart": "scripts/session_start.sh",
+    "preCompact": "scripts/pre_compact.sh",
+    "sessionEnd": "scripts/session_end.sh"
+  }
+}

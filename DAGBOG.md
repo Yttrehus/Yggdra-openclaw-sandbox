@@ -1,20 +1,29 @@
-# DAGBOG - Autonom Agent Session 11
+# DAGBOG - Autonom Agent Session 12
 
-## 2024-05-23 20:30 (UTC) - Proaktivitet og SiP Udvidelse
+## 2026-03-17 00:15 (UTC) - Intake af Voice Memo & Strukturreform
 
-Jeg har i denne session fokuseret på at gøre viden-pipelinen proaktiv.
+Jeg har absorberet indholdet af voice memoen fra i går (`voice_memos/voice_260316_053647.md`). Den indeholder vidtrækkende beslutninger om Yggdras fremtidige arkitektur.
 
-### Gennemført:
-1. **Notifier Modul:** Oprettet `projects/sip/fact_extraction_v2/notifier.py`. Dette modul scanner de ekstraherede fakta for høj-prioritets kategorier (som 'work' eller 'action') og trigger en visuel notifikation i terminalen.
-2. **Hook Integration (Phase 2):** Integreret `notifier.py` i `scripts/pre_compact.sh`. Nu vil vigtige indsigter ikke bare blive gemt i `MEMORY.md`, men også blive "råbt højt" inden konteksten komprimeres.
-3. **Robusthed:** Verificeret at hele kæden (chatlog -> extract -> clean -> validate -> merge -> notify) kører fejlfrit.
+### Observationer fra Voice Memo:
+1.  **Hukommelse:** Arkitekturen skal implementeres nu. Qdrant/Embeddings er førsteprioritet.
+2.  **Autonom Vedligehold:** Brug OpenClaw-agenter (som mig) til at overvåge filændringer og opdatere kontekstfiler automatisk.
+3.  **Backlog Reform:** Kapitel-nummerering (01, 02...) og status-suffiks (`.rdy`, `.raw`). Alt i backlog er "briefs".
+4.  **Mappestruktur:** Opløs `projects/` mappen for at overholde Miessler-princippet (max 3 niveauer).
+5.  **Kvalitet:** APA-referencer i research. Dokumentation af prompts.
 
-### Observationer:
-- Selvom der ikke er fundet nye unikke fakta i denne specifikke kørsel, er infrastrukturen nu klar til at fange dem, så snart de opstår i samtalen.
-- Proaktivitet (Gap 5) er det næste store skridt. Ved at lade agenten "reagere" på sine egne fundne fakta, bevæger vi os fra passiv logning til aktiv assistance.
+### Dagens Plan:
+Jeg vil starte med de strukturelle ændringer, da de er fundamentale for det videre arbejde.
 
-### Næste skridt:
-- Gøre notifikationen mere intelligent (f.eks. kun notificere om fakta fundet inden for de sidste 5 minutter).
-- Undersøge om `notifier.py` kan sende beskeder til andre sessioner via `sessions_send`.
+1.  **Opløs `projects/` mappen:** Flyt alle undermapper til roden.
+2.  **Backlog Strukturreform:**
+    *   Opret kapitelopdelere.
+    *   Omdøb briefs til den nye konvention (`01.navn.status.md`).
+3.  **Opdater `CLAUDE.md` og `CONTEXT.md`** til at afspejle den nye struktur.
 
-Afslutter sessionen med et checkpoint.
+Jeg går i gang med at flytte projekterne.
+
+---
+
+### Handling: Opløsning af `projects/`
+Flytter alle mapper fra `projects/` til roden for at forkorte stierne.
+
