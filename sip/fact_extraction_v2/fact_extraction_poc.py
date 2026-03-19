@@ -3,7 +3,7 @@ import os
 import re
 from datetime import datetime
 
-# Stier baseret på Yggdra struktur (scripts bor i sip/fact_extraction_v2/)
+# Stier baseret på Yggdra struktur
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "../.."))
 
@@ -19,10 +19,13 @@ def clean_undefined(text):
     return text.strip()
 
 def extract_facts_heuristic(text):
-    """Simulerer Gap 6: Fact Extraction."""
+    """
+    Simulerer Gap 6: Fact Extraction.
+    """
     facts = []
     clean_text = clean_undefined(text)
     
+    # 1. Ruter
     if re.search(r"rute", clean_text, re.I):
         facts.append({
             "fact": "Kontekst involverer transportruter.",
@@ -30,6 +33,7 @@ def extract_facts_heuristic(text):
             "confidence": 0.5
         })
 
+    # 2. Sessioner/Agent aktivitet
     if "Session" in clean_text or "agent" in clean_text.lower():
         facts.append({
             "fact": "Sessionen indeholder agent-aktivitetslogs.",
@@ -37,6 +41,7 @@ def extract_facts_heuristic(text):
             "confidence": 0.6
         })
 
+    # 3. Gap/Retrieval
     if "Gap" in clean_text or "retrieval" in clean_text.lower():
         facts.append({
             "fact": "Sessionen diskuterer arkitektoniske gaps eller retrieval.",
@@ -44,6 +49,7 @@ def extract_facts_heuristic(text):
             "confidence": 0.7
         })
 
+    # 4. Specifikke beslutninger (PoC relateret)
     if "temporal decay" in clean_text.lower():
         facts.append({
             "fact": "Agenten arbejder på temporal decay PoC.",
@@ -51,6 +57,7 @@ def extract_facts_heuristic(text):
             "confidence": 0.9
         })
 
+    # 5. Beslutninger/Valg
     if re.search(r"besluttet|valgt|prioriteret", clean_text, re.I):
         facts.append({
             "fact": f"Beslutning identificeret: {clean_text[:100]}...",
@@ -58,6 +65,7 @@ def extract_facts_heuristic(text):
             "confidence": 0.75
         })
 
+    # Catch-all hvis teksten er lang nok (noget sker jo)
     if len(clean_text) > 100 and not facts:
          facts.append({
             "fact": "Generel aktivitet i sessionen.",
@@ -81,6 +89,8 @@ def process_digest():
             return
 
     all_facts = []
+    
+    # Indlæs eksisterende fakta hvis filen findes
     if os.path.exists(FACTS_PATH):
         try:
             with open(FACTS_PATH, 'r') as f:
@@ -97,10 +107,12 @@ def process_digest():
             f['timestamp'] = datetime.now().isoformat()
             f['section_id'] = section['id']
             f['source_date'] = section['date']
+            # Simpel de-duplikering baseret på tekst
             if not any(existing['fact'] == f['fact'] for existing in all_facts):
                 all_facts.append(f)
                 new_facts_count += 1
             
+    # Gem resultater
     os.makedirs(os.path.dirname(FACTS_PATH), exist_ok=True)
     with open(FACTS_PATH, 'w') as f:
         json.dump(all_facts, f, indent=2)

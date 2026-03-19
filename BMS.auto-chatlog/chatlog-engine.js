@@ -4,10 +4,10 @@
 // Output location: repo root (state file alongside CONTEXT.md)
 //
 // Usage:
-//   node projects/auto-chatlog/chatlog-engine.js           # with abstracts from abstracts.json
-//   node projects/auto-chatlog/chatlog-engine.js --digest   # only generate digest (for subagent)
-//   node projects/auto-chatlog/chatlog-engine.js --input-dir /path/to/sessions --output /path/to/chatlog.md
-//   node projects/auto-chatlog/chatlog-engine.js --input-dir /path --output /path --digest
+//   node BMS.auto-chatlog/chatlog-engine.js           # with abstracts from abstracts.json
+//   node BMS.auto-chatlog/chatlog-engine.js --digest   # only generate digest (for subagent)
+//   node BMS.auto-chatlog/chatlog-engine.js --input-dir /path/to/sessions --output /path/to/chatlog.md
+//   node BMS.auto-chatlog/chatlog-engine.js --input-dir /path --output /path --digest
 //
 // Timestamps: Danish time (Europe/Copenhagen)
 // Section breaks: 90+ minute gap between messages (across sessions)
@@ -30,7 +30,7 @@ function getProjectSessionsDir() {
 }
 
 const DEFAULT_PROJECT_DIR = getProjectSessionsDir();
-const DEFAULT_OUTPUT_FILE = path.resolve(__dirname, "../../chatlog.md");
+const DEFAULT_OUTPUT_FILE = path.resolve(__dirname, "../chatlog.md");
 const ABSTRACTS_FILE = path.resolve(__dirname, "abstracts.json");
 const DIGEST_FILE = path.resolve(__dirname, "sections-digest.json");
 const PATTERNS_FILE = path.resolve(__dirname, "redact-patterns.json");

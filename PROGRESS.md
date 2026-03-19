@@ -59,15 +59,15 @@ VPS sandbox v2 og v3 afsluttet. Output evalueret, guld hentet til PC, resten sor
 **Hentet til PC (20 filer):**
 - 3 skills: dialectic-pipeline, session-resume, sitrep → `.claude/skills/`
 - TransportIntra projekt: INDEX.md (194L, crown jewels + hurtigreference), PROGRESS.md (103L, 4 kausale kæder), CONTEXT.md, api-reference.md (519L, 8 endpoints), getrute-schema.md (316L, 132 felter), N8N_SUMMARY.md (93L), 8 subproject CONTEXT.md → `projects/transportintra/`
-- Research INDEX.md v3 (54 Key Insights) → `projects/research/`
+- Research INDEX.md v3 (54 Key Insights) → `2_research/`
 - BLUEPRINT.md → roden
-- vps-pc-convergence.md → `projects/research/`
-- MINING_RESULTS.md → `projects/prompt-skabeloner/`
-- V3_EVALUATION.md → `projects/vps-sandbox/`
+- vps-pc-convergence.md → `2_research/`
+- MINING_RESULTS.md → `REF.prompt-skabeloner/`
+- V3_EVALUATION.md → `REF.vps-sandbox/`
 
 **TRIAGE.md bygget fra PC's briefs.** 12 briefs triageret i 4 kategorier: Klar (context-engineering, automation-index, research-architecture), Næste op (notion-spejling, pdf-skill, abonnement-overblik, cross-session-peer-review), Kræver skærpning (integrationer, visualisering, voice-integration), Lav prioritet (project-taxonomy, work-intake). Session-forslag: context-engineering fase 3-5 først.
 
-**VPS-sandbox som projekt.** `projects/vps-sandbox/CONTEXT.md` oprettet med v1/v2/v3 historik. Dokumenterer infrastrukturen (Ralph loop, LOOP_STATE rolling window, prompt-design) og hvad der er hentet til PC.
+**VPS-sandbox som projekt.** `REF.vps-sandbox/CONTEXT.md` oprettet med v1/v2/v3 historik. Dokumenterer infrastrukturen (Ralph loop, LOOP_STATE rolling window, prompt-design) og hvad der er hentet til PC.
 
 **Broken pointer fikset.** N8N_SUMMARY.md refererede til TI_KOMPLET_KILDEINDEX.md uden sti — rettet til VPS-path.
 
@@ -101,7 +101,7 @@ VPS sandbox v2 designet, evalueret og deployed. Tre projekter kører nu autonomt
 
 Tre spor i dag: Ydrasil-projekt, MCP/Skills kompendium, og infrastruktur-oprydning.
 
-**Ydrasil-projekt startet.** VPS research og docs (downloadet i session 16) blev indekseret. INDEX.md oprettet som overblik over alt indhold fra Ydrasil-æraen. Projektet bor i `projects/ydrasil/` med sessions/, docs/ og research/.
+**Ydrasil-projekt startet.** VPS research og docs (downloadet i session 16) blev indekseret. INDEX.md oprettet som overblik over alt indhold fra Ydrasil-æraen. Projektet bor i `LIB.ydrasil/` med sessions/, docs/ og research/.
 
 **MCP/Skills kompendium research gennemført.** Den adversarial research-proces designet i session 17 blev eksekveret: context scout, parallel research (MCP-landskab, skills-landskab, Yggdra-behov), steelman, red team, neutral evaluator. Resulterede i `kompendium-mcp.md`, `kompendium-skills.md`, `needs-mapping.md` og `anbefaling.md`.
 
@@ -124,7 +124,7 @@ Kort session fokuseret på MCP/Skills kompendium-projektet.
 
 Skills-synlighed i VS Code blev afklaret: globale skills i `~/.claude/skills/` vs projekt-specifikke i `.claude/skills/`. Alle relevante skills var allerede synkroniseret i projekt-mappen.
 
-MCP/Skills kompendium opgraderet fra backlog-brief til aktivt projekt i `projects/mcp-skills-kompendium/`. Adversarial research-proces designet: context scout opsamler landskabet → parallel research i tre spor (MCP-servere, skills, Yggdra-behov) → steelman → red team → steelman red team → neutral evaluator. Formålet er at undgå confirmation bias i teknologi-valg.
+MCP/Skills kompendium opgraderet fra backlog-brief til aktivt projekt i `REF.mcp-skills-kompendium/`. Adversarial research-proces designet: context scout opsamler landskabet → parallel research i tre spor (MCP-servere, skills, Yggdra-behov) → steelman → red team → steelman red team → neutral evaluator. Formålet er at undgå confirmation bias i teknologi-valg.
 
 ---
 
@@ -134,7 +134,7 @@ Backlog-audit og VPS research download.
 
 **Backlog-audit:** 14 briefs reduceret til 11. context-engineering og session-drift-pipeline merged. webscraping-audit og terminal-automatisering flyttet til raw/ (ikke modne nok). 6 briefs opdateret og skærpet (visualisering, mcp, integrationer, notion, peer-review, voice).
 
-**VPS Ydrasil-æra download:** Al research og docs fra VPS downloaded til `projects/research/ydrasil/` (89+73 filer, ~9MB). GDrive-duplikat slettet. Research-kvalitet vurderet: høj substans men iterativt klutter (~30% duplikater fra ChatGPT-kapitler).
+**VPS Ydrasil-æra download:** Al research og docs fra VPS downloaded til `2_research/ydrasil/` (89+73 filer, ~9MB). GDrive-duplikat slettet. Research-kvalitet vurderet: høj substans men iterativt klutter (~30% duplikater fra ChatGPT-kapitler).
 
 **Prioriterings-diskussion:** research-arkitektur → agent teams → hukommelse. Vision-briefs parkeret (transport-app, politik, LLM-uafhængighed) — vigtige men ikke næste step.
 

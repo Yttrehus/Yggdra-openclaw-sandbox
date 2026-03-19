@@ -4,8 +4,6 @@ import sys
 from datetime import datetime
 
 # Stier baseret på Yggdra struktur
-# Scripts bor i sip/fact_extraction_v2/
-# Roden er to niveauer oppe
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "../.."))
 
@@ -65,15 +63,14 @@ if __name__ == "__main__":
             sid = int(sys.argv[2])
             sdate = sys.argv[3]
             count = inject_subagent_facts(input_data, sid, sdate)
-            print(f"SUCCESS: {count} fakta gemt.")
+            print(f"SUCCESS:{count}")
         except Exception as e:
-            print(f"ERROR: {e}")
+            print(f"ERROR:{e}")
     else:
         # Hent tekst til subagent
         res = get_latest_digest_text()
         if res:
             text, sid, date = res
-            # Output format til agenten:
             print(f"SECTION_ID:{sid}")
             print(f"SOURCE_DATE:{date}")
             print("---TEXT_START---")
