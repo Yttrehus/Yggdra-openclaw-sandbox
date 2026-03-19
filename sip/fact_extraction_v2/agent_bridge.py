@@ -5,7 +5,7 @@ from datetime import datetime
 
 # Stier baseret på Yggdra struktur
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "../../.."))
+PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "../.."))
 FACTS_PATH = os.path.join(PROJECT_ROOT, "data/extracted_facts.json")
 
 def inject_facts_from_subagent(json_data, section_id, source_date):

@@ -4,9 +4,12 @@ import sys
 from datetime import datetime
 
 # Stier baseret på Yggdra struktur
+# Scripts bor i sip/fact_extraction_v2/
+# Roden er to niveauer oppe
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "../../.."))
-DIGEST_PATH = os.path.join(PROJECT_ROOT, "projects/auto-chatlog/sections-digest.json")
+PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "../.."))
+
+DIGEST_PATH = os.path.join(PROJECT_ROOT, "BMS.auto-chatlog/sections-digest.json")
 FACTS_PATH = os.path.join(PROJECT_ROOT, "data/extracted_facts.json")
 
 def get_latest_digest_text():

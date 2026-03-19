@@ -2,12 +2,11 @@ import json
 import os
 from datetime import datetime
 
-# Stier baseret på Yggdra struktur
+# Stier baseret på Yggdra struktur (scripts bor i sip/fact_extraction_v2/)
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "../../.."))
+PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "../.."))
 
 FACTS_PATH = os.path.join(PROJECT_ROOT, "data/extracted_facts.json")
-MEMORY_PATH = os.path.join(PROJECT_ROOT, "MEMORY.md")
 
 def reflect_on_knowledge():
     """Giver et kort overblik over den akkumulerede viden i denne session."""
@@ -15,12 +14,14 @@ def reflect_on_knowledge():
         return
 
     with open(FACTS_PATH, 'r') as f:
-        facts = json.load(f)
+        try:
+            facts = json.load(f)
+        except json.JSONDecodeError:
+            return
 
     if not facts:
         return
 
-    # Find fakta fra den absolut seneste sektion
     sorted_facts = sorted(facts, key=lambda x: x.get('timestamp', ''), reverse=True)
     latest_section_id = sorted_facts[0].get('section_id')
     latest_facts = [f for f in sorted_facts if f.get('section_id') == latest_section_id]
@@ -36,7 +37,6 @@ def reflect_on_knowledge():
     
     print("Kategorier: " + ", ".join([f"{k.upper()}({v})" for k, v in categories.items()]))
     
-    # Foreslå opdateringer til MEMORY.md hvis der er vigtige handlinger
     actions = [f for f in latest_facts if f['category'] == 'action']
     if actions:
         print("\nVigtige handlinger fundet:")

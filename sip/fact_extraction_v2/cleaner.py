@@ -2,24 +2,21 @@ import json
 import os
 import re
 
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FACTS_PATH = os.path.join(PROJECT_ROOT, "../../data/extracted_facts.json")
+# Stier baseret på Yggdra struktur (scripts bor i sip/fact_extraction_v2/)
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "../.."))
+
+FACTS_PATH = os.path.join(PROJECT_ROOT, "data/extracted_facts.json")
 
 def clean_fact_text(text):
     """Fjerner artefakter og rydder op i grammatik/stavefejl."""
-    # Fjern rester af [undefined] hvis de slap igennem
     text = re.sub(r'\[\s*undefined\s*\]', '', text, flags=re.I)
     text = re.sub(r'undefined', '', text, flags=re.I)
-    
-    # Fjern dobbelte mellemrum
     text = re.sub(r'\s+', ' ', text).strip()
-    
-    # Sørg for at det starter med stort og slutter med punktum
     if text and text[0].islower():
         text = text[0].upper() + text[1:]
     if text and not text.endswith(('.', '!', '?')):
         text += '.'
-        
     return text
 
 def clean_facts():
@@ -29,7 +26,10 @@ def clean_facts():
         return
 
     with open(FACTS_PATH, 'r') as f:
-        facts = json.load(f)
+        try:
+            facts = json.load(f)
+        except json.JSONDecodeError:
+            return
 
     print(f"--- Renser {len(facts)} fakta ---")
     

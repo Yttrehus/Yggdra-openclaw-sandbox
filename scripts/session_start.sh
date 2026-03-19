@@ -24,10 +24,10 @@ if [ -f "$PROJECT_ROOT/DAGBOG.md" ]; then
 fi
 
 # 3. Tjek for aktive projekter i TRIAGE.md
-if [ -f "$PROJECT_ROOT/projects/0_backlog/TRIAGE.md" ]; then
+if [ -f "$PROJECT_ROOT/0_backlog/TRIAGE.md" ]; then
     echo ""
     echo "--- TRIAGE OVERBLIK ---"
-    grep -A 10 "## Klar" "$PROJECT_ROOT/projects/0_backlog/TRIAGE.md"
+    grep -A 10 "## Klar" "$PROJECT_ROOT/0_backlog/TRIAGE.md"
 fi
 
 echo ""

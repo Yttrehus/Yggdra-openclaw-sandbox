@@ -6,8 +6,8 @@ import sys
 # I et rigtigt OpenClaw miljø ville denne script kalde sessions_spawn
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "../../.."))
-DIGEST_PATH = os.path.join(PROJECT_ROOT, "projects/auto-chatlog/sections-digest.json")
+PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "../.."))
+DIGEST_PATH = os.path.join(PROJECT_ROOT, "BMS.auto-chatlog/sections-digest.json")
 
 def simulate_subagent_extraction(text):
     """

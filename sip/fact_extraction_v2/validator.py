@@ -2,8 +2,11 @@ import json
 import os
 from datetime import datetime
 
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FACTS_PATH = os.path.join(PROJECT_ROOT, "../../data/extracted_facts.json")
+# Stier baseret på Yggdra struktur (scripts bor i sip/fact_extraction_v2/)
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "../.."))
+
+FACTS_PATH = os.path.join(PROJECT_ROOT, "data/extracted_facts.json")
 
 def validate_facts():
     """Validerer ekstraherede fakta for kvalitet, duplikater og kategorisering."""
@@ -22,29 +25,23 @@ def validate_facts():
     
     validated = []
     issues = 0
-
-    # Definer gyldige kategorier (baseret på GAPS.md og topics)
     VALID_CATEGORIES = ['work', 'action', 'research', 'meta', 'activity', 'office']
 
     for f in facts:
         fact_text = f.get('fact', '').strip()
         category = f.get('category', 'unknown').lower()
         
-        # 1. Kvalitetskrav: Længde
         if len(fact_text) < 10:
             print(f"Issue [Længde]: Faktum for kort: '{fact_text}'")
             issues += 1
             continue
             
-        # 2. Kvalitetskrav: Kategorisering
         if category not in VALID_CATEGORIES:
             print(f"Issue [Kategori]: Ugyldig kategori '{category}' for: '{fact_text[:30]}...'")
-            # Vi forsøger ikke at rette den her, men logger det
             issues += 1
             if category == 'unknown':
-                f['category'] = 'activity' # Default fallback
+                f['category'] = 'activity'
         
-        # 3. Tjek for duplikater (fuzzy-ish match: ignorér case og whitespace)
         is_duplicate = False
         normalized_fact = fact_text.lower()
         for v in validated:
@@ -59,7 +56,6 @@ def validate_facts():
 
         validated.append(f)
 
-    # Gem validerede fakta tilbage
     with open(FACTS_PATH, 'w') as f:
         json.dump(validated, f, indent=2)
 

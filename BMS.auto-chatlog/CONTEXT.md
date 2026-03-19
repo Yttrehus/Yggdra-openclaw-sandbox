@@ -29,12 +29,12 @@ chatlog-engine.js v3 parser ~2500 beskeder fra 30 sessions. Producerer `chatlog.
 **Workflow:** `node chatlog-engine.js --digest` → spawn subagent → `node chatlog-engine.js`
 
 **Checkpoint-integration** (trigger: `/checkpoint` eller ved milestone/pause):
-1. Kør `node projects/auto-chatlog/chatlog-engine.js --digest`
+1. Kør `node BMS.auto-chatlog/chatlog-engine.js --digest`
 2. Spawn subagent (haiku) til abstracts + token-review:
    - Læs `sections-digest.json`
    - Skriv dato-abstracts (1-4 sætninger) + sektions-abstracts (1-2 sætninger) til `abstracts.json`
    - Hvis `suspiciousTokens` i digest: vurdér og tilføj bekræftede til `redact-patterns.json`
-4. Kør `node projects/auto-chatlog/chatlog-engine.js` (full build med nye abstracts)
+4. Kør `node BMS.auto-chatlog/chatlog-engine.js` (full build med nye abstracts)
 5. Opdatér state-filer: rod-CONTEXT.md, PROGRESS.md, relevante projekt-CONTEXT.md
 6. Git commit + push
 7. Bekræft kort: hvad blev gemt, hvad er næste step
@@ -108,10 +108,10 @@ chatlog-engine.js v3 parser ~2500 beskeder fra 30 sessions. Producerer `chatlog.
 - 2026-03-11 (session 9, ~10:00): Nøgleord-extraction testet — frekvensbaseret, utilstrækkelig. LLM-baseret løsning parkeret.
 - 2026-03-11 (session 11): Flytning til egen projektmappe. Gammel chatlogs/ pensioneret til archive/.
 - 2026-03-12 (session 12): 1098 beskeder fra 6 sessions. Datoskift håndteret korrekt.
-- 2026-03-13 (session 13): Strukturændring: projects/auto-chatlog/. ADR → CONTEXT.md. V2 krav defineret. V2 implementeret: live.md+archive.md → chatlog.md i roden. Hovedindeks + dato-kapitler + prev/next navigation.
+- 2026-03-13 (session 13): Strukturændring: BMS.auto-chatlog/. ADR → CONTEXT.md. V2 krav defineret. V2 implementeret: live.md+archive.md → chatlog.md i roden. Hovedindeks + dato-kapitler + prev/next navigation.
 - 2026-03-13 (session 14, tidlig): Sessions fra 5 Claude-projektmapper samlet i c--Users-Krist-dev-projects-Yggdra/. Input-sti opdateret. 2476 beskeder fra 30 sessions.
 - 2026-03-13 (session 14, sen): v3 implementeret: gap-baseret sektionering (90 min), subagent-abstracts (dato + sektion), danske datoer, secret-redaction + token-scanner. Checkpoint og chatlog-search integreret som workflows. Archive ryddet, template opdateret. Reformation done.
-- 2026-03-14 (session 18): Checkpoint-skill rettet: chatlog-engine kører nu som trin 1 (før state-filer), så sessionsdata fanges inden kontekst-opdatering. Stier opdateret til fulde paths (`projects/auto-chatlog/chatlog-engine.js`). ~3000 beskeder fra 39 sessions.
+- 2026-03-14 (session 18): Checkpoint-skill rettet: chatlog-engine kører nu som trin 1 (før state-filer), så sessionsdata fanges inden kontekst-opdatering. Stier opdateret til fulde paths (`BMS.auto-chatlog/chatlog-engine.js`). ~3000 beskeder fra 39 sessions.
 
 ## 10. Backlog
 - Automatisering (file-watcher eller hook)
