@@ -11,9 +11,14 @@ DIGEST_PATH = os.path.join(PROJECT_ROOT, "BMS.auto-chatlog/sections-digest.json"
 FACTS_PATH = os.path.join(PROJECT_ROOT, "data/extracted_facts.json")
 
 def get_latest_digest_text():
-    if not os.path.exists(DIGEST_PATH):
+    path_to_try = DIGEST_PATH
+    if not os.path.exists(path_to_try):
+        path_to_try = os.path.join(PROJECT_ROOT, "projects/auto-chatlog/sections-digest.json")
+        
+    if not os.path.exists(path_to_try):
         return None
-    with open(DIGEST_PATH, 'r') as f:
+            
+    with open(path_to_try, 'r') as f:
         try:
             digest = json.load(f)
         except json.JSONDecodeError:
@@ -57,17 +62,17 @@ def inject_subagent_facts(new_facts, section_id, source_date):
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--save":
-        # Gem fakta sendt via stdin
         try:
+            # Vi forventer metadata i args hvis --save bruges
+            # Brug: --save <sid> <date>
+            sid = int(sys.argv[2]) if len(sys.argv) > 2 else 0
+            sdate = sys.argv[3] if len(sys.argv) > 3 else "unknown"
             input_data = json.load(sys.stdin)
-            sid = int(sys.argv[2])
-            sdate = sys.argv[3]
             count = inject_subagent_facts(input_data, sid, sdate)
             print(f"SUCCESS:{count}")
         except Exception as e:
             print(f"ERROR:{e}")
     else:
-        # Hent tekst til subagent
         res = get_latest_digest_text()
         if res:
             text, sid, date = res
@@ -76,3 +81,5 @@ if __name__ == "__main__":
             print("---TEXT_START---")
             print(text)
             print("---TEXT_END---")
+        else:
+            print("ERROR: No digest found")
