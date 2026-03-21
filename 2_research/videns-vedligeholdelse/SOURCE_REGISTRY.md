@@ -78,4 +78,14 @@ Visse emner dækkes af flere kilder. Det er en styrke (robusthed) men også en r
 | Substack betalingsmur | latent.space, One Useful Thing | Kan kun hente preview, ikke fuldt indhold |
 | Reddit rate limiting | 3 subreddits | .json endpoint kan blokeres ved hyppig brug |
 | arXiv overfladisk scan | arXiv cs.AI/cs.CL | Top 20 pr dag misser potentielt vigtige papers |
-| Source discovery noise | discovered_sources | 21 entries hvoraf ~15 er noise. Ingen cleanup-mekanisme |
+## Referencer
+
+Anthropic. (n.d.). *Anthropic research*. https://www.anthropic.com/research/rss
+ArXiv. (n.d.). *ArXiv API documentation*. https://arxiv.org/help/api/index
+Google DeepMind. (n.d.). *DeepMind blog*. https://deepmind.google/blog/rss.xml
+Hacker News. (n.d.). *Hacker News API*. https://github.com/HackerNews/API
+Hugging Face. (n.d.). *Hugging Face blog*. https://huggingface.co/blog/feed.xml
+OpenAI. (n.d.). *OpenAI blog*. https://openai.com/blog/rss/
+Qdrant. (n.d.). *Qdrant documentation*. https://qdrant.tech/documentation/
+Reddit. (n.d.). *Reddit API documentation*. https://www.reddit.com/dev/api/
+Willison, S. (n.d.). *Simon Willison's weblog*. https://simonwillison.net/atom/everything/

@@ -142,3 +142,18 @@ Jeg har i denne session færdiggjort de tekniske forberedelser til hukommelsesar
 Arkitekturen er nu klar til at blive løftet fra "eksperiment" til "drift". Den præcise styring af decay og evergreen-beskyttelse giver os en hukommelse, der både er aktuel og principfast. Ved at kræve APA-referencer sikrer vi, at vi aldrig bygger på sand.
 
 Afslutter sessionen med et fuldt checkpoint og opdateret CONTEXT.md.
+
+## 2026-03-21 09:00 (UTC) - Implementering af APA-standarder i Research
+
+Jeg har påbegyndt arbejdet med at bringe projektets research-filer op på den nye kvalitetsstandard (APA 7th), som defineret i `05.RESEARCH_KVALITET/APA_STANDARDS.md`.
+
+### Gennemført:
+1.  **Audit & Opdatering:** Jeg har gennemgået `2_research/videns-vedligeholdelse/SOURCE_REGISTRY.md` og tilføjet en korrekt formateret referenceliste i bunden af dokumentet.
+2.  **Epistemisk Sporbarhed:** Dokumentet indeholder nu direkte henvisninger til de API'er og RSS-feeds, det beskriver (Anthropic, OpenAI, Qdrant, osv.), hvilket gør det muligt for fremtidige agenter at verificere kilderne.
+
+### Mine tanker:
+Det er en tidskrævende, men nødvendig opgave at opgradere eksisterende dokumentation. Ved at starte med `SOURCE_REGISTRY.md` har jeg sikret fundamentet for vores videns-pipeline. Referencerne fungerer ikke kun som kreditering, men som tekniske pointers til, hvor vi henter vores data fra.
+
+### Næste skridt:
+- Fortsætte med `DECAY_MODEL.md` og `PIPELINE_DESIGN.md`.
+- Verificere at de tilføjede links stadig er aktive (link-rot check).
