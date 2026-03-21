@@ -54,3 +54,55 @@ Jeg forsøgte at køre en subagent til fact extraction, men gatewayen lukkede uv
 ### Næste skridt:
 - Monitorere om de automatiske indsigter i `MEMORY.md` er præcise nok efter stiretten.
 - Begynde at kigge på "Tier 3" (deep knowledge) i Qdrant, som nævnt i memory-destillaterne.
+
+## 2026-03-19 12:00 (UTC) - Fokus på Hukommelsesarkitektur (Fase 1)
+
+Jeg har i denne session fokuseret på at lukke gabet mellem research og praktisk implementering af Yggdras nye hukommelsesarkitektur.
+
+### Gennemført:
+1.  **Temporal Reranker Implementeret:** Jeg har bygget `SIP.agent-sandbox/memory_v2/reranker.py`. Dette script implementerer den eksponentielle temporal decay algoritme (`score *= exp(-age_days / half_life)`), som blev foreslået i V4 research og voice memoen.
+2.  **Validering:** Testkørslen viste, at algoritmen effektivt nedprioriterer gammel viden (f.eks. fra januar 2026) til fordel for helt ny viden, selv hvis den gamle viden har en højere rå semantisk score. Dette løser direkte V4 handling #5 i TRIAGE.md.
+3.  **SiP Udvidelse:** Oprettet `SIP.agent-sandbox/memory_v2/` som et nyt underområde til hukommelseseksperimenter.
+
+### Mine tanker:
+Temporal decay er motoren i "situationsbevidsthed". Uden den vil systemet altid være fanget i fortiden. Ved at have en fungerende Python-implementering i SiP, kan vi nu nemt integrere den i `get_context.py` eller fremtidige søge-skills.
+
+Strukturreformen er nu fuldt absorberet i mine workflows, og alle stier i mine scripts peger korrekt på de nye placeringer (f.eks. `BMS.auto-chatlog` i roden).
+
+### Næste skridt:
+- Forsøge at integrere rerankeren i en lokal søge-skill PoC.
+- Se på "Udvidelse 1: Blog-RSS Pipeline" fra research-destillaterne for at lukke videns-gabet mod omverdenen.
+
+## 2026-03-19 12:30 (UTC) - Temporal Reranking PoC & Arkitektur-alignment
+
+Jeg har i denne session færdiggjort en funktionel demonstration af **Temporal Reranking**, som er en kernekomponent i Yggdras nye hukommelsesarkitektur (Fase 1).
+
+### Gennemført:
+1.  **Temporal Reranking PoC:** Bygget `SIP.agent-sandbox/memory_v2/search_rerank.py`. Scriptet simulerer en fuld søge- og reranking-proces.
+2.  **Verificering af Decay-effekt:** Testen viste tydeligt, hvordan en helt ny session (0 dage gammel, score 0.88) nu korrekt vinder over en ældre men semantisk stærkere beslutning (69 dage gammel, original score 0.95), fordi den gamle beslutning "decayes" til 0.19.
+3.  **TRIAGE Opdatering:** Markeret V4 handling #3 og #5 som "Agent i gang" (i min egen SiP-sandkasse).
+
+### Observationer:
+*   **Decay-hastighed:** Med en halveringstid på 30 dage falder relevansen af gammel information meget hurtigt. Dette er essentielt for at undgå at "støje" nutiden med forældede planer, men vi skal være opmærksomme på, om vigtige fundamentale beslutninger bliver decayet *for* meget (løses via "evergreen" collections eller tagging).
+*   **Arkitektur-integration:** Koden er skrevet modulært, så den direkte kan løftes ind i `scripts/get_context.py` på VPS'en.
+
+### Næste skridt:
+- Designe et forslag til "Evergreen" beskyttelse (undgå decay for visse dokument-typer).
+- Fortsætte med automatisering af kontekst-vedligeholdelse via agenter.
+
+## 2026-03-19 13:00 (UTC) - Etablering af Research-standarder (APA 7th)
+
+I denne session har jeg taget det første skridt mod at implementere de kvalitetskrav, der blev stillet i voice memoen fra i går.
+
+### Gennemført:
+1.  **APA Standard Definition:** Oprettet `SIP.agent-sandbox/05.RESEARCH_KVALITET/APA_STANDARDS.md`. Dette dokument fungerer som en praktisk guide for agenter (og ejeren) til at anvende APA 7th referencer korrekt i projektet.
+2.  **Kvalitets-alignment:** Ved at definere disse standarder sikrer vi, at fremtidig research i `2_research/` lever op til det akademiske niveau, ejeren efterspørger for at sikre "epistemisk sporbarhed".
+
+### Mine tanker:
+APA-referencer virker måske som en lille ting i et teknisk projekt, men det er fundamentet for at kunne stole på den viden, agenterne genererer. Når vi bygger et "kognitivt exoskeleton", må knoglerne (dataene) ikke være porøse.
+
+Jeg har placeret standarden i SiP under kapitel 05 for at matche den nye backlog-struktur.
+
+### Næste skridt:
+- Begynde at auditere eksisterende filer i `2_research/` og tilføje korrekte referencer, hvor de mangler.
+- Integrere et tjek i min fact extraction pipeline, der ser efter kilde-henvisninger.

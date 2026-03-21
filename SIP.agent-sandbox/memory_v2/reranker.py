@@ -30,19 +30,13 @@ class TemporalReranker:
             age_days = (now - created_dt).total_seconds() / (24 * 3600)
             
             # Decay formel: e^(-lambda * t)
-            # Vi bruger max(0, age_days) for at undgå negative aldre ved clock skew
             decay_factor = math.exp(-max(0, age_days) * self.decay_constant)
             
             return original_score * decay_factor, decay_factor
         except Exception as e:
-            # Ved fejl returneres original score og ingen decay
             return original_score, 1.0
 
     def rerank(self, points):
-        """
-        Modtager en liste af Qdrant points (dicts) og returnerer dem sorteret efter decayed score.
-        Forventer at hvert point har 'score' og 'payload.created_at'.
-        """
         scored_points = []
         for p in points:
             original_score = p.get('score', 0.0)
@@ -50,17 +44,14 @@ class TemporalReranker:
             
             new_score, factor = self.calculate_decay(original_score, created_at)
             
-            # Lav en kopi og opdater scoren
             new_point = dict(p)
             new_point['decayed_score'] = new_score
             new_point['decay_factor'] = factor
             scored_points.append(new_point)
             
-        # Sorter efter den nye score
         return sorted(scored_points, key=lambda x: x['decayed_score'], reverse=True)
 
 if __name__ == "__main__":
-    # Test script
     reranker = TemporalReranker(half_life_days=30)
     
     test_points = [
@@ -76,7 +67,7 @@ if __name__ == "__main__":
         }
     ]
     
-    print("--- Reranking Test ---")
+    print("--- Temporal Reranking Test ---")
     results = reranker.rerank(test_points)
     for r in results:
         print(f"ID: {r['id']}")

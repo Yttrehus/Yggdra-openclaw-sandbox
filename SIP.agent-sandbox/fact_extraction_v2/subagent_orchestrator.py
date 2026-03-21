@@ -13,7 +13,7 @@ FACTS_PATH = os.path.join(PROJECT_ROOT, "data/extracted_facts.json")
 def get_latest_digest_text():
     path_to_try = DIGEST_PATH
     if not os.path.exists(path_to_try):
-        path_to_try = os.path.join(PROJECT_ROOT, "projects/auto-chatlog/sections-digest.json")
+        path_to_try = os.path.join(PROJECT_ROOT, "BMS.auto-chatlog/sections-digest.json")
         
     if not os.path.exists(path_to_try):
         return None

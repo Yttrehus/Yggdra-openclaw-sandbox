@@ -18,18 +18,18 @@ if [ -f "$PROJECT_ROOT/BMS.auto-chatlog/chatlog-engine.js" ]; then
     node "$PROJECT_ROOT/BMS.auto-chatlog/chatlog-engine.js"
     
     # Automatisk Fact Extraction efter chatlog opdatering (SIP sandbox)
-    if [ -f "$PROJECT_ROOT/sip/fact_extraction_v2/fact_extraction_poc.py" ]; then
+    if [ -f "$PROJECT_ROOT/SIP.agent-sandbox/fact_extraction_v2/fact_extraction_poc.py" ]; then
         echo "Ekstraherer fakta..."
-        python3 "$PROJECT_ROOT/sip/fact_extraction_v2/fact_extraction_poc.py"
-        python3 "$PROJECT_ROOT/sip/fact_extraction_v2/cleaner.py"
-        python3 "$PROJECT_ROOT/sip/fact_extraction_v2/validator.py"
-        python3 "$PROJECT_ROOT/sip/fact_extraction_v2/merger.py"
-        python3 "$PROJECT_ROOT/sip/fact_extraction_v2/notifier.py"
+        python3 "$PROJECT_ROOT/SIP.agent-sandbox/fact_extraction_v2/fact_extraction_poc.py"
+        python3 "$PROJECT_ROOT/SIP.agent-sandbox/fact_extraction_v2/cleaner.py"
+        python3 "$PROJECT_ROOT/SIP.agent-sandbox/fact_extraction_v2/validator.py"
+        python3 "$PROJECT_ROOT/SIP.agent-sandbox/fact_extraction_v2/merger.py"
+        python3 "$PROJECT_ROOT/SIP.agent-sandbox/fact_extraction_v2/notifier.py"
         
         # Automatisk ingestion af Fact Sheets til Qdrant (Memory Architecture)
         if [ -f "$PROJECT_ROOT/scripts/memory.py" ] && [ -n "$OPENAI_API_KEY" ]; then
             echo "Ingester Fact Sheets til Qdrant..."
-            python3 "$PROJECT_ROOT/scripts/memory.py" ingest "$PROJECT_ROOT/sip/memory_ingest"
+            python3 "$PROJECT_ROOT/scripts/memory.py" ingest "$PROJECT_ROOT/SIP.agent-sandbox/memory_ingest"
         else
             echo "Spring over Qdrant ingestion (mangler scripts/memory.py eller OPENAI_API_KEY)"
         fi
