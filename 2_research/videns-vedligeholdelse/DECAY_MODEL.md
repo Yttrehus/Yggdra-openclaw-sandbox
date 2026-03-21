@@ -53,4 +53,13 @@ Baseret på halveringstid × nuværende dækning → prioritet:
 1. **Hurtig decay (uger):** Kræver daglig/ugentlig scanning. AI_intelligence håndterer dette rimeligt.
 2. **Medium decay (måneder):** Kræver periodisk re-scan. MANGLER helt i nuværende setup. Bør trigges af tidsbaserede checks.
 3. **Langsom decay (år):** Kan håndteres kvartalsvist via manual review. Lav prioritet for automatisering.
-4. **Kritisk gap:** Stille ændringer (pricing, rate limits, API deprecations) fanges ikke af nogen pipeline. Disse er farlige fordi de ikke genererer nyheder.
+## Referencer
+
+Anthropic. (n.d.). *Claude models documentation*. https://docs.anthropic.com/en/docs/about-claude/models
+ArXiv. (n.d.). *Artificial intelligence (cs.AI) section*. https://arxiv.org/list/cs.AI/recent
+Hacker News. (n.d.). *Algolia search for AI stories*. https://hn.algolia.com/
+LMArena. (n.d.). *Chatbot arena leaderboard*. https://chat.lmsys.org/?leaderboard
+OpenAI. (n.d.). *API pricing page*. https://openai.com/api/pricing/
+Qdrant. (n.d.). *Release notes and updates*. https://github.com/qdrant/qdrant/releases
+Reddit. (n.d.). *r/ClaudeAI community*. https://www.reddit.com/r/ClaudeAI/
+Willison, S. (n.d.). *LLM and AI tooling log*. https://simonwillison.net/tags/llms/

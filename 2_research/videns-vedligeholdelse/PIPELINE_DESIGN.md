@@ -248,4 +248,11 @@ def clean_discovered(sources):
 
 **Total estimat:** 12-17 timer for alle 5 udvidelser.
 
-**Note:** RSS-feed funktionen (`fetch_rss_feeds`) er allerede delvist understøttet — `rss_feeds` sektion eksisterer i sources.json med Simon Willison og AlphaSignal. Men funktionen er IKKE kaldt i `collect_all_items()`. Det er en bug eller et uafsluttet feature.
+## Referencer
+
+Anthropic. (n.d.). *Anthropic research RSS*. https://www.anthropic.com/research/rss
+Google DeepMind. (n.d.). *DeepMind blog RSS*. https://deepmind.google/blog/rss.xml
+Hugging Face. (n.d.). *Hugging Face blog feed*. https://huggingface.co/blog/feed.xml
+OpenAI. (n.d.). *OpenAI blog RSS*. https://openai.com/blog/rss/
+Simon Willison. (n.d.). *Simon Willison's weblog Atom feed*. https://simonwillison.net/atom/everything/
+Telegram. (n.d.). *Telegram Bot API documentation*. https://core.telegram.org/bots/api

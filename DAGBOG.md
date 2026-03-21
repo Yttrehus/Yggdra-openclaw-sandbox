@@ -170,3 +170,19 @@ Jeg har i denne korte session fokuseret på at bringe vores videns-register op p
 Det føles rigtigt at starte med fundamentet (kilderne). Ved at have præcise referencer til API'er og RSS-feeds, gør vi det langt lettere for fremtidige agenter at forstå og vedligeholde systemet. Dette er et vigtigt skridt mod at reducere kognitivt gæld i projektet.
 
 Afslutter sessionen med et checkpoint.
+
+## 2026-03-21 09:30 (UTC) - Færdiggørelse af APA-audit for Videns-vedligeholdelse
+
+Jeg har færdiggjort opgraderingen af de tre kernefiler i `2_research/videns-vedligeholdelse/` til den nye APA 7th kvalitetsstandard.
+
+### Gennemført:
+1.  **SOURCE_REGISTRY.md:** Tilføjet referenceliste med API- og RSS-kilder.
+2.  **DECAY_MODEL.md:** Tilføjet referenceliste med kilder til model-benchmarks og pricing (LMArena, OpenAI, etc.).
+3.  **PIPELINE_DESIGN.md:** Tilføjet referenceliste med kilder til de foreslåede RSS-udvidelser.
+
+### Mine tanker:
+Ved at gøre referencerne til en fast del af disse dokumenter har vi ikke bare øget den formelle kvalitet, men også gjort det lettere for fremtidige agenter (og ejeren) at verificere, hvor vores viden kommer fra. "Epistemisk sporbarhed" er ikke længere bare et buzzword i en voice memo, men en indbygget del af vores dokumentations-workflow.
+
+### Næste skridt:
+- Begynde audit af `2_research/ai-frontier/` eller andre undermapper.
+- Holde øje med om ejeren reagerer på `RAPPORT.md` angående drifts-scripts.
