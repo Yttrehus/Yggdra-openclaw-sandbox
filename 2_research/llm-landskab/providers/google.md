@@ -74,3 +74,9 @@ Google DeepMind (fusioneret 2023 fra DeepMind + Google Brain). Verdens største 
 - /root/Yggdra/research/CH4_LLM_LANDSCAPE.md (sektioner 4.1-4.3)
 - /root/Yggdra/research/AI_CLAUDE_ANTHROPIC_2026.md (sektion 9)
 - Arena.ai Leaderboard
+## Referencer
+
+Google Cloud. (2025). *Vertex AI: Generative AI on Google Cloud*. https://cloud.google.com/vertex-ai
+Google DeepMind. (2024). *Gemini: A family of highly capable multimodal models*. https://deepmind.google/technologies/gemini/
+Google. (2025). *Gemini 1.5 Flash-Lite: Lightweight model for volume processing*. https://ai.google.dev/pricing
+LMSYS Org. (2026). *Chatbot Arena Leaderboard*. https://chat.lmsys.org/?leaderboard

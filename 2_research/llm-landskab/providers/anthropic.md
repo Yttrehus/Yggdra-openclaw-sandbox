@@ -83,3 +83,9 @@ Udgåede: Opus 4.0 og 4.1 fjernet fra både Claude og Claude Code.
 - /root/Yggdra/research/AI_CLAUDE_ANTHROPIC_2026.md (komplet)
 - /root/Yggdra/research/CH3_CLAUDE_CODE.md (sektioner 3.1-3.6)
 - Arena.ai Leaderboard, SWE-bench Verified, LMSYS Chatbot Arena
+## Referencer
+
+Anthropic. (2024). *Claude's Model Context Protocol (MCP)*. https://modelcontextprotocol.org/
+Anthropic. (2026). *Claude Code: Agentic CLI for developers*. https://docs.anthropic.com/en/docs/agents-and-tools/claude-code
+Arena.ai. (2026). *LLM benchmarking leaderboard*. https://arena.ai/
+LMSYS Org. (2026). *Chatbot Arena: Benchmarking LLMs in the wild*. https://chat.lmsys.org/?leaderboard

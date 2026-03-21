@@ -80,3 +80,9 @@ Bemærk: GPT-5.2 var en "premature release" ifølge practitioner-reports. Auto-s
 - /root/Yggdra/research/CH4_LLM_LANDSCAPE.md (sektioner 4.1-4.3, 4.10)
 - /root/Yggdra/research/CH3_CLAUDE_CODE.md (sektion 3.1)
 - Arena.ai Leaderboard, SWE-bench Verified
+## Referencer
+
+OpenAI. (2024). *New embedding models and API updates*. https://openai.com/index/new-embedding-models-and-api-updates/
+OpenAI. (2025). *API pricing and models*. https://openai.com/api/pricing/
+OpenAI. (2026). *GPT-4.5 and GPT-5 model documentation*. https://platform.openai.com/docs/models
+LMSYS Org. (2026). *Chatbot Arena: Benchmarking LLMs*. https://chat.lmsys.org/?leaderboard

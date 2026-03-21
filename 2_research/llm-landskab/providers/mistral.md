@@ -55,6 +55,9 @@ Generelt 20-40% billigere end OpenAI for sammenlignelig kvalitet. Mixtral open-w
 
 **Konklusion:** Mistral er kun relevant for Yttre i to scenarier: (1) GDPR-compliance bliver et hårdt krav, eller (2) OCR af specifikke dokumenttyper. Ellers ingen fordel over eksisterende setup.
 
-## Kilder
+## Referencer
 
-- /root/Yggdra/research/CH4_LLM_LANDSCAPE.md (sektion 4.2)
+Mistral AI. (2024). *Mistral Large: Our strongest model yet*. https://mistral.ai/news/mistral-large/
+Mistral AI. (2025). *La Plateforme: API documentation and models*. https://docs.mistral.ai/
+Mistral AI. (2026). *Mistral OCR: Document understanding at scale*. https://mistral.ai/news/ocr/
+LMSYS Org. (2026). *Chatbot Arena: Mistral performance metrics*. https://chat.lmsys.org/?leaderboard

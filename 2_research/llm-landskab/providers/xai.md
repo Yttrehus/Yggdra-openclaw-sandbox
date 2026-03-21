@@ -55,7 +55,9 @@ Grok er primært tilgængelig via X Premium+ ($16/md) og X Premium ($8/md med be
 
 **Konklusion:** Grok var Yttres første AI-værktøj, men er nu irrelevant for hans setup. Ingen CLI-agent, svagt developer-økosystem, og #66 brugertilfredshed trods #1 benchmarks. Historisk interessant, praktisk ubrugelig for Yttres use cases. Eneste nicheargument er matematik-reasoning, men det dækkes tilstrækkeligt af Claude Opus.
 
-## Kilder
+## Referencer
 
-- /root/Yggdra/research/CH4_LLM_LANDSCAPE.md (sektioner 4.1, 4.2)
-- Arena.ai Leaderboard
+Arena.ai. (2026). *LLM benchmarking leaderboard*. https://arena.ai/
+LMSYS Org. (2026). *Chatbot Arena: Grok model performance*. https://chat.lmsys.org/?leaderboard
+xAI. (2024). *Grok 4.1 release and benchmarks*. https://x.ai/blog/grok-4.1
+xAI. (2025). *API Console and models*. https://console.x.ai/

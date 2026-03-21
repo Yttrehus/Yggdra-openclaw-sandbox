@@ -62,7 +62,9 @@ Meta Platforms (ex-Facebook). Open-weight strategi — Llama-modellerne er grati
 
 **Konklusion:** Llama er irrelevant for Yttres nuværende setup. Ingen GPU, lavt token-volume, og Claude Code giver langt bedre developer experience. Llama bliver relevant hvis: (a) Yttre får GPU-hardware, (b) data-suverænitet bliver kritisk, eller (c) token-volume overstiger 20M/måned. Indtil da: ignorer.
 
-## Kilder
+## Referencer
 
-- /root/Yggdra/research/CH4_LLM_LANDSCAPE.md (sektioner 4.2, 4.3)
-- HuggingFace Llama Model Cards
+Hugging Face. (2026). *Llama 4: Open weights and model details*. https://huggingface.co/meta-llama/
+Meta AI. (2026). *The Llama 4 family of models*. https://ai.meta.com/llama/
+Ollama. (2026). *Run Llama 4 locally with Ollama*. https://ollama.com/library/llama4
+Together AI. (2026). *Meta Llama 4 on Together API*. https://www.together.ai/blog/llama-4

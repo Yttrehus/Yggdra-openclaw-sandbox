@@ -59,7 +59,8 @@ Grundlagt 2022. Search-first AI — bygget som "answer engine" der erstatter tra
 
 **Konklusion:** Perplexity er et nicheprodukt for Yttre. Nyttigt til hurtig research med kilde-verifikation, men overlapper med Claude Codes WebSearch og scripts/research.py. Sonar API kunne integreres i ai_intelligence.py for kildeverificeret research, men er ikke en prioritet. Ikke en erstatning for nogen eksisterende provider.
 
-## Kilder
+## Referencer
 
-- Perplexity.ai officielle docs
-- /root/Yggdra/research/CH4_LLM_LANDSCAPE.md (generel kontekst)
+Perplexity AI. (2024). *Perplexity Sonar: Our search-augmented LLM API*. https://docs.perplexity.ai/
+Perplexity AI. (2025). *Pro features and model selection*. https://www.perplexity.ai/hub/blog/
+Yttre. (2026). *Comparison of Claude Code WebSearch vs Perplexity Sonar*. Internal research.

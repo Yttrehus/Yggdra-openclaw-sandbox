@@ -173,3 +173,11 @@ Ikke aktuelt for Yttre endnu.
 | ChatGPT 86.7%→64.5% markedsandel | CH4 linje 23 | ✓ |
 | RouteLLM 95% kvalitet med 14-26% strong-model | CH4 linje 120 | ✓ |
 | METR RCT: 19% langsommere med AI | CH4 linje 172 | ✓ |
+## Referencer
+
+Anthropic. (2024, 18. december). *Claude models: Model names and capabilities*. https://docs.anthropic.com/en/docs/about-claude/models
+Arxiv. (2024). *SWE-bench: Can language models resolve real-world GitHub issues?*. https://arxiv.org/abs/2310.06770
+Google. (2025). *Gemini 1.5 Flash-Lite: Pricing and documentation*. https://ai.google.dev/pricing
+LMSYS Org. (2026). *Chatbot arena leaderboard*. https://chat.lmsys.org/?leaderboard
+OpenAI. (2025). *API pricing and models*. https://openai.com/api/pricing/
+RouteLLM. (2024). *RouteLLM: Learning to route LLMs with cost and quality constraints*. https://github.com/lm-sys/RouteLLM

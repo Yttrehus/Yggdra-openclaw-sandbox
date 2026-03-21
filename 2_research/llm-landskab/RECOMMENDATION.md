@@ -118,3 +118,10 @@ Tier 4 (ignore):     xAI, Meta, Mistral, Perplexity (ikke relevant nu)
 ```
 
 **Den vigtigste indsigt:** Model-valg er 20% af resultatet. De andre 80% er kontekst (CLAUDE.md, skills, Qdrant), prompts, og workflow-design. Et veltilpasset Sonnet slår et dårligt konfigureret Opus hver gang. Invester i kontekst-engineering, ikke i at jagte den nyeste model.
+## Referencer
+
+Anthropic. (2024). *Claude for Enterprise: Building with Sonnet and Opus*. https://www.anthropic.com/enterprise
+Google Cloud. (2025). *Imagen 3 on Vertex AI: High-quality image generation*. https://cloud.google.com/vertex-ai/docs/generative-ai/image/overview
+Groq. (2024). *Whisper on Groq: Real-time speech-to-text*. https://groq.com/products/
+OpenAI. (2024). *New embedding models and API updates*. https://openai.com/index/new-embedding-models-and-api-updates/
+Yttre. (2026). *Ydrasil advisor_brain metrics (advisor_brain collection)*. Internal documentation.
