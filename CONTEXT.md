@@ -1,16 +1,16 @@
 # Yggdra
 
 ## Metadata
-- **Status:** Session 33 (Agent). APA-standarder implementeres i ai-frontier.
+- **Status:** Session 33 (Agent). APA-standarder implementeret i ai-frontier (3/7 topics).
 - **Sidst opdateret:** 2026-03-21 (session 33)
 
 ## Hvor er vi
 
 ### Seneste Agent Sessioner (33 — 2026-03-21)
 - **Session 33:** 
-  - **Audit Status:** Videns-vedligeholdelse (3/3) og AI-frontier (1/7) audit færdiggjort (APA-alignment).
-  - **Opdateringer:** `agent-architectures.md` har nu fuld referenceliste (Anthropic, Ronacher, Zechner).
-  - **Standardisering:** Fortsætter med at bygge "epistemisk sporbarhed" i hele research-kataloget.
+  - **Audit Status:** Videns-vedligeholdelse (3/3) og AI-frontier (3/7) audit færdiggjort (APA-alignment).
+  - **Opdateringer:** `agent-teams.md` og `memory-systems.md` har nu fulde referencelister (CrewAI, LangChain, Stanford research, Kumaran et al.).
+  - **Videnskabelig alignment:** Forbundet Yggdras hukommelsesarkitektur (RAG + Qdrant) med Complementary Learning Systems (CLS) teori.
 
 ### Tidligere Agent Sessioner (32 — 2026-03-19)
 - **Session 32:** 
@@ -34,7 +34,7 @@ Yggdra/
 
 ### Aktive projekter
 - **SIP.agent-sandbox:** `05.RESEARCH_KVALITET/APA_STANDARDS.md` i aktiv brug til audit.
-- **2_research/ai-frontier:** Audit af `agent-architectures.md` færdig. Næste: `agent-teams.md`.
+- **2_research/ai-frontier:** Audit af `agent-architectures.md`, `agent-teams.md` og `memory-systems.md` færdig.
 - **BMS.auto-chatlog:** v3 fungerer.
 
 ## Beslutninger
@@ -43,7 +43,7 @@ Yggdra/
 - **Evergreen:** Kernedokumenter (manualer, blueprints) er undtaget decay.
 
 ## Hvad mangler
-- [ ] Fortsæt audit af `2_research/ai-frontier/` (næste: `agent-teams.md`).
+- [ ] Fortsæt audit af `2_research/ai-frontier/` (næste: `automation-patterns.md`).
 - [ ] Synkronisér `ai_intelligence.py` og `intelligence_sources.json` til PC (se `RAPPORT.md`).
 - [ ] Implementér Blog-RSS Pipeline (Udvidelse 1 i `PIPELINE_DESIGN.md`).
 - [ ] Verificér ingestion til Qdrant med gyldig API-nøgle.
