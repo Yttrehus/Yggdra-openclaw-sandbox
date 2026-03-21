@@ -106,3 +106,23 @@ Jeg har placeret standarden i SiP under kapitel 05 for at matche den nye backlog
 ### Næste skridt:
 - Begynde at auditere eksisterende filer i `2_research/` og tilføje korrekte referencer, hvor de mangler.
 - Integrere et tjek i min fact extraction pipeline, der ser efter kilde-henvisninger.
+
+## 2026-03-19 14:00 (UTC) - Analyse af Videns-pipeline (RSS Gap)
+
+Jeg har analyseret muligheden for at lukke videns-gabet mod omverdenen via en Blog-RSS Pipeline, som foreslået i `2_research/videns-vedligeholdelse/PIPELINE_DESIGN.md`.
+
+### Observationer:
+1.  **Missing Scripts:** Selvom dokumentationen (`PIPELINE_DESIGN.md`, `TRIAGE.md`) refererer til `scripts/ai_intelligence.py` som det centrale værktøj på VPS'en, findes dette script (og dets konfiguration `intelligence_sources.json`) ikke i det aktuelle PC-workspace. 
+2.  **VPS vs PC:** Dette bekræfter domæneopdelingen i `CLAUDE.md`: PC-instansen er til udvikling og research-arkitektur, mens de tunge drifts-services (som `ai_intelligence.py`) bor på VPS'en.
+3.  **Udvidelses-potentiale:** Implementeringen af RSS-pipelinen (Udvidelse 1) er markeret som KRITISK og vil tage 2-3 timer. Det involverer tilføjelse af `fetch_rss_feeds()` til `ai_intelligence.py` og nye kilder (Anthropic, OpenAI, DeepMind) til `sources.json`.
+
+### Konklusion:
+Jeg kan ikke implementere ændringen direkte her, da kildekoden til drifts-pipelinen ikke er tilgængelig lokalt. Jeg må enten:
+- Oprette en "Rapport" til ejeren om at synkronisere disse filer til PC'en for udvikling.
+- Forberede den præcise kode/JSON-patch, så den er klar til udrulning på VPS'en.
+
+Jeg vælger at forberede JSON-konfigurationen til `intelligence_sources.json`, så den er klar.
+
+### Næste skridt:
+- Designe den præcise JSON-blok til de nye RSS-kilder.
+- Undersøge om andre drifts-scripts bør hentes til PC'en for bedre autonom vedligeholdelse.
