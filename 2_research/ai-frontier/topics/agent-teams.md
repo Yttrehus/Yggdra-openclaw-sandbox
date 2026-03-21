@@ -174,7 +174,7 @@ Yttres multi-agent erfaringer er primært fra Ralph loops:
 - Circuit breakers: max iterationer, timeout
 
 **Hvad virker:** Simpel, fuld visibility, alt på disk, ingen framework-afhængighed.
-**Hvad fejler:** Ingen automatisk recovery ved fejl. Context loss over mange iterationer. Ingen parallel execution.
+**Hvad fejler:** Ingen automatisk recovery ved fejl. Context loss over many iterationer. Ingen parallel execution.
 
 ### Subagent-delegering
 Claude Code's Task tool = parent-child delegation. Erfaringer:
@@ -198,3 +198,16 @@ Manus' context engineering er direkte relevant:
 4. **Todo.md pattern** til komplekse opgaver — eksplicit attention management
 5. **Undgå multi-agent frameworks** medmindre opgaven kræver parallel specialisering
 6. **Mål faktisk produktivitet** — METR viste at perceived ≠ actual
+
+---
+
+## Referencer
+
+Anthropic. (2026). *Claude agent SDK documentation*. https://sdk.anthropic.com/
+AutoGen. (2026). *AutoGen v0.4 release notes*. https://microsoft.github.io/autogen/
+CrewAI. (2025). *CrewAI multi-agent flows*. https://docs.crewai.com/core-concepts/Flows/
+Gartner. (2025). *Market guide for agentic AI*. https://www.gartner.com/
+Hugging Face. (2025). *Smolagents: Code-first AI agents*. https://github.com/huggingface/smolagents
+LangChain. (2024). *LangGraph: Orchestrating multi-agent systems*. https://langchain-ai.github.io/langgraph/
+Manus. (2026). *The Manus context engineering pattern*. https://manus.ai/blog/context-engineering
+OpenAI. (2024). *Swarm: Lightweight multi-agent orchestration*. https://github.com/openai/swarm

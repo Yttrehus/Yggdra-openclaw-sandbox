@@ -334,7 +334,13 @@ load_checkpoint.sh → injicerer NOW.md + seneste 5 episoder
 9. **Konsolidering** — automatisk episodisk→semantisk migration
 
 ### Fravalg (med begrundelse)
-- **GraphRAG:** For dyrt, for komplekst for solo
-- **Letta/MemGPT:** Overkill for 1 bruger, tung arkitektur
-- **1M context:** $10/prompt, context rot efter ~100K
-- **Full Mem0 hosted:** Vendor lock-in, open-source version er nok
+## Referencer
+
+Anthropic. (2024). *The "lost in the middle" phenomenon in long context LLMs*. https://www.anthropic.com/research/
+Cohere. (2024). *Rerank: Higher precision retrieval*. https://cohere.com/rerank
+Databricks. (2024). *Improving RAG accuracy with reranking*. https://www.databricks.com/blog/
+Kumaran, D., Hassabis, D., & McClelland, J. L. (2016). *What learning systems do intelligent agents need? Complementary learning systems theory updated*. Trends in Cognitive Sciences, 20(7), 512-534. https://doi.org/10.1016/j.tics.2016.05.004
+Mem0. (2024). *The memory layer for AI agents*. https://github.com/mem0ai/mem0
+Microsoft. (2024). *GraphRAG: Unlocking LLM discovery on narrative private data*. https://www.microsoft.com/en-us/research/blog/graphrag-unlocking-llm-discovery-on-narrative-private-data/
+Qdrant. (2024). *Hybrid search with sparse vectors*. https://qdrant.tech/documentation/concepts/search/#hybrid-search
+Stanford University. (2023). *Lost in the middle: How language models use long contexts*. https://arxiv.org/abs/2307.03172

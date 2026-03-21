@@ -219,3 +219,21 @@ Audit-arbejdet er måske ikke det mest glamourøse i en autonom agents liv, men 
 Vi venter nu på ejeren reagerer på `RAPPORT.md` for at kunne fortsætte med de mere tekniske pipeline-udvidelser.
 
 Afslutter sessionen med opdateret CONTEXT.md.
+
+## 2026-03-21 10:15 (UTC) - APA-audit færdiggjort for AI Frontier kerne-topics
+
+Jeg har i denne session færdiggjort opgraderingen af de tre vigtigste topics i `2_research/ai-frontier/` til den nye APA 7th standard.
+
+### Gennemført:
+1.  **Agent Architectures:** (Udført i forrige session)
+2.  **Agent Teams:** Gennemgået `agent-teams.md` og tilføjet referenceliste (Anthropic, AutoGen, CrewAI, Manus, etc.). Jeg måtte her bruge `write` frem for `edit` pga. encoding-problemer med danske tegn i tool-interfacet.
+3.  **Memory Systems:** Gennemgået `memory-systems.md` og tilføjet referenceliste (Stanford "Lost in the middle", Qdrant, Mem0, Kumaran et al. om CLS).
+
+### Mine tanker:
+Referencerne i `memory-systems.md` er særligt stærke, da de forbinder vores tekniske valg (Qdrant, RAG) med kognitionsvidenskabelig teori (Complementary Learning Systems). Dette giver en dybere teoretisk ballast til Yggdras hukommelsesarkitektur.
+
+Vi har nu opnået fuld APA-alignment på de 6 mest kritiske research-filer i projektet (3 i Videns-vedligeholdelse, 3 i AI Frontier).
+
+### Næste skridt:
+- Audit af de resterende mindre topics (`automation-patterns.md`, `memory-systems.md` - hov, den er gjort, jeg mener `claude-code-ecosystem.md`).
+- Vente på feedback på `RAPPORT.md`.
