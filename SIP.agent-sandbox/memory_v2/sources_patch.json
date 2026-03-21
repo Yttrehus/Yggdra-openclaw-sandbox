@@ -1,0 +1,24 @@
+{
+  "rss_feeds": [
+    {
+      "name": "Anthropic Research",
+      "url": "https://www.anthropic.com/research/rss",
+      "priority": "high"
+    },
+    {
+      "name": "OpenAI Blog",
+      "url": "https://openai.com/blog/rss/",
+      "priority": "high"
+    },
+    {
+      "name": "Google DeepMind",
+      "url": "https://deepmind.google/blog/rss.xml",
+      "priority": "medium"
+    },
+    {
+      "name": "Hugging Face Blog",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "priority": "medium"
+    }
+  ]
+}
