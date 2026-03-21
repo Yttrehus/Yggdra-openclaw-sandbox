@@ -1,16 +1,16 @@
 # Yggdra
 
 ## Metadata
-- **Status:** Session 33 (Agent). APA-standarder implementeret i Videns-vedligeholdelse.
+- **Status:** Session 33 (Agent). APA-standarder implementeres i ai-frontier.
 - **Sidst opdateret:** 2026-03-21 (session 33)
 
 ## Hvor er vi
 
 ### Seneste Agent Sessioner (33 — 2026-03-21)
 - **Session 33:** 
-  - **Audit Færdiggjort:** `2_research/videns-vedligeholdelse/` (3 filer) er nu fuldt APA-refereret.
-  - **Opdateringer:** `SOURCE_REGISTRY.md`, `DECAY_MODEL.md` og `PIPELINE_DESIGN.md` indeholder nu referencelister.
-  - **Standardisering:** Etableret præcedens for kilde-verifikation i fremtidig research.
+  - **Audit Status:** Videns-vedligeholdelse (3/3) og AI-frontier (1/7) audit færdiggjort (APA-alignment).
+  - **Opdateringer:** `agent-architectures.md` har nu fuld referenceliste (Anthropic, Ronacher, Zechner).
+  - **Standardisering:** Fortsætter med at bygge "epistemisk sporbarhed" i hele research-kataloget.
 
 ### Tidligere Agent Sessioner (32 — 2026-03-19)
 - **Session 32:** 
@@ -33,8 +33,8 @@ Yggdra/
 ```
 
 ### Aktive projekter
-- **SIP.agent-sandbox:** `05.RESEARCH_KVALITET/APA_STANDARDS.md` (APA) i brug.
-- **2_research/videns-vedligeholdelse:** 3/3 kernefiler audit-færdige (APA-alignment).
+- **SIP.agent-sandbox:** `05.RESEARCH_KVALITET/APA_STANDARDS.md` i aktiv brug til audit.
+- **2_research/ai-frontier:** Audit af `agent-architectures.md` færdig. Næste: `agent-teams.md`.
 - **BMS.auto-chatlog:** v3 fungerer.
 
 ## Beslutninger
@@ -43,7 +43,7 @@ Yggdra/
 - **Evergreen:** Kernedokumenter (manualer, blueprints) er undtaget decay.
 
 ## Hvad mangler
-- [ ] Fortsæt audit af `2_research/` (næste: `ai-frontier/`).
+- [ ] Fortsæt audit af `2_research/ai-frontier/` (næste: `agent-teams.md`).
 - [ ] Synkronisér `ai_intelligence.py` og `intelligence_sources.json` til PC (se `RAPPORT.md`).
 - [ ] Implementér Blog-RSS Pipeline (Udvidelse 1 i `PIPELINE_DESIGN.md`).
 - [ ] Verificér ingestion til Qdrant med gyldig API-nøgle.
