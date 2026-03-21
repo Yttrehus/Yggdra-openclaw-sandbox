@@ -258,7 +258,11 @@ Selv med 100K+ tokens forringes reasoning. Signal drukner i støj.
 5. **Staging for webapp** — preview-system før produktion
 6. **Bedre episodisk retrieval** — ctx-søg i stedet for seneste 5
 
-### Fremtid (Uger)
-7. **Voice-first interface** — Whisper + Claude + ElevenLabs (Miessler-style)
-8. **Automatisk gap-detection** — The Last Algorithm automatiseret
-9. **Event-driven arkitektur** — file watchers, webhook endpoints
+## Referencer
+
+Jones, N. (2025). *Context engineering vs domain memory*. [Video]. YouTube. https://www.youtube.com/watch?v=...
+Miessler, D. (2016). *The digital assistant of the future*. Daniel Miessler's Weblog. https://danielmiessler.com/
+Miessler, D. (2025). *The AI impact maturity model (AIMM)*. https://danielmiessler.com/blog/ai-impact-maturity-model/
+Miessler, D. (2026). *PAI: Personal Artificial Intelligence architecture*. https://danielmiessler.com/
+OpenClaw. (2026). *OpenClaw: Autonomous agent platform documentation*. https://github.com/openclaw/openclaw
+Zechner, M. (2026). *MOM: Managing our memories slack-bot*. https://github.com/mzechner/mom

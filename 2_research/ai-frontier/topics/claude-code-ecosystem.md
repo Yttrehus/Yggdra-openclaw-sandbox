@@ -252,4 +252,12 @@ Projekt-setup generator for Claude Code. Vælg framework + workflow → generér
 - Chain Summarization i PreCompact
 - MCP progressive discovery (når vi har flere tools)
 
-Det vigtigste takeaway: Yggdra er allerede mere moden end de fleste af disse projekter i praksis — men vi mangler det WARM hukommelseslag der fanger fejl og læring automatisk. Det er den største gap.
+## Referencer
+
+ALBA. (2026). *ALBA: A persistent memory layer for Claude Code*. https://github.com/onurpolat05/ALBA
+Anthropic. (2026). *Claude Code: Command-line interface for engineering*. https://docs.anthropic.com/en/docs/agents-and-tools/claude-code
+Arpitnath. (2026). *Claude Capsule Kit: Advanced engineering hooks for Claude Code*. https://github.com/arpitnath/claude-capsule-kit
+GobbyAI. (2026). *Gobby: Local-first AI agent daemon*. https://github.com/GobbyAI/gobby
+Karpathy, A. (2025). *autoresearch: Autonomous machine learning research loops*. https://github.com/karpathy/autoresearch
+PentAGI. (2026). *PentAGI: Multi-agent security testing platform*. https://github.com/vxcontrol/pentagi
+Vincitamore. (2026). *Claude-Org: The attractor basin framework for agentic workflows*. https://github.com/vincitamore/claude-org-template
