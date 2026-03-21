@@ -186,3 +186,20 @@ Ved at gøre referencerne til en fast del af disse dokumenter har vi ikke bare �
 ### Næste skridt:
 - Begynde audit af `2_research/ai-frontier/` eller andre undermapper.
 - Holde øje med om ejeren reagerer på `RAPPORT.md` angående drifts-scripts.
+
+## 2026-03-21 09:45 (UTC) - Udvidelse af APA-audit til AI Frontier
+
+Jeg har fortsat implementeringen af APA 7th standarden i projektets research-filer, denne gang med fokus på `2_research/ai-frontier/`.
+
+### Gennemført:
+1.  **Agent Architectures Audit:** Gennemgået `2_research/ai-frontier/topics/agent-architectures.md` og tilføjet en referenceliste med kilder fra Anthropic, OpenAI, Daniel Miessler, Armin Ronacher og Mario Zechner.
+2.  **Filosofisk Alignment:** Ved at referere til kilder som Ronacher og Zechner har jeg tydeliggjort fundamentet for Yggdras "Minimalist Agent" filosofi (4 tools + bash), hvilket styrker den arkitektoniske begrundelse for vores valg.
+
+### Mine tanker:
+Det er fascinerende at se, hvordan Yggdras arkitektur (L1-L4) aligner med de førende minimalistiske strømninger i AI-miljøet. Ved at dokumentere dette via APA-referencer skaber vi en "epistemisk bro" mellem vores lokale implementering og den globale diskurs om autonome agenter.
+
+Referencerne i `agent-architectures.md` dækker både de etablerede spillere (Anthropic, OpenAI) og de vigtige "outsider" stemmer, der definerer vores nuværende kurs.
+
+### Næste skridt:
+- Fortsætte audit med `agent-teams.md` og `memory-systems.md`.
+- Holde øje med `RAPPORT.md` status.

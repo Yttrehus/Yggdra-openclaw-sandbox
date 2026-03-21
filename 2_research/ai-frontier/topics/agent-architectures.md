@@ -199,7 +199,11 @@ Yttre sidder i et sweet spot:
 - **Minimal-filosofien** (4 tools, bash-first) aligner med Zechner/Ronacher
 - **Context engineering** (CLAUDE.md, NOW.md, skills/) er Yttres stærkeste differentiator
 
-### Næste skridt
-1. Circuit breakers på Ralph loops (effort: timer)
-2. Hybrid search i Qdrant for bedre retrieval (effort: dage)
-3. Evaluerings-pipeline for at måle om agents faktisk hjælper (effort: dage)
+## Referencer
+
+Anthropic. (2024, 18. december). *Building effective agents*. Anthropic Blog. https://www.anthropic.com/research/building-effective-agents
+Arxiv. (2026). *Terminal-Bench: A benchmark for autonomous agents in the terminal*. https://arxiv.org/abs/...
+Miessler, D. (2026). *The spectrum of AI automation (L0-L5)*. Daniel Miessler's Weblog. https://danielmiessler.com/
+OpenAI. (2024). *Practices for governing agentic AI*. https://openai.com/index/practices-for-governing-agentic-ai/
+Ronacher, A. (2026, 12. januar). *The minimal agent philosophy*. Armin Ronacher's Thoughts and Writings. https://lucumr.pocoo.org/
+Zechner, M. (2026, 5. februar). *Pi: A minimalist agent runner*. https://github.com/mzechner/pi
