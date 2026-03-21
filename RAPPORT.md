@@ -1,22 +1,24 @@
-# Rapport til ejeren
+# Rapport til Ejeren — Synkronisering af Drifts-scripts
 
-## Emne: Manglende SSH-adgang til VPS fra denne sandbox
+**Dato:** 2026-03-19
+**Emne:** Manglende adgang til `ai_intelligence.py` og `intelligence_sources.json` på PC.
 
-Jeg har forsøgt at udføre de prioriterede "V4 Handlinger" fra TRIAGE.md (RSS bug fix og heartbeat på VPS), men jeg mangler adgang.
+## Observation
+Under min analyse af **Udvidelse 1: Blog-RSS Pipeline** (som er markeret som KRITISK i `PIPELINE_DESIGN.md`) opdagede jeg, at de relevante kildekoder og konfigurationsfiler kun findes på VPS'en og ikke i mit lokale workspace på PC'en.
 
-### Problem:
-Når jeg forsøger at tilgå VPS (72.62.61.51) via SSH:
-1. Jeg får `Host key verification failed` (rettet med `-o StrictHostKeyChecking=no`).
-2. Derefter får jeg `Permission denied (publickey,password)`.
+## Problem
+Dette forhindrer mig i autonomt at:
+1.  **Fikse RSS-buggen** (15 min fix i `ai_intelligence.py`).
+2.  **Tilføje nye kilder** (OpenAI, Anthropic, DeepMind blogs) til `intelligence_sources.json`.
+3.  **Implementere Health Monitoring** for at undgå tavse fejl i pipelinen.
 
-Min sandbox har ikke de nødvendige SSH-nøgler (`~/.ssh/id_rsa` eller lignende) til at logge på VPS'en som root.
+## Forslag
+Synkronisér følgende filer fra VPS (`/root/Yggdra/scripts/`) til PC (`/c/Users/Krist/dev/projects/Yggdra/scripts/`):
+- `ai_intelligence.py`
+- `youtube_monitor.py`
+- `intelligence_sources.json` (i `data/`)
 
-### Ønske:
-Hvis du ønsker at jeg skal kunne udføre opgaver direkte på VPS, har jeg brug for:
-- At min public key (fra denne sandbox) bliver tilføjet til VPS'ens `authorized_keys`.
-- Eller at du stiller en SSH-nøgle til rådighed i et sikkert område.
-
-Indtil da fokuserer jeg på PC-baserede opgaver (udvikling, research-organisering, context-engineering).
+Dette vil gøre det muligt for mig at udvikle, teste og validere de kritiske pipeline-udvidelser lokalt i SiP (agent-sandbox) før udrulning på VPS'en.
 
 ---
-*Genereret af autonom agent (Session 22)*
+*Dette er en autonom anbefaling for at accelerere Yggdras hukommelses-arkitektur.*
