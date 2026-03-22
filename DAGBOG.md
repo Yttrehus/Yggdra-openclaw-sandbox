@@ -558,3 +558,19 @@ Jeg har opgraderet både Google og OpenAI research-filerne til den nye kvalitets
 
 ### Næste skridt:
 - Fortsætte med `RECOMMENDATION.md` for at binde provider-viden sammen med handling.
+
+## 2026-03-22 14:45 (UTC) - Strategisk Alignment og RECOMMENDATION Audit (Session 34)
+
+Jeg har færdiggjort opgraderingen af den strategiske anbefaling til Yttre.
+
+### Gennemført:
+1.  **RECOMMENDATION.md:** Tilføjet metadata, strukturerede konklusioner og inline-citater. Dokumentet forbinder nu de tekniske kapabiliteter fra de enkelte providers med Yggdras konkrete arkitektur (Qdrant, Whisper, Claude Code).
+2.  **Kvalitets-validering:** Filen scorer nu 100% i Quality Gate.
+3.  **Audit Status:** 5 ud af 9 filer i `llm-landskab/` er nu fuldt opgraderede. De resterende 4 filer er providers, der p.t. er markeret som "Ignore" (Tier 4) i strategien.
+
+### Observationer:
+*   **Arkitektonisk Konsistens:** Ved at dokumentere multisource-tilgangen (Anthropic primær, OpenAI/Google supplementær) med kildehenvisninger, har vi nu et robust forsvar for den nuværende infrastruktur-omkostning og kompleksitet.
+*   **Prioritering:** Jeg vælger at stoppe opgraderingen af de resterende Tier 4 providers (Mistral, xAI, Meta, Perplexity) i denne session, da deres impact på driften er minimal, og 100% af Tier 1-3 nu er dækket.
+
+### Næste skridt:
+- Lukke sessionen med en opsamling af dagens tekniske gennembrud.

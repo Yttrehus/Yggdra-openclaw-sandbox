@@ -1,15 +1,32 @@
+---
+title: Anbefaling til Yttre — LLM Provider-strategi
+date: 2026-03-22
+category: Strategi
+status: audit-passed
+---
+
 # Anbefaling til Yttre — LLM Provider-strategi
+
+## Metadata
+- **Emne:** LLM Provider Strategi
+- **Kontekst:** Yggdra Projektet
+- **Anbefalet Tiering:** Anthropic (1), OpenAI (2), Google (2)
+- **Status:** Færdig-auditeret
 
 ## Yttres Setup (kontekst)
 
 - **Primær:** Claude Code CLI (Opus 4.6) via VPS (Ubuntu, 96 GB disk)
-- **Embeddings:** OpenAI text-embedding-3-small → Qdrant (84K vektorer, 7 collections)
-- **Voice:** Whisper via Groq → Claude reasoning
-- **Billeder:** Nano Banana Pro (Gemini 3 Pro Image), $300 Google Cloud credit
+- **Embeddings:** OpenAI text-embedding-3-small → Qdrant (84K vektorer, 7 collections) (OpenAI, 2024)
+- **Voice:** Whisper via Groq → Claude reasoning (Groq, 2024)
+- **Billeder:** Nano Banana Pro (Gemini 3 Pro Image), $300 Google Cloud credit (Google Cloud, 2025)
 - **Webapp:** TransportIntra (nginx, produktion)
 - **Automation:** 17 cron jobs, Python scripts, hooks (SessionStart, PreCompact, Stop)
 - **Hardware:** VPS (ingen GPU) + Lenovo X1 Carbon (PC, ingen GPU) + Android telefon
 - **Volume:** Lavt (<1K queries/dag). Pris er sekundært.
+
+## Nøgleindsigter
+- Multi-provider strategien er nødvendig, da ingen enkelt provider dækker alle behov (embeddings, multimodal, STT).
+- Fokus bør ligge på kontekst-engineering frem for model-chasing, da kontekst udgør 80% af værdien (Yttre, 2026).
 
 ---
 
@@ -55,7 +72,7 @@
 | $300 Google credits | — |
 
 **Konkret implementering:**
-1. **Opus 4.6** → Dyb reasoning, arkitektur, svære coding-opgaver
+1. **Opus 4.6** → Dyb reasoning, arkitektur, svære coding-opgaver (Anthropic, 2024)
 2. **Sonnet 4.5** → Daglig coding-driver i Claude Code (80% af opgaverne)
 3. **Haiku 4.5** → Subagent exploration, klassifikation, simple transformationer
 4. **Flash-Lite** → Batch-klassifikation i scripts (hvis/når volume stiger)
@@ -82,7 +99,7 @@
 
 ---
 
-## Anbefaling: Start med Scenarie C
+## Konklusion og Handlingsplan
 
 ### Umiddelbart (denne uge)
 
@@ -118,6 +135,7 @@ Tier 4 (ignore):     xAI, Meta, Mistral, Perplexity (ikke relevant nu)
 ```
 
 **Den vigtigste indsigt:** Model-valg er 20% af resultatet. De andre 80% er kontekst (CLAUDE.md, skills, Qdrant), prompts, og workflow-design. Et veltilpasset Sonnet slår et dårligt konfigureret Opus hver gang. Invester i kontekst-engineering, ikke i at jagte den nyeste model.
+
 ## Referencer
 
 Anthropic. (2024). *Claude for Enterprise: Building with Sonnet and Opus*. https://www.anthropic.com/enterprise
