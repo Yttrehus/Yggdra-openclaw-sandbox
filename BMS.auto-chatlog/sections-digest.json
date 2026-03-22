@@ -3,8 +3,8 @@
     {
       "id": 0,
       "date": "2026-03-15",
-      "timeRange": "04:28–09:30",
-      "msgCount": 305,
+      "timeRange": "04:28–07:00",
+      "msgCount": 354,
       "userSamples": [
         "[04:28] [undefined][[undefined]u[undefined]n[undefined]d[undefined]e[undefined]f[undefined]i[undefined]n[undefined]e[undefined]d[undefined]][undefined]L[undefined][[undefined]u[undefined]n[undefined]d[undefined]e[undefined]f[undefined]i[undefined]n[undefined]e[undefined]d[undefined]][undefined]æ[undefined][",
         "[04:33] [undefined][[undefined]u[undefined]n[undefined]d[undefined]e[undefined]f[undefined]i[undefined]n[undefined]e[undefined]d[undefined]][undefined]D[undefined][[undefined]u[undefined]n[undefined]d[undefined]e[undefined]f[undefined]i[undefined]n[undefined]e[undefined]d[undefined]][undefined]u[undefined][",
@@ -31,7 +31,7 @@
       "date": "2026-03-15",
       "prettyDate": "søndag d. 15/3-2026",
       "sectionCount": 1,
-      "totalMsgs": 305
+      "totalMsgs": 354
     }
   ]
 }

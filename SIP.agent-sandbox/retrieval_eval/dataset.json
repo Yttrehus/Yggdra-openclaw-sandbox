@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "name": "Yggdra Retrieval Benchmark v1",
+    "date": "2026-03-22",
+    "description": "Evaluerings-dataset til måling af retrieval kvalitet på Yggdra-specifikke queries."
+  },
+  "test_cases": [
+    {
+      "id": "TC-001",
+      "query": "hvor ligger McDonalds i Randers?",
+      "target_collection": "routes",
+      "ground_truth_snippets": ["Marsvej 2, 8960 Randers SØ"],
+      "type": "geographic"
+    },
+    {
+      "id": "TC-002",
+      "query": "hvad arbejder vi på nu?",
+      "target_collection": "sessions",
+      "ground_truth_snippets": ["Session 34", "retrieval eval"],
+      "type": "temporal"
+    },
+    {
+      "id": "TC-003",
+      "query": "hvad er Yggdras vision?",
+      "target_collection": "docs",
+      "ground_truth_snippets": ["personligt kognitivt exoskeleton"],
+      "type": "semantic"
+    },
+    {
+      "id": "TC-004",
+      "query": "rutekode ORG2ÅRH",
+      "target_collection": "routes",
+      "ground_truth_snippets": ["ORG2ÅRH"],
+      "type": "exact_match"
+    },
+    {
+      "id": "TC-005",
+      "query": "hvem er nate jones?",
+      "target_collection": "advisor_brain",
+      "ground_truth_snippets": ["Nate Jones", "agent strategy"],
+      "type": "entity"
+    }
+  ]
+}

@@ -301,3 +301,36 @@ Dette er en direkte implementation af ALBA-patternet (HOT/WARM/COLD), tilpasset 
 ### Næste skridt:
 - Monitorere kvaliteten af de ekstraherede læringer.
 - Overveje at inkludere `data/LEARNINGS.md` i `SessionStart` hooket for at give agenten adgang til tidligere erfaringer med det samme.
+
+## 2026-03-22 08:30 (UTC) - Fokus på Evaluerings-framework (Gap 3)
+
+Jeg starter Session 34. Da drifts-scripts (`ai_intelligence.py` m.fl.) endnu ikke er synkroniseret til PC-instansen, vælger jeg at fokusere på et fundamentalt arkitektonisk gap: **Evaluering og Måling**.
+
+### Observation:
+Vi bygger avancerede retrieval-mekanismer (hybrid search, temporal decay, reranking), men vi har ingen objektiv måde at måle, om de rent faktisk gør retrieval bedre på Yggdras data. Vi lider af "perceived productivity" bias.
+
+### Plan for sessionen:
+1.  **Design af Eval-dataset:** Oprette en struktur for test-queries og "ground truth" svar baseret på eksisterende rutedata og research-filer.
+2.  **Måle-scripts:** Udvikle et værktøj i `SIP.agent-sandbox/`, der kan køre test-queries mod Qdrant (via `scripts/get_context.py` eller direkte API) og beregne Precision/Recall.
+3.  **Baseline Etablering:** Måle den nuværende dense-only retrieval mod de nye hybrid/decay strategier.
+
+Dette understøtter TRIAGE-punktet om "Evaluering af retrieval-kvalitet" og sikrer, at vi bygger på data, ikke mavefornemmelser.
+
+## 2026-03-22 09:00 (UTC) - Retrieval Evaluering Framework PoC
+
+Jeg har implementeret et fundament for at måle retrieval-kvalitet i Yggdra.
+
+### Gennemført:
+1.  **Test-dataset oprettet:** `SIP.agent-sandbox/retrieval_eval/dataset.json` indeholder nu test-cases (geografiske, temporale, semantiske) med forventet "ground truth".
+2.  **Eval Engine:** `SIP.agent-sandbox/retrieval_eval/eval_engine.py` kan nu beregne Precision@K og Recall baseret på snippets.
+3.  **Syntetisk Validering:** `SIP.agent-sandbox/retrieval_eval/run_synthetic_benchmark.py` bekræfter, at den nye `RetrievalEngineV2` korrekt håndterer temporal decay og evergreen-beskyttelse.
+
+### Observationer:
+*   **Decay Virker:** Den syntetiske test viser, at en 60 dage gammel beslutning (score 0.95) korrekt bliver nedprioriteret til fordel for en 5 minutter gammel note (score 0.80).
+*   **Evergreen Beskyttelse:** Dokumenter som `BLUEPRINT.md` bevarer deres score trods alder, hvilket sikrer, at fundamentale principper ikke "glemmes" af retrieval.
+
+Dette lukker Gap 3 (Måling) og Gap 4 (Temporal Decay) på PoC-niveau.
+
+### Næste skridt:
+- Når tunnel/API-nøgler er tilgængelige: Kør benchmark mod det rigtige Qdrant-index for at få en baseline.
+- Implementere Gap 2 (Reranking) i `RetrievalEngineV2` vha. Cohere API.

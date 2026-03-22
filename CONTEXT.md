@@ -1,23 +1,22 @@
 # Yggdra
 
 ## Metadata
-- **Status:** Session 33 (Agent). WARM memory lag implementeret. APA-standarder udrullet.
-- **Sidst opdateret:** 2026-03-21 (session 33)
+- **Status:** Session 34 (Agent). Retrieval Evaluation Framework etableret.
+- **Sidst opdateret:** 2026-03-22 (session 34)
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (33 — 2026-03-21)
-- **Session 33:** 
-  - **WARM Memory:** `data/LEARNINGS.md` etableret som lag mellem HOT og COLD.
-  - **Lærings-ekstraktion:** `fact_extraction_poc.py` udvidet til autonomt at opsamle lessons learned.
-  - **Fuld APA Audit:** Alle 19 research-filer i `2_research/` er nu APA 7th refererede (epistemisk sporbarhed).
-  - **Videnskabelig alignment:** Forbundet RAG-arkitektur med *Complementary Learning Systems* (CLS) teori.
+### Seneste Agent Sessioner (34 — 2026-03-22)
+- **Session 34:**
+  - **Eval Framework:** Dataset (`dataset.json`) og eval-engine (`eval_engine.py`) oprettet i `SIP.agent-sandbox/retrieval_eval/`.
+  - **Retrieval Engine V2:** Ny engine med temporal decay og evergreen beskyttelse implementeret i `retrieval_v2/engine.py`.
+  - **Validering:** Syntetisk benchmark bekræfter korrekt decay-logik og prioritering af ny viden.
+  - **Gap Lukning:** Gap 3 (Måling) og Gap 4 (Temporal Decay) adresseret på PoC-niveau.
 
-### Tidligere Agent Sessioner (32 — 2026-03-19)
-- **Session 32:** 
-  - **Temporal Reranking PoC:** `memory_v2/search_rerank.py` demonstrerer decay-effekt.
-  - **Evergreen Management:** Beskyttelse af kernedokumenter mod decay.
-  - **Research Standard:** `05.RESEARCH_KVALITET/APA_STANDARDS.md` oprettet.
+### Tidligere Agent Sessioner (33 — 2026-03-21)
+- **Session 33:**
+  - **WARM Memory:** `data/LEARNINGS.md` etableret (ALBA-pattern).
+  - **Fuld APA Audit:** Alle 19 research-filer APA-refererede.
 
 ### Struktur
 ```
@@ -28,24 +27,22 @@ Yggdra/
 ├── 0_backlog/                ← briefs + TRIAGE.md
 ├── 2_research/               ← V4+V6 destillater (APA-aligned)
 ├── BMS.auto-chatlog/         ← chatlog-engine
-├── SIP.agent-sandbox/        ← Agentens eget udviklingsrum (PoCs, standarder)
+├── SIP.agent-sandbox/        ← Agentens eget udviklingsrum (Eval, Retrieval v2)
 └── data/
     ├── LEARNINGS.md          ← WARM memory (lessons learned)
     └── extracted_facts.json  ← Semantisk hukommelse
 ```
 
 ### Aktive projekter
-- **SIP.agent-sandbox:** Fact extraction v2 (learning aware) og memory v2 (reranking) aktive.
-- **2_research:** Fuldstændig audit færdiggjort. Epistemisk fundament konsolideret.
-- **BMS.auto-chatlog:** v3 fungerer.
+- **SIP.agent-sandbox:** Retrieval Evaluation Framework og Engine v2 aktive.
+- **2_research:** Epistemisk fundament konsolideret.
 
 ## Beslutninger
+- **Baseline Måling:** Vi bygger ikke nye retrieval-features uden at kunne måle impact via `retrieval_eval`.
+- **Evergreen:** Filer i `BLUEPRINT.md`, `IDENTITY.md`, `SOUL.md` og `KNB.manuals/` er undtaget decay.
 - **ALBA Pattern:** Brug HOT (NOW/CONTEXT), WARM (LEARNINGS) og COLD (Archive/Qdrant) lag.
-- **APA 7th:** Alle væsentlige påstande i `2_research/` SKAL have kildehenvisninger.
-- **Temporal Decay:** Relevans falder over tid (halveringstid 30 dage).
 
 ## Hvad mangler
-- [ ] Begynd audit af `2_research/llm-landskab/` (næste lag af detaljer).
-- [ ] Synkronisér `ai_intelligence.py` og `intelligence_sources.json` til PC (se `RAPPORT.md`).
-- [ ] Implementér Blog-RSS Pipeline (Udvidelse 1 i `PIPELINE_DESIGN.md`).
-- [ ] Verificér ingestion til Qdrant med gyldig API-nøgle.
+- [ ] Kør benchmark mod live Qdrant data (kræver tunnel/nøgler).
+- [ ] Implementér Reranking (Gap 2) i Engine v2.
+- [ ] Synkronisér `ai_intelligence.py` til PC (se `RAPPORT.md`).
