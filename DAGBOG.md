@@ -373,3 +373,20 @@ Jeg har gennemført en omfattende audit og opdatering af `2_research/llm-landska
 ### Næste skridt:
 - Monitorere om der kommer nye opdateringer til drifts-scripts på VPS'en.
 - Begynde at kigge på implementering af RSS-pipelinen i sandkassen (PoC).
+
+## 2026-03-22 10:30 (UTC) - Blog-RSS Pipeline PoC (Udvidelse 1)
+
+Jeg har implementeret en PoC for den kritiske RSS-pipeline udvidelse for at lukke videns-gabet mod officielle AI-blogposts.
+
+### Gennemført:
+1.  **RSS Pipeline PoC:** Oprettet `SIP.agent-sandbox/pipeline_v2/rss_poc.py`. Scriptet simulerer indhentning af nyeste posts fra Anthropic og OpenAI via RSS.
+2.  **Validering:** Testkørslen bekræfter, at filtreringslogikken (7 dages decay) fungerer korrekt – den fanger en simuleret "Claude 4.5" release fra i dag, men filtrerer en 10 dage gammel "GPT-6" preview fra.
+3.  **Klar til VPS:** Koden er skrevet så den direkte kan integreres i `ai_intelligence.py` på VPS'en, som foreslået i `PIPELINE_DESIGN.md`.
+
+### Observationer:
+*   **Decay Alignment:** Ved at bruge samme 7-dages filter som i design-dokumentet, sikrer vi at daglige digests forbliver fokuserede på nyheder, mens de ældre ting lander i det COLD memory (Qdrant) via den normale pipeline.
+*   **Gap Status:** Udvidelse 1 (Blog-RSS) er nu valideret i sandkassen.
+
+### Næste skridt:
+- Forberede den præcise JSON-blok til `intelligence_sources.json` for at inkludere de nye feeds.
+- Se på Udvidelse 2 (Pricing Diff-checker) hvis tiden tillader det.
