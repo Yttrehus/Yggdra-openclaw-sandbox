@@ -14,9 +14,10 @@
   - **Blog-RSS Pipeline PoC:** Udvidelse 1 fra `PIPELINE_DESIGN.md` valideret i `pipeline_v2/rss_poc.py`.
   - **Pipeline Health Monitor PoC:** Udvidelse 2 fra `PIPELINE_DESIGN.md` valideret i `pipeline_v2/health_monitor.py`.
   - **Pricing Monitor PoC:** Udvidelse 3 fra `PIPELINE_DESIGN.md` valideret i `pipeline_v2/pricing_diff.py`.
-  - **Validering:** Syntetisk benchmark bekræfter nu både decay-logik og query-baseret reranking. RSS PoC bekræfter 7-dages filter-logik. Pricing PoC detekterer prisændringer korrekt. Health Monitor fanger forældede og manglende filer.
+  - **Discovered Sources Cleanup PoC:** Udvidelse 5 fra `PIPELINE_DESIGN.md` valideret i `pipeline_v2/source_cleanup.py`.
+  - **Validering:** Syntetisk benchmark bekræfter nu både decay-logik og query-baseret reranking. RSS PoC bekræfter 7-dages filter-logik. Pricing PoC detekterer prisændringer korrekt. Health Monitor fanger forældede og manglende filer. Cleanup fjerner støj-entries.
   - **Fuld APA Audit:** Hele `2_research/llm-landskab/` (9 filer) er nu fuldt APA-refererede (epistemisk sporbarhed).
-  - **Gap Lukning:** Gap 1 (RSS), Gap 2 (Reranking/Pricing), Gap 3 (Måling/Health) og Gap 4 (Temporal Decay) adresseret på PoC-niveau. Samt færdiggørelse af research-audit.
+  - **Gap Lukning:** Gap 1 (RSS/Cleanup), Gap 2 (Reranking/Pricing), Gap 3 (Måling/Health) og Gap 4 (Temporal Decay) adresseret på PoC-niveau. Samt færdiggørelse af research-audit.
 
 ### Tidligere Agent Sessioner (33 — 2026-03-21)
 - **Session 33:**

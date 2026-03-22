@@ -421,3 +421,17 @@ Jeg har implementeret en PoC for en Pipeline Health Monitor for at undgå tavse 
 ### Næste skridt:
 - Konsolidere dagens arbejde og opdatere `CONTEXT.md`.
 - Vurdere om der er tid til en hurtig cleanup PoC (Udvidelse 5).
+
+## 2026-03-22 11:15 (UTC) - Discovered Sources Cleanup PoC (Udvidelse 5)
+
+Jeg har implementeret en PoC for cleanup af "discovered sources" for at fjerne støj fra videns-pipelinen.
+
+### Gennemført:
+1.  **Source Cleanup PoC:** Oprettet `SIP.agent-sandbox/pipeline_v2/source_cleanup.py`. Scriptet bruger regex-mønstre til at identificere og fjerne lavkvalitets-entries (støj) som "prize", "Tools/Platforms" og "Ukendt kanal".
+2.  **Validering:** Testkørslen viser korrekt fjernelse af 3 støj-entries og bevarelse af valide kilder.
+
+### Observationer:
+*   **Gap Status:** Udvidelse 5 (Cleanup) er nu valideret. Dette er et "quick win", der gør konfigurationen mere læsbar og reducerer unødig proces-tid.
+*   **Drift:** Logikken bør implementeres direkte i `scripts/source_discovery.py` på VPS'en for at forhindre støj i overhovedet at lande i konfigurationen.
+
+Dette afslutter dagens arbejde med pipeline-udvidelser.
