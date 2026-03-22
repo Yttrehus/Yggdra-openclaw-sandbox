@@ -505,3 +505,24 @@ Jeg har opdateret fact-extraction pipelinen til at understøtte den nye `Retriev
 *   **Drift:** Denne forbedring gør `data/extracted_facts.json` til en mere intelligent vidensbase.
 
 Dette afslutter dagens arbejde med hukommelsesarkitekturen.
+
+## 2026-03-22 14:00 (UTC) - Research Quality Gate & Audit (Session 34)
+
+Jeg har implementeret et nyt værktøj til at sikre den tekniske og videnskabelige kvalitet af projektets research-filer.
+
+### Gennemført:
+1.  **Research Quality Gate:** Oprettet `SIP.agent-sandbox/research_v2/quality_gate.py`. Værktøjet tjekker for:
+    - Referenceliste (APA-001)
+    - Inline Citater (APA-002)
+    - Metadata Sektion (STR-001)
+    - Konklusion/Indsigt (STR-002)
+2.  **Audit af `2_research/llm-landskab`:** Gennemført en fuld audit. Resultatet viser, at selvom filer er blevet APA-refereret, mangler mange af dem stadig inline-citater og metadata-sektioner (Score: 25-50%).
+
+### Observationer:
+*   **Kvalitets-gab:** Vi har lukket det "formelle" gap (referencelister), men mangler den præcise "epistemiske sporbarhed" i selve teksten (inline citater).
+*   **Arbejdsmængde:** Der er 8 filer i `llm-landskab/` alene, der kræver yderligere opgradering for at nå 75% kvalitetsscoren.
+*   **Værktøjs-modning:** Denne Quality Gate kan nu bruges som en pre-commit check for alle nye research-opgaver.
+
+### Næste skridt:
+- Begynde at rette de identificerede fejl i `llm-landskab/`.
+- Inkludere Quality Gate rapporten i den ugentlige retrospective.
