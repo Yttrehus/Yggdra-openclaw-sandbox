@@ -9,13 +9,13 @@
 ### Seneste Agent Sessioner (34 — 2026-03-22)
 - **Session 34:**
   - **Eval Framework:** Dataset (`dataset.json`) og eval-engine (`eval_engine.py`) oprettet i `SIP.agent-sandbox/retrieval_eval/`.
-  - **Retrieval Engine V2:** Ny engine med temporal decay, evergreen beskyttelse og reranking implementeret i `retrieval_v2/engine.py`.
+  - **Retrieval Engine V2:** Ny engine med temporal decay, evergreen beskyttelse og reranking implementeret i `retrieval_v2/engine.py`. Understøtter nu både Cohere Rerank API (Gap 2) og keyword-fallback.
   - **Reranker PoC:** Simuleret semantisk reranking (Gap 2) tilføjet i `retrieval_v2/reranker.py`.
   - **Blog-RSS Pipeline PoC:** Udvidelse 1 fra `PIPELINE_DESIGN.md` valideret i `pipeline_v2/rss_poc.py`.
   - **Pipeline Health Monitor PoC:** Udvidelse 2 fra `PIPELINE_DESIGN.md` valideret i `pipeline_v2/health_monitor.py`.
   - **Pricing Monitor PoC:** Udvidelse 3 fra `PIPELINE_DESIGN.md` valideret i `pipeline_v2/pricing_diff.py`.
   - **Discovered Sources Cleanup PoC:** Udvidelse 5 fra `PIPELINE_DESIGN.md` valideret i `pipeline_v2/source_cleanup.py`.
-  - **Validering:** Syntetisk benchmark bekræfter nu både decay-logik og query-baseret reranking. RSS PoC bekræfter 7-dages filter-logik. Pricing PoC detekterer prisændringer korrekt. Health Monitor fanger forældede og manglende filer. Cleanup fjerner støj-entries.
+  - **Validering:** Syntetisk benchmark bekræfter nu både decay-logik og query-baseret reranking (inkl. Cohere-fallback). RSS PoC bekræfter 7-dages filter-logik. Pricing PoC detekterer prisændringer korrekt. Health Monitor fanger forældede og manglende filer. Cleanup fjerner støj-entries.
   - **Fuld APA Audit:** Hele `2_research/llm-landskab/` (9 filer) er nu fuldt APA-refererede (epistemisk sporbarhed).
   - **Automation Index:** Oprettet `0_backlog/03.AUTOMATION_INDEX.md` som centralt overblik over hooks, cronjobs og pipelines.
   - **Gap Lukning:** Gap 1 (RSS/Cleanup), Gap 2 (Reranking/Pricing), Gap 3 (Måling/Health/Automation) og Gap 4 (Temporal Decay) adresseret på PoC-niveau. Samt færdiggørelse af research-audit og automation-index.

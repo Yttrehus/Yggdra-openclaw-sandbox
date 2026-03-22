@@ -71,11 +71,17 @@ class RetrievalEngineV2:
         
         # Gap 2: LLM Reranking (PoC)
         try:
-            from .reranker import Reranker
-            reranker = Reranker()
-            return reranker.rerank(query or "", results)
+            from .cohere_reranker import CohereReranker
+            reranker = CohereReranker()
+            return reranker.rerank(query or "", results, top_n=5)
         except (ImportError, Exception):
-            return results[:5]
+            # Fallback til simpel keyword-match reranker
+            try:
+                from .reranker import Reranker
+                reranker = Reranker()
+                return reranker.rerank(query or "", results)
+            except:
+                return results[:5]
 
 if __name__ == "__main__":
     engine = RetrievalEngineV2()
