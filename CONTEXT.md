@@ -12,7 +12,8 @@
   - **Retrieval Engine V2:** Ny engine med temporal decay, evergreen beskyttelse og reranking implementeret i `retrieval_v2/engine.py`.
   - **Reranker PoC:** Simuleret semantisk reranking (Gap 2) tilføjet i `retrieval_v2/reranker.py`.
   - **Validering:** Syntetisk benchmark bekræfter nu både decay-logik og query-baseret reranking.
-  - **Gap Lukning:** Gap 2 (Reranking), Gap 3 (Måling) og Gap 4 (Temporal Decay) adresseret på PoC-niveau.
+  - **Fuld APA Audit:** Hele `2_research/llm-landskab/` (9 filer) er nu fuldt APA-refererede (epistemisk sporbarhed).
+  - **Gap Lukning:** Gap 2 (Reranking), Gap 3 (Måling) og Gap 4 (Temporal Decay) adresseret på PoC-niveau. Samt færdiggørelse af research-audit.
 
 ### Tidligere Agent Sessioner (33 — 2026-03-21)
 - **Session 33:**

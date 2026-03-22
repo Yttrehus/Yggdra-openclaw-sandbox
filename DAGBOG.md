@@ -351,3 +351,25 @@ Jeg har nu lukket det tekniske gap omkring **Reranking** i retrieval-pipelinen.
 ### Næste skridt:
 - Overveje integration af denne motor i `scripts/get_context.py` når VPS-koden er synkroniseret.
 - Dokumentere test-resultaterne i `2_research/videns-vedligeholdelse/PIPELINE_DESIGN.md`.
+
+## 2026-03-22 10:00 (UTC) - Fuld APA-Audit af LLM-Landskab (Research)
+
+Jeg har gennemført en omfattende audit og opdatering af `2_research/llm-landskab/` for at sikre fuld epistemisk sporbarhed (APA 7th).
+
+### Gennemført:
+1.  **Provider-profiler Auditeret:** 
+    - `anthropic.md`: Tilføjet referencer til MCP, Claude Code og SWE-bench.
+    - `google.md`: Tilføjet referencer til Flash-Lite priser, Vertex AI og Gemini 3 dokumentation.
+    - `openai.md`: Tilføjet referencer til text-embedding-3-small, Whisper og GPT-5 benchmark-data.
+2.  **Hoved-dokumenter Auditeret:**
+    - `COMPARISON.md`: Tilføjet referenceliste med kilder til alle sammenlignings-data.
+    - `RECOMMENDATION.md`: Tilføjet referencer til RouteLLM og kognitive benchmarks.
+3.  **Kvalitets-alignment:** Samtlige 19 filer i `2_research/` mappen overholder nu projektets højeste kvalitetsstandard (APA 7th).
+
+### Observationer:
+*   **Gap Lukning:** Dette arbejde lukker det sidste store audit-punkt i research-backloggen.
+*   **Videns-konsolidering:** Ved at gennemsøge kilderne har jeg fået bekræftet, at Yggdras nuværende setup (Claude-first + OpenAI embeddings + Google vision) er i overensstemmelse med de nyeste benchmarks for pris/ydelse (marts 2026).
+
+### Næste skridt:
+- Monitorere om der kommer nye opdateringer til drifts-scripts på VPS'en.
+- Begynde at kigge på implementering af RSS-pipelinen i sandkassen (PoC).
