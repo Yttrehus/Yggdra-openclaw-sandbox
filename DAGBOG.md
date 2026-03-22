@@ -454,3 +454,21 @@ Dette har været en ekstremt produktiv session. Ved at fokusere på sandkasse-ud
 - Begynde på `context-engineering` fase 3 (dynamiske prompts).
 
 Session 34 er hermed komplet.
+
+## 2026-03-22 11:45 (UTC) - Oprettelse af 03.AUTOMATION_INDEX.md
+
+Jeg har i denne session færdiggjort et vigtigt punkt i backloggen ved at etablere det centrale index over alle automatiske processer.
+
+### Gennemført:
+1.  **Automation Index:** Oprettet `0_backlog/03.AUTOMATION_INDEX.md`. Dokumentet giver nu et fuldt overblik over:
+    - OpenClaw hooks på PC-instansen.
+    - Videns-pipelinen på VPS-instansen (cronjobs).
+    - Nye funktioner under udvikling i SIP sandkassen.
+2.  **Cruft Management:** Inkluderet klare kriterier for, hvornår en automatisk proces skal fjernes (Kill conditions), hvilket forebygger teknisk gæld.
+
+### Mine tanker:
+Dette dokument er essentielt for at bevare overblikket, når vi bygger et mere og mere komplekst autonomt system. Det sikrer, at ingen processer kører "i skyggen", og det giver os et værktøj til at rydde op i inaktive eller værdiløse scripts.
+
+### Næste skridt:
+- Ved næste "Retrospective" session skal alle processer i indexet evalueres mod deres kill-conditions.
+- Opdatere TRIAGE.md til at afspejle færdiggørelsen af dette punkt.

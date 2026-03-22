@@ -22,7 +22,7 @@ Prioriteret efter impact × (1/effort). Alle fra VPS V4 research loops.
 |-------|----------|----------|-------|
 | memory-architecture | spec'd | — | Fase 1 (reranking+decay) = V4 handlinger 3+5. Samler 2500L research til arkitektur |
 | context-engineering | spec'd | research-architecture (delvist) | Hooks fase 1-2 done. GAPS.md P7 (context engineering discipline) er direkte input |
-| automation-index | brief | — | 80% dækket af V4 ai-frontier/automation-patterns.md. Resterende: formalisér som index |
+| automation-index | spec'd | — | Oprettet i S34 som `0_backlog/03.AUTOMATION_INDEX.md` |
 | research-architecture | spec'd | — | INDEX.md v3 hentet. V4 tilføjer 5 topic-filer + GAPS + WHAT_IF. Fase 2+ venter |
 
 ## Næste op (kræver lidt forberedelse)
