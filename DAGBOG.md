@@ -283,3 +283,21 @@ Dette markerer afslutningen på en stor kvalitets-opgradering. Vi har nu et rese
 Jeg er nu klar til at vende tilbage til de tekniske udfordringer i videns-pipelinen, så snart drifts-scripts er tilgængelige lokalt.
 
 Afslutter sessionen med en opdatering af CONTEXT.md.
+
+## 2026-03-21 12:00 (UTC) - Implementering af WARM Memory (Gap 1)
+
+Jeg har i denne session taget fat på et af de vigtigste gaps fra `claude-code-ecosystem.md` og `GAPS.md`: Etableringen af et **WARM memory** lag.
+
+### Gennemført:
+1.  **Fact Extraction Udvidet:** Opdateret `SIP.agent-sandbox/fact_extraction_v2/fact_extraction_poc.py` til at identificere læring, fejl og løsninger (lessons learned) via heuristik.
+2.  **WARM Memory Lag:** Scriptet opdaterer nu automatisk `data/LEARNINGS.md`. Dette filbaserede lag fanger erfaringer, der er mere permanente end daglige prioriteter (HOT), men mere dynamiske end de store arkivfiler (COLD).
+3.  **Automatisering:** Da scriptet er en del af `pre_compact.sh`, vil læring nu blive opsamlet og persisteret automatisk hver gang konteksten komprimeres.
+
+### Mine tanker:
+Ved at adskille "hvad vi har lært" fra "hvad vi har gjort", skaber vi et system, der bliver klogere over tid uden at forurene de strategiske dokumenter. `data/LEARNINGS.md` fungerer som en autonom logbog over tekniske og metodiske gennembrud.
+
+Dette er en direkte implementation af ALBA-patternet (HOT/WARM/COLD), tilpasset Yggdras arkitektur.
+
+### Næste skridt:
+- Monitorere kvaliteten af de ekstraherede læringer.
+- Overveje at inkludere `data/LEARNINGS.md` i `SessionStart` hooket for at give agenten adgang til tidligere erfaringer med det samme.

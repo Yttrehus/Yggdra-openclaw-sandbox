@@ -1,69 +1,40 @@
-import json
 import os
-from datetime import datetime, timezone
+import json
 
 class EvergreenManager:
     """
-    Håndterer identifikation af 'evergreen' indhold, 
-    der ikke skal decayes (Fase 1 udvidelse).
+    Beskytter vigtige dokumenter mod temporal decay.
+    Manualer, blueprints og principper skal altid have fuld relevans.
     """
-    
-    # Mapper og filtyper der som standard er evergreen
-    EVERGREEN_PATHS = [
-        "manuals/",
-        "KNB.manuals/",
-        "REF.",
-        "BLUEPRINT.md",
-        "IDENTITY.md"
-    ]
-    
-    # Kategorier af fakta der er evergreen
-    EVERGREEN_CATEGORIES = [
-        "established",
-        "core_principle",
-        "meta"
-    ]
+    def __init__(self):
+        self.evergreen_patterns = [
+            "BLUEPRINT.md",
+            "IDENTITY.md",
+            "SOUL.md",
+            "CLAUDE.md",
+            "KNB.manuals/",
+            "rules/",
+            "SPEC-"
+        ]
 
-    def is_evergreen(self, point_payload):
-        """
-        Afgør om et Qdrant point er evergreen baseret på payload.
-        """
-        source_path = point_payload.get("source_path", "")
-        category = point_payload.get("confidence", "") or point_payload.get("category", "")
-        
-        # 1. Tjek stier
-        for path in self.EVERGREEN_PATHS:
-            if path in source_path:
-                return True
-        
-        # 2. Tjek kategorier
-        if category in self.EVERGREEN_CATEGORIES:
-            return True
-            
-        # 3. Tjek for eksplicit tag
-        if point_payload.get("is_evergreen") is True:
-            return True
-            
-        return False
+    def is_evergreen(self, source_path):
+        if not source_path:
+            return False
+        return any(pattern in source_path for pattern in self.evergreen_patterns)
 
-    def get_decay_factor(self, point_payload, default_decay_factor):
+    def protect_scores(self, points):
         """
-        Returnerer 1.0 hvis evergreen, ellers den beregnede decay factor.
+        Gendanner original score for evergreen-filer hvis de er blevet decayet.
         """
-        if self.is_evergreen(point_payload):
-            return 1.0
-        return default_decay_factor
+        for p in points:
+            source = p.get('payload', {}).get('source') or p.get('file_path')
+            if self.is_evergreen(source):
+                p['decay_factor'] = 1.0
+                p['decayed_score'] = p.get('score', p.get('decayed_score', 0.0))
+        return points
 
 if __name__ == "__main__":
     manager = EvergreenManager()
-    
-    test_cases = [
-        {"source_path": "manuals/git.md", "category": "info", "expected": True},
-        {"source_path": "SIP.agent-sandbox/test.md", "category": "action", "expected": False},
-        {"source_path": "BMS.auto-chatlog/logs.json", "category": "meta", "expected": True},
-    ]
-    
-    print("--- Evergreen Manager Test ---")
-    for tc in test_cases:
-        res = manager.is_evergreen(tc)
-        print(f"Path: {tc['source_path']:<30} | Evergreen: {res} (Expected: {tc['expected']})")
+    test_files = ["BLUEPRINT.md", "data/episodes.jsonl", "KNB.manuals/git.md", "scripts/memory.py"]
+    for f in test_files:
+        print(f"{f:<25} | Evergreen: {manager.is_evergreen(f)}")

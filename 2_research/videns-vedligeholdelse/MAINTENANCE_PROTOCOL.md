@@ -137,3 +137,12 @@ find data/intelligence/ -name "daily_*.json" -mtime +30 -exec mv {} $ARCHIVE_DIR
 | intelligence.log >50MB | Rotér: `mv intelligence.log intelligence.log.1` |
 | Groq free tier limit hit | Switch til Gemini Flash (billigst alternativ) |
 | OpenAI embedding cost >$5/md | Reducér source_discovery frekvens eller switch til lokal model |
+
+## Referencer
+
+GitHub. (2024). *GitHub API documentation: Release events*. https://docs.github.com/en/rest/releases
+Google. (2025). *Gemini Flash: High-speed, low-cost API access*. https://ai.google.dev/models/gemini
+OpenAI. (2024). *Whisper: Robust speech recognition via large-scale weak supervision*. https://openai.com/research/whisper
+Qdrant. (2024). *Points management and collections*. https://qdrant.tech/documentation/concepts/points/
+Telegram. (2024). *Telegram Bot API: Sending alerts and notifications*. https://core.telegram.org/bots/api
+Yttre. (2026). *Yggdra crontab configuration (crontab -l)*. Internal server state.

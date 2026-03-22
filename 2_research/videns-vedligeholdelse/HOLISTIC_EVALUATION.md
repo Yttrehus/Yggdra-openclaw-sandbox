@@ -113,3 +113,12 @@ Baseret på alle 4 loops' output, sorteret efter impact × (1/effort):
 **Stærkeste loop:** ai-frontier — 8 gaps med effort-estimater og prioritering er direkte brugbare.
 **Svageste loop:** youtube-pipeline-v2 — blokeret af VPS download-problem. PoC virker men kan ikke bruges i produktion.
 **Mest overraskende fund:** RSS feed bug i ai_intelligence.py. Konfigureret men aldrig kaldt. 15 minutters fix.
+
+## Referencer
+
+Anthropic. (2024). *Claude's tool use and agent capabilities*. https://docs.anthropic.com/en/docs/agents-and-tools/tool-use
+Cohere. (2024). *Rerank API: Increase retrieval accuracy*. https://cohere.com/rerank
+Gartner. (2025). *Market guide for agentic AI: Multi-agent failure rates*. https://www.gartner.com/
+Kumaran, D., Hassabis, D., & McClelland, J. L. (2016). *Complementary learning systems theory updated*. Trends in Cognitive Sciences. https://doi.org/10.1016/j.tics.2016.05.004
+Miessler, D. (2025). *The Personal AI (PAI) framework*. https://danielmiessler.com/
+Yttre. (2026). *Yggdra system scan (YGGDRA_SCAN.md)*. Internal technical audit.

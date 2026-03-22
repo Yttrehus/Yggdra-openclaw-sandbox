@@ -9,6 +9,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "../.."))
 
 DIGEST_PATH = os.path.join(PROJECT_ROOT, "BMS.auto-chatlog/sections-digest.json")
 FACTS_PATH = os.path.join(PROJECT_ROOT, "data/extracted_facts.json")
+LEARNINGS_PATH = os.path.join(PROJECT_ROOT, "data/LEARNINGS.md")
 
 def clean_undefined(text):
     """Fjerner [undefined] artefakter og andre støj-elementer."""
@@ -65,6 +66,19 @@ def extract_facts_heuristic(text):
             "confidence": 0.75
         })
 
+    # 6. Læring/Lessons Learned (Gap 1 - WARM memory)
+    if re.search(r"lærte|fejl|løsning|fungerede|virker nu|undgå", clean_text, re.I):
+        sentences = re.split(r'[.!?]', clean_text)
+        for s in sentences:
+            s_clean = s.strip()
+            if any(word in s_clean.lower() for word in ["lærte", "fejl", "løsning", "fungerede", "virker nu", "undgå"]):
+                if len(s_clean) > 10:
+                    facts.append({
+                        "fact": s_clean,
+                        "category": "learning",
+                        "confidence": 0.8
+                    })
+
     # Catch-all hvis teksten er lang nok (noget sker jo)
     if len(clean_text) > 100 and not facts:
          facts.append({
@@ -74,6 +88,23 @@ def extract_facts_heuristic(text):
         })
 
     return facts
+
+def update_learnings_file(facts):
+    """Opdaterer data/LEARNINGS.md (WARM memory)."""
+    learnings = [f for f in facts if f['category'] == 'learning']
+    if not learnings:
+        return
+
+    new_content = ""
+    if not os.path.exists(LEARNINGS_PATH):
+        new_content = "# LEARNINGS (WARM Memory)\n\n"
+    
+    with open(LEARNINGS_PATH, 'a') as f:
+        if new_content:
+            f.write(new_content)
+        for l in learnings:
+            entry = f"- [{l['source_date']}] {l['fact']}\n"
+            f.write(entry)
 
 def process_digest():
     """Hovedloop for fact extraction."""
@@ -98,7 +129,7 @@ def process_digest():
         except:
             all_facts = []
 
-    new_facts_count = 0
+    new_facts = []
     for section in digest.get('sections', []):
         combined_text = " ".join(section.get('userSamples', []) + section.get('assistantSamples', []))
         found = extract_facts_heuristic(combined_text)
@@ -110,14 +141,17 @@ def process_digest():
             # Simpel de-duplikering baseret på tekst
             if not any(existing['fact'] == f['fact'] for existing in all_facts):
                 all_facts.append(f)
-                new_facts_count += 1
+                new_facts.append(f)
             
     # Gem resultater
     os.makedirs(os.path.dirname(FACTS_PATH), exist_ok=True)
     with open(FACTS_PATH, 'w') as f:
         json.dump(all_facts, f, indent=2)
     
-    print(f"Fact extraction færdig. {new_facts_count} nye fakta fundet.")
+    # Opdater WARM memory (LEARNINGS.md)
+    update_learnings_file(new_facts)
+    
+    print(f"Fact extraction færdig. {len(new_facts)} nye fakta fundet.")
 
 if __name__ == "__main__":
     process_digest()

@@ -111,3 +111,11 @@ Installerede i `.claude/skills/`:
 - Research aldringsblindhed: ingen ved hvornår 54 Key Insights er forældede
 - Backlog vokser (16 briefs) uden at projekter lukkes proportionelt
 - Tilgængelighed (lag 4) er ikke bare uadresseret — det er aktivt smertepunkt (Yttre har kun telefon + PC)
+
+## Referencer
+
+Miessler, D. (2026). *The spectrum of Personal AI (PAI) maturity*. https://danielmiessler.com/
+Notion. (2024). *Notion API reference and workspace documentation*. https://developers.notion.com/
+OpenClaw. (2026). *OpenClaw: Architecture for autonomous agents*. https://github.com/openclaw/openclaw
+SSH.com. (2024). *SSH tunneling and port forwarding explained*. https://www.ssh.com/academy/ssh/tunneling
+Yttre. (2026). *Yggdra BLUEPRINT.md (Arkitektur-dokument)*. Internal system documentation.
