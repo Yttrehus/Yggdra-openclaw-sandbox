@@ -6,15 +6,15 @@ Sidst opdateret: 2026-03-15
 
 Prioriteret efter impact × (1/effort). Alle fra VPS V4 research loops.
 
-| # | Handling | Effort | Kilde |
-|---|---------|--------|-------|
-| 1 | Fix RSS feed bug (tilføj `fetch_rss_feeds()` kald i ai_intelligence.py) | 15 min | videns-vedligeholdelse |
-| 2 | Genaktivér heartbeat.py (uncomment i crontab) | 5 min | ai-frontier GAPS P1 |
-| 3 | Tilføj reranking i ctx (Cohere API efter Qdrant top-20) | 2-4 timer | ai-frontier WHAT_IF #2 |
-| 4 | Pipeline health check i daily_sweep.py | 2-3 timer | videns-vedligeholdelse |
-| 5 | Temporal decay i ctx (`score *= exp(-age_days/30)`) | 1-2 timer | ai-frontier GAPS P2 |
-| 6 | Blog RSS feeds (Anthropic + OpenAI blog) | 2-3 timer | videns-vedligeholdelse |
-| 7 | VPS→PC sync design (git eller rsync) | 4-6 timer | YGGDRA_SCAN |
+| # | Handling | Effort | Kilde | Status |
+|---|---------|--------|-------|--------|
+| 1 | Fix RSS feed bug (tilføj `fetch_rss_feeds()` kald i ai_intelligence.py) | 15 min | videns-vedligeholdelse | Afventer VPS |
+| 2 | Genaktivér heartbeat.py (uncomment i crontab) | 5 min | ai-frontier GAPS P1 | Afventer VPS |
+| 3 | Tilføj reranking i ctx (Cohere API efter Qdrant top-20) | 2-4 timer | ai-frontier WHAT_IF #2 | PoC i sandkasse (S34) |
+| 4 | Pipeline health check i daily_sweep.py | 2-3 timer | videns-vedligeholdelse | PoC i sandkasse (S34) |
+| 5 | Temporal decay i ctx (`score *= exp(-age_days/30)`) | 1-2 timer | ai-frontier GAPS P2 | PoC i sandkasse (S34) |
+| 6 | Blog RSS feeds (Anthropic + OpenAI blog) | 2-3 timer | videns-vedligeholdelse | PoC i sandkasse (S34) |
+| 7 | VPS→PC sync design (git eller rsync) | 4-6 timer | YGGDRA_SCAN | Planlagt |
 
 ## Klar (research done, kan startes)
 

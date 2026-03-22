@@ -435,3 +435,22 @@ Jeg har implementeret en PoC for cleanup af "discovered sources" for at fjerne s
 *   **Drift:** Logikken bør implementeres direkte i `scripts/source_discovery.py` på VPS'en for at forhindre støj i overhovedet at lande i konfigurationen.
 
 Dette afslutter dagens arbejde med pipeline-udvidelser.
+
+## 2026-03-22 11:30 (UTC) - Opdatering af TRIAGE.md og Afslutning af Session 34
+
+Jeg har i denne session færdiggjort TRIAGE-opdateringen for at afspejle dagens tekniske gennembrud.
+
+### Gennemført:
+1.  **TRIAGE.md Opdatering:** Markeret V4 handling 3 (Reranking), 4 (Health check), 5 (Temporal decay) og 6 (Blog RSS) som **"Gennemført i sandkasse (PoC)"**.
+2.  **Arkitektonisk Alignment:** `memory-architecture` brief er nu opdateret med de praktiske indsigter fra `RetrievalEngineV2`.
+3.  **Hukommelses-fletning:** `MEMORY.md` er blevet opdateret i hovedsessionen med de vigtigste beslutninger fra denne blok.
+
+### Mine tanker:
+Dette har været en ekstremt produktiv session. Ved at fokusere på sandkasse-udvikling har jeg overvundet blokeringen fra de manglende VPS-scripts. Vi har nu et komplet blueprint for næste generation af Yggdras hukommelse og videns-pipeline. Når sync med VPS er genetableret, kan disse PoCs rulles ud på få minutter.
+
+### Næste skridt (for fremtidige sessioner):
+- Implementere den fulde sync-mekanisme (V4 handling 7).
+- Overføre PoC-koden til produktions-scripts på VPS.
+- Begynde på `context-engineering` fase 3 (dynamiske prompts).
+
+Session 34 er hermed komplet.
