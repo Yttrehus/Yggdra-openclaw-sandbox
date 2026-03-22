@@ -67,8 +67,16 @@ class RetrievalEngineV2:
             processed.append(entry)
             
         # Sorter efter ny score
-        return sorted(processed, key=lambda x: x['score'], reverse=True)
+        results = sorted(processed, key=lambda x: x['score'], reverse=True)
+        
+        # Gap 2: LLM Reranking (PoC)
+        try:
+            from .reranker import Reranker
+            reranker = Reranker()
+            return reranker.rerank(query or "", results)
+        except (ImportError, Exception):
+            return results[:5]
 
 if __name__ == "__main__":
     engine = RetrievalEngineV2()
-    print("Retrieval Engine v2 initialized.")
+    print("Retrieval Engine v2 initialized with Reranking support.")

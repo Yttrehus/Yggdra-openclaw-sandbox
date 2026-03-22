@@ -45,17 +45,17 @@ def run_synthetic_test():
         }
     ]
 
-    processed = engine.process_results(mock_data)
+    # Test med query for reranker boost
+    query = "Hvad er visionen for exoskeleton?"
+    processed = engine.process_results(mock_data, query=query)
 
-    print(f"{'ID':<15} | {'Orig':<6} | {'Final':<6} | {'Factor':<6} | {'Status'}")
-    print("-" * 60)
+    print(f"\n--- Resultater efter Temporal Decay & Reranking (Query: '{query}') ---")
+    print(f"{'ID':<15} | {'Orig':<6} | {'Decay':<6} | {'Rerank':<6} | {'Status'}")
+    print("-" * 70)
     
     for r in processed:
         status = "EVERGREEN" if r['is_evergreen'] else "DECAYED"
-        if r['decay_factor'] == 1.0 and not r['is_evergreen']:
-            status = "FRESH"
-            
-        print(f"{r['id']:<15} | {r['original_score']:<6.3f} | {r['score']:<6.3f} | {r['decay_factor']:<6.3f} | {status}")
+        print(f"{r['id']:<15} | {r['original_score']:<6.3f} | {r['score']:<6.3f} | {r['rerank_score']:<6.3f} | {status}")
 
     print("\nKonklusion:")
     if processed[0]['id'] == 'EVERGREEN-OLD':

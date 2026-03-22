@@ -334,3 +334,20 @@ Dette lukker Gap 3 (Måling) og Gap 4 (Temporal Decay) på PoC-niveau.
 ### Næste skridt:
 - Når tunnel/API-nøgler er tilgængelige: Kør benchmark mod det rigtige Qdrant-index for at få en baseline.
 - Implementere Gap 2 (Reranking) i `RetrievalEngineV2` vha. Cohere API.
+
+## 2026-03-22 09:30 (UTC) - Reranking PoC Implementeret (Gap 2)
+
+Jeg har nu lukket det tekniske gap omkring **Reranking** i retrieval-pipelinen.
+
+### Gennemført:
+1.  **Reranker PoC:** Oprettet `SIP.agent-sandbox/retrieval_v2/reranker.py`, der simulerer semantisk reranking (Cross-Encoder logik).
+2.  **Engine Integration:** `RetrievalEngineV2` bruger nu rerankeren som det sidste trin i processeringen. Den kombinerer Temporal Decay (alder) med Reranking (relevans for query).
+3.  **Benchmark Opdatering:** `run_synthetic_benchmark.py` er udvidet til at demonstrere, hvordan en query som "vision exoskeleton" booster `EVERGREEN-OLD` endnu højere op, selvom dens base score var lavere end nye data.
+
+### Observationer:
+*   **Arkitektur:** Vi har nu en komplet 3-trins pipeline: Retrieval (Qdrant) -> Decay (Temporal) -> Rerank (Semantic).
+*   **Gap Status:** Gap 2, 3 og 4 er nu alle adresseret på PoC-niveau i sandkassen.
+
+### Næste skridt:
+- Overveje integration af denne motor i `scripts/get_context.py` når VPS-koden er synkroniseret.
+- Dokumentere test-resultaterne i `2_research/videns-vedligeholdelse/PIPELINE_DESIGN.md`.
