@@ -405,3 +405,19 @@ Jeg har implementeret en PoC for ugentlig overvågning af API-priser for at undg
 
 ### Næste skridt:
 - Konsolidere alle dagens PoCs og opdatere `CONTEXT.md` en sidste gang før sessionens afslutning.
+
+## 2026-03-22 11:00 (UTC) - Pipeline Health Monitor PoC (Udvidelse 2)
+
+Jeg har implementeret en PoC for en Pipeline Health Monitor for at undgå tavse fejl i videns-pipelinen.
+
+### Gennemført:
+1.  **Health Monitor PoC:** Oprettet `SIP.agent-sandbox/pipeline_v2/health_monitor.py`. Scriptet verificerer at kritiske pipelines (ai_intelligence, youtube_monitor, fact_extraction) har produceret friske filer inden for deres forventede tidsramme.
+2.  **Validering:** Testkørslen bekræfter, at monitoren korrekt identificerer både friske, forældede (stale) og manglende filer. Den understøtter både datostemplede filer og statiske filer.
+
+### Observationer:
+*   **Gap Status:** Udvidelse 2 (Health Monitor) er nu valideret. Dette er essentielt for driftsstabilitet på VPS'en, da det fjerner "silent failures".
+*   **Integration:** Logikken kan direkte integreres i `scripts/daily_sweep.py` på VPS'en.
+
+### Næste skridt:
+- Konsolidere dagens arbejde og opdatere `CONTEXT.md`.
+- Vurdere om der er tid til en hurtig cleanup PoC (Udvidelse 5).
