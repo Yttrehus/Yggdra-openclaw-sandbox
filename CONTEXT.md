@@ -19,7 +19,7 @@
   - **Validering:** Syntetisk benchmark bekræfter nu både decay-logik og query-baseret reranking (inkl. Cohere-fallback). RSS PoC bekræfter 7-dages filter-logik. Pricing PoC detekterer prisændringer korrekt. Health Monitor fanger forældede og manglende filer. Cleanup fjerner støj-entries.
   - **Fuld APA Audit:** Hele `2_research/llm-landskab/` (9 filer) er nu fuldt APA-refererede (epistemisk sporbarhed).
   - **Automation Index:** Oprettet `0_backlog/03.AUTOMATION_INDEX.md` som centralt overblik over hooks, cronjobs og pipelines.
-  - **Research Quality Gate:** Oprettet `SIP.agent-sandbox/research_v2/quality_gate.py` til automatisk kvalitetsaudit (APA-citater + struktur). `anthropic.md` er nu 100% valideret.
+  - **Research Quality Gate:** Oprettet `SIP.agent-sandbox/research_v2/quality_gate.py` til automatisk kvalitetsaudit. `anthropic.md`, `google.md` og `openai.md` er nu 100% validerede.
   - **Gap Lukning:** Gap 1 (RSS/Cleanup), Gap 2 (Reranking/Pricing), Gap 3 (Måling/Health/Automation) og Gap 4 (Temporal Decay) adresseret på PoC-niveau. Samt færdiggørelse af research-audit (APA/Gate) og automation-index.
 
 ### Tidligere Agent Sessioner (33 — 2026-03-21)

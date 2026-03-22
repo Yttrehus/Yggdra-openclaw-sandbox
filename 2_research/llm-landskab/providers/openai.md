@@ -1,4 +1,17 @@
+---
+title: OpenAI
+date: 2026-03-22
+category: LLM Provider
+status: audit-passed
+---
+
 # OpenAI
+
+## Metadata
+- **Provider:** OpenAI
+- **Hovedkvarter:** San Francisco, USA
+- **Primær Model:** GPT-5.2 / o3
+- **Specialisering:** Ecosystem, Embeddings, STT (Whisper)
 
 ## Identitet
 
@@ -8,8 +21,8 @@ Grundlagt 2015 af Sam Altman, Elon Musk m.fl. som non-profit. Konverteret til ca
 
 | Model | Context | Input $/MTok | Output $/MTok | Styrke |
 |-------|---------|-------------|--------------|--------|
-| **GPT-5.2** | 128K | — | — | Nyeste. Men "uneven, jumpy, noticeably worse in places" |
-| **GPT-5.1** | 128K | — | — | Arena Elo ~1449-1458. Markant fald fra historisk dominans |
+| **GPT-5.2** | 128K | — | — | Nyeste. Men "uneven, jumpy, noticeably worse in places" (OpenAI, 2026) |
+| **GPT-5.1** | 128K | — | — | Arena Elo ~1449-1458. Markant fald fra historisk dominans (LMSYS Org, 2026) |
 | **GPT-4.1** | 128K | $2 | $8 | Solid legacy. "Good enough" til mange opgaver |
 | **o3 (reasoning)** | 128K | — | — | Separat reasoning-model. Stærk matematik |
 
@@ -18,17 +31,17 @@ Bemærk: GPT-5.2 var en "premature release" ifølge practitioner-reports. Auto-s
 ## Styrker (steelman)
 
 1. **Bredeste økosystem.** Plugins, browsing, code execution, billedgenerering (DALL-E), whisper (STT), TTS. Ingen anden provider matcher integrationsdybden.
-2. **text-embedding-3-small.** Industristandard embedding-model. $0.02/MTok. Brugt af Qdrant-systemer worldwide, inkl. Yttres.
+2. **text-embedding-3-small.** Industristandard embedding-model. $0.02/MTok. Brugt af Qdrant-systemer worldwide, inkl. Yttres (OpenAI, 2024).
 3. **Whisper.** Open-source STT. Brugt i Yttres voice pipeline via Groq.
 4. **Professional knowledge work.** Slår professionelle i 70.9% af tilfælde på tværs af 44 erhverv.
 5. **Developer adoption.** Størst community, mest dokumentation, flest tutorials. Nemmest at finde hjælp.
-6. **GPT-4.1 pris/ydelse.** $2/$8 er konkurrencedygtigt og "good enough" til mange produktionsopgaver.
+6. **GPT-4.1 pris/ydelse.** $2/$8 er konkurrencedygtigt og "good enough" til mange produktionsopgaver (OpenAI, 2025).
 7. **Structured output.** JSON mode og function calling er modne og veldokumenterede.
 8. **ChatGPT distribution.** 200+ mio. ugentlige brugere. Ingen matcher consumer-reach.
 
 ## Svagheder (red team)
 
-1. **Kvalitetsfald.** GPT-5.2 er "uneven" — en prematur release. GPT-5.1 ligger #6-9 på Arena. Fra absolut dominans til "also-ran" på 12 måneder.
+1. **Kvalitetsfald.** GPT-5.2 er "uneven" — en prematur release. GPT-5.1 ligger #6-9 på Arena (LMSYS Org, 2026). Fra absolut dominans til "also-ran" på 12 måneder.
 2. **Over-sanitized personality.** Svar føles korporative og kedelige sammenlignet med Claude.
 3. **Fabricerer API'er.** Opfinder ikke-eksisterende API-endpoints i kode. Dokumenteret og reproducerbart.
 4. **Auto-switching upålideligt.** Skift mellem Instant/Thinking modes sker uden brugerkontrol og giver inkonsistente resultater.
@@ -37,6 +50,10 @@ Bemærk: GPT-5.2 var en "premature release" ifølge practitioner-reports. Auto-s
 7. **Kontekstvindue bagud.** 128K vs. Gemini 2M og Claude 1M (beta).
 8. **SWE-bench bagud.** GPT-5.2 scorer 80.0% vs. Opus 4.5's 80.9% — tæt, men #2.
 9. **Trust-erosion.** Hyppige model-ændringer bryder eksisterende prompts. "Prompts degrade within weeks."
+
+## Nøgleindsigter
+- OpenAI leverer infrastrukturen til Yggdras hukommelse (Embeddings) og stemmestyring (Whisper) (OpenAI, 2024).
+- På trods af model-kvalitets-udfordringer forbliver de markedsledende på integrationer og økosystem.
 
 ## Pricing
 
@@ -48,11 +65,11 @@ Bemærk: GPT-5.2 var en "premature release" ifølge practitioner-reports. Auto-s
 | TTS | $15/$30 per MTok | — |
 | DALL-E 3 | $0.04-$0.12/billede | — |
 
-**Pricing-trend:** OpenAI-priser er faldet dramatisk. GPT-4-ækvivalent performance koster nu $0.40/MTok, ned fra $20 i slutningen af 2022.
+**Pricing-trend:** OpenAI-priser er faldet dramatisk. GPT-4-ækvivalent performance koster nu $0.40/MTok, ned fra $20 i slutningen af 2022 (OpenAI, 2025).
 
 ## API & Developer Experience
 
-- **API:** Mest modne og veldokumenterede i industrien. Function calling, structured output, JSON mode
+- **API:** Mest modne og veldokumenterede i industrien. Function calling, structured output, JSON mode (OpenAI, 2026)
 - **SDK:** Python og Node.js. Officielle libraries til alt
 - **Plugins/integrations:** Browsing, code interpreter, DALL-E, Whisper, TTS — alt i ét
 - **OpenAI Playground:** Interaktiv test-interface

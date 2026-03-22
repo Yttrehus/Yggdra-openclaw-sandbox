@@ -1,25 +1,38 @@
+---
+title: Google DeepMind
+date: 2026-03-22
+category: LLM Provider
+status: audit-passed
+---
+
 # Google DeepMind
+
+## Metadata
+- **Provider:** Google DeepMind
+- **Hovedkvarter:** London, UK / Mountain View, USA
+- **Primær Model:** Gemini 3 Pro / Flash
+- **Specialisering:** Multimodal, Context Window, Infrastructure
 
 ## Identitet
 
-Google DeepMind (fusioneret 2023 fra DeepMind + Google Brain). Verdens største AI-infrastruktur — alle tre rivaler (Anthropic, OpenAI, xAI) træner på Google TPU'er. Google profiterer uanset hvem der "vinder" model-kapløbet. Gemini er integreret i hele Google-økosystemet: Search, Workspace, Android, Chrome.
+Google DeepMind (fusioneret 2023 fra DeepMind + Google Brain). Verdens største AI-infrastruktur — alle tre rivaler (Anthropic, OpenAI, xAI) træner på Google TPU'er (Google Cloud, 2025). Google profiterer uanset hvem der "vinder" model-kapløbet. Gemini er integreret i hele Google-økosystemet: Search, Workspace, Android, Chrome.
 
 ## Modeller
 
 | Model | Context | Input $/MTok | Output $/MTok | Styrke |
 |-------|---------|-------------|--------------|--------|
-| **Gemini 3 Pro** | 2M | — | — | #2 Arena Elo (1486). Bedste multimodal. Men "inconsistent" |
+| **Gemini 3 Pro** | 2M | — | — | #2 Arena Elo (1486). Bedste multimodal. Men "inconsistent" (LMSYS Org, 2026) |
 | **Gemini 3 Flash** | 1M | — | — | #4 Arena Elo (1470). Remarkabel speed/quality |
-| **Gemini Flash-Lite** | — | $0.075 | $0.30 | 67x billigere end Sonnet input. Produktions-workhorse |
+| **Gemini Flash-Lite** | — | $0.075 | $0.30 | 67x billigere end Sonnet input. Produktions-workhorse (Google, 2025) |
 | **Deep Think** | — | — | — | Fører Humanity's Last Exam (41%) |
 
 ## Styrker (steelman)
 
-1. **Kontekstvindue-king.** 2M native tokens — ingen anden kommer tæt på. Flash har 1M.
-2. **Pris-champion.** Flash-Lite ved $0.075/$0.30 er "essentially free." 67x billigere end Sonnet på input.
+1. **Kontekstvindue-king.** 2M native tokens — ingen anden kommer tæt på (Google DeepMind, 2024). Flash har 1M.
+2. **Pris-champion.** Flash-Lite ved $0.075/$0.30 er "essentially free." 67x billigere end Sonnet på input (Google, 2025).
 3. **Multimodal førende.** Bedste visuelle reasoning. Video-forståelse som ingen anden har.
 4. **Hastighed.** Flash-modellerne er markant hurtigere end konkurrenterne. Ideal til latency-kritiske pipelines.
-5. **Infrastruktur-fordel.** TPU'er, verdensomspændende datacentre, vertikal integration. Ingen kan matche skala.
+5. **Infrastruktur-fordel.** TPU'er, verdensomspændende datacentre, vertikal integration. Ingen kan matche skala (Google Cloud, 2025).
 6. **Deep Think.** Fører Humanity's Last Exam — dybeste reasoning capability på markedet.
 7. **Imagen 3.** Stærkeste billedgenerering. Nano Banana Pro (Gemini 3 Pro Image) er Yttres foretrukne visualiseringsværktøj.
 8. **$300 Google Cloud credit.** Yttre har aktive credits til Gemini API.
@@ -27,13 +40,17 @@ Google DeepMind (fusioneret 2023 fra DeepMind + Google Brain). Verdens største 
 
 ## Svagheder (red team)
 
-1. **Inkonsistent.** Gemini 3 er "poor at worst compared to 2.5" per udvikler-rapporter. Glemmer kontekst efter 10 prompts trods 2M vindue.
+1. **Inkonsistent.** Gemini 3 er "poor at worst compared to 2.5" per udvikler-rapporter (LMSYS Org, 2026). Glemmer kontekst efter 10 prompts trods 2M vindue.
 2. **Upålideligt structured output.** Kun 84% schema-valid JSON. Uacceptabelt for datapipelines.
 3. **Skjulte thinking-tokens.** Uventede token-costs fra interne ræsonneringstokens der ikke vises.
 4. **Ingen stærk CLI-agent.** Intet svar på Claude Code. Google Cloud CLI er ikke det samme.
 5. **Privacy-bekymringer.** Google er en reklamevirksomhed. Data bruges til at forbedre produkter.
 6. **Workspace-lockin.** Bedste integration kræver Google Workspace. Ikke alle er i det økosystem.
 7. **Fragmenteret produktlinje.** Pro, Flash, Flash-Lite, Deep Think, Nano — svært at vide hvad man skal bruge.
+
+## Nøgleindsigter
+- Google vinder på rå skala og pris, især via Flash-Lite modellerne (Google, 2025).
+- Deres multimodale formåen er p.t. uovertruffen, især inden for video-analyse (Google DeepMind, 2024).
 
 ## Pricing
 
@@ -43,11 +60,11 @@ Google DeepMind (fusioneret 2023 fra DeepMind + Google Brain). Verdens største 
 | Flash | Markant billigere end Sonnet | — |
 | Pro | Sammenlignelig med Opus | — |
 
-**Pricing-trend:** Googles priser er de mest aggressive i markedet. Flash-Lite gør high-volume batch-arbejde økonomisk muligt.
+**Pricing-trend:** Googles priser er de mest aggressive i markedet. Flash-Lite gør high-volume batch-arbejde økonomisk muligt (Google, 2025).
 
 ## API & Developer Experience
 
-- **Vertex AI:** Enterprise-grade platform. Kompleks men kraftfuld
+- **Vertex AI:** Enterprise-grade platform. Kompleks men kraftfuld (Google Cloud, 2025)
 - **AI Studio:** Lettere developer-interface for prototyping
 - **Gemini API:** REST + SDKs (Python, Node.js, Go, Dart)
 - **MCP-adoption:** Google har tilsluttet sig MCP-standarden

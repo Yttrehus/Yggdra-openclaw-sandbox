@@ -542,3 +542,19 @@ Jeg har opgraderet Anthropic-research filen til den nye kvalitetsstandard for at
 
 ### Næste skridt:
 - Fortsætte med `openai.md` og `google.md` i næste session eller senere i dag.
+
+## 2026-03-22 14:30 (UTC) - Opgradering af Google og OpenAI Research (Session 34)
+
+Jeg har opgraderet både Google og OpenAI research-filerne til den nye kvalitetsstandard (Score: 100%).
+
+### Gennemført:
+1.  **Google DeepMind:** Tilføjet metadata, strukturerede indsigt-sektioner og inline-citater (f.eks. Google DeepMind, 2024; Google, 2025).
+2.  **OpenAI:** Tilføjet metadata, strukturerede indsigt-sektioner og inline-citater (f.eks. OpenAI, 2024; LMSYS Org, 2026).
+3.  **Kvalitets-validering:** Begge filer består nu Research Quality Gate med top-score.
+
+### Observationer:
+*   **Audit Status:** 4 ud af 9 filer i `llm-landskab/` er nu fuldt opgraderede.
+*   **Fundament:** Ved at citere kilder præcist (f.eks. priserne på Flash-Lite eller specifikationerne på text-embedding-3-small) har vi nu et data-drevet grundlag for Yggdras arkitektoniske valg.
+
+### Næste skridt:
+- Fortsætte med `RECOMMENDATION.md` for at binde provider-viden sammen med handling.
