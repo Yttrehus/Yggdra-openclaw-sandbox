@@ -12,6 +12,7 @@
   - **Retrieval Engine V2:** Ny engine med temporal decay, evergreen beskyttelse og reranking implementeret i `retrieval_v2/engine.py`. Understøtter nu både Cohere Rerank API (Gap 2) og keyword-fallback.
   - **Reranker PoC:** Simuleret semantisk reranking (Gap 2) tilføjet i `retrieval_v2/reranker.py`.
   - **Blog-RSS Pipeline PoC:** Udvidelse 1 fra `PIPELINE_DESIGN.md` valideret i `pipeline_v2/rss_poc.py`.
+  - **Fact Extraction V2:** Opdateret `fact_extraction_poc.py` til automatisk at identificere og tagge `evergreen` fakta.
   - **Pipeline Health Monitor PoC:** Udvidelse 2 fra `PIPELINE_DESIGN.md` valideret i `pipeline_v2/health_monitor.py`.
   - **Pricing Monitor PoC:** Udvidelse 3 fra `PIPELINE_DESIGN.md` valideret i `pipeline_v2/pricing_diff.py`.
   - **Discovered Sources Cleanup PoC:** Udvidelse 5 fra `PIPELINE_DESIGN.md` valideret i `pipeline_v2/source_cleanup.py`.

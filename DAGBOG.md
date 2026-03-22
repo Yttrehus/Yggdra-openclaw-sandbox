@@ -491,3 +491,17 @@ Jeg har i denne session færdiggjort integrationen af en produktionsklar reranke
 - Undersøge om `scripts/memory.py` kan udvides med denne reranking-logik.
 
 Dette afslutter denne tekniske uddybning.
+
+## 2026-03-22 13:00 (UTC) - Evergreen Tagging i Fact Extraction (Gap 6 Modning)
+
+Jeg har opdateret fact-extraction pipelinen til at understøtte den nye `RetrievalEngineV2`.
+
+### Gennemført:
+1.  **Evergreen Heuristik:** Tilføjet en ny sektion til `SIP.agent-sandbox/fact_extraction_v2/fact_extraction_poc.py`. Scriptet kan nu automatisk identificere og tagge fakta som `evergreen`, hvis de omhandler vision, principper, blueprint eller identitet.
+2.  **Metadata Integration:** Fakta tagget som `is_evergreen: true` vil nu blive bevaret af `RetrievalEngineV2` uden tidsmæssigt forfald (decay), hvilket sikrer at fundamentale beslutninger altid topper søgeresultaterne.
+
+### Observationer:
+*   **Gap Lukning:** Dette lukker cirklen mellem indsamling (Gap 6) og retrieval (Gap 4). Vi har nu et autonomt system, der ikke bare husker hvad der skete, men også forstår hvad der er vigtigt at huske for evigt.
+*   **Drift:** Denne forbedring gør `data/extracted_facts.json` til en mere intelligent vidensbase.
+
+Dette afslutter dagens arbejde med hukommelsesarkitekturen.

@@ -79,6 +79,15 @@ def extract_facts_heuristic(text):
                         "confidence": 0.8
                     })
 
+    # 7. Evergreen / Fundamentale principper (Ny i S34)
+    if any(p in clean_text.lower() for p in ["vision", "princip", "blueprint", "soul", "mandat", "identity"]):
+        facts.append({
+            "fact": f"Potentielt Evergreen-princip identificeret: {clean_text[:100]}...",
+            "category": "evergreen",
+            "confidence": 0.7,
+            "is_evergreen": True
+        })
+
     # Catch-all hvis teksten er lang nok (noget sker jo)
     if len(clean_text) > 100 and not facts:
          facts.append({
