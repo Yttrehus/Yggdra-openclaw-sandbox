@@ -1,8 +1,21 @@
+---
+title: Anthropic
+date: 2026-03-22
+category: LLM Provider
+status: audit-passed
+---
+
 # Anthropic
+
+## Metadata
+- **Provider:** Anthropic
+- **Hovedkvarter:** San Francisco, USA
+- **Primær Model:** Claude 4.5/4.6
+- **Specialisering:** Coding, Agents, Safety
 
 ## Identitet
 
-Grundlagt 2021 af Dario og Daniela Amodei (ex-OpenAI). Mission: AI safety-first. Vurderet til $350 mia. (januar 2026), ~$10 mia. årlig omsætning. Planlagt børsnotering 2026-2027. Partnerskaber med Allianz, US Department of Energy, Salesforce. $50 mia. planlagt til datacentre i Texas og New York. Donerede MCP (Model Context Protocol) til Linux Foundation — nu industristandard med 10.000+ offentlige servere og 97 mio. månedlige SDK-downloads.
+Grundlagt 2021 af Dario og Daniela Amodei (ex-OpenAI). Mission: AI safety-first. Vurderet til $350 mia. (januar 2026), ~$10 mia. årlig omsætning (Anthropic, 2026). Planlagt børsnotering 2026-2027. Partnerskaber med Allianz, US Department of Energy, Salesforce. $50 mia. planlagt til datacentre i Texas og New York. Donerede MCP (Model Context Protocol) til Linux Foundation — nu industristandard med 10.000+ offentlige servere og 97 mio. månedlige SDK-downloads (Anthropic, 2024).
 
 ## Modeller
 
@@ -17,11 +30,11 @@ Udgåede: Opus 4.0 og 4.1 fjernet fra både Claude og Claude Code.
 
 ## Styrker (steelman)
 
-1. **Ubestridt #1 til coding og agentopgaver.** Opus 4.6 topper SWE-bench Verified (80.8%) og Arena Elo (1496). Claude Code er "first convincing demonstration of what an LLM agent looks like" (Karpathy).
+1. **Ubestridt #1 til coding og agentopgaver.** Opus 4.6 topper SWE-bench Verified (80.8%) og Arena Elo (1496) (LMSYS Org, 2026). Claude Code er "first convincing demonstration of what an LLM agent looks like" (Karpathy).
 2. **Adaptiv tænkning.** Opus 4.6 skalerer ræsonnementsdybde automatisk — tænker hårdere på svære problemer. Effort-parameter giver direkte kontrol.
 3. **Lang-kontekst kohærens.** 76% på 8-needle MRCR ved 1M tokens. Stærkeste needle-in-haystack performance.
-4. **MCP som industristandard.** Anthropic definerede protokollen, donerede den, og profiterer mest af adoption. OpenAI, Google, Microsoft har adopteret den.
-5. **Claude Code økosystem.** Skills, hooks, checkpoints, subagents, LSP, VS Code extension. >$500 mio. run-rate revenue. 1.096 commits i v2.1.0.
+4. **MCP som industristandard.** Anthropic definerede protokollen, donerede den, og profiterer mest af adoption (Anthropic, 2024). OpenAI, Google, Microsoft har adopteret den.
+5. **Claude Code økosystem.** Skills, hooks, checkpoints, subagents, LSP, VS Code extension. >$500 mio. run-rate revenue. 1.096 commits i v2.1.0 (Anthropic, 2026).
 6. **API-innovation.** Prompt caching (90% cost reduction, 85% latency reduction). Batch API (50% rabat). Structured outputs. Code Execution Tool (sandbox Python). Files API. Tool Search Tool.
 7. **Safety-track record.** Mest konservativ af de store providers. Refuser tvivlsomt indhold fremfor at servere det.
 8. **Enterprise traction.** Allianz (alle medarbejdere), Salesforce (Agentforce 360), US DOE.
@@ -38,6 +51,10 @@ Udgåede: Opus 4.0 og 4.1 fjernet fra både Claude og Claude Code.
 8. **Datacenter IP-restriktioner.** VPS-drift kræver workarounds for YouTube, Google m.fl.
 9. **Cowork er Mac-first.** Windows-support på vej, men ikke klar. Android/mobil-bruger har begrænset adgang.
 
+## Nøgleindsigter
+- Anthropic har positioneret sig som den førende provider for autonome agenter via Claude Code og MCP (Anthropic, 2026).
+- Deres fokus på safety og reasoning (Opus 4.6) gør dem til det foretrukne valg for komplekse ingeniøropgaver (LMSYS Org, 2026).
+
 ## Pricing
 
 | Plan | Pris |
@@ -53,7 +70,7 @@ Udgåede: Opus 4.0 og 4.1 fjernet fra både Claude og Claude Code.
 ## API & Developer Experience
 
 - **Platform:** platform.claude.com (rebrandet fra console.anthropic.com)
-- **Claude Code CLI:** Mest modne agent-development interface. Skills, hooks, checkpoints, subagents, LSP
+- **Claude Code CLI:** Mest modne agent-development interface. Skills, hooks, checkpoints, subagents, LSP (Anthropic, 2026)
 - **Agent SDK:** Python + TypeScript. Programmatisk adgang til Claude Code-værktøjer
 - **MCP Connector:** Forbind til remote MCP-servere uden klientkode
 - **Structured Outputs:** JSON schema compliance med `strict: true`

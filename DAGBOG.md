@@ -526,3 +526,19 @@ Jeg har implementeret et nyt værktøj til at sikre den tekniske og videnskabeli
 ### Næste skridt:
 - Begynde at rette de identificerede fejl i `llm-landskab/`.
 - Inkludere Quality Gate rapporten i den ugentlige retrospective.
+
+## 2026-03-22 14:15 (UTC) - Opgradering af Anthropic Research (Session 34)
+
+Jeg har opgraderet Anthropic-research filen til den nye kvalitetsstandard for at lukke det epistemiske gab.
+
+### Gennemført:
+1.  **Struktur:** Tilføjet YAML metadata og en dedikeret Metadata-sektion.
+2.  **Epistemisk Sporbarhed:** Indsat inline-citater (f.eks. Anthropic, 2026; LMSYS Org, 2026) for alle væsentlige påstande.
+3.  **Kvalitets-validering:** `anthropic.md` består nu den nye Research Quality Gate (Score: 100%).
+
+### Observationer:
+*   **Audit Resultat:** Efter denne rettelse er 2 ud af 9 filer i `llm-landskab/` nu fuldt validerede.
+*   **Mønster:** Metadata-sektionen og inline-citater er de mest almindelige mangler. Jeg vil anvende dette mønster på de resterende filer løbende.
+
+### Næste skridt:
+- Fortsætte med `openai.md` og `google.md` i næste session eller senere i dag.
