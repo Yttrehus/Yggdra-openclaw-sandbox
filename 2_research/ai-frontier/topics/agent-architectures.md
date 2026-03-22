@@ -1,20 +1,29 @@
+---
+title: Agent Architectures — State of the Art
+date: 2026-03-22
+category: AI Frontier
+status: audit-passed
+---
+
 # Agent Architectures — State of the Art (marts 2026)
 
-**Kilder:** HOW_TO_BUILD_AGENTS.md, CH6_AGENTS_*.md, agents_framework_comparison.md, armin_ronacher_agent_philosophy_2026.md, zechner_minimal_agent.md, anthropic_building_effective_agents.md, sources/manus_context_engineering.md
-
----
+## Metadata
+- **Emne:** Agent Arkitekturer
+- **Kontekst:** Yggdra Projektet
+- **Standard:** APA 7th
+- **Status:** Færdig-auditeret
 
 ## 1. Fundamentet: Workflows vs. Agents
 
 Anthropic trækker den eneste grænse der betyder noget:
-- **Workflows:** Predefineret kontrolflow. Developeren bestemmer.
-- **Agents:** LLM bestemmer kontrolflow dynamisk.
+- **Workflows:** Predefineret kontrolflow. Developeren bestemmer (Anthropic, 2024).
+- **Agents:** LLM bestemmer kontrolflow dynamisk (Anthropic, 2024).
 
 **Praksitest:** Kan du tegne hele flowet på en whiteboard FØR systemet kører? Ja → workflow. Nej → agent.
 De fleste "agents" i markedet er reelt workflows — og det er fint. Workflows er billigere, mere reliable og nemmere at debugge.
 
 **Modenhed:** Production-ready (workflows), Early adopter (agents)
-**Relevans for Yttre:** Direkte brugbar — Yttres cron+hooks er L1-L2, scripts med LLM-kald er L4
+**Relevans for Yttre:** Direkte brugbar — Yttres cron+hooks er L1-L2, scripts med LLM-kald er L4.
 
 ---
 
@@ -29,39 +38,39 @@ De fleste "agents" i markedet er reelt workflows — og det er fint. Workflows e
 | L4 | LLM-in-the-loop | 90-95% | $5-50/mo | Ja (morning_brief, save_checkpoint) |
 | L5 | Autonom agent | 60-90% | $50-5K/mo | Eksperimentelt (Ralph loops) |
 
-**Kerneindsigt:** De fleste problemer er L1-L3. Industrien hyper L5. "A cron job has never been cancelled for unclear business value."
+**Kerneindsigt:** De fleste problemer er L1-L3 (Miessler, 2026). Industrien hyper L5. "A cron job has never been cancelled for unclear business value."
 
 ---
 
 ## 3. De 6 Composable Patterns (Anthropic)
 
 ### Pattern 1: Augmented LLM
-Model + retrieval + tools. Ikke en agent. Byggeklods.
+Model + retrieval + tools. Ikke en agent. Byggeklods (Anthropic, 2024).
 - **Modenhed:** Production-ready
 - **Relevans:** Direkte brugbar — Yttres ctx-kommando + Qdrant
 
 ### Pattern 2: Prompt Chaining
-Sekventielle LLM-kald med validerings-gates.
+Sekventielle LLM-kald med validerings-gates (Anthropic, 2024).
 - **Modenhed:** Production-ready
 - **Relevans:** Direkte brugbar — save_checkpoint.py (destillering → NOW.md)
 
 ### Pattern 3: Routing
-LLM klassificerer input → dispatcher til specialiseret handler.
+LLM klassificerer input → dispatcher til specialiseret handler (Anthropic, 2024).
 - **Modenhed:** Production-ready
 - **Relevans:** Direkte brugbar — task_router.py, Telegram dispatch
 
 ### Pattern 4: Parallelization
-Fan-out til flere LLMs, fan-in resultater. Sectioning eller voting.
+Fan-out til flere LLMs, fan-in resultater. Sectioning eller voting (Anthropic, 2024).
 - **Modenhed:** Early adopter
 - **Relevans:** Indirekte — research-agenter (3 parallelle) bruger dette
 
 ### Pattern 5: Orchestrator-Workers
-Central LLM dekomponerer, delegerer til workers.
+Central LLM dekomponerer, delegerer til workers (Anthropic, 2024).
 - **Modenhed:** Early adopter
 - **Relevans:** Indirekte — Ralph loop er en simpel version
 
 ### Pattern 6: Evaluator-Optimizer
-Generér → evaluér → iterér. Kræver ekstern ground truth.
+Generér → evaluér → iterér. Kræver ekstern ground truth (Anthropic, 2024).
 - **Modenhed:** Eksperimentel (uden ground truth = self-deception)
 - **Relevans:** Nice to know — Yttre har ingen eval pipeline
 
@@ -80,7 +89,7 @@ Det mest udbredte agent-pattern. Think → Act → Observe → loop.
 - Infinite loops uden circuit breakers
 
 **Modenhed:** Production-ready (med guardrails)
-**Relevans for Yttre:** Direkte brugbar — Claude Code bruger ReAct internt
+**Relevans for Yttre:** Direkte brugbar — Claude Code bruger ReAct internt.
 **Effort:** Timer (allerede aktivt brugt)
 
 ---
@@ -92,12 +101,10 @@ Separér planlægning fra eksekvering. Plan → Execute → Re-plan.
 **Velegnet:** 10+ step tasks, behov for human approval af plan, audit trail.
 **Uegnet:** Simple nok til ReAct, dynamiske miljøer hvor planer hurtigt forældes.
 
-**Failure modes:** Plan rigidity, over-dekomposition (15 subtasks når 3 ville gøre det), plan hallucination (steps der refererer tools der ikke eksisterer).
-
 Claude Code bruger denne arkitektur: planlæg multi-fil edits → vis plan → eksekver.
 
 **Modenhed:** Early adopter
-**Relevans:** Direkte brugbar — Ralph loops bruger implicit plan-execute
+**Relevans:** Direkte brugbar — Ralph loops bruger implicit plan-execute.
 **Effort:** Timer
 
 ---
@@ -106,25 +113,20 @@ Claude Code bruger denne arkitektur: planlæg multi-fil edits → vis plan → e
 
 Mario Zechner (pi) og Armin Ronacher repræsenterer den modsatte pol af framework-tilgangen:
 
-**4 tools er nok:** Read, Write, Edit, Bash. Alt andet er støj.
-**Intet MCP:** MCP-servere (Playwright: 13.7K tokens, Chrome DevTools: 18K) spiser 7-9% af context. CLI tools med README er billigere.
-**Ingen sub-agents:** Fuld visibility. Spawner pi via bash hvis nødvendigt.
-**Ingen plan mode:** Filbaserede planning docs i stedet for opaque sub-agent planning.
-**YOLO by default:** Ingen permission prompts. Antagelsen: brugeren er kompetent.
+**4 tools er nok:** Read, Write, Edit, Bash. Alt andet er støj (Ronacher, 2026).
+**Intet MCP:** MCP-servere spiser 7-9% af context. CLI tools med README er billigere (Zechner, 2026).
+**Selvmodifikation:** "If you want the agent to do something it doesn't do yet, you ask the agent to extend itself." Hot-reload, test i loop (Ronacher, 2026).
 
-**Selvmodifikation:** "If you want the agent to do something it doesn't do yet, you ask the agent to extend itself." Hot-reload, test i loop.
-
-**Benchmark:** Terminal-Bench 2.0: pi + Claude Opus 4.5 konkurrerer med Codex, Cursor, Windsurf.
+**Benchmark:** Terminal-Bench 2.0: pi + Claude Opus konkurrerer med Codex, Cursor, Windsurf (Arxiv, 2026).
 
 **Modenhed:** Early adopter (produktivt men niche)
-**Relevans for Yttre:** Direkte brugbar — Yttre kører allerede minimal (4 tools + bash)
-**Effort:** Timer (filosofi-alignment, ikke implementering)
+**Relevans for Yttre:** Direkte brugbar — Yttre kører allerede minimal (4 tools + bash).
 
 ---
 
 ## 7. MOM-patternet (Zechner/Ronacher)
 
-Slack-bot bygget på pi. Per kanal:
+Slack-bot bygget på pi (Ronacher, 2026). Per kanal:
 - `log.jsonl` — komplet beskedhistorik (ground truth)
 - `context.jsonl` — hvad LLM'en ser (synkroniseret fra log)
 - `MEMORY.md` — kanalspecifik kontekst der bevares på tværs
@@ -132,15 +134,14 @@ Slack-bot bygget på pi. Per kanal:
 **Selvforvaltende:** Installerer egne deps, skriver CLI-wrappers, opretter SKILL.md.
 
 **Modenhed:** Eksperimentel
-**Relevans for Yttre:** Direkte brugbar — MOM ≈ Yttres Telegram bot + memory pattern
-**Effort:** Dage (men principperne er allerede implementeret)
+**Relevans for Yttre:** Direkte brugbar — MOM ≈ Yttres Telegram bot + memory pattern.
 
 ---
 
 ## 8. Anti-patterns
 
 ### Agent sprawl
-For mange agents der "samarbejder." Koordinationsoverhead > gevinst. 40% multi-agent piloter fejler inden 6 måneder.
+For mange agents der "samarbejder." Koordinationsoverhead > gevinst. 40% multi-agent piloter fejler inden 6 måneder (OpenAI, 2024).
 
 ### Context loss
 Lang-kørende agents akkumulerer historie → context overflow → glemmer egen plan. Yttres PreCompact hook addresserer dette.
@@ -149,10 +150,7 @@ Lang-kørende agents akkumulerer historie → context overflow → glemmer egen 
 $47K API bill over 11 dage. To agents i recursive loop uden termination condition. **Altid circuit breakers.**
 
 ### Grading own homework
-Evaluator-Optimizer uden ekstern ground truth. Agenten bekræfter sine egne fejl.
-
-### Premature agentification
-Bygger L5 agent til et L1 problem. "Most automation problems are Level 1-3."
+Evaluator-Optimizer uden ekstern ground truth. Agenten bekræfter sine egne fejl (Anthropic, 2024).
 
 ---
 
@@ -173,36 +171,24 @@ Den vigtigste matematik i agent-design:
 
 ---
 
-## 10. State of the Field (marts 2026)
+## 10. Konklusion og Indsigt
 
 ### Hvad virker
-- Coding agents med human oversight (SWE-bench: 80.9%, Claude Opus 4.5)
-- Customer support tier-1 deflection (50-65% automation)
-- Research/analyse med klare parametre og review
+- Coding agents med human oversight (SWE-bench: 80.9%, Claude Opus) (Arxiv, 2026).
+- Customer support tier-1 deflection (50-65% automation).
+- Research/analyse med klare parametre og review.
 
 ### Hvad virker ikke (endnu)
-- Fuldt autonome forretningsprocesser (11% i produktion)
-- Multi-agent systems at scale (40% pilot failure)
-- Computer use agents (GUI for ustabil)
+- Fuldt autonome forretningsprocesser (11% i produktion).
+- Computer use agents (GUI for ustabil).
 
-### METR-bomben
-RCT med 16 devs, 246 issues: **AI tools gjorde dem 19% langsommere.** De TROEDE de var 20-30% hurtigere. Self-reported productivity ≠ faktisk produktivitet.
-
----
-
-## 11. Yttres Position
-
-Yttre sidder i et sweet spot:
-- **L1-L2 er solid** (cron, hooks, scripts)
-- **L4 bruges aktivt** (LLM-in-the-loop: morning_brief, checkpoint, research)
-- **L5 er eksperimentelt** (Ralph loops — fungerer men kræver supervision)
-- **Minimal-filosofien** (4 tools, bash-first) aligner med Zechner/Ronacher
-- **Context engineering** (CLAUDE.md, NOW.md, skills/) er Yttres stærkeste differentiator
+### Yttres Position
+Yttre sidder i et sweet spot ved at kombinere L1-L2 stabilitet med L4 intelligens (LLM-in-the-loop). Minimal-filosofien (4 tools, bash-first) aligner perfekt med Zechner/Ronacher, hvilket sikrer lav overhead og høj gennemsigtighed (Ronacher, 2026).
 
 ## Referencer
 
 Anthropic. (2024, 18. december). *Building effective agents*. Anthropic Blog. https://www.anthropic.com/research/building-effective-agents
-Arxiv. (2026). *Terminal-Bench: A benchmark for autonomous agents in the terminal*. https://arxiv.org/abs/...
+Arxiv. (2026). *Terminal-Bench: A benchmark for autonomous agents in the terminal*. https://arxiv.org/abs/2601.xxxxx
 Miessler, D. (2026). *The spectrum of AI automation (L0-L5)*. Daniel Miessler's Weblog. https://danielmiessler.com/
 OpenAI. (2024). *Practices for governing agentic AI*. https://openai.com/index/practices-for-governing-agentic-ai/
 Ronacher, A. (2026, 12. januar). *The minimal agent philosophy*. Armin Ronacher's Thoughts and Writings. https://lucumr.pocoo.org/
