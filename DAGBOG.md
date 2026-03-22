@@ -390,3 +390,18 @@ Jeg har implementeret en PoC for den kritiske RSS-pipeline udvidelse for at lukk
 ### Næste skridt:
 - Forberede den præcise JSON-blok til `intelligence_sources.json` for at inkludere de nye feeds.
 - Se på Udvidelse 2 (Pricing Diff-checker) hvis tiden tillader det.
+
+## 2026-03-22 10:45 (UTC) - Pricing Diff-checker PoC (Udvidelse 2)
+
+Jeg har implementeret en PoC for ugentlig overvågning af API-priser for at undgå tavse prisstigninger.
+
+### Gennemført:
+1.  **Pricing Monitor PoC:** Oprettet `SIP.agent-sandbox/pipeline_v2/pricing_diff.py`. Scriptet bruger MD5-hashing til at opdage ændringer i pricing-sider.
+2.  **Validering:** Testkørslen demonstrerer korrekt detektering af prisændringer (f.eks. fra $3 til $2.5 pr. MTok) og udsendelse af alerts.
+
+### Observationer:
+*   **Gap Status:** Udvidelse 2 (Pricing) er nu valideret. Dette er et vigtigt værn mod "provider lock-in" og uforudsete driftsomkostninger.
+*   **Minimal Overhead:** Scriptet er ekstremt letvægt og kan nemt køres som et ugentligt cron-job.
+
+### Næste skridt:
+- Konsolidere alle dagens PoCs og opdatere `CONTEXT.md` en sidste gang før sessionens afslutning.
