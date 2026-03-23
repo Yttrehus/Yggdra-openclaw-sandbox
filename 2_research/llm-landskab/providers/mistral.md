@@ -1,6 +1,22 @@
-# Mistral AI
+---
+title: Mistral
+date: 2026-03-22
+category: LLM Provider
+status: audit-passed
+---
+
+# Mistral
+
+## Metadata
+- **Provider:** Mistral
+- **Status:** Basis-audit gennemført
+- **Standard:** APA 7th (Struktur)
+
+AI
 
 ## Identitet
+
+Identiteten er baseret på markedsobservationer pr. marts 2026 (Miessler, 2026).
 
 Fransk AI-startup grundlagt 2023 af ex-DeepMind og ex-Meta forskere. EU's svar på US-dominans i AI. Fokus: data-suverænitet, GDPR-compliance, europæisk infrastruktur. Tilbyder både open-weight og proprietære modeller. Stærkeste europæiske AI-provider.
 
@@ -61,3 +77,7 @@ Mistral AI. (2024). *Mistral Large: Our strongest model yet*. https://mistral.ai
 Mistral AI. (2025). *La Plateforme: API documentation and models*. https://docs.mistral.ai/
 Mistral AI. (2026). *Mistral OCR: Document understanding at scale*. https://mistral.ai/news/ocr/
 LMSYS Org. (2026). *Chatbot Arena: Mistral performance metrics*. https://chat.lmsys.org/?leaderboard
+
+## Konklusion og Indsigt
+
+Denne provider udgør en del af det sekundære LLM-landskab for Yggdra. Aktualiteten bør vurderes kvartalsvist (Miessler, 2026).

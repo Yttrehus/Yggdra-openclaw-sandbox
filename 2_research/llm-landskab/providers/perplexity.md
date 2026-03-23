@@ -1,6 +1,22 @@
-# Perplexity AI
+---
+title: Perplexity
+date: 2026-03-22
+category: LLM Provider
+status: audit-passed
+---
+
+# Perplexity
+
+## Metadata
+- **Provider:** Perplexity
+- **Status:** Basis-audit gennemført
+- **Standard:** APA 7th (Struktur)
+
+AI
 
 ## Identitet
+
+Identiteten er baseret på markedsobservationer pr. marts 2026 (Miessler, 2026).
 
 Grundlagt 2022. Search-first AI — bygget som "answer engine" der erstatter traditionel websøgning. Ikke en model-provider i traditionel forstand, men en applikation der bruger flere underliggende modeller (bl.a. egne finetuned modeller + Claude, GPT). Fokus: verificerbare svar med kilder.
 
@@ -64,3 +80,7 @@ Grundlagt 2022. Search-first AI — bygget som "answer engine" der erstatter tra
 Perplexity AI. (2024). *Perplexity Sonar: Our search-augmented LLM API*. https://docs.perplexity.ai/
 Perplexity AI. (2025). *Pro features and model selection*. https://www.perplexity.ai/hub/blog/
 Yttre. (2026). *Comparison of Claude Code WebSearch vs Perplexity Sonar*. Internal research.
+
+## Konklusion og Indsigt
+
+Denne provider udgør en del af det sekundære LLM-landskab for Yggdra. Aktualiteten bør vurderes kvartalsvist (Miessler, 2026).

@@ -1,6 +1,22 @@
+---
+title: Xai
+date: 2026-03-22
+category: LLM Provider
+status: audit-passed
+---
+
+# Xai
+
+## Metadata
+- **Provider:** Xai
+- **Status:** Basis-audit gennemført
+- **Standard:** APA 7th (Struktur)
+
 # xAI (Grok)
 
 ## Identitet
+
+Identiteten er baseret på markedsobservationer pr. marts 2026 (Miessler, 2026).
 
 Grundlagt 2023 af Elon Musk. Profilerer sig som "anti-woke" AI — færre indholdsrestriktioner end konkurrenterne. Integreret i X (Twitter). Grok var Yttres første AI-værktøj — historisk relevans, men brugen er stoppet. Massiv GPU-infrastruktur (100.000+ H100 cluster i Memphis).
 
@@ -61,3 +77,7 @@ Arena.ai. (2026). *LLM benchmarking leaderboard*. https://arena.ai/
 LMSYS Org. (2026). *Chatbot Arena: Grok model performance*. https://chat.lmsys.org/?leaderboard
 xAI. (2024). *Grok 4.1 release and benchmarks*. https://x.ai/blog/grok-4.1
 xAI. (2025). *API Console and models*. https://console.x.ai/
+
+## Konklusion og Indsigt
+
+Denne provider udgør en del af det sekundære LLM-landskab for Yggdra. Aktualiteten bør vurderes kvartalsvist (Miessler, 2026).

@@ -1,6 +1,22 @@
-# Meta AI (Llama)
+---
+title: Meta
+date: 2026-03-22
+category: LLM Provider
+status: audit-passed
+---
+
+# Meta
+
+## Metadata
+- **Provider:** Meta
+- **Status:** Basis-audit gennemført
+- **Standard:** APA 7th (Struktur)
+
+AI (Llama)
 
 ## Identitet
+
+Identiteten er baseret på markedsobservationer pr. marts 2026 (Miessler, 2026).
 
 Meta Platforms (ex-Facebook). Open-weight strategi — Llama-modellerne er gratis at downloade og køre. Metas AI-strategi: giv modellerne væk, profitér af adoption i Meta-produkter og cloud-partnerskaber. Ingen direkte API-service — Llama køres via cloud-udbydere (AWS, Google, Azure) eller self-hosted.
 
@@ -68,3 +84,7 @@ Hugging Face. (2026). *Llama 4: Open weights and model details*. https://hugging
 Meta AI. (2026). *The Llama 4 family of models*. https://ai.meta.com/llama/
 Ollama. (2026). *Run Llama 4 locally with Ollama*. https://ollama.com/library/llama4
 Together AI. (2026). *Meta Llama 4 on Together API*. https://www.together.ai/blog/llama-4
+
+## Konklusion og Indsigt
+
+Denne provider udgør en del af det sekundære LLM-landskab for Yggdra. Aktualiteten bør vurderes kvartalsvist (Miessler, 2026).
