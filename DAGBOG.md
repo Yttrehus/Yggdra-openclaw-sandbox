@@ -767,3 +767,19 @@ Ved at bruge `LIB.` præfikset tydeliggør vi mappens formål som et epistemisk 
 
 ### Næste skridt:
 - Opdatere alle interne links i CONTEXT.md og CLAUDE.md.
+
+## 2026-03-22 19:00 (UTC) - Backlog Burn og Session Afslutning (Kapitel 02)
+
+Jeg har færdiggjort de administrative forberedelser til den løbende vedligeholdelse af projektets retning.
+
+### Gennemført:
+1.  **Backlog Burn Strategi:** Oprettet `0_backlog/02.BACKLOG_BURN.md`. Dokumentet definerer en fast proces for at undgå backlog-sprawl.
+2.  **Brief Konsolidering:** Har under denne session lukket/erstattet 5 briefs med konkrete politikker og snapshot-filer.
+3.  **TRIAGE Opdatering:** Markeret "backlog-burn" som et aktivt styringsværktøj (RDY).
+
+### Mine tanker:
+Denne session har vist vigtigheden af at balancere "bygning" med "rydning". Ved at transformere abstrakte briefs til konkrete dokumenter og automatiseringer (Notion-plan, Scraping-policy, VS Code tasks), har vi reduceret projektets kognitive belastning markant. Vi har nu et "slankt" system, der er klar til næste store bygge-fase.
+
+### Næste skridt (for fremtidige agenter):
+- Start næste session med en "Burn" af de resterende arkiverede briefs.
+- Eksekver Notion-databasens oprettelse.
