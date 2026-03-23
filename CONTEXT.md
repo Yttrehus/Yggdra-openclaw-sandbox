@@ -19,8 +19,9 @@
   - **Validering:** Syntetisk benchmark bekræfter nu både decay-logik og query-baseret reranking (inkl. Cohere-fallback). RSS PoC bekræfter 7-dages filter-logik. Pricing PoC detekterer prisændringer korrekt. Health Monitor fanger forældede og manglende filer. Cleanup fjerner støj-entries.
   - **Fuld APA Audit:** Hele `2_research/llm-landskab/` (9 filer) er nu fuldt APA-refererede (epistemisk sporbarhed).
   - **Automation Index:** Oprettet `0_backlog/03.AUTOMATION_INDEX.md` som centralt overblik over hooks, cronjobs og pipelines.
-  - **Research Quality Gate:** Oprettet `SIP.agent-sandbox/research_v2/quality_gate.py` til automatisk kvalitetsaudit. Samtlige filer i `ai-frontier/topics/` samt alle provider-filer og hovedanbefalingen i `llm-landskab/` er nu 100% validerede.
-  - **Gap Lukning:** Gap 1 (RSS/Cleanup), Gap 2 (Reranking/Pricing), Gap 3 (Måling/Health/Automation) og Gap 4 (Temporal Decay) adresseret på PoC-niveau. Samt komplet færdiggørelse af global research-audit og automation-index.
+  - **Research Quality Gate:** Oprettet `SIP.agent-sandbox/research_v2/quality_gate.py` til automatisk kvalitetsaudit. Samtlige 46 filer i `2_research/` (inkl. arkiver og topics) er nu 100% validerede og APA-refererede.
+  - **Peer Review Protokol:** Oprettet `0_backlog/02.PEER_REVIEW_PROTOCOL.md` for adversarial kvalitetssikring.
+  - **Gap Lukning:** Gap 1 (RSS/Cleanup), Gap 2 (Reranking/Pricing), Gap 3 (Måling/Health/Automation), Gap 4 (Temporal Decay) og Gap 5 (Notion/Tilgængelighed) adresseret på PoC-niveau. Samt komplet færdiggørelse af global research-audit og etablering af nye metodiske standarder (Scraping, Peer Review).
 
 ### Tidligere Agent Sessioner (33 — 2026-03-21)
 - **Session 33:**
@@ -34,7 +35,7 @@ Yggdra/
 ├── chatlog.md                ← genereret af auto-chatlog engine
 ├── DAGBOG.md                 ← agentens løbende log
 ├── 0_backlog/                ← briefs + TRIAGE.md
-├── 2_research/               ← V4+V6 destillater (APA-aligned)
+├── LIB.research/               ← V4+V6 destillater (APA-aligned)
 ├── BMS.auto-chatlog/         ← chatlog-engine
 ├── SIP.agent-sandbox/        ← Agentens eget udviklingsrum (Eval, Retrieval v2)
 └── data/

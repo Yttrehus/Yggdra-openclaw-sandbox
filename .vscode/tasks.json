@@ -1,0 +1,44 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Bash (Yggdra)",
+      "type": "shell",
+      "command": "bash",
+      "isBackground": true,
+      "runOptions": { "runOn": "folderOpen" },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated",
+        "group": "terminals"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "VPS SSH",
+      "type": "shell",
+      "command": "ssh root@72.62.61.51",
+      "isBackground": true,
+      "runOptions": { "runOn": "folderOpen" },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated",
+        "group": "terminals"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Qdrant Tunnel",
+      "type": "shell",
+      "command": "ssh -L 6333:localhost:6333 root@72.62.61.51",
+      "isBackground": true,
+      "runOptions": { "runOn": "folderOpen" },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated",
+        "group": "terminals"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

@@ -31,7 +31,7 @@ Prioriteret efter impact × (1/effort). Alle fra VPS V4 research loops.
 |-------|----------|-------------|---------|
 | notion-spejling | spec'd | — | Omdøbt til `0_backlog/04.NOTION_INTEGRATION.md` (RDY) |
 | pdf-skill | brief | — | Faktura-layout fra rejseselskab, weasyprint, Tesseract |
-| abonnement-overblik | brief | — | PureGym/United Fitness, daglige udgifter, årsopgørelse 2025 |
+| abonnement-overblik | spec'd | — | Omdøbt til `0_backlog/06.FINANCIAL_SNAPSHOT.md` (RDY) |
 | cross-session-peer-review | brief | — | Design for parallel session workflow |
 
 ## Kræver skærpning (scope uklart)
