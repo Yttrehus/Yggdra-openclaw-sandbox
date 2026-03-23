@@ -54,7 +54,7 @@ status: audit-passed
         f.write(content)
     return True
 
-base_dir = "2_research"
+base_dir = "LIB.research"
 count = 0
 for root, dirs, files in os.walk(base_dir):
     for f in files:

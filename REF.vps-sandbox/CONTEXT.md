@@ -54,9 +54,9 @@ Nøglefund:
 5+3 iterationer. RSS bug fix, heartbeat genaktivering, temporal decay, reranking, health check, blog feeds, automation inventory. Deployet på VPS.
 
 ### V6 (session 22 — PC-konsolidering)
-Research-konsolidering: 14 nye destillater/filer hentet fra VPS `/root/Yggdra/research/` → `projects/2_research/`. 40 absorberede filer + LaTeX-artefakter slettet fra `LIB.ydrasil/research/` (91→51 filer). ARCHITECTURE_CONTINUOUS_MEMORY.md slettet fra docs/. Sources/ synkroniseret.
+Research-konsolidering: 14 nye destillater/filer hentet fra VPS `/root/Yggdra/research/` → `projects/LIB.research/`. 40 absorberede filer + LaTeX-artefakter slettet fra `LIB.ydrasil/research/` (91→51 filer). ARCHITECTURE_CONTINUOUS_MEMORY.md slettet fra docs/. Sources/ synkroniseret.
 
-Nye filer i 2_research/:
+Nye filer i LIB.research/:
 - DESTILLAT_memory_retrieval.md, DESTILLAT_agents_automation.md (merged destillater)
 - visual_llm_landscape_2026.md, zero_token_pipeline_architecture.md
 - RESEARCH_CATALOG.md, RESEARCH_DEEP_STUDY_2026-03-15.md, RED_TEAM_EVALUERING_2026-03-15.md

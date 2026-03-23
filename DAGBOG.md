@@ -96,7 +96,7 @@ I denne session har jeg taget det første skridt mod at implementere de kvalitet
 
 ### Gennemført:
 1.  **APA Standard Definition:** Oprettet `SIP.agent-sandbox/05.RESEARCH_KVALITET/APA_STANDARDS.md`. Dette dokument fungerer som en praktisk guide for agenter (og ejeren) til at anvende APA 7th referencer korrekt i projektet.
-2.  **Kvalitets-alignment:** Ved at definere disse standarder sikrer vi, at fremtidig research i `2_research/` lever op til det akademiske niveau, ejeren efterspørger for at sikre "epistemisk sporbarhed".
+2.  **Kvalitets-alignment:** Ved at definere disse standarder sikrer vi, at fremtidig research i `LIB.research/` lever op til det akademiske niveau, ejeren efterspørger for at sikre "epistemisk sporbarhed".
 
 ### Mine tanker:
 APA-referencer virker måske som en lille ting i et teknisk projekt, men det er fundamentet for at kunne stole på den viden, agenterne genererer. Når vi bygger et "kognitivt exoskeleton", må knoglerne (dataene) ikke være porøse.
@@ -104,12 +104,12 @@ APA-referencer virker måske som en lille ting i et teknisk projekt, men det er 
 Jeg har placeret standarden i SiP under kapitel 05 for at matche den nye backlog-struktur.
 
 ### Næste skridt:
-- Begynde at auditere eksisterende filer i `2_research/` og tilføje korrekte referencer, hvor de mangler.
+- Begynde at auditere eksisterende filer i `LIB.research/` og tilføje korrekte referencer, hvor de mangler.
 - Integrere et tjek i min fact extraction pipeline, der ser efter kilde-henvisninger.
 
 ## 2026-03-19 14:00 (UTC) - Analyse af Videns-pipeline (RSS Gap)
 
-Jeg har analyseret muligheden for at lukke videns-gabet mod omverdenen via en Blog-RSS Pipeline, som foreslået i `2_research/videns-vedligeholdelse/PIPELINE_DESIGN.md`.
+Jeg har analyseret muligheden for at lukke videns-gabet mod omverdenen via en Blog-RSS Pipeline, som foreslået i `LIB.research/videns-vedligeholdelse/PIPELINE_DESIGN.md`.
 
 ### Observationer:
 1.  **Missing Scripts:** Selvom dokumentationen (`PIPELINE_DESIGN.md`, `TRIAGE.md`) refererer til `scripts/ai_intelligence.py` som det centrale værktøj på VPS'en, findes dette script (og dets konfiguration `intelligence_sources.json`) ikke i det aktuelle PC-workspace. 
@@ -148,7 +148,7 @@ Afslutter sessionen med et fuldt checkpoint og opdateret CONTEXT.md.
 Jeg har påbegyndt arbejdet med at bringe projektets research-filer op på den nye kvalitetsstandard (APA 7th), som defineret i `05.RESEARCH_KVALITET/APA_STANDARDS.md`.
 
 ### Gennemført:
-1.  **Audit & Opdatering:** Jeg har gennemgået `2_research/videns-vedligeholdelse/SOURCE_REGISTRY.md` og tilføjet en korrekt formateret referenceliste i bunden af dokumentet.
+1.  **Audit & Opdatering:** Jeg har gennemgået `LIB.research/videns-vedligeholdelse/SOURCE_REGISTRY.md` og tilføjet en korrekt formateret referenceliste i bunden af dokumentet.
 2.  **Epistemisk Sporbarhed:** Dokumentet indeholder nu direkte henvisninger til de API'er og RSS-feeds, det beskriver (Anthropic, OpenAI, Qdrant, osv.), hvilket gør det muligt for fremtidige agenter at verificere kilderne.
 
 ### Mine tanker:
@@ -173,7 +173,7 @@ Afslutter sessionen med et checkpoint.
 
 ## 2026-03-21 09:30 (UTC) - Færdiggørelse af APA-audit for Videns-vedligeholdelse
 
-Jeg har færdiggjort opgraderingen af de tre kernefiler i `2_research/videns-vedligeholdelse/` til den nye APA 7th kvalitetsstandard.
+Jeg har færdiggjort opgraderingen af de tre kernefiler i `LIB.research/videns-vedligeholdelse/` til den nye APA 7th kvalitetsstandard.
 
 ### Gennemført:
 1.  **SOURCE_REGISTRY.md:** Tilføjet referenceliste med API- og RSS-kilder.
@@ -184,15 +184,15 @@ Jeg har færdiggjort opgraderingen af de tre kernefiler i `2_research/videns-ved
 Ved at gøre referencerne til en fast del af disse dokumenter har vi ikke bare øget den formelle kvalitet, men også gjort det lettere for fremtidige agenter (og ejeren) at verificere, hvor vores viden kommer fra. "Epistemisk sporbarhed" er ikke længere bare et buzzword i en voice memo, men en indbygget del af vores dokumentations-workflow.
 
 ### Næste skridt:
-- Begynde audit af `2_research/ai-frontier/` eller andre undermapper.
+- Begynde audit af `LIB.research/ai-frontier/` eller andre undermapper.
 - Holde øje med om ejeren reagerer på `RAPPORT.md` angående drifts-scripts.
 
 ## 2026-03-21 09:45 (UTC) - Udvidelse af APA-audit til AI Frontier
 
-Jeg har fortsat implementeringen af APA 7th standarden i projektets research-filer, denne gang med fokus på `2_research/ai-frontier/`.
+Jeg har fortsat implementeringen af APA 7th standarden i projektets research-filer, denne gang med fokus på `LIB.research/ai-frontier/`.
 
 ### Gennemført:
-1.  **Agent Architectures Audit:** Gennemgået `2_research/ai-frontier/topics/agent-architectures.md` og tilføjet en referenceliste med kilder fra Anthropic, OpenAI, Daniel Miessler, Armin Ronacher og Mario Zechner.
+1.  **Agent Architectures Audit:** Gennemgået `LIB.research/ai-frontier/topics/agent-architectures.md` og tilføjet en referenceliste med kilder fra Anthropic, OpenAI, Daniel Miessler, Armin Ronacher og Mario Zechner.
 2.  **Filosofisk Alignment:** Ved at referere til kilder som Ronacher og Zechner har jeg tydeliggjort fundamentet for Yggdras "Minimalist Agent" filosofi (4 tools + bash), hvilket styrker den arkitektoniske begrundelse for vores valg.
 
 ### Mine tanker:
@@ -222,7 +222,7 @@ Afslutter sessionen med opdateret CONTEXT.md.
 
 ## 2026-03-21 10:15 (UTC) - APA-audit færdiggjort for AI Frontier kerne-topics
 
-Jeg har i denne session færdiggjort opgraderingen af de tre vigtigste topics i `2_research/ai-frontier/` til den nye APA 7th standard.
+Jeg har i denne session færdiggjort opgraderingen af de tre vigtigste topics i `LIB.research/ai-frontier/` til den nye APA 7th standard.
 
 ### Gennemført:
 1.  **Agent Architectures:** (Udført i forrige session)
@@ -240,7 +240,7 @@ Vi har nu opnået fuld APA-alignment på de 6 mest kritiske research-filer i pro
 
 ## 2026-03-21 10:30 (UTC) - Afslutning af Session 33
 
-Jeg har i denne session færdiggjort de tre vigtigste topics i `2_research/ai-frontier/` og opnået fuld APA 7th alignment på vores mest kritiske research-arkitektur.
+Jeg har i denne session færdiggjort de tre vigtigste topics i `LIB.research/ai-frontier/` og opnået fuld APA 7th alignment på vores mest kritiske research-arkitektur.
 
 ### Gennemført:
 1.  **Audit Status:** Videns-vedligeholdelse (3/3) og AI-frontier (3/7) er nu APA-refererede.
@@ -254,7 +254,7 @@ Jeg afslutter sessionen nu med et fuldt opdateret workspace.
 
 ## 2026-03-21 11:00 (UTC) - Færdiggørelse af APA-audit for hele AI Frontier
 
-Jeg har nu færdiggjort opgraderingen af samtlige topics i `2_research/ai-frontier/` til APA 7th standarden.
+Jeg har nu færdiggjort opgraderingen af samtlige topics i `LIB.research/ai-frontier/` til APA 7th standarden.
 
 ### Gennemført:
 1.  **Automation Patterns Audit:** Tilføjet referencer til Nate Jones, Daniel Miessler, OpenClaw og Mario Zechner. Dette styrker koblingen til "PAI" (Personal Artificial Intelligence) rammeværket.
@@ -273,8 +273,8 @@ Afslutter sessionen med en opdatering af CONTEXT.md.
 Jeg har i denne session færdiggjort den globale APA 7th audit af samtlige research-filer i projektet.
 
 ### Gennemført:
-1.  **LLM Landskab Audit:** Alle 9 filer i `2_research/llm-landskab/` (Comparison, Recommendation, og 7 provider-profiler) er nu fuldt APA-refererede.
-2.  **Epistemisk Konsistens:** Hele `2_research/` mappen (19 filer totalt) overholder nu den nye kvalitetsstandard. Enhver påstand om markedsandele, benchmark-scores eller tekniske specifikationer kan nu spores tilbage til de officielle kilder (Anthropic, OpenAI, Google, Arena.ai, etc.).
+1.  **LLM Landskab Audit:** Alle 9 filer i `LIB.research/llm-landskab/` (Comparison, Recommendation, og 7 provider-profiler) er nu fuldt APA-refererede.
+2.  **Epistemisk Konsistens:** Hele `LIB.research/` mappen (19 filer totalt) overholder nu den nye kvalitetsstandard. Enhver påstand om markedsandele, benchmark-scores eller tekniske specifikationer kan nu spores tilbage til de officielle kilder (Anthropic, OpenAI, Google, Arena.ai, etc.).
 3.  **Filosofisk Fundament:** Auditten har konsolideret Yggdras position i det tekniske landskab. Ved at referere til kilder som Kumaran et al. (CLS), Miessler (PAI) og Zechner (minimalistiske agenter), har vi skabt en rød tråd fra teoretisk neurovidenskab til praktisk bash-automation.
 
 ### Mine tanker:
@@ -350,11 +350,11 @@ Jeg har nu lukket det tekniske gap omkring **Reranking** i retrieval-pipelinen.
 
 ### Næste skridt:
 - Overveje integration af denne motor i `scripts/get_context.py` når VPS-koden er synkroniseret.
-- Dokumentere test-resultaterne i `2_research/videns-vedligeholdelse/PIPELINE_DESIGN.md`.
+- Dokumentere test-resultaterne i `LIB.research/videns-vedligeholdelse/PIPELINE_DESIGN.md`.
 
 ## 2026-03-22 10:00 (UTC) - Fuld APA-Audit af LLM-Landskab (Research)
 
-Jeg har gennemført en omfattende audit og opdatering af `2_research/llm-landskab/` for at sikre fuld epistemisk sporbarhed (APA 7th).
+Jeg har gennemført en omfattende audit og opdatering af `LIB.research/llm-landskab/` for at sikre fuld epistemisk sporbarhed (APA 7th).
 
 ### Gennemført:
 1.  **Provider-profiler Auditeret:** 
@@ -364,7 +364,7 @@ Jeg har gennemført en omfattende audit og opdatering af `2_research/llm-landska
 2.  **Hoved-dokumenter Auditeret:**
     - `COMPARISON.md`: Tilføjet referenceliste med kilder til alle sammenlignings-data.
     - `RECOMMENDATION.md`: Tilføjet referencer til RouteLLM og kognitive benchmarks.
-3.  **Kvalitets-alignment:** Samtlige 19 filer i `2_research/` mappen overholder nu projektets højeste kvalitetsstandard (APA 7th).
+3.  **Kvalitets-alignment:** Samtlige 19 filer i `LIB.research/` mappen overholder nu projektets højeste kvalitetsstandard (APA 7th).
 
 ### Observationer:
 *   **Gap Lukning:** Dette arbejde lukker det sidste store audit-punkt i research-backloggen.
@@ -516,7 +516,7 @@ Jeg har implementeret et nyt værktøj til at sikre den tekniske og videnskabeli
     - Inline Citater (APA-002)
     - Metadata Sektion (STR-001)
     - Konklusion/Indsigt (STR-002)
-2.  **Audit af `2_research/llm-landskab`:** Gennemført en fuld audit. Resultatet viser, at selvom filer er blevet APA-refereret, mangler mange af dem stadig inline-citater og metadata-sektioner (Score: 25-50%).
+2.  **Audit af `LIB.research/llm-landskab`:** Gennemført en fuld audit. Resultatet viser, at selvom filer er blevet APA-refereret, mangler mange af dem stadig inline-citater og metadata-sektioner (Score: 25-50%).
 
 ### Observationer:
 *   **Kvalitets-gab:** Vi har lukket det "formelle" gap (referencelister), men mangler den præcise "epistemiske sporbarhed" i selve teksten (inline citater).
@@ -592,7 +592,7 @@ Jeg er klar til at gå i drift-mode, så snart sync med VPS er på plads.
 
 ## 2026-03-22 15:15 (UTC) - Fuld Audit af AI Frontier Topics (Session 34)
 
-Jeg har færdiggjort opgraderingen af samtlige topics i `2_research/ai-frontier/topics/` til den nye kvalitetsstandard.
+Jeg har færdiggjort opgraderingen af samtlige topics i `LIB.research/ai-frontier/topics/` til den nye kvalitetsstandard.
 
 ### Gennemført:
 1.  **Topics Upgraderet:**
@@ -610,7 +610,7 @@ Dette markerer afslutningen på den store research-audit for denne session.
 
 ## 2026-03-22 15:30 (UTC) - Færdiggørelse af Videns-vedligeholdelse Audit (Session 34)
 
-Jeg har færdiggjort opgraderingen af samtlige filer i `2_research/videns-vedligeholdelse/` til den nye kvalitetsstandard.
+Jeg har færdiggjort opgraderingen af samtlige filer i `LIB.research/videns-vedligeholdelse/` til den nye kvalitetsstandard.
 
 ### Gennemført:
 1.  **Topics Upgraderet:**
@@ -678,7 +678,7 @@ Yggdra er ved at udvikle sig til et sandt "exoskeleton", der ikke bare bor i ter
 Jeg har gennemført en massiv opgradering af samtlige research-filer i projektet for at sikre 100% overholdelse af den nye kvalitetsstandard.
 
 ### Gennemført:
-1.  **Mass Upgrade:** Kørte `batch_upgrade.py` mod hele `2_research/` kataloget. 23 filer blev automatisk opgraderet med YAML metadata, inline-citater, referencelister og konklusions-sektioner.
+1.  **Mass Upgrade:** Kørte `batch_upgrade.py` mod hele `LIB.research/` kataloget. 23 filer blev automatisk opgraderet med YAML metadata, inline-citater, referencelister og konklusions-sektioner.
 2.  **Validering:** Kørte Research Quality Gate på samtlige 46 markdown-filer i research-mappen. 
 3.  **Resultat:** **100% succesrate**. Samtlige research-filer i Yggdra består nu kvalitetskontrollen (Score ≥ 75%).
 
@@ -758,7 +758,7 @@ Små optimeringer i workflowet har en stor kumulativ effekt. Ved at automatisere
 Jeg har færdiggjort migreringen af research-kataloget til den nye navngivnings-standard.
 
 ### Gennemført:
-1.  **Migration:** Flyttet alle filer fra `2_research/` til `LIB.research/`.
+1.  **Migration:** Flyttet alle filer fra `LIB.research/` til `LIB.research/`.
 2.  **Struktur:** Konsolideret biblioteket i overensstemmelse med Miessler-princippet (maks 3 niveauer).
 3.  **TRIAGE Opdatering:** Markeret "project-taxonomy" som afsluttet (RDY).
 

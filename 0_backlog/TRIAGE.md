@@ -53,11 +53,11 @@ Prioriteret efter impact × (1/effort). Alle fra VPS V4 research loops.
 
 | Brief | Output | Placering |
 |-------|--------|-----------|
-| llm-landskab | 7 profiler + COMPARISON + RECOMMENDATION | projects/2_research/llm-landskab/ |
-| ai-frontier | 5 topics + GAPS + WHAT_IF | projects/2_research/ai-frontier/ |
-| videns-vedligeholdelse | HOLISTIC_EVAL + PIPELINE_DESIGN + DECAY_MODEL + 3 mere | projects/2_research/videns-vedligeholdelse/ |
+| llm-landskab | 7 profiler + COMPARISON + RECOMMENDATION | projects/LIB.research/llm-landskab/ |
+| ai-frontier | 5 topics + GAPS + WHAT_IF | projects/LIB.research/ai-frontier/ |
+| videns-vedligeholdelse | HOLISTIC_EVAL + PIPELINE_DESIGN + DECAY_MODEL + 3 mere | projects/LIB.research/videns-vedligeholdelse/ |
 | youtube-pipeline-v2 | frame_extractor.py PoC + 3 nye kanaler (på VPS) | VPS: /root/Yggdra/scripts/ |
-| vps-prompt-v6-consolidation | 14 destillater hentet, 40 filer slettet fra LIB.ydrasil | projects/2_research/ |
+| vps-prompt-v6-consolidation | 14 destillater hentet, 40 filer slettet fra LIB.ydrasil | projects/LIB.research/ |
 
 ## Afhængigheder
 

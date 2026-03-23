@@ -8,7 +8,7 @@ Fortællende dagbog. Formålet er at en ny Claude-session kan læse dette og for
 
 V6 research-konsolidering gennemført. Opgaven: hent VPS-destillater, slet absorberede filer fra PC.
 
-**Step 1-2: Hent fra VPS.** 3 parallelle subagents hentede 14 filer + sources/README.md via SSH fra `/root/Yggdra/research/` → `projects/2_research/`. Nye filer: 2 destillater (memory_retrieval 553L, agents_automation 501L), visual_llm_landscape, zero_token_pipeline, RESEARCH_CATALOG, RESEARCH_DEEP_STUDY, RED_TEAM_EVALUERING, 3 psykologi-filer, openclaw, personal_data_pipeline, skattepenge, solo_dev_google_maps.
+**Step 1-2: Hent fra VPS.** 3 parallelle subagents hentede 14 filer + sources/README.md via SSH fra `/root/Yggdra/research/` → `projects/LIB.research/`. Nye filer: 2 destillater (memory_retrieval 553L, agents_automation 501L), visual_llm_landscape, zero_token_pipeline, RESEARCH_CATALOG, RESEARCH_DEEP_STUDY, RED_TEAM_EVALUERING, 3 psykologi-filer, openclaw, personal_data_pipeline, skattepenge, solo_dev_google_maps.
 
 **Step 3: Første sletning (40 filer).** 19 absorberede research-filer (7 memory + 12 agent), 4 duplikater (KAP1, KAP2, CH8_TOOLS_ECOSYSTEM, RESEARCH_INDEX), 16 LaTeX-artefakter + figures/, ARCHITECTURE_CONTINUOUS_MEMORY.md fra docs/. 91→51 filer.
 
@@ -37,7 +37,7 @@ Backlog burn planlagt. VPS V6 deployet. Taxonomy-migration staged fra session 21
 6. Automation inventory (VPS-side)
 7. Review alle ændringer
 
-**Taxonomy rename:** Session 21 havde staged `2_research → LIB.research` renames. Ikke committet endnu — venter på session 22 PC-blok P1.
+**Taxonomy rename:** Session 21 havde staged `LIB.research → LIB.research` renames. Ikke committet endnu — venter på session 22 PC-blok P1.
 
 **Beslutninger:**
 - Context-engineering fase 1: Gap-analyse viser at 3/4 hooks allerede eksisterer fra VPS-æraen. Reelt gap er kun PostToolUse chatlog-trigger
@@ -59,9 +59,9 @@ VPS sandbox v2 og v3 afsluttet. Output evalueret, guld hentet til PC, resten sor
 **Hentet til PC (20 filer):**
 - 3 skills: dialectic-pipeline, session-resume, sitrep → `.claude/skills/`
 - TransportIntra projekt: INDEX.md (194L, crown jewels + hurtigreference), PROGRESS.md (103L, 4 kausale kæder), CONTEXT.md, api-reference.md (519L, 8 endpoints), getrute-schema.md (316L, 132 felter), N8N_SUMMARY.md (93L), 8 subproject CONTEXT.md → `projects/transportintra/`
-- Research INDEX.md v3 (54 Key Insights) → `2_research/`
+- Research INDEX.md v3 (54 Key Insights) → `LIB.research/`
 - BLUEPRINT.md → roden
-- vps-pc-convergence.md → `2_research/`
+- vps-pc-convergence.md → `LIB.research/`
 - MINING_RESULTS.md → `REF.prompt-skabeloner/`
 - V3_EVALUATION.md → `REF.vps-sandbox/`
 
@@ -134,7 +134,7 @@ Backlog-audit og VPS research download.
 
 **Backlog-audit:** 14 briefs reduceret til 11. context-engineering og session-drift-pipeline merged. webscraping-audit og terminal-automatisering flyttet til raw/ (ikke modne nok). 6 briefs opdateret og skærpet (visualisering, mcp, integrationer, notion, peer-review, voice).
 
-**VPS Ydrasil-æra download:** Al research og docs fra VPS downloaded til `2_research/ydrasil/` (89+73 filer, ~9MB). GDrive-duplikat slettet. Research-kvalitet vurderet: høj substans men iterativt klutter (~30% duplikater fra ChatGPT-kapitler).
+**VPS Ydrasil-æra download:** Al research og docs fra VPS downloaded til `LIB.research/ydrasil/` (89+73 filer, ~9MB). GDrive-duplikat slettet. Research-kvalitet vurderet: høj substans men iterativt klutter (~30% duplikater fra ChatGPT-kapitler).
 
 **Prioriterings-diskussion:** research-arkitektur → agent teams → hukommelse. Vision-briefs parkeret (transport-app, politik, LLM-uafhængighed) — vigtige men ikke næste step.
 

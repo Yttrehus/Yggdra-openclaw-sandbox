@@ -4,7 +4,7 @@ Dette dokument definerer, hvordan vi anvender APA (American Psychological Associ
 
 ## Generelle principper
 - **Sporbarhed:** Enhver væsentlig påstand eller data-punkt skal have en kilde.
-- **Konsistens:** Samme format i alle dokumenter i `2_research/`.
+- **Konsistens:** Samme format i alle dokumenter i `LIB.research/`.
 - **In-text citations:** Bruges løbende i teksten.
 
 ## Referencetyper

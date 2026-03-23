@@ -30,7 +30,7 @@ status: audit-passed
         f.write(content)
     print(f"Upgraded {file_path}")
 
-landskab_dir = "2_research/llm-landskab/providers"
+landskab_dir = "LIB.research/llm-landskab/providers"
 remaining = ["mistral.md", "xai.md", "meta.md", "perplexity.md"]
 
 for f in remaining:

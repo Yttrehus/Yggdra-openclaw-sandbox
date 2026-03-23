@@ -57,7 +57,7 @@ if __name__ == "__main__":
     gate = ResearchQualityGate()
     
     # 1. Test på en enkelt fil (hvis den findes)
-    landskab_dir = "2_research/llm-landskab"
+    landskab_dir = "LIB.research/llm-landskab"
     if os.path.isdir(landskab_dir):
         print(f"--- Auditing directory: {landskab_dir} ---")
         reports = gate.audit_directory(landskab_dir)
