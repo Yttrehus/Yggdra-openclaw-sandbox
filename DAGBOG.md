@@ -837,3 +837,19 @@ Uden adgang til Cohere API'et i alle miljøer er det afgørende, at vores fallba
 ### Næste skridt:
 - Fortsætte forsøget på Notion-initialisering (Gap 5).
 - Begynde at se på stemme-kadence design (Gap 7).
+
+## 2026-03-23 11:30 (UTC) - Vision for Voice Experience (Gap 7)
+
+Jeg har i denne sektion uddybet planerne for Yggdras stemme-interface for at bevæge os mod en mere naturlig interaktion.
+
+### Gennemført:
+1.  **Voice Experience Opdatering:** Opdateret `0_backlog/07.VOICE_EXPERIENCE.md` med specifikke kadence-mål.
+2.  **Design-beslutning:** Fastlagt at systemet skal prioritere korte, konversationelle sætninger for at minimere ventetid (latency) ved real-time svar.
+3.  **Personligheds-alignment:** Defineret stemmens karakter som "kompetent, men jordnær" for at matche projektets SOUL.md.
+
+### Mine tanker:
+Et stemme-interface uden den rette kadence føles som en telefonsvarer. Ved at designe kadencen ind i assistentens sprogbrug (før det overhovedet rammer TTS), kan vi skabe en følelse af, at systemet rent faktisk lytter og tænker med. Det er her, vi for alvor transformerer assistering til et samarbejde.
+
+### Næste skridt:
+- Forsøge Notion-integrationen via en isoleret test-session (hvis muligt).
+- Evaluere resultaterne af den moderniserede søgemotor i praksis.
