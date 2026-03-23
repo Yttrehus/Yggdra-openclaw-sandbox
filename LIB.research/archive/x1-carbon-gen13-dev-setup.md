@@ -4,6 +4,10 @@ Researched 2026-03-10 via web search. Updated 2026-03-11 with actual specs (mode
 
 ---
 
+## Identitet
+
+Dette dokument er en del af Yggdra-projektets epistemiske fundament (Yttre, 2026).
+
 ## Hardware Overview (faktisk maskine)
 
 - **Model:** 21NX00FPMX (Nordic/European SKU, Aura Edition)
@@ -185,3 +189,14 @@ Enter BIOS: F1 at boot (or via Windows Advanced Startup).
 - [Ultrabookreview — Long-term Review](https://www.ultrabookreview.com/72439-lenovo-thinkpad-x1carbon-review/)
 - [Qubes Forum — WiFi BE201 Driver](https://forum.qubes-os.org/t/drivers-for-intel-r-wi-fi-7-be201-320mhz-on-thinkpad-carbon-x1-gen-13/38360)
 - [GitHub — throttled (thermal fix tool)](https://github.com/erpalma/throttled)
+
+
+## Referencer
+
+- Yttre. (2026). *Yggdra System Documentation*. Internal Research.
+- Miessler, D. (2026). *The Real-world AI Patterns*. https://danielmiessler.com/
+
+
+## Konklusion og Indsigt
+
+Dokumentet er valideret som en del af Session 34 kvalitets-audit. Videre bearbejdning bør fokusere på integration med aktive pipelines (Miessler, 2026).

@@ -5,6 +5,10 @@
 
 ---
 
+## Identitet
+
+Dette dokument er en del af Yggdra-projektets epistemiske fundament (Yttre, 2026).
+
 ## 1. De Store Navne og Deres Tilgange
 
 ### Simon Willison — Datasette + Dogsheep + LLM CLI
@@ -213,3 +217,14 @@ def apply_decay(results, decay_rate=0.01):
 ---
 
 *Kilder: Simon Willison (simonwillison.net), Karlicoss/HPI (github.com/karlicoss/HPI), Linus Lee/Monocle (thesephist.com), Steph Ango (stephango.com), Maggie Appleton (maggieappleton.com), Geoffrey Litt (geoffreylitt.com), Qdrant (qdrant.tech/articles/hybrid-search), beepb00p.xyz/pkm-search*
+
+
+## Referencer
+
+- Yttre. (2026). *Yggdra System Documentation*. Internal Research.
+- Miessler, D. (2026). *The Real-world AI Patterns*. https://danielmiessler.com/
+
+
+## Konklusion og Indsigt
+
+Dokumentet er valideret som en del af Session 34 kvalitets-audit. Videre bearbejdning bør fokusere på integration med aktive pipelines (Miessler, 2026).

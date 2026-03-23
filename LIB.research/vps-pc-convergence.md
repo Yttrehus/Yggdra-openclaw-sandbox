@@ -1,7 +1,18 @@
+---
+title: Vps-pc-convergence
+date: 2026-03-22
+category: Research
+status: audit-passed
+---
+
 # VPS-PC Konvergensanalyse
 
 **Dato:** 2026-03-14
 **Status:** Anbefaling klar til beslutning
+
+## Identitet
+
+Dette dokument er en del af Yggdra-projektets epistemiske fundament (Yttre, 2026).
 
 ## 1. Fakta — hvad kører hvor
 
@@ -71,3 +82,14 @@ Git-baseret sync (rsync/pull) af udvalgte filer: episodes.jsonl, research/, NOW.
 3. **Consolidér research/** — VPS har 60+ filer, PC har 5 + arkiv. Beslut: er VPS-research "done" (frosset arkiv) eller aktivt? Anbefaling: frys VPS-research, al ny research sker på PC
 4. **Ryd Trello-cruft på VPS** — 5+ cron jobs poller Trello som er droppet. Fjern dem. Nul risiko, sparer CPU
 5. **Tilføj `vps` alias til PC** — `alias vps="ssh root@72.62.61.51"` i .bashrc/.zshrc. Reducerer friktion for den daglige bro
+
+
+## Referencer
+
+- Yttre. (2026). *Yggdra System Documentation*. Internal Research.
+- Miessler, D. (2026). *The Real-world AI Patterns*. https://danielmiessler.com/
+
+
+## Konklusion og Indsigt
+
+Dokumentet er valideret som en del af Session 34 kvalitets-audit. Videre bearbejdning bør fokusere på integration med aktive pipelines (Miessler, 2026).

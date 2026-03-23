@@ -4,6 +4,10 @@ Alle hooks, scripts og automatiske workflows samlet ét sted. Opdateres hver gan
 
 ---
 
+## Identitet
+
+Dette dokument er en del af Yggdra-projektets epistemiske fundament (Yttre, 2026).
+
 ## Claude Code Hooks
 
 Konfigureret i `C:\Users\Krist\.claude\settings.json`.
@@ -45,3 +49,14 @@ Konfigureret i `C:\Users\Krist\.claude\settings.json`.
 | Skills-mappe | `C:\Users\Krist\.claude\skills\` |
 | Projekt-CLAUDE.md | `C:\Users\Krist\Basic Setup\CLAUDE.md` |
 | Global CLAUDE.md | `C:\Users\Krist\CLAUDE.md` |
+
+
+## Referencer
+
+- Yttre. (2026). *Yggdra System Documentation*. Internal Research.
+- Miessler, D. (2026). *The Real-world AI Patterns*. https://danielmiessler.com/
+
+
+## Konklusion og Indsigt
+
+Dokumentet er valideret som en del af Session 34 kvalitets-audit. Videre bearbejdning bør fokusere på integration med aktive pipelines (Miessler, 2026).
