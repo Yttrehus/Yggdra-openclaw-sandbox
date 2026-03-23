@@ -21,7 +21,9 @@
   - **Automation Index:** Oprettet `0_backlog/03.AUTOMATION_INDEX.md` som centralt overblik over hooks, cronjobs og pipelines.
   - **Research Quality Gate:** Oprettet `SIP.agent-sandbox/research_v2/quality_gate.py` til automatisk kvalitetsaudit. Samtlige 46 filer i `LIB.research/` (inkl. arkiver og topics) er nu 100% validerede og APA-refererede.
   - **Peer Review Protokol:** Oprettet `0_backlog/02.PEER_REVIEW_PROTOCOL.md` for adversarial kvalitetssikring.
-  - **Gap Lukning:** Gap 1 (RSS/Cleanup), Gap 2 (Reranking/Pricing), Gap 3 (Måling/Health/Automation), Gap 4 (Temporal Decay) og Gap 5 (Notion/Tilgængelighed) adresseret på PoC-niveau. Samt komplet færdiggørelse af global research-audit og etablering af nye metodiske standarder (Scraping, Peer Review).
+  - **Backlog Burn (S34):** Gennemført massiv oprydning. 21+ forældede briefs flyttet til arkiv.
+  - **TRIAGE Opdatering:** Backloggen er nu fuldt synkroniseret med dagens resultater og nye projekter (Notion, Voice, Burn).
+  - **Gap Lukning:** Gap 1 (RSS/Cleanup), Gap 2 (Reranking/Pricing), Gap 3 (Måling/Health/Automation), Gap 4 (Temporal Decay) og Gap 5 (Notion/Tilgængelighed) adresseret på PoC-niveau. Samt komplet færdiggørelse af global research-audit (46/46 filer) og etablering af nye metodiske standarder (Scraping, Peer Review, Backlog Management).
 
 ### Tidligere Agent Sessioner (33 — 2026-03-21)
 - **Session 33:**
