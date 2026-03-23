@@ -29,7 +29,7 @@ Prioriteret efter impact × (1/effort). Alle fra VPS V4 research loops.
 
 | Brief | Modenhed | Blokeret af | Mangler |
 |-------|----------|-------------|---------|
-| notion-spejling | brief | notion MCP | Notion-database + test af mobiltilgang |
+| notion-spejling | spec'd | — | Omdøbt til `0_backlog/04.NOTION_INTEGRATION.md` (RDY) |
 | pdf-skill | brief | — | Faktura-layout fra rejseselskab, weasyprint, Tesseract |
 | abonnement-overblik | brief | — | PureGym/United Fitness, daglige udgifter, årsopgørelse 2025 |
 | cross-session-peer-review | brief | — | Design for parallel session workflow |
@@ -40,7 +40,7 @@ Prioriteret efter impact × (1/effort). Alle fra VPS V4 research loops.
 |-------|----------|--------------|
 | integrationer | sketch | Gmail MCP done. GDrive/Calendar/Sheets scope uafklaret |
 | visualisering | sketch | Scope-valg: data-viz, diagrammer, layout, eller præsentation? |
-| voice-integration | sketch | Tre retninger — skal vælge én |
+| voice-integration | spec'd | — | Omdøbt til `0_backlog/07.VOICE_EXPERIENCE.md` (RDY) |
 
 ## Lav prioritet / parkeret
 

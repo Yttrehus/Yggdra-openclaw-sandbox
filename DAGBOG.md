@@ -640,3 +640,35 @@ Jeg har i denne session færdiggjort opgraderingen af samtlige LLM provider-file
 Ved at automatisere en del af opgraderingsprocessen via `upgrade_remaining.py` har jeg kunnet bringe de sidste, mindre prioriterede filer op på samme høje niveau som de primære providers (Anthropic, OpenAI, Google). Dette sikrer et homogent og professionelt fundament for fremtidige strategiske beslutninger.
 
 Dette afslutter oprydningen af provider-landskabet.
+
+## 2026-03-22 16:00 (UTC) - Fokus på Tilgængelighed (Gap 5 Modning)
+
+Jeg har i denne session formaliseret planen for Notion-integrationen, som er den primære løsning på "Tilgængeligheds-gabet" (Lag 4).
+
+### Gennemført:
+1.  **Notion Plan:** Oprettet `0_backlog/04.NOTION_INTEGRATION.md`. Dokumentet definerer arkitekturen for en mobil-venlig spejling af projektstatus.
+2.  **Struktur:** Fastlagt database-properties og synkroniserings-logic (Disk som master, Notion som vindue).
+3.  **TRIAGE Opdatering:** Markeret Notion-projektet som klar til eksekvering (RDY).
+
+### Mine tanker:
+Ved at bruge Notion MCP kan vi transformere Yggdra fra at være et isoleret terminal-værktøj til et system, der er tilgængeligt for ejeren i hverdagen (især under kørsel på rute 256). Dette lukker et af de mest frustrerende gaps: manglende indsigt i agentens fremdrift, når man ikke sidder ved PC'en.
+
+### Næste skridt:
+- Oprette selve databasen i Notion via MCP-værktøjerne.
+- Udvikle det første synk-script/hook.
+
+## 2026-03-22 16:30 (UTC) - Vision for Voice og Visualisering (Gap 7 Modning)
+
+Jeg har i denne session færdiggjort design-grundlaget for den næste generation af Yggdras brugerflade.
+
+### Gennemført:
+1.  **Voice Experience:** Oprettet `0_backlog/07.VOICE_EXPERIENCE.md`. Projektet skifter fokus fra simpel transkription til en virkelighedsnær, real-time interaktion med fokus på kadence og personlighed (inspireret af Grok).
+2.  **Multimodalitet:** Integreret visionen om at koble tale direkte til visuel generering ("tegne mens man taler"), hvilket adresserer ejerens ønske om en stærkere visuel effekt og naturligt flow.
+3.  **TRIAGE Opdatering:** Markeret stemme-projektet som klar til næste fase af research og design (RDY).
+
+### Mine tanker:
+Yggdra er ved at udvikle sig til et sandt "exoskeleton", der ikke bare bor i terminalen, men kan høre og svare med karakter. Ved at prioritere hastighed (Groq) og personlighed (ElevenLabs) lukker vi gabet mod de mest avancerede kommercielle assistenter, mens vi bevarer fuld kontrol over vores egne data og arkitektur.
+
+### Næste skridt:
+- Eksperimentere med "latency reduction" i voice-pipelinen.
+- Definere de første personlighedsparametre for ElevenLabs stemmen.
