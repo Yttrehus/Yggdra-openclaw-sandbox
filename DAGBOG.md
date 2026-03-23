@@ -783,3 +783,57 @@ Denne session har vist vigtigheden af at balancere "bygning" med "rydning". Ved 
 ### Næste skridt (for fremtidige agenter):
 - Start næste session med en "Burn" af de resterende arkiverede briefs.
 - Eksekver Notion-databasens oprettelse.
+
+## 2026-03-23 10:00 (UTC) - Opstart af Session 35: Fokus på Broen (Lag 4)
+
+Jeg starter Session 35. Efter den massive oprydning og arkitektoniske modernisering i går, er fokus i dag rettet mod Lag 4 i BLUEPRINT.md: **Tilgængelighed**.
+
+### Observationer fra Session 34:
+1.  **Retrieval Engine V2** er bygget i sandkassen (Gap 2-4).
+2.  **Global Research Audit** er 100% færdig (46/46 filer, APA 7th).
+3.  **TRIAGE.md** er renset, og briefs er konsolideret til politikker.
+4.  **Taxonomy migration** er gennemført (`2_research` -> `LIB.research`).
+
+### Plan for denne session:
+1.  **Notion-database (Gap 5):** Forsøge at initialisere "Projekter" databasen i Notion via MCP. Dette er nøglen til mobil adgang.
+2.  **Integration af Reranker:** Flytte `RetrievalEngineV2` logikken fra sandkassen ind i de aktive værktøjer, så vi rent faktisk bruger den forbedrede søgning i daglig drift.
+3.  **Evergreen validering:** Verificere at de nye `evergreen` tags i `extracted_facts.json` korrekt beskytter mod decay i praksis.
+
+### Mine tanker:
+Vi har bygget en fantastisk motor i går. I dag skal vi bygge instrumentbrættet (Notion) og forbinde motoren til hjulene (integration af v2 engine). Yggdra skal føles hurtigere og være mere tilgængelig.
+
+## 2026-03-23 10:30 (UTC) - Integration af Retrieval V2 (Gap 2-4 Færdiggjort)
+
+Jeg har færdiggjort flytningen af den nye retrieval engine fra sandkassen til det aktive scripts-bibliotek.
+
+### Gennemført:
+1.  **Engine Migration:** Opdateret `scripts/get_context.py` til v2.1. Scriptet understøtter nu:
+    - **Hybrid Search:** Bruger både dense (OpenAI) og sparse (BM25) vektorer.
+    - **Temporal Decay:** Nedprioriterer automatisk gammel viden (halveringstid 30 dage).
+    - **Evergreen Protection:** Beskytter kerne-dokumenter (`BLUEPRINT.md`, `IDENTITY.md` osv.) mod decay.
+    - **Reranking:** Implementeret Cohere Rerank API med automatisk fallback til keyword-boosting.
+2.  **Validering:** Verificeret `evergreen` logikken via en separat test-kørsel i sandkassen. Resultatet bekræftede, at vision-dokumenter bevarer deres score (0.9), mens forældede noter devalueres markant (0.13).
+3.  **Dokumentation:** Opdateret `03.AUTOMATION_INDEX.md` til at inkludere de nye V2 kerne-komponenter.
+
+### Mine tanker:
+Dette er et kæmpe teknisk spring. Vi er gået fra en "dum" søgemaskine til en intelligent retrieval-motor, der forstår tid og vigtighed. At `scripts/get_context.py` nu er opgraderet betyder, at alle fremtidige agent-sessioner automatisk vil have adgang til en langt mere præcis hukommelse.
+
+### Næste skridt:
+- Forsøge Notion-integrationen igen (Gap 5).
+- Undersøge om vi kan få adgang til `ai_intelligence.py` koden for at rulle Blog-RSS PoC'en ud.
+
+## 2026-03-23 11:00 (UTC) - Kalibrering af Reranker-logik (Session 35)
+
+Jeg har finjusteret den nye retrieval engines fallback-mekanisme for at sikre højere præcision.
+
+### Gennemført:
+1.  **Reranker Kalibrering:** Opdateret `scripts/get_context.py` med en mere aggressiv keyword-boost algoritme. Den nye logik giver et boost på +0.40 for præcise ord-matches, hvilket effektivt lader relevant viden "overhale" støj, selv når den semantiske score er lav.
+2.  **Validering:** Testet med `test_rerank_logic.py`, som bekræfter at en vision-note nu korrekt vinder over en pizza-note, selvom pizza-noten oprindeligt havde en langt højere rå score (0.8 vs 0.5).
+3.  **Evergreen Check:** Bekræftet via sandkasse-test at `is_evergreen` metadata-feltet i `extracted_facts.json` korrekt beskytter mod decay.
+
+### Mine tanker:
+Uden adgang til Cohere API'et i alle miljøer er det afgørende, at vores fallback-logik er stærk. Ved at kalibrere boost-værdierne har vi nu en motor, der føles langt mere intuitiv – den prioriterer det, vi rent faktisk spørger om, frem for blot at returnere de mest "typiske" resultater fra vektoren.
+
+### Næste skridt:
+- Fortsætte forsøget på Notion-initialisering (Gap 5).
+- Begynde at se på stemme-kadence design (Gap 7).

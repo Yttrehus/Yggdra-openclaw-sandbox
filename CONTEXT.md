@@ -1,12 +1,18 @@
 # Yggdra
 
 ## Metadata
-- **Status:** Session 34 (Agent). Retrieval Evaluation Framework etableret.
-- **Sidst opdateret:** 2026-03-22 (session 34)
+- **Status:** Session 35 (Agent). Fokus på Lag 4 (Tilgængelighed) og integration af Retrieval V2.
+- **Sidst opdateret:** 2026-03-23 (session 35)
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (34 — 2026-03-22)
+### Seneste Agent Sessioner (35 — 2026-03-23)
+- **Session 35 (I gang):**
+  - **Mål:** Initialisering af Notion-database til mobil overvågning.
+  - **Mål:** Flytning af Retrieval Engine V2 fra sandkasse til aktiv drift.
+  - **Mål:** Validering af Evergreen protection i de nye v2-komponenter.
+
+### Tidligere Agent Sessioner (34 — 2026-03-22)
 - **Session 34:**
   - **Eval Framework:** Dataset (`dataset.json`) og eval-engine (`eval_engine.py`) oprettet i `SIP.agent-sandbox/retrieval_eval/`.
   - **Retrieval Engine V2:** Ny engine med temporal decay, evergreen beskyttelse og reranking implementeret i `retrieval_v2/engine.py`. Understøtter nu både Cohere Rerank API (Gap 2) og keyword-fallback.

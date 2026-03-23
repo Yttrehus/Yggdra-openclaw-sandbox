@@ -23,5 +23,9 @@ mkdir -p "$PROJECT_ROOT/data"
 TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 echo "{\"timestamp\": \"$TIMESTAMP\", \"event\": \"session_end\", \"host\": \"$(hostname)\"}" >> "$EPISODES_LOG"
 
+# 4. (Gap 5) Trigger Notion Update (Draft)
+# Her vil vi kalde et script der læser CONTEXT.md og pusher til Notion.
+# python3 "$PROJECT_ROOT/scripts/notion_sync.py" --session-end
+
 echo "Episode logget til $EPISODES_LOG"
 echo "--- HOOK AFSLUTTET ---"
