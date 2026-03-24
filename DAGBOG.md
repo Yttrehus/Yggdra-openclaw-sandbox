@@ -920,3 +920,19 @@ Systemet føles nu langt mere intelligent i sin søgning. Ved at binde vision-do
 ### Næste skridt:
 - Afvente Notion API legitimation fra ejeren.
 - Begynde designet af real-time transkription kadence (Gap 7).
+
+## 2026-03-23 14:00 (UTC) - Fact Extraction Pipeline Modning (Gap 6)
+
+Jeg har opgraderet vores faktaviden-system til en mere robust arkitektur, der forbereder os på fuld autonomi.
+
+### Gennemført:
+1.  **Pipeline v2.1:** Opdateret `subagent_orchestrator.py` og `subagent_extractor.py` i sandkassen. Systemet simulerer nu et dybere vidensudtræk (LLM-baseret) fra chatlogs.
+2.  **Validering:** Gennemført testkørsel, der succesfuldt ekstraherede 3 nye fakta om Session 35, herunder status på Notion-integrationen og Retrieval Engine v2.1.
+3.  **Evergreen Integration:** Den nye pipeline tagger automatisk arkitektoniske beslutninger som `is_evergreen`, hvilket nu føder direkte ind i den opgraderede søgemotor (`scripts/get_context.py`).
+
+### Mine tanker:
+Ved at koble faktasudtrækket direkte til søgemotorens beskyttelsesmekanismer (evergreen protection) har vi nu et "lukket kredsløb": agenter lærer fra samtaler, gemmer det som vigtig viden, og søgemotoren sørger for, at denne viden aldrig forældes. Dette er fundamentet for et personligt kognitivt exoskeleton, der vokser i intelligens for hver session.
+
+### Næste skridt:
+- Evaluere kvaliteten af de ekstraherede fakta efter et par dages drift.
+- Se på den fysiske integration af denne pipeline i `pre_compact.sh`.

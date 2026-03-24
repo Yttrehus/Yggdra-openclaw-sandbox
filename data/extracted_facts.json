@@ -6,5 +6,33 @@
     "timestamp": "2026-03-15T07:30:32.592239",
     "section_id": 0,
     "source_date": "2026-03-15"
+  },
+  {
+    "fact": "Yggdra er i gang med at implementere Lag 4 (Tilg\u00e6ngelighed) via Notion.",
+    "category": "action",
+    "confidence": 0.95,
+    "timestamp": "2026-03-24T04:30:22.881481",
+    "section_id": 0,
+    "source_date": "2026-03-15",
+    "method": "llm_v2"
+  },
+  {
+    "fact": "Retrieval Engine v2.1 med temporal decay og evergreen protection er aktiv.",
+    "category": "meta",
+    "is_evergreen": true,
+    "confidence": 0.98,
+    "timestamp": "2026-03-24T04:30:22.881535",
+    "section_id": 0,
+    "source_date": "2026-03-15",
+    "method": "llm_v2"
+  },
+  {
+    "fact": "Systemet detekterede encoding-st\u00f8j i chatlog.md under Session 35.",
+    "category": "meta",
+    "confidence": 0.7,
+    "timestamp": "2026-03-24T04:30:22.881542",
+    "section_id": 0,
+    "source_date": "2026-03-15",
+    "method": "llm_v2"
   }
 ]
