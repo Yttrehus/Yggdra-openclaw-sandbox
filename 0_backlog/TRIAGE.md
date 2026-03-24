@@ -34,6 +34,7 @@ Prioriteret efter impact × (1/effort).
 
 ## Afsluttede / Brændte (S35 Status)
 - `01.memory-architecture Fase 1` → **Gennemført**. Retrieval v2.1 er aktiv i `scripts/get_context.py`.
+- `01.memory-architecture Fase 2` → **Gennemført**. Fact Extraction v2.1 integreret i `pre_compact.sh`.
 - `02.context-engineering` → Hooks implementeret og dokumenteret.
 - `03.automation-index` → Dokumenteret i `03.AUTOMATION_INDEX.md`.
 - `project-taxonomy` → Færdiggørelse af `LIB.research` migration.

@@ -18,9 +18,9 @@ if [ -f "$PROJECT_ROOT/BMS.auto-chatlog/chatlog-engine.js" ]; then
     node "$PROJECT_ROOT/BMS.auto-chatlog/chatlog-engine.js"
     
     # Automatisk Fact Extraction efter chatlog opdatering (SIP sandbox)
-    if [ -f "$PROJECT_ROOT/SIP.agent-sandbox/fact_extraction_v2/fact_extraction_poc.py" ]; then
-        echo "Ekstraherer fakta..."
-        python3 "$PROJECT_ROOT/SIP.agent-sandbox/fact_extraction_v2/fact_extraction_poc.py"
+    if [ -f "$PROJECT_ROOT/SIP.agent-sandbox/fact_extraction_v2/subagent_orchestrator.py" ]; then
+        echo "Ekstraherer fakta (v2.1 LLM-Enhanced)..."
+        python3 "$PROJECT_ROOT/SIP.agent-sandbox/fact_extraction_v2/subagent_orchestrator.py"
         python3 "$PROJECT_ROOT/SIP.agent-sandbox/fact_extraction_v2/cleaner.py"
         python3 "$PROJECT_ROOT/SIP.agent-sandbox/fact_extraction_v2/validator.py"
         python3 "$PROJECT_ROOT/SIP.agent-sandbox/fact_extraction_v2/merger.py"

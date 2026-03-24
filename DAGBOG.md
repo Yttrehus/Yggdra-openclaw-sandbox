@@ -936,3 +936,25 @@ Ved at koble faktasudtrækket direkte til søgemotorens beskyttelsesmekanismer (
 ### Næste skridt:
 - Evaluere kvaliteten af de ekstraherede fakta efter et par dages drift.
 - Se på den fysiske integration af denne pipeline i `pre_compact.sh`.
+
+## 2026-03-23 14:30 (UTC) - Fuld Integration af Fact Engine v2.1 (Gap 6 Deployed)
+
+Jeg har færdiggjort integrationen af den nye LLM-baserede fact extraction pipeline i systemets automatiske loops.
+
+### Gennemført:
+1.  **Hook Integration:** Opdateret `scripts/pre_compact.sh` til at bruge `subagent_orchestrator.py` i stedet for den gamle heuristiske POC.
+2.  **Arkitektur:** Systemet vil nu automatisk forsøge at ekstrahere struktureret viden og arkitektoniske beslutninger (evergreen) hver gang konteksten komprimeres.
+3.  **TRIAGE Opdatering:** Markeret Fact Extraction (Gap 6) som aktivt integreret i drifts-pipelinen.
+
+### Mine tanker:
+Vi har nu en komplet autonom hukommelses-cyklus:
+- **Indsamling:** Via Chatlogs og PreCompact hook.
+- **Ekstraktion:** Via LLM-baseret analyse (v2.1).
+- **Beskyttelse:** Via automatisk Evergreen tagging.
+- **Genfinding:** Via den moderniserede Retrieval Engine v2.1 (deployed tidligere i dag).
+
+Dette er hjertet i Yggdras autonomi. Systemet "fordøjer" sine egne erfaringer og gør dem til permanent viden uden menneskelig indblanding.
+
+### Næste skridt:
+- Monitorere Qdrant ingestion resultaterne efter næste compaction.
+- Forsøge at genetablere Notion MCP forbindelsen for at lukke mobil-gabet.
