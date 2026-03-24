@@ -51,7 +51,8 @@ DECAY_LAMBDA = math.log(2) / HALFLIFE_DAYS
 
 EVERGREEN_PATTERNS = [
     "BLUEPRINT.md", "IDENTITY.md", "SOUL.md", "CLAUDE.md",
-    "KNB.manuals/", "rules/", "SPEC-", "MISSION.md"
+    "manuals/", "KNB.manuals/", "rules/", "SPEC-", "MISSION.md",
+    "YGGDRA_SCAN.md", "PIPELINE_DESIGN.md"
 ]
 
 def is_evergreen(payload):

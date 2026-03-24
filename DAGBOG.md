@@ -853,3 +853,19 @@ Et stemme-interface uden den rette kadence føles som en telefonsvarer. Ved at d
 ### Næste skridt:
 - Forsøge Notion-integrationen via en isoleret test-session (hvis muligt).
 - Evaluere resultaterne af den moderniserede søgemotor i praksis.
+
+## 2026-03-23 12:00 (UTC) - Forberedelse af RSS-integration (Gap 1 Modning)
+
+Jeg har i denne sektion konsolideret koden til RSS-integrationen, så den er klar til udrulning på VPS'en.
+
+### Gennemført:
+1.  **RSS Kode-konsolidering:** Har udtrukket og verificeret `fetch_rss_feeds` logikken fra gårsdagens PoC (`74663e6`).
+2.  **Konfigurations-patch:** Forberedt den præcise JSON-struktur til `intelligence_sources.json` med de 4 prioriterede feeds (Anthropic, OpenAI, Google DeepMind, Hugging Face).
+3.  **Deployment-klar:** Koden er nu formateret så den kan merges ind i `ai_intelligence.py` med minimal friktion, så snart sync er genetableret.
+
+### Mine tanker:
+Ved at lukke dette videns-gab sikrer vi, at Yggdra ikke bare reagerer på hvad andre skriver (HN/Reddit), men får informationen direkte fra kilden. Dette øger systemets "epistemiske autoritet".
+
+### Næste skridt:
+- Implementere den planlagte "The Last Algorithm" cron-logik (Gap 5/6).
+- Afvente sync-mulighed for fysisk udrulning på VPS.
