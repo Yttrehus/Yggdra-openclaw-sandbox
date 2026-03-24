@@ -1,6 +1,6 @@
 # Triage — Prioriteret overblik
 
-Sidst opdateret: 2026-03-23 (Session 35)
+Sidst opdateret: 2026-03-24 (Session 35)
 
 ## V4 Handlinger (fra HOLISTIC_EVALUATION)
 
@@ -14,7 +14,7 @@ Prioriteret efter impact × (1/effort).
 | 4 | Pipeline health check i daily_sweep.py | 2-3 timer | videns-vedligeholdelse | **PoC OK (S34)** |
 | 5 | Temporal decay i ctx (`score *= exp(-age_days/30)`) | 1-2 timer | ai-frontier GAPS P2 | **DEPLOYED (v2.1)** |
 | 6 | Blog RSS feeds (Anthropic + OpenAI blog) | 2-3 timer | videns-vedligeholdelse | **PoC OK (S34)** |
-| 7 | VPS→PC sync design (git eller rsync) | 4-6 timer | YGGDRA_SCAN | **Planlagt (S35 Sync-script)** |
+| 7 | VPS→PC sync design (git eller rsync) | 4-6 timer | YGGDRA_SCAN | **Planlagt (S35 Tool ready)** |
 
 ## Aktive Projekter (Klar til eksekvering)
 
@@ -28,15 +28,17 @@ Prioriteret efter impact × (1/effort).
 
 | Dokument | Formål | Status |
 |----------|--------|--------|
+| `MISSION.md` | Strategisk vision og kerne-mål | **AKTIV** |
 | `02.PEER_REVIEW_PROTOCOL.md` | Adversarial kvalitetssikring | **AKTIV** |
 | `03.SCRAPING_POLICY.md` | Omkostningseffektiv scraping | **AKTIV** |
-| `05.RESEARCH_KVALITET/APA_STANDARDS.md` | Epistemisk sporbarhed | **AKTIV** |
+| `LIB.research/05.RESEARCH_KVALITET/APA_STANDARDS.md` | Epistemisk sporbarhed | **AKTIV** |
 
 ## Afsluttede / Brændte (S35 Status)
-- `01.memory-architecture Fase 1` → **Gennemført**. Retrieval v2.1 er aktiv i `scripts/get_context.py`.
-- `01.memory-architecture Fase 2` → **Gennemført**. Fact Extraction v2.1 integreret i `pre_compact.sh`.
-- `02.context-engineering` → Hooks implementeret og dokumenteret.
-- `03.automation-index` → Dokumenteret i `03.AUTOMATION_INDEX.md`.
+- `MISSION.md` → Etableret som projektets fundament.
+- `scripts/sync_vps_to_pc.py` → Tool v1.0 klar til drift.
+- `scripts/the_last_algorithm.py` → Strategisk motor v1.0 klar.
+- `01.memory-architecture Fase 1` → **Gennemført**. Retrieval v2.1 er aktiv.
+- `01.memory-architecture Fase 2` → **Gennemført**. Fact Extraction v2.1 integreret.
 - `project-taxonomy` → Færdiggørelse af `LIB.research` migration.
 
 ---
