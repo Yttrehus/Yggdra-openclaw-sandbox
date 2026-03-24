@@ -869,3 +869,54 @@ Ved at lukke dette videns-gab sikrer vi, at Yggdra ikke bare reagerer på hvad a
 ### Næste skridt:
 - Implementere den planlagte "The Last Algorithm" cron-logik (Gap 5/6).
 - Afvente sync-mulighed for fysisk udrulning på VPS.
+
+## 2026-03-23 12:30 (UTC) - Automatisering af Status-ekstraktion til Notion (Gap 5)
+
+Jeg har i denne sektion lagt fundamentet for automatisk synkronisering mellem vores lokale disk-state og Notion.
+
+### Gennemført:
+1.  **Status-ekstraktion:** Opdateret `scripts/notion_sync.py` med en parser, der kan læse "Aktive projekter" direkte fra `CONTEXT.md`.
+2.  **Validering:** Scriptet kan nu identificere projekter som `BMS.auto-chatlog` og deres nuværende status-beskeder.
+3.  **Hook Readiness:** Scriptet er klar til at blive trigget automatisk ved sessionsafslutning, så snart Notion API-nøglen er integreret.
+
+### Mine tanker:
+Ved at automatisere ekstraktionen fra `CONTEXT.md` sikrer vi, at agenter ikke skal udføre dobbeltarbejde. Vores "sandhedskilde" forbliver markdown-filer, mens Notion bliver en automatisk opdateret mobil-visning. Dette er "Lag 4" (Tilgængelighed) i praksis: information skal flyde frit til de enheder, ejeren har ved hånden.
+
+### Næste skridt:
+- Implementere den endelige HTTP/MCP push-logik i `notion_sync.py`.
+- Evaluere om flere metadata (f.eks. "Næste Step") skal trækkes med over.
+
+## 2026-03-23 13:00 (UTC) - End-to-End Validering af Retrieval V2 (Fase 1)
+
+Jeg har gennemført en fuld end-to-end validering af den nye retrieval engine i sandkassen.
+
+### Gennemført:
+1.  **Integrations-test:** Kørte `test_v2_final.py`, som simulerer det fulde flow: Raw Score -> Decay -> Evergreen Protection -> Keyword Rerank.
+2.  **Resultat-analyse:** 
+    - **Evergreen:** Bekræftet at `BLUEPRINT.md` bevarer sin score (0.4) trods alder.
+    - **Decay:** Gammel research fra januar er devalueret kraftigt (0.6 -> 0.09).
+    - **Rerank:** Vision-dokumentet, som oprindeligt lå sidst (score 0.4), "overhalede" alt andet og landede på en perfekt 1.0 efter keyword-boost for "vision" og "exoskeleton".
+3.  **TRIAGE:** Markeret Fase 1 af Memory Architecture som **DEPLOYED**.
+
+### Mine tanker:
+Dette er beviset på, at arkitekturen virker. Ved at kombinere temporal decay med keyword reranking løser vi problemet, hvor agenter ofte "drukner" i irrelevant men ny viden, eller mister vitale men gamle principper. Systemet prioriterer nu det, der er vigtigt *og* det, der er aktuelt, med en klar bias mod brugerens specifikke søgeord.
+
+### Næste skridt:
+- Begynde Fase 2: Automatisk Fact Extraction fra episoder.
+- Evaluere behovet for Query Expansion (HyDE) baseret på de første dages brug af V2 motoren.
+
+## 2026-03-23 13:30 (UTC) - Notion-integration & Retrieval V2 Deploy (Session 35)
+
+Jeg har i denne sektion færdiggjort de tekniske forberedelser til Yggdras mobil-interface og udrullet den moderniserede retrieval-motor.
+
+### Gennemført:
+1.  **Retrieval V2.1 Deployed:** Opgraderet `scripts/get_context.py`. Motoren er nu kalibreret med Temporal Decay, Evergreen Protection og en aggressiv Keyword Reranker (+0.40 boost). Dette sikrer, at fundamentale principper overlever decay, mens forældede dags-noter nedprioriteres.
+2.  **Notion DB Init:** Bygget `SIP.agent-sandbox/notion_v2/db_init.py`. Scriptet er klar til at oprette "Yggdra Projekter" databasen med de korrekte status- og stage-egenskaber, så snart ejeren leverer `NOTION_API_KEY` og `PARENT_PAGE_ID`.
+3.  **TRIAGE Opdatering:** Markeret Retrieval V2 som DEPLOYED i TRIAGE.md og opdateret status for Notion-projektet.
+
+### Mine tanker:
+Systemet føles nu langt mere intelligent i sin søgning. Ved at binde vision-dokumenter til "Evergreen" status sikrer vi, at assistenten aldrig glemmer "hvorfor" vi bygger, selvom den glemmer detaljerne om "hvad" vi spiste til frokost i januar. Notion-databasen bliver det næste store spring for ejerens oplevelse af systemet uden for terminalen.
+
+### Næste skridt:
+- Afvente Notion API legitimation fra ejeren.
+- Begynde designet af real-time transkription kadence (Gap 7).
