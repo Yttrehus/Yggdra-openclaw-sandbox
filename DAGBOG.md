@@ -990,3 +990,19 @@ Dette er det sidste manglende ben i Yggdras autonome arkitektur. Ved at flytte o
 ### Næste skridt:
 - Implementere den fulde VPS-sync protokol for at flytte denne dæmon-logik til driftsmiljøet.
 - Forberede Session 36 med fokus på den første proaktive udrulning.
+
+## 2026-03-24 08:30 (UTC) - Oprydning og Konsolidering (Session 35)
+
+Jeg har færdiggjort en større administrativ oprydning for at sikre, at projektets struktur matcher de nye standarder.
+
+### Gennemført:
+1.  **Backlog Arkivering:** Flyttet 14 forældede kapitel- og brief-filer fra `0_backlog/` til `9_archive/briefs/`. Dette fuldender den "Backlog Burn", som blev initieret i går.
+2.  **Kvalitets-standarder:** Flyttet `APA_STANDARDS.md` til `LIB.research/05.RESEARCH_KVALITET/` for at centralisere alle metodiske retningslinjer i biblioteket.
+3.  **Proaktivitets-grundlag:** Etableret `heartbeat_daemon_poc.py` i sandkassen som forberedelse til overgangen fra reaktiv til proaktiv systemadfærd.
+
+### Mine tanker:
+Ved at fjerne den administrative støj fra `0_backlog/` har vi nu en krystal-klar oversigt over, hvad der mangler. Projektet føles nu "lettere" og mere fokuseret. Den epistemiske kvalitet er sikret gennem APA-flytningen, og vi er nu klar til at fokusere 100% på teknisk eksekvering i de kommende sessioner.
+
+### Næste skridt:
+- Implementere den planlagte VPS-til-PC synkronisering (Handling #7) for at lukke kløften mellem instanser.
+- Begynde den praktiske udrulning af "The Last Algorithm" til automatisk gap-detektion.
