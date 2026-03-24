@@ -958,3 +958,19 @@ Dette er hjertet i Yggdras autonomi. Systemet "fordøjer" sine egne erfaringer o
 ### Næste skridt:
 - Monitorere Qdrant ingestion resultaterne efter næste compaction.
 - Forsøge at genetablere Notion MCP forbindelsen for at lukke mobil-gabet.
+
+## 2026-03-23 15:00 (UTC) - Fokus på Proaktivitet (Gap 1 & 2)
+
+I denne sektion har jeg analyseret de resterende V4 handlinger og forberedt genaktiveringen af systemets proaktive komponenter.
+
+### Gennemført:
+1.  **V4 Handling #2 Analyse:** Identificeret at `heartbeat.py` er bygget men inaktiv. Dette er den primære blokering for proaktiv assistent-adfærd.
+2.  **RSS Fix Plan:** Forberedt den tekniske patch til `ai_intelligence.py` (V4 Handling #1) for at aktivere de allerede konfigurerede RSS-feeds.
+3.  **TRIAGE Refinement:** Opdateret prioriteringen for VPS-sync (Handling #7) som den absolutte forudsætning for at flytte PoCs fra sandkassen til produktion.
+
+### Mine tanker:
+Vi har nu en avanceret motor (Retrieval v2.1) og en dygtig hukommelse (Fact Engine v2.1). Men motoren starter kun, når ejeren drejer nøglen (spawner en session). Ved at genaktivere `heartbeat.py` giver vi Yggdra sit eget pulsslag, så systemet selv kan opsøge viden og give proaktive råd. Dette er overgangen fra "værktøj" til "ledsager".
+
+### Næste skridt:
+- Designe den præcise "sync-to-pc" protokol for at løse VPS-PC kløften.
+- Teste `heartbeat.py` logikken i sandkassen hvis muligt.
