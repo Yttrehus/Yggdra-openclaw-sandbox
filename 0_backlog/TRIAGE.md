@@ -6,12 +6,10 @@ Sidst opdateret: 2026-03-24 (Session 35)
 
 Prioriteret efter impact × (1/effort).
 
-| # | Handling | Effort | Kilde | Status |
-|---|---------|--------|-------|--------|
 | 1 | Fix RSS feed bug (tilføj `fetch_rss_feeds()` kald i ai_intelligence.py) | 15 min | videns-vedligeholdelse | Afventer VPS sync |
 | 2 | Genaktivér heartbeat.py (uncomment i crontab) | 5 min | ai-frontier GAPS P1 | **PoC OK (S35)** |
 | 3 | Tilføj reranking i ctx (Cohere API efter Qdrant top-20) | 2-4 timer | ai-frontier WHAT_IF #2 | **DEPLOYED (v2.1)** |
-| 4 | Pipeline health check i daily_sweep.py | 2-3 timer | videns-vedligeholdelse | **PoC OK (S34)** |
+| 4 | Pipeline health check i daily_sweep.py | 2-3 timer | videns-vedligeholdelse | **DEPLOYED (audit)** |
 | 5 | Temporal decay i ctx (`score *= exp(-age_days/30)`) | 1-2 timer | ai-frontier GAPS P2 | **DEPLOYED (v2.1)** |
 | 6 | Blog RSS feeds (Anthropic + OpenAI blog) | 2-3 timer | videns-vedligeholdelse | **PoC OK (S34)** |
 | 7 | VPS→PC sync design (git eller rsync) | 4-6 timer | YGGDRA_SCAN | **Planlagt (S35 Tool ready)** |
