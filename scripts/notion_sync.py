@@ -3,15 +3,77 @@ import sys
 import argparse
 import re
 import json
+import requests
 from datetime import datetime
 
-# Simuleret Notion API Client til brug i hooks uden API-nøgle
-class MockNotionClient:
-    def __init__(self, token):
+# Notion API Client
+class NotionClient:
+    def __init__(self, token, database_id):
         self.token = token
+        self.database_id = database_id
+        self.headers = {
+            "Authorization": f"Bearer {self.token}",
+            "Content-Type": "application/json",
+            "Notion-Version": "2022-06-28"
+        }
+
+    def get_page_id_by_name(self, project_name):
+        """Finder page ID for et eksisterende projekt i databasen."""
+        url = f"https://api.notion.com/v1/databases/{self.database_id}/query"
+        payload = {
+            "filter": {
+                "property": "Navn",
+                "title": {"equals": project_name}
+            }
+        }
+        try:
+            resp = requests.post(url, json=payload, headers=self.headers, timeout=10)
+            if resp.status_code == 200:
+                results = resp.json().get("results", [])
+                return results[0]["id"] if results else None
+        except Exception as e:
+            print(f"Error querying Notion: {e}")
+        return None
+
+    def push_update(self, project, status):
+        """Pusher status-opdatering til Notion (Update eller Create)."""
+        page_id = self.get_page_id_by_name(project)
+        now_iso = datetime.now().strftime("%Y-%m-%d")
+        
+        if page_id:
+            # Opdater eksisterende side
+            url = f"https://api.notion.com/v1/pages/{page_id}"
+            payload = {
+                "properties": {
+                    "Status": {"select": {"name": "Aktiv"}},
+                    "Næste Step": {"rich_text": [{"text": {"content": status}}]},
+                    "Sidst Opdateret": {"date": {"start": now_iso}}
+                }
+            }
+            resp = requests.patch(url, json=payload, headers=self.headers, timeout=10)
+        else:
+            # Opret ny side
+            url = "https://api.notion.com/v1/pages"
+            payload = {
+                "parent": {"database_id": self.database_id},
+                "properties": {
+                    "Navn": {"title": [{"text": {"content": project}}]},
+                    "Status": {"select": {"name": "Aktiv"}},
+                    "Næste Step": {"rich_text": [{"text": {"content": status}}]},
+                    "Sidst Opdateret": {"date": {"start": now_iso}}
+                }
+            }
+            resp = requests.post(url, json=payload, headers=self.headers, timeout=10)
+            
+        if resp.status_code in (200, 201):
+            print(f"  [SUCCESS] {project} updated.")
+        else:
+            print(f"  [ERROR] {project} failed: {resp.status_code} - {resp.text}")
+
+# Mock Client til brug uden API-nøgle
+class MockNotionClient:
     def push_update(self, project, status):
         print(f"  [MOCK PUSH] {project}: {status}")
-        return True
 
 def extract_status_from_context():
     """Ekstraherer aktive projekter og status fra CONTEXT.md"""
@@ -34,7 +96,6 @@ def extract_status_from_context():
         for line in lines[start_idx+1:]:
             if line.startswith("##"):
                 break
-            # Matcher: - **Projekttitel:** Statusbesked
             match = re.search(r"- \*\*([\w\.\-]+):\*\* (.*)", line)
             if match:
                 projects.append({
@@ -47,19 +108,19 @@ def sync_to_notion():
     """Syncs current project status from CONTEXT.md to Notion."""
     print(f"--- Notion Sync Engine ({datetime.now().strftime('%Y-%m-%d %H:%M')}) ---")
     token = os.environ.get("NOTION_API_KEY")
+    db_id = os.environ.get("NOTION_DATABASE_ID")
     
     projects = extract_status_from_context()
     if not projects:
         print("No active projects found in CONTEXT.md.")
         return
 
-    if not token:
-        print("NOTION_API_KEY not found. Running in MOCK mode.")
-        client = MockNotionClient("mock-token")
+    if not token or not db_id:
+        print("NOTION_API_KEY or NOTION_DATABASE_ID not found. Running in MOCK mode.")
+        client = MockNotionClient()
     else:
-        print("NOTION_API_KEY found. Attempting live sync...")
-        # Her ville den reelle SDK integration bo
-        client = MockNotionClient(token)
+        print("Notion credentials found. Attempting live sync...")
+        client = NotionClient(token, db_id)
 
     for p in projects:
         client.push_update(p['name'], p['status'])
