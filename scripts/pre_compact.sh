@@ -36,4 +36,10 @@ if [ -f "$PROJECT_ROOT/BMS.auto-chatlog/chatlog-engine.js" ]; then
     fi
 fi
 
+# Kørsel af Maintenance Audit
+if [ -f "$PROJECT_ROOT/scripts/maintenance_audit.py" ]; then
+    echo "Kører Maintenance Audit..."
+    python3 "$PROJECT_ROOT/scripts/maintenance_audit.py"
+fi
+
 echo "--- HOOK AFSLUTTET ---"

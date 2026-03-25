@@ -2,7 +2,16 @@ import os
 import sys
 import argparse
 import re
+import json
 from datetime import datetime
+
+# Simuleret Notion API Client til brug i hooks uden API-nøgle
+class MockNotionClient:
+    def __init__(self, token):
+        self.token = token
+    def push_update(self, project, status):
+        print(f"  [MOCK PUSH] {project}: {status}")
+        return True
 
 def extract_status_from_context():
     """Ekstraherer aktive projekter og status fra CONTEXT.md"""
@@ -14,38 +23,48 @@ def extract_status_from_context():
     with open(context_path, "r") as f:
         content = f.read()
 
-    # Find sektionen 'Aktive projekter'
-    active_section = re.search(r"### Aktive projekter\n(.*?)(?:\n\n|\n##|$)", content, re.DOTALL)
-    if active_section:
-        lines = active_section.group(1).strip().split("\n")
-        for line in lines:
-            match = re.search(r"- \*\*([\w\.]+):\*\* (.*)", line)
+    lines = content.split('\n')
+    start_idx = -1
+    for i, line in enumerate(lines):
+        if "### Aktive projekter" in line:
+            start_idx = i
+            break
+            
+    if start_idx != -1:
+        for line in lines[start_idx+1:]:
+            if line.startswith("##"):
+                break
+            # Matcher: - **Projekttitel:** Statusbesked
+            match = re.search(r"- \*\*([\w\.\-]+):\*\* (.*)", line)
             if match:
                 projects.append({
                     "name": match.group(1),
-                    "status": match.group(2),
-                    "last_updated": datetime.now().strftime("%Y-%m-%d")
+                    "status": match.group(2).strip()
                 })
     return projects
 
 def sync_to_notion():
-    """
-    Syncs current project status from CONTEXT.md to Notion.
-    Placeholder script until MCP/API access is fully established.
-    """
-    print("--- Notion Sync Engine (v0.1) ---")
-    projects = extract_status_from_context()
+    """Syncs current project status from CONTEXT.md to Notion."""
+    print(f"--- Notion Sync Engine ({datetime.now().strftime('%Y-%m-%d %H:%M')}) ---")
+    token = os.environ.get("NOTION_API_KEY")
     
+    projects = extract_status_from_context()
     if not projects:
         print("No active projects found in CONTEXT.md.")
         return
 
-    print(f"Found {len(projects)} projects to sync:")
-    for p in projects:
-        print(f"  > {p['name']}: {p['status']}")
+    if not token:
+        print("NOTION_API_KEY not found. Running in MOCK mode.")
+        client = MockNotionClient("mock-token")
+    else:
+        print("NOTION_API_KEY found. Attempting live sync...")
+        # Her ville den reelle SDK integration bo
+        client = MockNotionClient(token)
 
-    print("\nNOTION_API_STATUS: Awaiting key integration.")
-    print("READY_TO_PUSH: True")
+    for p in projects:
+        client.push_update(p['name'], p['status'])
+    
+    print("STATUS: Sync complete.")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

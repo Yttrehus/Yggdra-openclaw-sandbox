@@ -6,7 +6,13 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (35 — 2026-03-23/24)
+### Seneste Agent Sessioner (36 — 2026-03-24)
+- **Session 36 (I gang):**
+  - **Voice:** `voice-cadence.md` protokol oprettet (Lag 4).
+  - **Strategi:** Manuel Gap Analyse færdiggjort (Lag 5).
+  - **Mål:** Design af den multimodale bro mellem tale og visning (Notion).
+
+### Tidligere Agent Sessioner (35 — 2026-03-23/24)
 - **Session 35 (Gennemført):**
   - **Mission:** `MISSION.md` oprettet som systemets overordnede mål-hierarki.
   - **Sync:** `scripts/sync_vps_to_pc.py` v1.0 bygget til at lukke VPS-PC kløften.
