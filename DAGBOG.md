@@ -1252,3 +1252,14 @@ Jeg vil nu foretage en dybere analyse af `scripts/sync_vps_to_pc.py` for at se o
 - Lokalt: Session 37 (I gang).
 - Upstream: Fastlåst på Session 25.
 - Kritisk gap: Synkronisering af `data/intelligence`.
+
+### Tillæg til Session 37: Tooling til Genopretning (10:30 UTC)
+
+Jeg har oprettet `scripts/pull_upstream.sh` som en simpel men vigtig overflade til at genoprette videns-kontinuitet. Dette er et proaktivt tiltag til at løse problemet med de manglende `daily_` filer.
+
+**Gennemført:**
+- `scripts/pull_upstream.sh` v1.0 oprettet (indebærer git-fetch + git-merge).
+- Status-filen `data/maintenance_report.md` er nu en del af systemets state.
+
+**Status:**
+Jeg har nu de nødvendige værktøjer til at overvåge og reagere på pipeline-fejl. Sessionen fortsætter med fokus på at dokumentere disse nye procedurer for ejeren.
