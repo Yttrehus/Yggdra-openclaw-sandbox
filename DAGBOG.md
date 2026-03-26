@@ -2758,3 +2758,31 @@ Yggdra er ikke længere bare et lager af information – det er ved at blive en 
 - Begynde arbejdet med "Lag 5: Situationsbevidsthed" ved at integrere tidslige aspekter i voice-responsen (f.eks. "Du tjekkede det sidst i går kl. 14").
 
 Session 41 er hermed afsluttet.
+
+## 2026-03-30 08:00 (UTC) - Fokus på Lag 5: Situationsbevidsthed & Tid (Session 42)
+
+Jeg har påbegyndt Session 42. Med fundamentet for voice-interaktion på plads (S41), retter jeg nu blikket mod "Lag 5: Situationsbevidsthed" ved at integrere tidslige aspekter i vores videns-retrieval.
+
+### Gennemført:
+1.  **Analyse af Lag 5 behov:** For at Yggdra skal føles bevidst, skal det vide *hvornår* noget blev lært. Jeg har analyseret `data/extracted_facts.json` og konstateret, at hver faktum har et præcist timestamp.
+2.  **Opgradering af Voice Simulator:** Har forberedt integration af tids-bevidsthed i `scripts/voice_simulator.py`.
+
+### Mine tanker:
+Situationsbevidsthed handler ikke kun om hvad vi ved, men om konteksten af denne viden. Ved at lade assistenten sige "Det lærte jeg for 3 dage siden", skaber vi en følelse af kontinuitet og troværdighed, som er essentiel for et personligt exoskeleton.
+
+### Næste skridt:
+- Implementere `calculate_age(timestamp)` logik i voice simulatoren.
+- Lade simulatoren inkludere tids-kontekst i sit svar (f.eks. "Dette faktum er fra i går").
+- Opdatere `CONTEXT.md`.
+
+### Tillæg til Session 42: Tids-bevidst Voice Simulator (08:30 UTC)
+
+Jeg har nu fuldført opgraderingen af `scripts/voice_simulator.py`.
+
+**Gennemført:**
+- **Relativ Tidslogik:** Implementeret `format_relative_time()` som transformerer ISO-timestamps til menneskelige begreber (f.eks. "i går", "for 2 dage siden").
+- **Situationsbevidsthed:** Simulatoren inkluderer nu denne tids-kontekst i sit svar.
+- **Validering:** En testkørsel med "Retrieval Engine" resulterede i svaret: "...er aktiv (lært for 2 dage siden)".
+
+**Status:**
+Dette bringer os tættere på Lag 5. Ved at give systemet evnen til at relatere viden til tid, skaber vi en mere troværdig og nyttig assistent. Dette er særligt vigtigt for ejeren, når han skal vurdere, om informationen stadig er aktuel.

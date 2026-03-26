@@ -6,12 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (41 — 2026-03-29)
+### Seneste Agent Sessioner (42 — 2026-03-30)
+- **Session 42 (Gennemført):**
+  - **Situationsbevidsthed:** `scripts/voice_simulator.py` opgraderet med tids-bevidsthed (Lag 5).
+  - **Validering:** Systemet kan nu relatere fakta til relativ tid (f.eks. "lært for 2 dage siden").
+  - **Resultat:** Voice-interfacet er nu både faktuelt og tids-bevidst.
+
+### Tidligere Agent Sessioner (41 — 2026-03-29)
 - **Session 41 (Gennemført):**
-  - **Voice:** `scripts/voice_simulator.py` opgraderet til v1.1.
-  - **Integration:** Simulatoren kan nu hente faktiske data fra `data/extracted_facts.json`.
-  - **Validering:** Succesfuld test af videns-retrieval via voice-kadence principper.
-  - **Resultat:** Systemet kan nu "tale" ud fra sin faktiske hukommelse.
 
 ### Tidligere Agent Sessioner (40 — 2026-03-27)
 - **Session 40 (Gennemført):**
