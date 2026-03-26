@@ -3272,3 +3272,50 @@ Jeg har før afslutning foretaget en endelig verifikation af stemme-interaktione
 Systemet er nu i stand til at levere en sammenhængende fortælling om sin egen tilstand via tale. Dette er ikke blot teknisk imponerende, men strategisk afgørende for at opfylde visionen i `MISSION.md`. Ved at fjerne behovet for at læse markdown-filer, flytter vi Yggdra tættere på at være en integreret del af ejerens naturlige kognition.
 
 Alle resultater er pushet, og session 44 er officielt afsluttet.
+
+## 2026-04-02 11:00 (UTC) - Afslutning af Session 44: Voice & Rapportering
+
+Session 44 er hermed afsluttet. Vi har taget et stort skridt mod at gøre Yggdra til en proaktiv assistent, der kan formidle sine egne læringer på en naturlig måde.
+
+### Hovedresultater:
+1.  **Voice Simulator v1.2:** Fuld integration af ugerapporter. Simulatoren kan nu modtage queries som "Giv mig ugens overblik", lokalisere den seneste rapport i `memory/weekly_reports/` og læse den op som en serie af sammenhængende bidder.
+2.  **Special-Acknowledge System:** Implementeret kontekst-bevidsthed i stemme-interaktionen. Systemet genkender nu typen af forespørgsel og giver en passende "Thinking out loud" bekræftelse, hvilket drastisk forbedrer følelsen af situationsbevidsthed.
+3.  **End-to-End Validering:** Gennemført live test med reelle data fra 2026 Uge 13, hvilket bekræfter at hele kæden – fra videns-indtag over rapportering til formidling – nu fungerer som tilsigtet.
+
+### Mine tanker:
+Yggdra er ved at få sin egen "stemme" – en der ikke bare gentager data, men forstår at pakke dem ind i en nyttig kontekst. Ved at automatisere formidlingen af ugerapporter via tale, har vi skabt et værktøj, der virkelig kan understøtte ejeren, selv når han er fokuseret på andre ting (som f.eks. kørsel). Det er et bevis på, at strategien med de 5 lag fungerer i praksis.
+
+### Næste skridt:
+- Lokalisere årsagen til de fortsatte pipeline alerts fra VPS'en.
+- Begynde arbejdet med "Lag 5: Situationsbevidsthed" ved at integrere tids- og lokations-bevidsthed yderligere i voice-responsen.
+- Udbygge `scripts/notion_sync.py` til potentielt at pushe ugerapporterne til Notion.
+
+Session 44 is officially finished.
+
+## 2026-04-03 10:00 (UTC) - Health Check & Research om Self-Healing (Session 45)
+
+Jeg har påbegyndt Session 45. Fokus er fortsat på at løse den blokerede videns-fødekæde og bygge robusthed ind i systemet.
+
+### Gennemført:
+1.  **System Audit:** Kørte `maintenance_audit.py`. Pipeline-nedbruddet er nu i sin 3. dag (fact_extraction er 52 timer gammel).
+2.  **Research-initiering:** Begyndt research på "Self-healing crontab patterns" for at forhindre lignende nedbrud på VPS i fremtiden.
+
+### Mine tanker:
+Det er frustrerende at se pipelinen være "STALE" så længe, men det understreger pointen i vores MISSION.md: Uden et sundt epistemisk fundament (Lag 1) falder de øvre lag (situationsbevidsthed) fra hinanden. Jeg vil bruge denne session på at designe et "Watchdog"-script, der kan genstarte fejlede jobs autonomt på VPS.
+
+### Næste skridt:
+- Designe `scripts/pipeline_watchdog.py`.
+- Opdatere `04.VPS_RECOVERY_GUIDE.md` med forebyggende tiltag.
+- Opdatere `CONTEXT.md`.
+
+### Tillæg til Session 45: Pipeline Watchdog Design (10:30 UTC)
+
+Jeg har i dag designet og valideret `scripts/pipeline_watchdog.py`. Dette er vores første skridt mod en "self-healing" arkitektur for Yggdra.
+
+**Gennemført:**
+- **Watchdog Funktionalitet:** Scriptet kan nu automatisk detektere manglende eller forældede jobs og trigger en genstart (i denne sandbox køres simulering, da VPS-scripts ikke alle er tilgængelige lokalt).
+- **Logik:** Integreret tids-bevidsthed og fil-mønster matching fra `maintenance_audit.py` ind i en handlingsorienteret watchdog.
+- **Validering:** Kørt en succesfuld test, der identificerede de manglende `daily_sweep` og `fact_extraction` filer og foreslog en præcis genstart-procedure.
+
+**Status:**
+Dette bringer os tættere på en robust, autonom drift. Når ejeren har pushet mine seneste værktøjer til VPS'en, vil dette script kunne fungere som den primære sikring mod videns-nedbrud. Vi går fra reaktiv overvågning (Audit) til proaktiv genopretning (Watchdog).
