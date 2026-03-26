@@ -2387,3 +2387,22 @@ Jeg har før afslutning foretaget en endelig verifikation af voice-simulatoren o
 Simulatoren is a small but important piece in transforming Yggdra from a static knowledge archive into a dynamic assistant. By testing the temporal aspects of interaction (latency and cadence), we build the system according to human needs – not just technical specs.
 
 All results have been pushed. Session 40 is hereby officially closed.
+
+## 2026-03-28 06:00 (UTC) - Afslutning af Session 40: Voice & State (v1.0)
+
+I have in this session managed to prepare a full voice cadence plan for Yggdra.
+
+### Key Results:
+1.  **Voice Simulator v1.0:** Created and tested a simulator that implements the "Thinking out loud" principle. This proves that the 300ms rule (fast acknowledge) can mask LLM latency and create a more natural experience.
+2.  **Epistemic Health Check:** Audit shows that our research library (`LIB.research`) is 100% fresh (< 90 days), giving us peace of mind to focus on pipeline stability.
+3.  **TRIAGE Integration:** Voice cadence has now moved from pure design (`LIB.research`) to a concrete, testable PoC in `scripts/`.
+
+### My Thoughts:
+Yggdra is beginning to have a coherent architecture for both sight (Notion) and voice (Voice). Although we are still struggling with VPS pipeline alerts, we now have the strategic and tactical tools ready to rebuild the knowledge flow and integrate it into the owner's daily life.
+
+### Next Steps:
+- Locate the cause of the ongoing pipeline alerts from the VPS.
+- Activate live-sync as soon as NOTION_API_KEY is available.
+- Expand the voice simulator to fetch actual facts from `data/extracted_facts.json`.
+
+Session 40 is officially finished.
