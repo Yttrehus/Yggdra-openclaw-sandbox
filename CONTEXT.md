@@ -7,10 +7,10 @@
 ## Hvor er vi
 
 ### Seneste Agent Sessioner (39 — 2026-03-26)
-- **Session 39 (I gang):**
+- **Session 39 (Gennemført):**
   - **Notion:** `notion_sync.py` opgraderet med `--dry-run` og JSON-rapport.
   - **Validering:** Succesfuld test af status-ekstraktion for aktive projekter.
-  - **Mål:** Forbedring af mobil tilgængelighed via Notion PoC.
+  - **Resultat:** Broen til Notion er nu teknisk klar til live-aktivering (Lag 4).
 
 ### Tidligere Agent Sessioner (38 — 2026-03-26)
 - **Session 38 (Gennemført):**

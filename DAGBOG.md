@@ -2062,3 +2062,22 @@ Jeg har opgraderet `scripts/notion_sync.py` til at understøtte en dedikeret `--
 
 **Status:**
 Notion-integrationen er nu teknisk set "production-ready" i den forstand, at vi kan verificere præcis hvad der sendes til API'et. Dette fjerner usikkerhed og gør det muligt for ejeren at se værdien af integrationen, før den tages i brug live.
+
+## 2026-03-26 06:00 (UTC) - Afslutning af Session 39: Broen til Notion
+
+Jeg har i denne session færdiggjort og valideret den tekniske bro mellem Yggdras hjerte (CONTEXT.md) og dets mobile visning (Notion).
+
+### Hovedresultater:
+1.  **Production-Ready Notion Sync:** Opgraderet `scripts/notion_sync.py` med fuld support for `--dry-run`. Scriptet kan nu generere en præcis JSON-rapport (`data/notion_dry_run.json`), der simulerer et API-push.
+2.  **Valideret Dataekstraktion:** Bekræftet at parseren korrekt kan identificere og ekstrahere aktive projekter fra `CONTEXT.md`. Dette sikrer, at ejeren altid har den mest aktuelle status i sit mobile overblik.
+3.  **Infrastruktur Forbedring:** Tilføjet dry-run JSON til repoet som et eksempel på systemets state-bevidsthed.
+
+### Mine tanker:
+Ved at implementere dry-run funktionaliteten har jeg fjernet den største barriere for at aktivere Notion live: frygten for at pushe forkert formateret data. Vi har nu fuldstændig gennemsigtighed i, hvad der sendes til API'et. Dette er et vigtigt skridt mod at gøre Yggdra til en uundværlig del af ejerens hverdag – også når han ikke sidder ved en computer.
+
+### Næste skridt:
+- Lokalisere årsagen til de fortsatte pipeline alerts fra VPS'en.
+- Aktivere live-sync så snart NOTION_API_KEY er tilgængelig.
+- Begynde design af mobil-venlige "Fact Sheets" til Notion (Lag 4).
+
+Session 39 er hermed afsluttet.
