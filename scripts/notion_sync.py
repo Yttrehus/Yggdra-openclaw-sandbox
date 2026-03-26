@@ -70,10 +70,25 @@ class NotionClient:
         else:
             print(f"  [ERROR] {project} failed: {resp.status_code} - {resp.text}")
 
-# Mock Client til brug uden API-nøgle
-class MockNotionClient:
+# Dry Run Client til brug uden API-nøgle
+class DryRunClient:
+    def __init__(self):
+        self.updates = []
+        self.output_path = "data/notion_dry_run.json"
+
     def push_update(self, project, status):
-        print(f"  [MOCK PUSH] {project}: {status}")
+        update = {
+            "project": project,
+            "status": status,
+            "timestamp": datetime.now().isoformat()
+        }
+        self.updates.append(update)
+        print(f"  [DRY RUN] {project}: {status}")
+
+    def finalize(self):
+        with open(self.output_path, "w") as f:
+            json.dump(self.updates, f, indent=2)
+        print(f"  [DRY RUN] Results saved to {self.output_path}")
 
 def extract_status_from_context():
     """Ekstraherer aktive projekter og status fra CONTEXT.md"""
@@ -94,8 +109,10 @@ def extract_status_from_context():
             
     if start_idx != -1:
         for line in lines[start_idx+1:]:
-            if line.startswith("##"):
-                break
+            if line.startswith("##") or not line.strip():
+                if projects: # Stop hvis vi har fundet projekter og rammer en tom linje eller ny sektion
+                    break
+                continue
             match = re.search(r"- \*\*([\w\.\-]+):\*\* (.*)", line)
             if match:
                 projects.append({
@@ -104,7 +121,7 @@ def extract_status_from_context():
                 })
     return projects
 
-def sync_to_notion():
+def sync_to_notion(dry_run=False):
     """Syncs current project status from CONTEXT.md to Notion."""
     print(f"--- Notion Sync Engine ({datetime.now().strftime('%Y-%m-%d %H:%M')}) ---")
     token = os.environ.get("NOTION_API_KEY")
@@ -115,9 +132,12 @@ def sync_to_notion():
         print("No active projects found in CONTEXT.md.")
         return
 
-    if not token or not db_id:
-        print("NOTION_API_KEY or NOTION_DATABASE_ID not found. Running in MOCK mode.")
-        client = MockNotionClient()
+    if dry_run or not token or not db_id:
+        if not dry_run:
+            print("NOTION_API_KEY or NOTION_DATABASE_ID not found. Forcing DRY RUN.")
+        else:
+            print("DRY RUN mode active.")
+        client = DryRunClient()
     else:
         print("Notion credentials found. Attempting live sync...")
         client = NotionClient(token, db_id)
@@ -125,12 +145,16 @@ def sync_to_notion():
     for p in projects:
         client.push_update(p['name'], p['status'])
     
+    if isinstance(client, DryRunClient):
+        client.finalize()
+        
     print("STATUS: Sync complete.")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--session-end", action="store_true")
+    parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     
-    if args.session_end:
-        sync_to_notion()
+    if args.session_end or args.dry_run:
+        sync_to_notion(dry_run=args.dry_run)
