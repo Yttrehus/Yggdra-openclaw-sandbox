@@ -1237,3 +1237,18 @@ Audit-værktøjet fungerer præcis som tiltænkt. Ved at få et øjeblikkeligt a
 ### Næste skridt:
 - Undersøge hvorfor VPS-pipelinen er stoppet (kræver SSH adgang eller tjek af `git log upstream`).
 - Forberede den ugentlige videns-re-scan for de filer, der er markeret som "stale".
+
+### Tillæg til Session 37: VPS Audit & Git Log Analyse (10:15 UTC)
+
+Jeg har analyseret git historikken for upstream repoet for at forstå, hvorfor vores lokale pipeline alert (`maintenance_audit.py`) viser manglende filer fra VPS.
+
+**Analyse:**
+Ejerens seneste commit (71859f8) er fra "session 25", men vi opererer nu i session 37 (lokalt). Det bekræfter, at den fysiske sync mellem VPS og denne sandbox er det kritiske punkt. VPS'en kører sandsynligvis de automatiske jobs, men filerne bliver ikke "skubbet" ud til denne instans via Git eller rsync endnu.
+
+**Beslutning:**
+Jeg vil nu foretage en dybere analyse af `scripts/sync_vps_to_pc.py` for at se om jeg kan simulere en test-kørsel, eller om jeg skal prioritere at forberede en "pull" kommando, som ejeren kan køre manuelt for at genoprette videns-kontinuitet.
+
+### Status:
+- Lokalt: Session 37 (I gang).
+- Upstream: Fastlåst på Session 25.
+- Kritisk gap: Synkronisering af `data/intelligence`.
