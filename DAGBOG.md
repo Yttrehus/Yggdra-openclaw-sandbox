@@ -2908,3 +2908,31 @@ Yggdra begynder nu at opføre sig som en intelligent assistent, der ikke bare hu
 - Arbejde videre på genopretning af videns-kontinuitet fra VPS.
 
 Session 43 is officially finished.
+
+## 2026-04-01 10:00 (UTC) - Voice Simulator v1.2: Ugerapportering & Mobil Bro (Session 44)
+
+Jeg har påbegyndt Session 44. Fokus er at integrere den nyligt implementerede ugerapport-motor (fra S43) i voice-interfacet, samt klargøre systemet til en eventuel Notion-synkronisering af disse rapporter.
+
+### Gennemført:
+1.  **Opgradering af Voice Simulator:** Har planlagt integrationen af `weekly_report.py` output i `scripts/voice_simulator.py`. Dette gør det muligt for ejeren at bede om et ugentligt resume ("Giv mig ugens overblik") via stemmen.
+2.  **Audit af Rapport-struktur:** Verificeret at `memory/weekly_reports/` følger en konsistent navngivning, der gør det let for agenter at finde den seneste rapport.
+
+### Mine tanker:
+Hvis Yggdra skal være ejerens "kognitive exoskeleton" under kørsel, er evnen til at levere komprimerede ugerapporter via tale altafgørende. I stedet for at lede efter enkelte fakta, kan ejeren nu få et narrativt overblik over projektets fremdrift og nye læringer. Det transformerer passiv data til aktiv indsigt.
+
+### Næste skridt:
+- Opdatere `scripts/voice_simulator.py` til at genkende queries om "ugens overblik" eller "rapport".
+- Udbygge `scripts/notion_sync.py` til potentielt at pushe disse ugerapporter som særskilte sider.
+- Opdatere `CONTEXT.md`.
+
+### Tillæg til Session 44: Voice-baseret Rapportering Valideret (10:30 UTC)
+
+Jeg har succesfuldt implementeret og testet den voice-baserede ugerapportering.
+
+**Gennemført:**
+- **Rapport-parser:** `scripts/voice_simulator.py` kan nu finde den seneste ugerapport, parse sektionen for læringer og levere dem som en serie af voice-optimerede chunks.
+- **Kontekstuel Anerkendelse:** Simulatoren genkender nu specifikke queries om "rapporter" og giver en tilpasset "Thinking out loud" bekræftelse ("Jeg henter ugens overblik til dig...").
+- **Fuld End-to-End Test:** Gennemført en test-forespørgsel, der korrekt identificerede rapporten for 2026 Uge 13 og læste de udtrukne fakta op med kildehenvisninger.
+
+**Status:**
+Dette fuldender cirklen fra rå videns-indtag (Lag 1) til proaktiv formidling (Lag 4/5). Systemet er nu i stand til ikke blot at huske enkelte fakta, men at præsentere et samlet billede af sin egen udvikling via tale. Dette er et massivt skridt mod den endelige vision for Yggdra.

@@ -3,11 +3,13 @@ import sys
 import time
 import random
 import json
+import glob
 from datetime import datetime, timezone
 
 # Pathing
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FACTS_FILE = os.path.join(_PROJECT_ROOT, "data/extracted_facts.json")
+REPORT_DIR = os.path.join(_PROJECT_ROOT, "memory/weekly_reports")
 
 def load_facts():
     if os.path.exists(FACTS_FILE):
@@ -17,6 +19,36 @@ def load_facts():
         except Exception as e:
             print(f"Error loading facts: {e}")
     return []
+
+def load_latest_report():
+    reports = glob.glob(os.path.join(REPORT_DIR, "*.md"))
+    if not reports:
+        return None
+    latest_report = max(reports, key=os.path.getctime)
+    with open(latest_report, "r") as f:
+        return f.read()
+
+def parse_report_to_chunks(report_content):
+    chunks = []
+    lines = report_content.split('\n')
+    title = lines[0].replace('# ', '').strip()
+    chunks.append(f"Her er {title}.")
+    
+    current_section = ""
+    for line in lines[1:]:
+        if line.startswith('## '):
+            current_section = line.replace('## ', '').strip()
+            if "Læringer" in current_section:
+                chunks.append("Jeg har opsummeret ugens læringer.")
+        elif line.startswith('- ') and "Læringer" in current_section:
+            # Rens markdown og tilføj til chunks
+            fact = line.replace('- ', '').strip()
+            chunks.append(fact)
+            if len(chunks) > 6: # Begræns antal chunks for voice brevity (3-sentence rule inspiration)
+                break
+    
+    chunks.append("Det var ugens overblik. Skal jeg gå i dybden med noget?")
+    return chunks
 
 def format_relative_time(dt_str):
     try:
@@ -48,6 +80,14 @@ def format_relative_time(dt_str):
         return "tidligere"
 
 def get_fact_chunks(query):
+    # Tjek om brugeren beder om en rapport
+    if any(keyword in query.lower() for keyword in ["rapport", "overblik", "uge", "resume"]):
+        report = load_latest_report()
+        if report:
+            return parse_report_to_chunks(report)
+        else:
+            return ["Jeg kunne ikke finde en ugerapport.", "Du kan køre scripts/weekly_report.py for at generere en."]
+
     facts = load_facts()
     if not facts:
         return ["Jeg kunne ikke indlæse fakta fra databasen.", "Tjek venligst data/extracted_facts.json."]
@@ -86,7 +126,11 @@ def thinking_out_loud_sim(user_query):
         "Lad mig se hvad jeg ved om det..."
     ]
     
-    print(f"[VOICE - ACK]: {random.choice(acknowledgements)}")
+    # Special ack for rapporter
+    if any(keyword in user_query.lower() for keyword in ["rapport", "overblik", "uge", "resume"]):
+        print("[VOICE - ACK]: Jeg henter ugens overblik til dig...")
+    else:
+        print(f"[VOICE - ACK]: {random.choice(acknowledgements)}")
     
     # 2. Simulerer LLM "deep thinking" latency (Data Retrieval)
     print("[... Deep Thinking (LLM & Fact Retrieval) ...]")

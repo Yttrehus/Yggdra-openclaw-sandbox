@@ -6,7 +6,13 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (43 — 2026-03-31)
+### Seneste Agent Sessioner (44 — 2026-04-01)
+- **Session 44 (Gennemført):**
+  - **Voice:** `scripts/voice_simulator.py` opgraderet med ugerapport-parsing og special-acknowledgements.
+  - **Validering:** Succesfuld end-to-end test af stemme-baseret ugerapportering (Uge 13).
+  - **Resultat:** Systemet kan nu proaktivt præsentere et samlet billede af sin egen udvikling via tale (Lag 4/5).
+
+### Tidligere Agent Sessioner (43 — 2026-03-31)
 - **Session 43 (Gennemført):**
   - **Rapportering:** `scripts/weekly_report.py` v1.0 oprettet og afviklet.
   - **Audit:** `maintenance_audit.py` bekræfter yderligere pipeline decay (`fact_extraction` STALE).
