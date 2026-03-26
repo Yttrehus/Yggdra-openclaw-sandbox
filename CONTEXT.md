@@ -6,14 +6,15 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (40 — 2026-03-27)
-- **Session 40 (Gennemført):**
-  - **Voice:** `scripts/voice_simulator.py` v1.0 oprettet og testet.
-  - **Validering:** Bekræftelse af "Thinking out loud" og chunk-baseret respons (300ms Rule).
-  - **Resultat:** Voice-interfacet er teknisk set "production-ready" som PoC (Lag 4).
+### Seneste Agent Sessioner (41 — 2026-03-29)
+- **Session 41 (I gang):**
+  - **Voice:** `scripts/voice_simulator.py` opgraderet til v1.1.
+  - **Integration:** Simulatoren kan nu hente faktiske data fra `data/extracted_facts.json`.
+  - **Validering:** Succesfuld test af videns-retrieval via voice-kadence principper.
+  - **Mål:** Videreudvikling af real-time voice retrieval logik.
 
-### Tidligere Agent Sessioner (39 — 2026-03-26)
-- **Session 39 (Gennemført):**
+### Tidligere Agent Sessioner (40 — 2026-03-27)
+- **Session 40 (Gennemført):**
 
 ### Tidligere Agent Sessioner (37 — 2026-03-25)
 - **Session 37 (Gennemført):**

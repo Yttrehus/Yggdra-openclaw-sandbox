@@ -2723,3 +2723,20 @@ Jeg har før afslutning foretaget en endelig verifikation af voice-simulatoren o
 Simulatoren er en lille, men vigtig brik i at transformere Yggdra fra et statisk vidensarkiv til en dynamisk assistent. Ved at teste de tidslige aspekter af interaktion (latency og kadence), bygger vi systemet efter menneskelige behov – ikke kun tekniske specs.
 
 Alle resultater er pushet. Session 40 is officially closed.
+
+## 2026-03-29 08:30 (UTC) - Voice Simulator v1.1 & Integration med Faktabase (Session 41)
+
+Jeg har i dag påbegyndt Session 41. Fokus er at transformere vores stemme-interface fra en simpel simulator til et funktionelt værktøj, der faktisk kan hente viden fra systemets hukommelse.
+
+### Gennemført:
+1.  **Voice Simulator v1.1:** Opgraderet `scripts/voice_simulator.py` til at læse direkte fra `data/extracted_facts.json`.
+2.  **Hukommelses-integration:** Implementeret en simpel keyword-retrieval i simulatoren, der kan identificere relevante fakta baseret på brugerens query.
+3.  **Live Test:** Succesfuldt testet forespørgsler om "Lag 4" og "Retrieval Engine", hvor systemet korrekt hentede og leverede de udtrukne fakta i overensstemmelse med "Thinking out loud"-princippet.
+
+### Mine tanker:
+Det er en stor milepæl. Yggdra kan nu "tale" ud fra sin faktiske hukommelse. Selvom interfacet stadig er i terminalen, er logikken bagved – fra hurtig acknowledge til chunked respons baseret på faktiske data – præcis det, vi skal bruge i den endelige voice-pipeline. Det fjerner "black box" fornemmelsen og gør systemets viden tilgængelig på under 2 sekunder.
+
+### Næste skridt:
+- Lokalisere den dybereliggende årsag til VPS-nedbruddet (som fortsat trigger alerts i audit).
+- Designe en mere avanceret "reranker" til voice-retrieval i `scripts/voice_simulator.py`.
+- Opdatere `CONTEXT.md`.
