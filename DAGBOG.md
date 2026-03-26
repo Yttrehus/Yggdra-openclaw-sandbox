@@ -1174,3 +1174,50 @@ Vi har nu en produktionsklar bro til Notion. Det faktum, at vi bruger REST API'e
 ### Næste skridt:
 - Tilføje `NOTION_DATABASE_ID` til systemet når databasen er initialiseret.
 - Aktivere real-time voice kadence PoC.
+
+## 2026-03-24 17:30 (UTC) - Konsolidering af Terminal Workflow (Session 36)
+
+Jeg har færdiggjort dokumentationen af vores automatiserede terminal-miljø for at sikre kontinuitet.
+
+### Gennemført:
+1.  **Terminal Workflow:** Oprettet `0_backlog/03.TERMINAL_WORKFLOW.md`. Dokumentet formaliserer brugen af VS Code tasks til automatisk terminal-setup (SSH, Tunnel, Bash).
+2.  **State Audit:** Bekræftet at `.vscode/tasks.json` er korrekt konfigureret til "runOn: folderOpen".
+3.  **TRIAGE Opdatering:** Markeret terminal-automatisering som fuldt dokumenteret og afsluttet.
+
+### Mine tanker:
+Ved at flytte informationen fra et råt brief i arkivet til et struktureret dokument i backloggen, gør vi det muligt for fremtidige agenter hurtigt at forstå, hvordan ejerens arbejdsmiljø er bygget op. Det er en lille men vigtig del af at fjerne "black boxes" i systemet.
+
+### Næste skridt:
+- Lukke sessionen og pushe de nyeste opdateringer.
+
+## 2026-03-24 18:00 (UTC) - Validering af Voice Cadence & Terminal Workflow (Session 36)
+
+Jeg har i denne sektion afsluttet designet og valideringen af de nye interfaces til Yggdra.
+
+### Gennemført:
+1.  **Voice Cadence Simulation:** Bygget og afviklet `SIP.agent-sandbox/voice_prompts/cadence_test.py`. Scriptet beviser, at vi kan opnå en "naturlig" følelse ved at bryde svar op i chunks og bruge proaktive acknowledgements (300ms reglen).
+2.  **Terminal Workflow Finalized:** Dokumenteret det automatiserede terminal-workflow i `0_backlog/03.TERMINAL_WORKFLOW.md`. Dette sikrer, at systemets infrastruktur (SSH, Qdrant tunnel) altid er klar til brug.
+3.  **TRIAGE Opdatering:** Markeret terminal-automatisering som færdig og opdateret status for Voice Experience projektet.
+
+### Mine tanker:
+Ved at simulere stemme-kadencen har jeg fået bekræftet, at sprogbrug er ligeså vigtigt som rå hastighed. Hvis vi designer assistentens svar til at være "stemme-venlige" fra starten (korte sætninger, ingen fyldord), føles systemet hurtigere, selvom den tekniske latency er den samme. Dette er en vigtig indsigt for det videre arbejde med real-time voice.
+
+### Næste skridt:
+- Lukke sessionen og pushe resultaterne.
+- Næste session: Fokus på den fysiske udrulning af Notion-databasen og den første ugentlige vedligeholdelses-audit.
+
+## 2026-03-24 19:00 (UTC) - Afslutning af Session 36: Interface og Workflow
+
+Jeg afslutter hermed Session 36. Denne session har fokuseret på at klargøre Yggdras brugerflader (Notion og Voice) samt sikre en gnidningsfri sessionsstart.
+
+### Hovedresultater:
+1.  **Notion Sync v2:** Færdiggjort og valideret en robust status-ekstraktionsmotor. Systemet kan nu præcist identificere aktive projekter og deres status direkte fra `CONTEXT.md`, klar til at føde Notion API'et.
+2.  **Voice Cadence Valideret:** Gennemført simulationer af stemme-interaktionens kadence. Vi har bekræftet, at korte sætnings-chunks og hurtige acknowledgements skaber en markant mere naturlig og hurtig oplevelse (300ms reglen).
+3.  **Terminal Workflow Dokumenteret:** Formaliseret det automatiserede setup i `0_backlog/03.TERMINAL_WORKFLOW.md`. SSH og Qdrant-tunneller er nu en integreret og dokumenteret del af workflowet.
+
+### Mine tanker:
+Yggdra er ved at få sin krop og stemme. Ved at prioritere robust parsing af vores egne state-filer sikrer vi, at systemet altid taler sandt – uanset om det er via Notion-interfacet eller voice-pipelinen. Den arkitektoniske kløft mellem terminalen og ejerens hverdag er nu næsten lukket.
+
+Jeg er klar til at eksekvere den fysiske database-initialisering i Notion, så snart de nødvendige tokens er tilgængelige.
+
+Session 36 er hermed afsluttet.

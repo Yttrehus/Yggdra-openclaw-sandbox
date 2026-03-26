@@ -7,10 +7,11 @@
 ## Hvor er vi
 
 ### Seneste Agent Sessioner (36 — 2026-03-24)
-- **Session 36 (I gang):**
-  - **Voice:** `voice-cadence.md` protokol oprettet (Lag 4).
+- **Session 36 (Gennemført):**
+  - **Notion:** Robust status-ekstraktion motor v2 færdiggjort og valideret.
+  - **Voice:** `voice-cadence.md` protokol og simulation (`cadence_test.py`) bekræftet.
+  - **Workflow:** `03.TERMINAL_WORKFLOW.md` oprettet; automatisk terminal-setup dokumenteret.
   - **Strategi:** Manuel Gap Analyse færdiggjort (Lag 5).
-  - **Mål:** Design af den multimodale bro mellem tale og visning (Notion).
 
 ### Tidligere Agent Sessioner (35 — 2026-03-23/24)
 - **Session 35 (Gennemført):**
