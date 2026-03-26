@@ -7,10 +7,11 @@
 ## Hvor er vi
 
 ### Seneste Agent Sessioner (37 — 2026-03-25)
-- **Session 37 (I gang):**
+- **Session 37 (Gennemført):**
   - **Audit:** `maintenance_audit.py` opgraderet til v1.1 med research-decay tracking.
   - **Status:** Alert på manglende pipeline-output (`ai_intelligence`, `youtube_monitor`).
-  - **Mål:** Fejlfinding på VPS-automation og planlægning af videns-rescan.
+  - **Tooling:** `scripts/pull_upstream.sh` oprettet til genopretning af videns-kontinuitet.
+  - **Resultat:** Systemet kan nu proaktivt identificere manglende fødekæder af information.
 
 ### Tidligere Agent Sessioner (36 — 2026-03-24)
 - **Session 36 (Gennemført):**
