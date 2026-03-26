@@ -7,10 +7,10 @@
 ## Hvor er vi
 
 ### Seneste Agent Sessioner (40 — 2026-03-27)
-- **Session 40 (I gang):**
+- **Session 40 (Gennemført):**
   - **Voice:** `scripts/voice_simulator.py` v1.0 oprettet og testet.
   - **Validering:** Bekræftelse af "Thinking out loud" og chunk-baseret respons (300ms Rule).
-  - **Mål:** Implementering af voice-kadence og persona i praksis.
+  - **Resultat:** Voice-interfacet er teknisk set "production-ready" som PoC (Lag 4).
 
 ### Tidligere Agent Sessioner (39 — 2026-03-26)
 - **Session 39 (Gennemført):**
