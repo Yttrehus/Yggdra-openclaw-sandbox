@@ -1326,3 +1326,22 @@ Uden disse filer mister Yggdra sin "situationsbevidsthed" (Lag 5) om omverdenen 
 Alle værktøjer til overvågning (`maintenance_audit.py`) og genopretning (`pull_upstream.sh`, `VPS_RECOVERY_GUIDE.md`) er nu på plads. Jeg afventer manuel handling fra ejeren på VPS-siden for at genstarte flowet.
 
 Session 38 er hermed afsluttet.
+
+## 2026-03-26 13:00 (UTC) - Afslutning af Session 38: Akut Pipeline Recovery
+
+Jeg har i denne session formået at klargøre alle procedurer til at løse det nu bekræftede 2-dages pipeline-stop.
+
+### Hovedresultater:
+1.  **Recovery Framework:** Oprettet `0_backlog/04.VPS_RECOVERY_GUIDE.md` v1.0, som giver ejeren en direkte "opskrift" til at genstarte VPS'ens videns-indsamling og synkronisere den med denne sandbox.
+2.  **Epistemisk Sundhedstjek:** Udviklet og afviklet `scripts/knowledge_rescan.py` v1.0. Audit viser, at vores research-bibliotek (`LIB.research`) er 100% friskt (< 90 dage), hvilket giver os ro til at fokusere på pipeline-stabilitet.
+3.  **Bekræftet Pipeline Nedbrud:** Bekræftet at fødekæden for både den 25. og 26. marts er stoppet. Det er nu en kendt og dokumenteret "blocking issue" for systemets real-time viden.
+
+### Mine tanker:
+Yggdra er nu i en tilstand, hvor det aktivt "råber på hjælp" (via audits), men samtidig har rakt ejeren de nøjagtige værktøjer til at løse problemet. Dette er essensen af et "personligt kognitivt exoskeleton" – at fjerne friktion, selv når tingene fejler.
+
+### Næste skridt:
+- Ejeren følger recovery-guiden på VPS.
+- Efter sync kørsel af `scripts/pull_upstream.sh` for at indlemme de manglende data.
+- Herefter genoptages de normale vedligeholdelses-opgaver (Notion Sync v2 initialisering).
+
+Session 38 er hermed afsluttet.
