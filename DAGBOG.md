@@ -1297,3 +1297,17 @@ Det er en sejr, at vores epistemiske fundament er "friskt" (0 forældede filer).
 ### Næste skridt:
 - Opdatere `CONTEXT.md` med en "Udryknings-guide" til at genstarte VPS-pipelinen.
 - Researche "Self-healing crontab patterns" til fremtidig implementering på VPS.
+
+### Tillæg til Session 38: Akut Recovery Tooling (05:00 UTC)
+
+Jeg har oprettet en dedikeret `0_backlog/04.VPS_RECOVERY_GUIDE.md` for at give ejeren en klar og præcis procedure til at genstarte videns-flowet fra VPS til denne sandbox.
+
+**Gennemført:**
+- `04.VPS_RECOVERY_GUIDE.md` v1.0 oprettet med præcise VPS-kommandoer.
+- Videns-biblioteket `LIB.research` er nu formelt valideret som "friskt" (0 forældede filer).
+- Alle opdateringer er pushet til Git.
+
+**Status:**
+Jeg har nu opbygget et solidt fundament for at genoprette systemets kontinuitet. Næste gang ejeren logger ind, har han en direkte "opskrift" på at løse de alerts, som mine automatiske audits har genereret.
+
+Session 38 er hermed afsluttet.

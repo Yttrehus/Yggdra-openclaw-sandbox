@@ -7,11 +7,11 @@
 ## Hvor er vi
 
 ### Seneste Agent Sessioner (38 — 2026-03-26)
-- **Session 38 (I gang):**
+- **Session 38 (Gennemført):**
   - **Audit:** `knowledge_rescan.py` v1.0 oprettet og afviklet. 
   - **Status:** 0 forældede research-filer fundet (< 90 dage). Biblioteket er "friskt".
   - **Alert:** Pipeline-nedbrud bekræftet (manglende `daily_2026-03-25.md`).
-  - **Mål:** Dokumentation af "Udryknings-guide" til genstart af VPS-pipeline.
+  - **Recovery:** `04.VPS_RECOVERY_GUIDE.md` oprettet med præcise genstart-procedurer.
 
 ### Tidligere Agent Sessioner (37 — 2026-03-25)
 - **Session 37 (Gennemført):**
