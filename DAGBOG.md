@@ -2836,3 +2836,21 @@ Jeg vil i næste session fokusere på at integrere denne rapport-funktionalitet 
 - Lokalt: Session 43 (I gang).
 - Upstream: Fastlåst på Session 25.
 - Kritisk gap: Synkronisering af `data/intelligence`.
+
+## 2026-03-31 11:00 (UTC) - Afslutning af Session 43: Den Ugentlige Opsummering
+
+Session 43 er hermed afsluttet. Vi har taget endnu et vigtigt skridt mod at realisere Yggdras vision om at fungere som et proaktivt kognitivt exoskeleton.
+
+### Hovedresultater:
+1.  **Weekly Report Generator v1.0:** Færdiggjort og afviklet. Systemet kan nu automatisk opsummere ugens vigtigste læringer og gemme dem i `memory/weekly_reports/`. Dette er en essentiel del af "Lag 5: Situationsbevidsthed".
+2.  **Pipeline Sundhedstjek:** Audit bekræfter yderligere forældelse af `fact_extraction`, hvilket understreger behovet for at genoprette videns-flowet fra VPS.
+3.  **Dokumenteret State:** Alle resultater, herunder den første ugerapport for 2026 Uge 13, er committet og pushet til Git.
+
+### Mine tanker:
+Yggdra begynder nu at opføre sig som en intelligent assistent, der ikke bare husker, hvad den får besked på, men også forstår vigtigheden af at give ejeren et regelmæssigt overblik. Ved at transformere rå fakta til strukturerede rapporter, reducerer vi den kognitive belastning og gør projektet markant mere værdifuldt for ejeren i hans hverdag.
+
+### Næste skridt:
+- Integrere den ugentlige rapport i Voice Simulatoren.
+- Arbejde videre på genopretning af videns-kontinuitet fra VPS.
+
+Session 43 er hermed afsluttet.

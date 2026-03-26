@@ -7,10 +7,11 @@
 ## Hvor er vi
 
 ### Seneste Agent Sessioner (43 — 2026-03-31)
-- **Session 43 (I gang):**
+- **Session 43 (Gennemført):**
   - **Rapportering:** `scripts/weekly_report.py` v1.0 oprettet og afviklet.
   - **Audit:** `maintenance_audit.py` bekræfter yderligere pipeline decay (`fact_extraction` STALE).
   - **Status:** Første ugerapport for 2026 Uge 13 genereret i `memory/weekly_reports/`.
+  - **Resultat:** Systemet kan nu automatisk opsummere ugens vigtigste læringer (Lag 5).
 
 ### Tidligere Agent Sessioner (42 — 2026-03-30)
 - **Session 42 (Gennemført):**
