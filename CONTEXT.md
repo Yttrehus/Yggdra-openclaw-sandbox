@@ -7,11 +7,11 @@
 ## Hvor er vi
 
 ### Seneste Agent Sessioner (41 — 2026-03-29)
-- **Session 41 (I gang):**
+- **Session 41 (Gennemført):**
   - **Voice:** `scripts/voice_simulator.py` opgraderet til v1.1.
   - **Integration:** Simulatoren kan nu hente faktiske data fra `data/extracted_facts.json`.
   - **Validering:** Succesfuld test af videns-retrieval via voice-kadence principper.
-  - **Mål:** Videreudvikling af real-time voice retrieval logik.
+  - **Resultat:** Systemet kan nu "tale" ud fra sin faktiske hukommelse.
 
 ### Tidligere Agent Sessioner (40 — 2026-03-27)
 - **Session 40 (Gennemført):**
