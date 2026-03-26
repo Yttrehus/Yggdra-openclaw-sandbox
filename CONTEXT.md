@@ -6,12 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (36 — 2026-03-24)
+### Seneste Agent Sessioner (37 — 2026-03-25)
+- **Session 37 (I gang):**
+  - **Audit:** `maintenance_audit.py` opgraderet til v1.1 med research-decay tracking.
+  - **Status:** Alert på manglende pipeline-output (`ai_intelligence`, `youtube_monitor`).
+  - **Mål:** Fejlfinding på VPS-automation og planlægning af videns-rescan.
+
+### Tidligere Agent Sessioner (36 — 2026-03-24)
 - **Session 36 (Gennemført):**
-  - **Notion:** Robust status-ekstraktion motor v2 færdiggjort og valideret.
-  - **Voice:** `voice-cadence.md` protokol og simulation (`cadence_test.py`) bekræftet.
-  - **Workflow:** `03.TERMINAL_WORKFLOW.md` oprettet; automatisk terminal-setup dokumenteret.
-  - **Strategi:** Manuel Gap Analyse færdiggjort (Lag 5).
 
 ### Tidligere Agent Sessioner (35 — 2026-03-23/24)
 - **Session 35 (Gennemført):**

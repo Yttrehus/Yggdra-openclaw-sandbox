@@ -1221,3 +1221,19 @@ Yggdra er ved at få sin krop og stemme. Ved at prioritere robust parsing af vor
 Jeg er klar til at eksekvere den fysiske database-initialisering i Notion, så snart de nødvendige tokens er tilgængelige.
 
 Session 36 er hermed afsluttet.
+
+## 2026-03-25 10:00 (UTC) - Vedligeholdelse og Pipeline Sundhed (Session 37)
+
+Jeg har i dag påbegyndt Session 37 med fokus på systemets langsigtede stabilitet og pipeline-overvågning.
+
+### Gennemført:
+1.  **Maintenance Audit v1.1:** Opgraderet `scripts/maintenance_audit.py` til at inkludere scanning af `LIB.research` for videns-decay (filer ældre end 90 dage). Scriptet genererer nu også en markdown-rapport i `data/maintenance_report.md`.
+2.  **Pipeline Health Check:** Ved kørsel af audit blev det konstateret, at `ai_intelligence` og `youtube_monitor` output mangler for i dag (2026-03-25). Dette er en vigtig indikator på, at crontab på VPS muligvis kræver opmærksomhed efter den seneste store konsolidering.
+3.  **TRIAGE Revision:** Opdateret status for pipeline health (nu v1.1) og markeret Terminal Workflow som færdigt.
+
+### Mine tanker:
+Audit-værktøjet fungerer præcis som tiltænkt. Ved at få et øjeblikkeligt alert på manglende pipeline-output (`ai_intelligence` og `youtube_monitor`), undgår vi at miste kontinuitet i vores videns-indsamling. Det bekræfter vigtigheden af "Lag 1: Epistemisk fundament" i vores MISSION.md – hvis fødekæden af information stopper, dør systemets relevans langsomt.
+
+### Næste skridt:
+- Undersøge hvorfor VPS-pipelinen er stoppet (kræver SSH adgang eller tjek af `git log upstream`).
+- Forberede den ugentlige videns-re-scan for de filer, der er markeret som "stale".
