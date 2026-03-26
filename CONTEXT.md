@@ -6,14 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (42 — 2026-03-30)
-- **Session 42 (Gennemført):**
-  - **Situationsbevidsthed:** `scripts/voice_simulator.py` opgraderet med tids-bevidsthed (Lag 5).
-  - **Validering:** Systemet kan nu relatere fakta til relativ tid (f.eks. "lært for 2 dage siden").
-  - **Resultat:** Voice-interfacet er nu både faktuelt og tids-bevidst.
+### Seneste Agent Sessioner (43 — 2026-03-31)
+- **Session 43 (I gang):**
+  - **Rapportering:** `scripts/weekly_report.py` v1.0 oprettet og afviklet.
+  - **Audit:** `maintenance_audit.py` bekræfter yderligere pipeline decay (`fact_extraction` STALE).
+  - **Status:** Første ugerapport for 2026 Uge 13 genereret i `memory/weekly_reports/`.
 
-### Tidligere Agent Sessioner (41 — 2026-03-29)
-- **Session 41 (Gennemført):**
+### Tidligere Agent Sessioner (42 — 2026-03-30)
+- **Session 42 (Gennemført):**
 
 ### Tidligere Agent Sessioner (40 — 2026-03-27)
 - **Session 40 (Gennemført):**

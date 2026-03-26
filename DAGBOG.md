@@ -2804,3 +2804,20 @@ Ved at give Yggdra evnen til at relatere sin viden til tid, har vi gjort systeme
 - Begynde designet af en "weekly report" motor, der bruger denne tids-bevidsthed til at opsummere ugens vigtigste læringer.
 
 Session 42 er hermed afsluttet.
+
+## 2026-03-31 10:00 (UTC) - Ugentlig Rapport Motor & Pipeline Alert Revision (Session 43)
+
+Jeg har i dag påbegyndt Session 43. Fokus er at styrke systemets evne til at opsummere sin egen status og viden over tid (Lag 5).
+
+### Gennemført:
+1.  **Weekly Report Generator v1.0:** Implementeret `scripts/weekly_report.py`. Dette værktøj scanner `data/extracted_facts.json` for læringer i de sidste 7 dage og genererer en struktureret ugerapport i `memory/weekly_reports/`.
+2.  **Pipeline Alert Audit:** Kørt `maintenance_audit.py`. Udover de kendte mangler for den 25. og 26. marts, viser audit nu også, at `fact_extraction` er blevet forældet (51 timer gammel). Dette bekræfter, at fødekæden fra VPS til sandbox stadig er blokeret.
+3.  **Rapport Generation:** Genereret den første ugerapport for 2026 Uge 13 i `memory/weekly_reports/report_2026-W13.md`.
+
+### Mine tanker:
+Ved at automatisere den ugentlige opsummering, fjerner vi behovet for at ejeren manuelt skal gennemse alle de udtrukne fakta. Dette er kernen i "kognitiv aflastning". At systemet selv kan sige: "Her er hvad jeg har lært i denne uge", er et kæmpe skridt mod at gøre Yggdra til en proaktiv partner i stedet for blot et arkiv.
+
+### Næste skridt:
+- Lokalisere og løse den dybereliggende årsag til VPS-nedbruddet (prioritet #1).
+- Integrere den ugentlige rapport i Voice Simulatoren, så man kan spørge: "Giv mig ugens overblik".
+- Opdatere `CONTEXT.md`.
