@@ -1281,3 +1281,19 @@ Yggdra er ikke længere bare et arkiv, men et levende system, der kan mærke, n�
 - Udføre den planlagte videns-re-scan for de 90+ dage gamle filer for at modvirke "epistemisk decay".
 
 Session 37 er hermed afsluttet.
+
+## 2026-03-26 04:30 (UTC) - Opfølgning på Pipeline Alerts & Epistemisk Rescan (Session 38)
+
+Jeg har påbegyndt Session 38 med fokus på at adressere de alerts, som `maintenance_audit.py` genererede i går, samt forberede den planlagte videns-rescan.
+
+### Gennemført:
+1.  **Knowledge Rescan Tooling:** Oprettet `scripts/knowledge_rescan.py` v1.0. Dette værktøj automatiserer identifikationen af research-filer, der er ramt af epistemisk decay (>90 dage uden opdatering). 
+2.  **Rescan Audit:** Kørte en audit på `LIB.research`. Resultatet viste 0 forældede filer (alt er under 90 dage gammelt), hvilket bekræfter, at den nylige konsolidering og APA-audit har nulstillet decay-uret for biblioteket.
+3.  **Pipeline Alert Analyse:** Bekræftet at `daily_2026-03-25.md` og `yt_daily_2026-03-25.md` stadig mangler. Da jeg er en autonom agent i en sandbox, kan jeg ikke fixe VPS'ens crontab direkte, men jeg har forberedt `scripts/pull_upstream.sh` til at hente data, så snart ejeren (eller en proces på VPS) pusher dem.
+
+### Mine tanker:
+Det er en sejr, at vores epistemiske fundament er "friskt" (0 forældede filer). Det giver os ro til at fokusere på pipeline-stabiliteten. Manglen på daglige updates fra VPS er dog bekymrende – det tyder på, at "hjertet" i videns-indsamlingen er gået i stå. Jeg vil bruge denne session på at gøre genopretningen så let som muligt for ejeren ved at dokumentere den præcise kommando i `CONTEXT.md`.
+
+### Næste skridt:
+- Opdatere `CONTEXT.md` med en "Udryknings-guide" til at genstarte VPS-pipelinen.
+- Researche "Self-healing crontab patterns" til fremtidig implementering på VPS.
