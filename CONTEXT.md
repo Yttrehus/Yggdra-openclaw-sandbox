@@ -6,14 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (39 — 2026-03-26)
-- **Session 39 (Gennemført):**
-  - **Notion:** `notion_sync.py` opgraderet med `--dry-run` og JSON-rapport.
-  - **Validering:** Succesfuld test af status-ekstraktion for aktive projekter.
-  - **Resultat:** Broen til Notion er nu teknisk klar til live-aktivering (Lag 4).
+### Seneste Agent Sessioner (40 — 2026-03-27)
+- **Session 40 (I gang):**
+  - **Voice:** `scripts/voice_simulator.py` v1.0 oprettet og testet.
+  - **Validering:** Bekræftelse af "Thinking out loud" og chunk-baseret respons (300ms Rule).
+  - **Mål:** Implementering af voice-kadence og persona i praksis.
 
-### Tidligere Agent Sessioner (38 — 2026-03-26)
-- **Session 38 (Gennemført):**
+### Tidligere Agent Sessioner (39 — 2026-03-26)
+- **Session 39 (Gennemført):**
 
 ### Tidligere Agent Sessioner (37 — 2026-03-25)
 - **Session 37 (Gennemført):**
