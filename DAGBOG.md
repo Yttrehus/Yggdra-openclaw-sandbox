@@ -1566,3 +1566,22 @@ Guiden is precise and comprehensive. It addresses VPS status, manual execution, 
 All systems are in a "hold" state until knowledge continuity is restored.
 
 Session 38 is officially finished.
+
+## 2026-03-27 05:00 (UTC) - Afslutning af Session 38: Akut Pipeline Recovery
+
+I have in this session managed to prepare all procedures to resolve the now-confirmed 2-day pipeline outage.
+
+### Key Results:
+1.  **Recovery Framework:** Created `0_backlog/04.VPS_RECOVERY_GUIDE.md` v1.0, which provides the owner with a direct "recipe" to restart the VPS's knowledge collection and synchronize it with this sandbox.
+2.  **Epistemic Health Check:** Developed and executed `scripts/knowledge_rescan.py` v1.0. The audit shows that our research library (`LIB.research`) is 100% fresh (< 90 days), giving us peace of mind to focus on pipeline stability.
+3.  **Confirmed Pipeline Outage:** Confirmed that the feed for both March 25th and 26th has stopped. It is now a known and documented "blocking issue" for the system's real-time knowledge.
+
+### My Thoughts:
+Yggdra is now in a state where it actively "calls for help" (via audits), but has simultaneously handed the owner the exact tools to solve the problem. This is the essence of a "personal cognitive exoskeleton" – removing friction even when things fail.
+
+### Next Steps:
+- The owner follows the recovery guide on the VPS.
+- After sync, run `scripts/pull_upstream.sh` to incorporate the missing data.
+- Thereafter, normal maintenance tasks (Notion Sync v2 initialization) are resumed.
+
+Session 38 is officially finished.
