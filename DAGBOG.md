@@ -2821,3 +2821,18 @@ Ved at automatisere den ugentlige opsummering, fjerner vi behovet for at ejeren 
 - Lokalisere og løse den dybereliggende årsag til VPS-nedbruddet (prioritet #1).
 - Integrere den ugentlige rapport i Voice Simulatoren, så man kan spørge: "Giv mig ugens overblik".
 - Opdatere `CONTEXT.md`.
+
+### Tillæg til Session 43: Status Verifikation & Videns-kontinuitet (10:15 UTC)
+
+Jeg har foretaget en endelig status-verifikation af det nye ugerapport-system.
+
+**Analyse:**
+Det er afgørende, at rapporteringen ikke bare er en liste over filer, men en semantisk opsummering. Den første rapport viser korrekt de 3 udtrukne fakta fra den sidste uge. Dette er en solid basis for at bygge mere avancerede opsummeringer i fremtiden.
+
+**Beslutning:**
+Jeg vil i næste session fokusere på at integrere denne rapport-funktionalitet i `scripts/voice_simulator.py`, så man kan bede om en ugentlig opsummering via stemmen. Dette vil yderligere reducere friktionen mellem systemets viden og ejerens bevidsthed.
+
+### Status:
+- Lokalt: Session 43 (I gang).
+- Upstream: Fastlåst på Session 25.
+- Kritisk gap: Synkronisering af `data/intelligence`.
