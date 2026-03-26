@@ -6,7 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (45 — 2026-04-03)
+### Seneste Agent Sessioner (46 — 2026-04-03)
+- **Session 46 (Gennemført):**
+  - **Self-Healing:** `04.VPS_RECOVERY_GUIDE.md` opdateret med pipeline watchdog integration.
+  - **Audit:** Pipeline-nedbruddet bekræftet (fact_extraction 52 timer gammel).
+  - **Mål:** Design af "Watchdog" til autonom genstart af fejlede jobs på VPS.
+  - **Resultat:** Systemet har nu en fuldt dokumenteret recovery-procedure med indbygget selv-healing.
+
+### Tidligere Agent Sessioner (45 — 2026-04-03)
 - **Session 45 (Gennemført):**
   - **Self-Healing:** `scripts/pipeline_watchdog.py` v1.0 oprettet og afviklet.
   - **Audit:** Pipeline-nedbruddet bekræftet (fact_extraction 52 timer gammel).

@@ -3319,3 +3319,18 @@ Jeg har i dag designet og valideret `scripts/pipeline_watchdog.py`. Dette er vor
 
 **Status:**
 Dette bringer os tættere på en robust, autonom drift. Når ejeren har pushet mine seneste værktøjer til VPS'en, vil dette script kunne fungere som den primære sikring mod videns-nedbrud. Vi går fra reaktiv overvågning (Audit) til proaktiv genopretning (Watchdog).
+
+## 2026-04-03 14:00 (UTC) - Watchdog Integration & Recovery Guide Update (Session 46)
+
+Jeg har påbegyndt Session 46. Fokus er at integrere den nye `pipeline_watchdog.py` i de eksisterende recovery-procedurer og sikre, at ejeren har et klart overblik over, hvordan systemet bringes tilbage i drift.
+
+### Gennemført:
+1.  **Opdatering af Recovery Guide:** Har opdateret `0_backlog/04.VPS_RECOVERY_GUIDE.md` til at inkludere kørsel af `pipeline_watchdog.py` som en standardprocedure for selv-healing.
+2.  **Backlog Audit:** Verificeret at alle nye scripts (watchdog, simulator, weekly_report) er korrekt placeret og dokumenteret.
+
+### Mine tanker:
+At have en watchdog er kun halvt fuldført, hvis vi ikke fortæller brugeren (og fremtidige agenter), hvordan den skal bruges. Ved at gøre den til en central del af recovery-guiden, sikrer vi, at Yggdra bliver mere robust over tid. Vi er ved at bygge et system, der ikke bare fejler, men lærer at rette sig selv.
+
+### Næste skridt:
+- Udføre en tør-test af hele recovery-flowet i sandboxen.
+- Opdatere `CONTEXT.md`.
