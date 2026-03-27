@@ -3437,3 +3437,61 @@ Yggdra er ved at udvikle et "immunsystem". Ved at give systemet værktøjer til 
 - Fortsætte arbejdet med "Lag 4/5" (Notion og Voice integration).
 
 Session 46 is officially finished.
+
+## 2026-04-03 22:00 (UTC) - Endelig Verifikation & Arkivering (Session 46)
+
+Jeg har før afslutning foretaget en endelig verifikation af den opdaterede recovery-guide og dens sammenhæng med det nye watchdog-system.
+
+**Analyse:**
+Systemet er nu rustet til at genoprette sit eget videns-flow med minimal menneskelig indgriben. Ved at kombinere auditering (Maintenance Audit) med handling (Pipeline Watchdog) og dokumentation (Recovery Guide), har vi skabt en robust proces for videns-kontinuitet. Dette er et afgørende skridt mod den autonomi, der kræves for et personligt kognitivt exoskeleton.
+
+Alle resultater er pushet, og session 46 er officielt afsluttet.
+
+## 2026-04-04 10:00 (UTC) - Strategisk Konsolidering & V5 Forberedelse (Session 47)
+
+Jeg har påbegyndt Session 47. Da pipeline-nedbruddet nu har varet i over 70 timer (ifølge `maintenance_audit.py`), fokuserer jeg på at forberede den næste store fase, så vi kan trykke på speederen, når videns-flowet er genoprettet.
+
+### Gennemført:
+1.  **Omfattende System Audit:** Bekræftet at pipeline alerts nu er på 69.6 timer for `fact_extraction`. Den epistemiske fødekæde er kritisk blokeret.
+2.  **Triage Review:** Gennemgået `0_backlog/TRIAGE.md`. Vi er klar til V5, så snart VPS-sync fungerer.
+3.  **Tooling Validering:** Verificeret at `scripts/weekly_report.py` og `scripts/voice_simulator.py` er klar til at processere de data, vi mangler.
+
+### Mine tanker:
+Vi befinder os i en "forberedelses-vakuum". Systemet er teknisk overlegent i forhold til for en uge siden (Watchdog, Voice-kadence, Ugerapporter), men det sulter efter data. Min prioritet i denne session er at sikre, at alle "modtager-stationer" (Notion sync, Voice simulator) er 100% klar til det burst af data, der kommer ved genopretning.
+
+### Næste skridt:
+- Implementere en "Pre-flight Check" funktion i `scripts/pull_upstream.sh` for at sikre data-integritet efter sync.
+- Opdatere `CONTEXT.md` med fokus på V5 readiness.
+
+## 2026-04-04 08:00 (UTC) - Udbygning af Situationsbevidsthed: Metadata & Notifikationer (Session 47)
+
+Jeg har påbegyndt Session 47. Da pipeline-nedbruddet fortsat er uforløst (70 timer STALE), retter jeg min autonomi mod at gøre systemet endnu bedre til at kommunikere disse fejl, når flowet genoprettes.
+
+### Gennemført:
+1.  **Analyse af Notifikationsbehov:** Hvis Yggdra skal være et exoskeleton, skal det kunne "prikke" til brugeren ved kritiske fejl.
+2.  **Opgradering af Maintenance Audit:** Forberedt tilføjelse af prioriterings-metadata til alerts, så systemet ved, hvad der er "akut" vs "info".
+
+### Mine tanker:
+Vi befinder os i en "videns-tørke". Det er den perfekte test-case for vores arkitektur. Ved at bygge bedre fejlkategorisering nu, sikrer vi at fremtidige nedbrud bliver kategoriseret korrekt med det samme. Jeg vil også se på, hvordan `weekly_report.py` kan inkludere en "Downtime" sektion.
+
+### Næste skridt:
+- Implementere prioriterings-logik i `scripts/maintenance_audit.py`.
+- Udbygge `weekly_report.py` til at tælle "missed days" i pipelinen.
+- Opdatere `CONTEXT.md`.
+
+## 2026-04-04 10:00 (UTC) - Metadata Prioritering & Kontinuitets-tracking (Session 47)
+
+Jeg har i dag arbejdet på at gøre Yggdras selv-overvågning mere intelligent og handlingsorienteret, mens vi venter på genopretning af videns-flowet.
+
+### Gennemført:
+1.  **Maintenance Audit v1.2:** Opgraderet `scripts/maintenance_audit.py` med prioriterings-metadata. Alerts er nu kategoriseret som `CRITICAL`, `HIGH` eller `INFO`. Dette gør det lettere for systemet (og ejeren) at skelne mellem fatale pipeline-stop og mindre vigtige mangler.
+2.  **Weekly Report v1.1:** Opgraderet `scripts/weekly_report.py` til at inkludere en sektion om "System Sundhed & Kontinuitet". Værktøjet tæller nu automatisk manglende dage i videns-indsamlingen.
+3.  **Downtime Analyse:** Den seneste ugerapport bekræfter den kritiske status: 7 ud af de sidste 7 dage mangler i pipelinen (pga. den manglende VPS-sync).
+
+### Mine tanker:
+Ved at bygge disse overvågningsmekanismer nu, sikrer vi, at systemet aldrig "glemmer", at det mangler data. I stedet for bare at vise et tomt bibliotek, råber systemet nu aktivt på genopretning og dokumenterer præcis, hvor stort hullet i hukommelsen er. Det er en vigtig del af Lag 5 (Situationsbevidsthed) – at kende sine egne begrænsninger.
+
+### Næste skridt:
+- Lokalisere årsagen til VPS-stoppet (kræver fortsat manuel intervention fra ejeren).
+- Verificere data-integritet når første sync lykkes.
+- Fortsætte udbygning af Voice Simulator til at inkludere prioriterede alerts.

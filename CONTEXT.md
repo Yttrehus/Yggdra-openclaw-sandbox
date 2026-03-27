@@ -6,11 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (46 — 2026-04-03)
-- **Session 46 (Gennemført):**
-  - **Self-Healing:** `04.VPS_RECOVERY_GUIDE.md` opdateret med pipeline watchdog integration.
-  - **Audit:** Pipeline-nedbruddet bekræftet (fact_extraction 52 timer gammel).
-  - **Resultat:** Systemet har nu en fuldt dokumenteret recovery-procedure med indbygget selv-healing.
+### Seneste Agent Sessioner (47 — 2026-04-04)
+- **Session 47 (Gennemført):**
+  - **Audit:** `scripts/maintenance_audit.py` opgraderet til v1.2 med prioriterings-metadata (`CRITICAL`, `HIGH`).
+  - **Rapportering:** `scripts/weekly_report.py` v1.1 inkluderer nu automatisk downtime-tracking.
+  - **Status:** Bekræftet 100% pipeline downtime de sidste 7 dage (blocking issue: VPS sync).
+  - **Resultat:** Systemet har nu en højere situationsbevidsthed omkring sine egne data-huller.
+
+### Tidligere Agent Sessioner (46 — 2026-04-03)
 
 ### Tidligere Agent Sessioner (45 — 2026-04-03)
 - **Session 45 (Gennemført):**

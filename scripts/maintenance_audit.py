@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Maintenance Audit v1.1
+Maintenance Audit v1.2
 Fokus: Pipeline-sundhed, prisændringer og videns-decay.
-Nu med forbedret integration og Telegram-notifikation via OpenClaw hooks.
+Nu med prioriterings-metadata for alerts.
 """
 
 import os
@@ -19,11 +19,11 @@ _PROJECT_ROOT = os.path.dirname(_SCRIPT_DIR)
 INTELLIGENCE_DIR = os.path.join(_PROJECT_ROOT, "data/intelligence")
 STATE_FILE = os.path.join(_PROJECT_ROOT, "data/maintenance_state.json")
 
-# Udvidelse 4: Pipeline Health Monitor
+# Udvidelse 4: Pipeline Health Monitor (v1.2 with Priorities)
 PIPELINE_EXPECTATIONS = {
-    "ai_intelligence": {"pattern": "daily_{date}.md", "max_age_hours": 28, "dir": INTELLIGENCE_DIR},
-    "youtube_monitor": {"pattern": "yt_daily_{date}.md", "max_age_hours": 28, "dir": INTELLIGENCE_DIR},
-    "fact_extraction": {"pattern": "extracted_facts.json", "max_age_hours": 48, "dir": os.path.join(_PROJECT_ROOT, "data")}
+    "ai_intelligence": {"pattern": "daily_{date}.md", "max_age_hours": 28, "dir": INTELLIGENCE_DIR, "priority": "CRITICAL"},
+    "youtube_monitor": {"pattern": "yt_daily_{date}.md", "max_age_hours": 28, "dir": INTELLIGENCE_DIR, "priority": "HIGH"},
+    "fact_extraction": {"pattern": "extracted_facts.json", "max_age_hours": 48, "dir": os.path.join(_PROJECT_ROOT, "data"), "priority": "CRITICAL"}
 }
 
 def load_state():
@@ -46,8 +46,10 @@ def check_pipeline_health():
     for name, cfg in PIPELINE_EXPECTATIONS.items():
         pattern = cfg["pattern"]
         directory = cfg["dir"]
+        priority = cfg.get("priority", "INFO")
         
         # Check today, then yesterday for dated files
+        path = None
         if "{date}" in pattern:
             path = Path(directory) / pattern.format(date=today_str)
             if not path.exists():
@@ -55,22 +57,20 @@ def check_pipeline_health():
         else:
             path = Path(directory) / pattern
             
-        if path.exists():
+        if path and path.exists():
             mtime = datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc)
             age_hours = (now - mtime).total_seconds() / 3600
             if age_hours > cfg["max_age_hours"]:
-                findings.append(f"[ALERT] {name} is STALE ({age_hours:.1f}h old)")
+                findings.append(f"[{priority}] {name} is STALE ({age_hours:.1f}h old)")
             else:
                 print(f"[OK] {name} is healthy ({age_hours:.1f}h old)")
         else:
-            findings.append(f"[ALERT] {name} output MISSING ({path.name})")
+            findings.append(f"[{priority}] {name} output MISSING ({path.name if path else pattern})")
     
     return findings
 
 def check_knowledge_decay():
     print("\n--- Checking Knowledge Decay ---")
-    # Simulation af decay tracking
-    # I en fuld version ville vi scanne LIB.research mapperne for fil-alder
     now = datetime.now(timezone.utc)
     research_dir = Path(_PROJECT_ROOT) / "LIB.research"
     stale_files = []
