@@ -3495,3 +3495,53 @@ Ved at bygge disse overvågningsmekanismer nu, sikrer vi, at systemet aldrig "gl
 - Lokalisere årsagen til VPS-stoppet (kræver fortsat manuel intervention fra ejeren).
 - Verificere data-integritet når første sync lykkes.
 - Fortsætte udbygning af Voice Simulator til at inkludere prioriterede alerts.
+
+## 2026-04-05 09:30 (UTC) - Strategisk Gren-isolation & Sync Forberedelse (Session 48)
+
+Jeg har påbegyndt Session 48. En test-kørsel af `scripts/pull_upstream.sh` resulterede i omfattende merge-konflikter pga. store strukturelle ændringer i denne sandbox (Taxonomy migration) vs upstream.
+
+### Gennemført:
+1.  **Branch Isolation:** Har oprettet grenen `feature/v5-ready`. Dette sikrer, at vi kan arbejde videre på V5 funktionalitet uden at ødelægge main-branchen før en kontrolleret merge.
+2.  **Pull Upstream Upgrade:** Opgraderet `scripts/pull_upstream.sh` til v1.1 med Pre-flight checks.
+3.  **Konflikt-Analyse:** Identificeret at upstream stadig opererer i den gamle `projects/` struktur, hvilket kræver en manuel "translation layer" ved merge.
+
+### Mine tanker:
+Vi er nået til et punkt, hvor sandboxen er løbet fra master-repoet arkitektonisk. Det er et sundhedstegn, men kræver disciplin. Ved at flytte til en feature-branch beskytter vi vores fremskridt (Watchdog, Voice Simulator, Ugerapporter), mens vi venter på at ejeren opdaterer VPS til den nye struktur.
+
+### Næste skridt:
+- Lokalisere årsagen til at `daily_` filer stadig mangler trods sync forsøg.
+- Forberede en "Structural Merge Guide" til ejeren.
+- Fortsætte udbygning af Voice Simulator (Lag 5 tids-bevidsthed).
+
+## 2026-04-05 14:00 (UTC) - Merge-strategi og Strukturel Oversættelse (Session 48)
+
+Jeg har i denne session adresseret den voksende tekniske gæld mellem sandboxen og upstream repoet, som blev tydelig under det fejlede merge-forsøg tidligere i dag.
+
+### Gennemført:
+1.  **Merge Translator v1.0:** Har bygget `scripts/merge_translator.py`. Dette værktøj er designet til at løse "file location" konflikter ved automatisk at flytte filer fra den gamle `projects/` struktur til vores nye flade taksonomi (LIB.research, 0_backlog osv.).
+2.  **Branch Management:** Bekræftet isolation i `feature/v5-ready`. Dette er nu vores primære udviklingsgren, indtil upstream er synkroniseret med vores arkitektur.
+3.  **Audit af Videns-gab:** Bekræftet via `pull_upstream.sh` v1.1, at de faktiske videns-filer (`daily_*.md`) stadig udebliver fra upstream, hvilket betyder at problemet på VPS'en er dybere end blot en manglende push.
+
+### Mine tanker:
+Vi har nu skabt de nødvendige værktøjer til at håndtere den strukturelle divergens. Sandboxen fungerer som et "fremtids-laboratorium", og med `merge_translator.py` har vi bygget broen tilbage til ejerens nuværende setup. Det er en nødvendig forsikring for at undgå manuelt merge-kaos.
+
+### Næste skridt:
+- Udbygge `scripts/pull_upstream.sh` til at køre `merge_translator.py` automatisk efter et fetch.
+- Forberede en status-rapport til ejeren med fokus på VPS-nedbruddet (som nu har varet i 79 timer).
+- Fortsætte udbygning af Voice Simulator (tids-bevidsthed).
+
+## 2026-04-05 16:30 (UTC) - Automatisering af Strukturel Merge (Session 48)
+
+Jeg har færdiggjort designet af den automatiserede merge-proces, der skal bygge bro mellem sandboxens nye flade taksonomi og upstream's ældre struktur.
+
+### Gennemført:
+1.  **Pull Upstream v1.2:** Har opgraderet `scripts/pull_upstream.sh` til automatisk at trigge `merge_translator.py`, hvis der opstår konflikter ved merge. Dette sikrer en semi-autonom genopretning af videns-flowet.
+2.  **Rapport Verificering:** Ugerapporten for W13 er nu genereret med den nye downtime-logik. Den viser sort på hvidt det kritiske behov for genopretning (7/7 dage mangler).
+3.  **Branch State:** Alt arbejde fortsætter i `feature/v5-ready` for at beskytte sandbox-integriteten.
+
+### Mine tanker:
+Vi har nu skabt et "selv-reparerende" link til master-repoet. Selvom vi har omstruktureret hele projektet her i sandboxen, kan vi nu trække nye data ned uden at skulle løse 20+ manuelle "file moved" konflikter hver gang. Det gør os klar til det øjeblik, ejeren genstarter VPS-pipelinen.
+
+### Næste skridt:
+- Push ændringer til `feature/v5-ready`.
+- Fortsætte med de planlagte Lag 5 forbedringer (Voice tids-bevidsthed).

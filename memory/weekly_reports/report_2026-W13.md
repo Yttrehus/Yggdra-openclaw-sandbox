@@ -5,10 +5,12 @@
 - Retrieval Engine v2.1 med temporal decay og evergreen protection er aktiv. *(Kilde: 2026-03-15)*
 - Systemet detekterede encoding-støj i chatlog.md under Session 35. *(Kilde: 2026-03-15)*
 
-## 🛠 System Status
-- Pipeline: Se data/maintenance_report.md for detaljer.
-- Memory: Retrieval Engine v2.1 er stabil.
+## 🛠 System Sundhed & Kontinuitet
+- **Status:** ⚠️ PIPELINE DOWNTIME DETEKTERET
+- **Manglende dage:** 7 ud af de sidste 7 dage.
+- **Anbefaling:** Følg `04.VPS_RECOVERY_GUIDE.md` straks.
 
 ## 🎯 Næste Skridt
-- Løs pipeline alerts på VPS.
-- Initialisér Notion database.
+- **PRIORITET:** Genopret VPS videns-flow.
+- Vedligehold `LIB.research` evergreen status.
+- Forbered V5 Situationsbevidsthed udrulning.
