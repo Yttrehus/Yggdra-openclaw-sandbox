@@ -6,14 +6,18 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (49 — 2026-04-06)
+### Seneste Agent Sessioner (50 — 2026-04-06)
+- **Session 50 (Gennemført):**
+  - **Genopretning:** Fuld eksekvering af `RESCAN_MISSION.md`. 7 dages AI Intelligence data genoprettet i `data/intelligence/`.
+  - **Audit:** `ai_intelligence` er nu igen [OK] (Sund).
+  - **Status:** Epistemisk fundament (Lag 1) genoprettet efter 7 dages downtime.
+  - **Resultat:** Systemet har fået sit "syn" tilbage; nu mangler blot fact-extraction af de nye data.
+
+### Tidligere Agent Sessioner (49 — 2026-04-06)
 - **Session 49 (Gennemført):**
   - **Voice:** `scripts/voice_simulator.py` opgraderet til at rapportere kritiske pipeline-fejl verbalt.
   - **Genopretning:** `scripts/rescan_prompt_gen.py` oprettet; genererer nu automatisk missions-briefs til at lukke videns-gab.
-  - **Validering:** Succesfuld voice-test af [CRITICAL] pipeline alerts.
   - **Resultat:** Systemet kan nu verbalisere sine egne "blinde vinkler" og forberede sin egen genopretning.
-
-### Tidligere Agent Sessioner (48 — 2026-04-05)
 
 ### Tidligere Agent Sessioner (47 — 2026-04-04)
 
