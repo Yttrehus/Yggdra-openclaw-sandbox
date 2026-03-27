@@ -3545,3 +3545,38 @@ Vi har nu skabt et "selv-reparerende" link til master-repoet. Selvom vi har omst
 ### Næste skridt:
 - Push ændringer til `feature/v5-ready`.
 - Fortsætte med de planlagte Lag 5 forbedringer (Voice tids-bevidsthed).
+
+## 2026-04-05 18:00 (UTC) - Afslutning af Session 48: Strukturel Robusthed
+
+Session 48 er hermed afsluttet. Vi har i dag sikret sandboxens arkitektoniske integritet gennem strategisk branching og automatiserede værktøjer.
+
+### Hovedresultater:
+1.  **Isolations-arkitektur:** Ved at flytte alt arbejde til `feature/v5-ready` har vi beskyttet vores fremskridt (Watchdog, Voice Simulator) mod at blive overskrevet af upstream's ældre mappestruktur.
+2.  **Autonom Merge Translator:** Bygget `scripts/merge_translator.py`, der automatisk løser konflikter ved at flytte data til vores nye taksonomi. Dette fjerner behovet for manuelt merge-arbejde ved hver sync.
+3.  **Downtime Bevidsthed:** Den nye ugerapport (W13) dokumenterer officielt den 100% downtime, vi har oplevet, hvilket danner det formelle grundlag for den næste recovery-fase.
+
+### Mine tanker:
+Yggdra har i dag fået evnen til at "oversætte" mellem sin fortid (upstream) og sin fremtid (sandbox). Selvom vi stadig sulter efter data, er vi nu strukturelt og logisk forberedte på det øjeblik, sluserne åbnes igen. Det er denne form for arkitektonisk robusthed, der adskiller et personligt kognitivt exoskeleton fra et almindeligt projekt.
+
+### Næste skridt:
+- Fortsætte i `feature/v5-ready` med udbygning af Voice Simulator.
+- Begynde design af en "Re-scan Prompt Generator", der kan genoprette det epistemiske fundament efter den lange downtime.
+
+Session 48 er hermed afsluttet.
+
+## 2026-04-06 10:00 (UTC) - Epistemisk Genopretning & Voice Health Integration (Session 49)
+
+Jeg har i denne session fokuseret på at transformere vores systemovervågning fra passive logfiler til proaktive, verbale advarsler og konkrete genopretnings-missioner.
+
+### Gennemført:
+1.  **Voice Health Integration:** Opgraderet `scripts/voice_simulator.py` til automatisk at inkludere kritiske pipeline-fejl i stemme-responsen. Hvis ejeren spørger om status eller sundhed, læser systemet nu de mest akutte [CRITICAL] og [HIGH] alerts op.
+2.  **Rescan Prompt Generator v1.0:** Implementeret `scripts/rescan_prompt_gen.py`. Dette værktøj analyserer "hullerne i hukommelsen" (manglende `daily_` filer) og genererer en målrettet LLM-mission (`0_backlog/RESCAN_MISSION.md`) til at lukke disse huller retroaktivt.
+3.  **Live Validering:** Succesfuldt testet voice-advarslen om de manglende marts-filer. Systemet kan nu verbalt guide ejeren mod recovery-guiden.
+
+### Mine tanker:
+Yggdra er nu bevidst om sine egne "blinde vinkler". Ved at lade systemet verbalisere sine egne fejl, fjerner vi behovet for at ejeren skal kigge i terminal-logs. Det er et bevis på, at vi bygger et exoskeleton, der passer på sig selv. Den genererede `RESCAN_MISSION.md` gør det muligt for enhver fremtidig agent (eller ejeren selv) at genoprette videns-kontinuiteten på få minutter.
+
+### Næste skridt:
+- Eksekvere den genererede Rescan-mission, så snart adgang til søgeværktøjer er bekræftet.
+- Udbygge `weekly_report.py` til at inkludere "Recovery Progress".
+- Opdatere `CONTEXT.md`.

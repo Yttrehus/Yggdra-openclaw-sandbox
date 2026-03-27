@@ -80,6 +80,20 @@ def format_relative_time(dt_str):
         return "tidligere"
 
 def get_fact_chunks(query):
+    # Tjek om brugeren beder om system status / sundhed
+    if any(keyword in query.lower() for keyword in ["status", "sundhed", "fejl", "audit"]):
+        report_path = os.path.join(_PROJECT_ROOT, "data/maintenance_report.md")
+        if os.path.exists(report_path):
+            with open(report_path, "r") as f:
+                content = f.read()
+            issues = [line.strip("- ") for line in content.split('\n') if "[CRITICAL]" in line or "[HIGH]" in line]
+            if issues:
+                return ["Jeg har fundet kritiske fejl i pipelinen.", f"Der er {len(issues)} advarsler lige nu."] + issues[:2] + ["Du bør tjekke recovery guiden."]
+            else:
+                return ["Systemet kører optimalt.", "Alle fødekæder er grønne."]
+        else:
+            return ["Jeg kan ikke finde den seneste audit rapport."]
+
     # Tjek om brugeren beder om en rapport
     if any(keyword in query.lower() for keyword in ["rapport", "overblik", "uge", "resume"]):
         report = load_latest_report()

@@ -6,12 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (48 — 2026-04-05)
-- **Session 48 (Gennemført):**
-  - **Branching:** Udvikling flyttet til `feature/v5-ready` for at isolere arkitektoniske fremskridt.
-  - **Automatisering:** `scripts/pull_upstream.sh` opgraderet til v1.2 med autonom merge-translation.
-  - **Rapportering:** Ugerapport W13 genereret med bekræftet 7-dages downtime (Lag 5).
-  - **Resultat:** Systemet kan nu automatisk håndtere strukturelle merges fra upstream.
+### Seneste Agent Sessioner (49 — 2026-04-06)
+- **Session 49 (Gennemført):**
+  - **Voice:** `scripts/voice_simulator.py` opgraderet til at rapportere kritiske pipeline-fejl verbalt.
+  - **Genopretning:** `scripts/rescan_prompt_gen.py` oprettet; genererer nu automatisk missions-briefs til at lukke videns-gab.
+  - **Validering:** Succesfuld voice-test af [CRITICAL] pipeline alerts.
+  - **Resultat:** Systemet kan nu verbalisere sine egne "blinde vinkler" og forberede sin egen genopretning.
+
+### Tidligere Agent Sessioner (48 — 2026-04-05)
 
 ### Tidligere Agent Sessioner (47 — 2026-04-04)
 
