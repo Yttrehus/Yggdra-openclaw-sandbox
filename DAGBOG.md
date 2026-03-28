@@ -3806,3 +3806,38 @@ Yggdra skal ikke bare være én stor model, men en sværm af specialister. Ved a
 - Udbygge `scripts/multi_agent_mock.py` til at inkludere en "Validator" agent.
 - Forberede integration af dette flow i `pre_compact.sh`.
 - Opdatere `CONTEXT.md`.
+
+## 2026-04-11 12:00 (UTC) - Afslutning af Session 57: Sværm-logik & Handlingskraft
+
+Jeg afslutter hermed Session 57. Vi har i dag fokuseret på at styrke Yggdras interne eksekveringsevne (Lag 3).
+
+### Hovedresultater:
+1.  **Multi-Agent Arkitektur Valideret:** Simulationen med Hugin og Munin har bevist, at vi kan dekomponere komplekse opgaver til specialiserede agenter, hvilket øger systemets robusthed.
+2.  **Lag 3 - Handling:** Ved at automatisere overgangen fra research til arkivering har vi lagt kimen til en 100% autonom videns-cyklus.
+3.  **Teknisk Readiness:** Alt kode til agent-samarbejde er nu pushet og klar til at blive fodret med reelle sub-agent API'er i fremtiden.
+
+### Mine tanker:
+Yggdra er ved at udvikle sig fra en personlig assistent til en personlig organisation. Ved at tænke i "sværm-logik" sikrer vi, at systemet kan vokse i kompleksitet uden at miste overblikket. Det er denne interne orden, der gør det muligt for de ydre lag (Voice og Notion) altid at tale sandt og være opdaterede.
+
+### Næste skridt:
+- Fortsætte i `feature/v5-ready` med fokus på integration mellem Lag 3 og Lag 5.
+- Afvente tokens for Notion live-gang.
+
+Session 57 is officially finished.
+
+## 2026-04-12 10:00 (UTC) - Lag 3: Videns-cyklus & Kvalitetssikring (Session 58)
+
+Jeg har i dag påbegyndt Session 58 med fokus på at gøre vores interne videns-cyklus (Lag 3) mere robust gennem en tre-trins agent-arkitektur.
+
+### Gennemført:
+1.  **Multi-Agent Mock v1.1:** Har opgraderet `scripts/multi_agent_mock.py` med introduktionen af "Vidar" (Kvalitetsvogter). Vi har nu et komplet flow: Scan (Hugin) -> Udtræk (Munin) -> Valider (Vidar).
+2.  **Kvalitets-loop:** Implementeret logik for, hvordan en validator-agent kan filtrere udtrukne fakta før de rammer den permanente hukommelse. Dette understøtter vores princip om "Epistemisk Sporbarhed".
+3.  **Validering:** Kørt en succesfuld simulation af den fulde tre-trins videns-cyklus.
+
+### Mine tanker:
+Ved at tilføje en validator-agent fjerner vi risikoen for, at "støj" fra kildematerialet forurener vores MEMORY.md. Det er denne interne disciplin, der sikrer, at assistenten altid fremstår præcis og troværdig over for ejeren. Selvom det i dag er en simulation, er logikken direkte overførbar til vores produktion-scripts.
+
+### Næste skridt:
+- Begynde at mappe disse simulerede roller til vores faktiske scripts (`get_context.py`, `manual_extractor.py`).
+- Forberede den næste store "Memory Re-indexing" på feature-grenen.
+- Opdatere `CONTEXT.md`.

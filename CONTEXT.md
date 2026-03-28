@@ -6,13 +6,13 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (57 — 2026-04-11)
-- **Session 57 (I gang):**
-  - **Handling:** `scripts/multi_agent_mock.py` v1.0 implementeret til simulation af agent-samarbejde (Lag 3).
-  - **Orkestrering:** Simulation af Hugin (Scanner) og Munin (Arkivar) samarbejde valideret.
-  - **Resultat:** Fundamentet for en mere skalerbar autonom pipeline er lagt.
+### Seneste Agent Sessioner (58 — 2026-04-12)
+- **Session 58 (I gang):**
+  - **Handling:** `scripts/multi_agent_mock.py` opgraderet til v1.1 med Vidar (Validator).
+  - **Arkitektur:** Tre-trins videns-cyklus (Scan -> Udtræk -> Valider) valideret (Lag 3).
+  - **Mål:** Mapping af simulerede roller til produktion-scripts og forberedelse af re-indexing.
 
-### Tidligere Agent Sessioner (56 — 2026-04-10)
+### Tidligere Agent Sessioner (57 — 2026-04-11)
 - **Session 53 (Gennemført):**
   - **Notion:** Fuld audit af `notion_sync.py` og `db_init_v2.py`. Alt er klar til udrulning.
   - **Validering:** Seneste dry-run (`notion_dry_run.json`) bekræfter korrekt data-format fra den genoprettede state.

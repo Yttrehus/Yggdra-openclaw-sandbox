@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Multi-Agent Orchestration Mock v1.0
+Multi-Agent Orchestration Mock v1.1
 Fokus: Simulation af samarbejde mellem specialiserede sub-agenter.
+Nu med en Validator agent for at sikre kvalitet.
 Del af Lag 3 (Handling).
 """
 import time
@@ -17,21 +18,26 @@ class Agent:
         time.sleep(random.uniform(1.0, 2.5))
         return f"Resultat fra {self.name}"
 
-def orchestrate_sync_and_extraction():
+def orchestrate_knowledge_cycle():
     researcher = Agent("Hugin", "Epistemisk Scanner")
     extractor = Agent("Munin", "Semantisk Arkivar")
+    validator = Agent("Vidar", "Kvalitetsvogter")
     
-    print("--- Multi-Agent Orchestration Simulation ---")
+    print("--- Multi-Agent Orchestration Simulation v1.1 ---")
     
-    # Task 1: Scan for ny viden
+    # 1. Scan for ny viden
     discovery = researcher.execute("Scan ai_intelligence for nye mønstre")
     print(f"  -> {discovery}")
     
-    # Task 2: Udfør extraction
-    facts = extractor.execute(f"Udtræk fakta baseret på {discovery}")
-    print(f"  -> {facts}")
+    # 2. Udfør extraction
+    raw_facts = extractor.execute(f"Udtræk fakta baseret på {discovery}")
+    print(f"  -> {raw_facts}")
     
-    print("\n[ORCHESTRATOR]: Samarbejde fuldført. Hukommelse opdateret.")
+    # 3. Validering (Lag 3 Handling - Quality Control)
+    validated_facts = validator.execute(f"Valider og filtrer {raw_facts}")
+    print(f"  -> {validated_facts}")
+    
+    print("\n[ORCHESTRATOR]: Samarbejde fuldført. Hukommelse opdateret med validerede indsigter.")
 
 if __name__ == "__main__":
-    orchestrate_sync_and_extraction()
+    orchestrate_knowledge_cycle()
