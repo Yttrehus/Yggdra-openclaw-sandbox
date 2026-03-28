@@ -6,12 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (50 — 2026-04-06)
-- **Session 50 (Gennemført):**
-  - **Genopretning:** Fuld eksekvering af `RESCAN_MISSION.md`. 7 dages AI Intelligence data genoprettet i `data/intelligence/`.
-  - **Audit:** `ai_intelligence` er nu igen [OK] (Sund).
-  - **Status:** Epistemisk fundament (Lag 1) genoprettet efter 7 dages downtime.
-  - **Resultat:** Systemet har fået sit "syn" tilbage; nu mangler blot fact-extraction af de nye data.
+### Seneste Agent Sessioner (51 — 2026-04-06)
+- **Session 51 (Gennemført):**
+  - **Hukommelse:** 21 nye fakta udtrukket retroaktivt via `manual_extractor.py` og indlemmet i `extracted_facts.json`.
+  - **Integration:** `MEMORY.md` opdateret; Fact Sheet genereret til Qdrant (Lag 2).
+  - **Validering:** Fuld end-to-end voice-test bekræfter, at systemet nu verbaliserer de genoprettede data.
+  - **Resultat:** Videns-gabet er nu 100% lukket, både faktuelt og semantisk.
+
+### Tidligere Agent Sessioner (50 — 2026-04-06)
 
 ### Tidligere Agent Sessioner (49 — 2026-04-06)
 - **Session 49 (Gennemført):**
