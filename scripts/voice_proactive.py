@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Voice Proactive System v1.1
+Voice Proactive System v1.2
 Fokus: Generering af proaktive hilsner baseret på systemets situationsbevidsthed.
-Nu med Inactivity Triggers.
+Nu med Confidence Metrics og Inactivity Triggers.
 """
 import os
 import json
@@ -28,19 +28,27 @@ def get_system_summary():
             return "Jeg har detekteret nogle uregelmæssigheder i pipelinen, som vi bør kigge på."
     return "Jeg kunne ikke finde min seneste sundhedsrapport."
 
-def get_new_fact_count():
+def get_memory_stats():
+    """Beregner statistik for hukommelsens kvalitet."""
     if os.path.exists(FACTS_FILE):
         try:
             with open(FACTS_FILE, "r") as f:
                 facts = json.load(f)
-            return len(facts[-3:]) # Vi tager de 3 nyeste som "nye"
+            
+            if not facts:
+                return 0, 0.0
+            
+            count = len(facts)
+            confidences = [f.get('confidence', 0.0) for f in facts if 'confidence' in f]
+            avg_conf = (sum(confidences) / len(confidences)) * 100 if confidences else 0.0
+            
+            return count, avg_conf
         except:
-            return 0
-    return 0
+            return 0, 0.0
+    return 0, 0.0
 
 def check_project_inactivity():
     """Tjekker om vigtige projekter er 'stale'."""
-    # Simpelt proaktivt tip baseret på nuværende prioriteter
     return "Vi har genoprettet 7 dages data, men vi mangler stadig at initialisere Notion."
 
 def check_situational_mode():
@@ -55,13 +63,19 @@ def check_situational_mode():
 def generate_greeting():
     greeting = get_time_greeting()
     summary = get_system_summary()
-    facts_count = get_new_fact_count()
+    fact_count, avg_conf = get_memory_stats()
     inactivity = check_project_inactivity()
     situation = check_situational_mode()
     
-    full_message = f"{greeting}. {summary} Jeg har indsamlet {facts_count} nye indsigter siden sidst. {situation} En vigtig bemærkning: {inactivity} Skal jeg give dig ugens overblik?"
-    return full_message
+    # Formater hilsen
+    msg = f"{greeting}. {summary} "
+    msg += f"Din hukommelse indeholder nu {fact_count} fakta med en gennemsnitlig pålidelighed på {avg_conf:.1f} procent. "
+    if situation:
+        msg += f"{situation} "
+    msg += f"En vigtig bemærkning: {inactivity} Skal jeg give dig ugens overblik?"
+    
+    return msg
 
 if __name__ == "__main__":
-    print(f"--- Proaktiv Voice Greeting v1.1 ---")
+    print(f"--- Proaktiv Voice Greeting v1.2 ---")
     print(generate_greeting())

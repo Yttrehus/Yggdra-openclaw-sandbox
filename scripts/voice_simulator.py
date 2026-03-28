@@ -5,6 +5,7 @@ import random
 import json
 import glob
 from datetime import datetime, timezone
+import voice_proactive
 
 # Pathing
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -128,28 +129,18 @@ def get_fact_chunks(query):
     chunks.append("Skal jeg dykke dybere ned i nogle af dem?")
     return chunks
 
-import os
-import sys
-import time
-import random
-import json
-import glob
-from datetime import datetime, timezone
-import voice_proactive
-
-# Pathing
-_PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FACTS_FILE = os.path.join(_PROJECT_ROOT, "data/extracted_facts.json")
-REPORT_DIR = os.path.join(_PROJECT_ROOT, "memory/weekly_reports")
-
 def thinking_out_loud_sim(user_query=None):
     # 0. Start med proaktiv hilsen hvis ingen query
-    if not user_query:
+    if user_query is None:
         print(f"\n--- Yggdra Voice Session Start ---")
         greeting = voice_proactive.generate_greeting()
-        for chunk in greeting.split('. '):
-            print(f"[VOICE - PROACTIVE]: {chunk.strip().rstrip('.')}.")
-            time.sleep(1.5)
+        # Split ved punktum for at simulerere chunks, men pas på med decimaltal
+        # Vi leder efter punktum efterfulgt af mellemrum
+        chunks = re.split(r'\. ', greeting)
+        for chunk in chunks:
+            if chunk.strip():
+                print(f"[VOICE - PROACTIVE]: {chunk.strip().rstrip('.')}.")
+                time.sleep(1.5)
         return
 
     # 1. Acknowledge hurtigt (The 300ms Rule)
@@ -183,6 +174,11 @@ def thinking_out_loud_sim(user_query=None):
         delay = len(chunk.split()) * 0.25 + 0.5
         time.sleep(delay)
 
+import re
+
 if __name__ == "__main__":
-    query = sys.argv[1] if len(sys.argv) > 1 else "status"
-    thinking_out_loud_sim(query)
+    if len(sys.argv) > 1:
+        query = " ".join(sys.argv[1:])
+        thinking_out_loud_sim(query)
+    else:
+        thinking_out_loud_sim(None)

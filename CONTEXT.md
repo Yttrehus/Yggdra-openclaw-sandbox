@@ -6,14 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (61 — 2026-04-15)
-- **Session 61 (I gang):**
-  - **Notion:** `db_init_v2.py` opdateret med "Confidence" property.
-  - **Alignment:** Sikret 100% konsistens mellem DB-schema og synkroniserings-motor.
-  - **Status:** Alt teknisk forarbejde til Notion live-udrulning er nu fuldført.
-  - **Mål:** Integration af kvalitets-scores i proaktiv voice-start (Lag 5).
+### Seneste Agent Sessioner (62 — 2026-04-16)
+- **Session 62 (I gang):**
+  - **Voice:** `scripts/voice_proactive.py` opgraderet med kvalitets-metrikker (Confidence %).
+  - **Situationsbevidsthed:** Assistenten verbaliserer nu sin egen usikkerhed og hukommelsens generelle sundhed.
+  - **Validering:** Bekræftet dynamisk hilsen med live-statistik fra `extracted_facts.json`.
+  - **Mål:** Confidence-tracking i ugerapporter og multimodal demonstration.
 
-### Tidligere Agent Sessioner (60 — 2026-04-14)
+### Tidligere Agent Sessioner (61 — 2026-04-15)
 - **Session 53 (Gennemført):**
   - **Notion:** Fuld audit af `notion_sync.py` og `db_init_v2.py`. Alt er klar til udrulning.
   - **Validering:** Seneste dry-run (`notion_dry_run.json`) bekræfter korrekt data-format fra den genoprettede state.

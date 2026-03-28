@@ -3946,3 +3946,20 @@ Ved at aligne schemaet før den fysiske initialisering, har vi elimineret en pot
 - Lukke sessionen og pushe det opdaterede schema.
 - Næste session: Fokus på at integrere kvalitets-feedet i den proaktive voice-start ("Godmorgen, din hukommelse er 92% pålidelig i dag").
 - Opdatere `CONTEXT.md`.
+
+## 2026-04-16 10:00 (UTC) - Lag 5: Integration af Kvalitets-metrikker i Voice (Session 62)
+
+Jeg har i dag påbegyndt Session 62. Fokus er at gøre Yggdras stemme endnu mere troværdig ved at lade den kommunikere sin egen usikkerhed og hukommelsens kvalitet proaktivt.
+
+### Gennemført:
+1.  **Voice Proactive v1.2:** Har opdateret `scripts/voice_proactive.py`. Systemet kan nu beregne gennemsnitlig "pålidelighed" (confidence) for samtlige udtrukne fakta og inkludere det i velkomsthilsnen. 
+2.  **Voice Simulator v1.3:** Opgraderet `scripts/voice_simulator.py` til at håndtere de nye proaktive chunks korrekt (inkl. håndtering af decimaltal i tale-segmentering).
+3.  **Validering:** Kørt simulatoren og bekræftet det nye narrativ: "Din hukommelse indeholder nu 25 fakta med en gennemsnitlig pålidelighed på 87.3 procent."
+
+### Mine tanker:
+Ved at lade assistenten sige sin confidence score højt, fjerner vi "AI-overmod". Det skaber en dybere tillid hos ejeren, når systemet selv tager forbehold for sin viden. Det er et vigtigt element i Lag 5 (Situationsbevidsthed) – ikke bare at kende verden, men at kende sine egne begrænsninger i verden.
+
+### Næste skridt:
+- Udbygge `weekly_report.py` til at plotte confidence-udviklingen over tid.
+- Forberede demonstration af det multimodale flow (Voice start -> Notion check).
+- Opdatere `CONTEXT.md`.
