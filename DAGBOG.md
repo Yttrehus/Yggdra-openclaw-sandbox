@@ -3876,3 +3876,38 @@ Vi er nu gået fra at tale om kvalitet til at håndhæve den programmatisk. Ved 
 - Integrere `memory_reindexer.py` i det daglige ugerapport-flow.
 - Undersøge muligheden for at visualisere "Confidence Scores" i Notion-interfacet.
 - Opdatere `CONTEXT.md`.
+
+## 2026-04-13 12:00 (UTC) - Afslutning af Session 59: Hukommelses-Integritet og Kvalitet
+
+Jeg afslutter hermed Session 59. Vi har i dag taget et stort skridt mod at gøre Yggdras hukommelse (Lag 2) "produktion-klar" gennem proaktiv re-indeksering.
+
+### Hovedresultater:
+1.  **Memory Re-indexer Valideret:** Vores nye værktøj fungerer fejlfrit og har allerede renset og sikkerhedskopieret vores faktiske hukommelse.
+2.  **Lag 2/3 Synergi:** Vi har succesfuldt overført kvalitets-principperne fra Lag 3 (Handling) til det faktiske data-lag i Lag 2.
+3.  **Dataintegritet:** Introduktionen af automatisk backup ved re-indeksering sikrer os mod data-tab under de kommende store struktur-ændringer.
+
+### Mine tanker:
+Ved at prioritere hukommelses-integritet nu, fjerner vi en stor del af den tekniske gæld, der ellers ville opstå, når vi skalerer til tusindvis af fakta. Yggdra er ikke længere bare "god til at huske", men er nu også begyndt at blive "kritisk over for hvad den husker". Det er et afgørende skridt mod en sand kunstig intelligens, der forstår værdien af sandfærdig og præcis information.
+
+### Næste skridt:
+- Fortsætte i `feature/v5-ready` med fokus på visualisering af disse kvalitetsdata.
+- Overvåge muligheden for at eksekvere Notion-integrationen live.
+
+Session 59 is officially finished.
+
+## 2026-04-14 10:00 (UTC) - Lag 4: Notion Integration v1.1 & Visualisering af Kvalitet (Session 60)
+
+Jeg har i dag påbegyndt Session 60. Fokus er at bygge bro mellem de kvalitetsdata, vi genererede i forrige session (Memory Re-indexing), og ejerens mobile overblik i Notion.
+
+### Gennemført:
+1.  **Notion Sync v1.1:** Har opgraderet `scripts/notion_sync.py` til at inkludere "Confidence Scores" i synkroniseringen. Systemet beregner nu automatisk en gennemsnitlig troværdighedsscore for hvert projekt baseret på de udtrukne fakta i `extracted_facts.json`.
+2.  **Kvalitets-visualisering:** Implementeret logik i sync-motoren til at pushe disse scores til Notion. Dette giver ejeren mulighed for at se, hvilke dele af projektet der er baseret på de mest pålidelige data, direkte på mobilen.
+3.  **Dry-run Validering:** Kørt en succesfuld test af den nye sync-motor, som nu inkluderer confidence-metadata i den genererede `data/notion_dry_run.json`.
+
+### Mine tanker:
+Ved at bringe confidence-scores helt ud til Notion-interfacet, fuldfører vi visionen om et "gennemsigtigt exoskeleton". Ejeren skal ikke bare have information; han skal vide, hvor meget han kan stole på den. Det er denne type meta-indsigt, der gør systemet til en reel kognitiv støtte snarere end blot et dashboard.
+
+### Næste skridt:
+- Gennemgå `db_init_v2.py` for at sikre, at "Confidence" kolonnen er korrekt defineret i database-schemaet.
+- Fortsætte i `feature/v5-ready` med fokus på proaktiv voice-feedback omkring systemets kvalitetsscore.
+- Opdatere `CONTEXT.md`.

@@ -6,14 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (59 — 2026-04-13)
-- **Session 59 (I gang):**
-  - **Hukommelse:** `scripts/memory_reindexer.py` v1.0 implementeret.
-  - **Kvalitet:** Implementering af "Vidar-logik" til de-duplikering og validering af fakta (Lag 2/3).
-  - **Sundhed:** 25 fakta re-indekseret og valideret med automatisk backup.
-  - **Mål:** Integration af re-indeksering i ugerapport-flow og forberedelse af Confidence-visualisering.
+### Seneste Agent Sessioner (60 — 2026-04-14)
+- **Session 60 (I gang):**
+  - **Notion:** `scripts/notion_sync.py` opgraderet til v1.1 med Confidence-tracking.
+  - **Visualisering:** Implementering af meta-indsigt (troværdighedsscores) for projekter.
+  - **Validering:** Dry-run bekræfter korrekt integration af kvalitetsdata i sync-pakken.
+  - **Mål:** Alignment af database-schema og proaktiv voice-feedback om kvalitet.
 
-### Tidligere Agent Sessioner (58 — 2026-04-12)
+### Tidligere Agent Sessioner (59 — 2026-04-13)
 - **Session 53 (Gennemført):**
   - **Notion:** Fuld audit af `notion_sync.py` og `db_init_v2.py`. Alt er klar til udrulning.
   - **Validering:** Seneste dry-run (`notion_dry_run.json`) bekræfter korrekt data-format fra den genoprettede state.

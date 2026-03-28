@@ -35,33 +35,33 @@ class NotionClient:
             print(f"Error querying Notion: {e}")
         return None
 
-    def push_update(self, project, status):
+    def push_update(self, project, status, confidence=None):
         """Pusher status-opdatering til Notion (Update eller Create)."""
         page_id = self.get_page_id_by_name(project)
         now_iso = datetime.now().strftime("%Y-%m-%d")
         
+        properties = {
+            "Status": {"select": {"name": "Aktiv"}},
+            "Næste Step": {"rich_text": [{"text": {"content": status}}]},
+            "Sidst Opdateret": {"date": {"start": now_iso}}
+        }
+        
+        if confidence is not None:
+            # Vi bruger rich_text til Confidence indtil vi ved om det er et Number i DB
+            properties["Confidence"] = {"rich_text": [{"text": {"content": f"{confidence:.2f}"}}]}
+
         if page_id:
             # Opdater eksisterende side
             url = f"https://api.notion.com/v1/pages/{page_id}"
-            payload = {
-                "properties": {
-                    "Status": {"select": {"name": "Aktiv"}},
-                    "Næste Step": {"rich_text": [{"text": {"content": status}}]},
-                    "Sidst Opdateret": {"date": {"start": now_iso}}
-                }
-            }
+            payload = {"properties": properties}
             resp = requests.patch(url, json=payload, headers=self.headers, timeout=10)
         else:
             # Opret ny side
             url = "https://api.notion.com/v1/pages"
+            properties["Navn"] = {"title": [{"text": {"content": project}}]}
             payload = {
                 "parent": {"database_id": self.database_id},
-                "properties": {
-                    "Navn": {"title": [{"text": {"content": project}}]},
-                    "Status": {"select": {"name": "Aktiv"}},
-                    "Næste Step": {"rich_text": [{"text": {"content": status}}]},
-                    "Sidst Opdateret": {"date": {"start": now_iso}}
-                }
+                "properties": properties
             }
             resp = requests.post(url, json=payload, headers=self.headers, timeout=10)
             
@@ -76,14 +76,16 @@ class DryRunClient:
         self.updates = []
         self.output_path = "data/notion_dry_run.json"
 
-    def push_update(self, project, status):
+    def push_update(self, project, status, confidence=None):
         update = {
             "project": project,
             "status": status,
+            "confidence": confidence,
             "timestamp": datetime.now().isoformat()
         }
         self.updates.append(update)
-        print(f"  [DRY RUN] {project}: {status}")
+        conf_str = f" (Conf: {confidence:.2f})" if confidence else ""
+        print(f"  [DRY RUN] {project}: {status}{conf_str}")
 
     def finalize(self):
         with open(self.output_path, "w") as f:
@@ -110,7 +112,7 @@ def extract_status_from_context():
     if start_idx != -1:
         for line in lines[start_idx+1:]:
             if line.startswith("##") or not line.strip():
-                if projects: # Stop hvis vi har fundet projekter og rammer en tom linje eller ny sektion
+                if projects:
                     break
                 continue
             match = re.search(r"- \*\*([\w\.\-]+):\*\* (.*)", line)
@@ -121,9 +123,27 @@ def extract_status_from_context():
                 })
     return projects
 
+def get_project_confidence(project_name):
+    """Beregner gennemsnitlig confidence for et projekt baseret på extracted_facts.json."""
+    facts_path = "data/extracted_facts.json"
+    if not os.path.exists(facts_path): return None
+    
+    try:
+        with open(facts_path, 'r') as f:
+            facts = json.load(f)
+        
+        # Simpel matching: tjek om projektnavn (eller dele af det) findes i faktum eller metadata
+        relevant_confidences = [f['confidence'] for f in facts if project_name.lower() in f['fact'].lower() and 'confidence' in f]
+        
+        if relevant_confidences:
+            return sum(relevant_confidences) / len(relevant_confidences)
+    except:
+        pass
+    return None
+
 def sync_to_notion(dry_run=False):
     """Syncs current project status from CONTEXT.md to Notion."""
-    print(f"--- Notion Sync Engine ({datetime.now().strftime('%Y-%m-%d %H:%M')}) ---")
+    print(f"--- Notion Sync Engine v1.1 ({datetime.now().strftime('%Y-%m-%d %H:%M')}) ---")
     token = os.environ.get("NOTION_API_KEY")
     db_id = os.environ.get("NOTION_DATABASE_ID")
     
@@ -143,7 +163,8 @@ def sync_to_notion(dry_run=False):
         client = NotionClient(token, db_id)
 
     for p in projects:
-        client.push_update(p['name'], p['status'])
+        conf = get_project_confidence(p['name'])
+        client.push_update(p['name'], p['status'], confidence=conf)
     
     if isinstance(client, DryRunClient):
         client.finalize()
