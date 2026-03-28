@@ -43,13 +43,23 @@ def check_project_inactivity():
     # Simpelt proaktivt tip baseret på nuværende prioriteter
     return "Vi har genoprettet 7 dages data, men vi mangler stadig at initialisere Notion."
 
+def check_situational_mode():
+    """Henter anbefaling baseret på situations-trigger (f.eks. kørsel)."""
+    try:
+        with open(os.path.join(_PROJECT_ROOT, "data/situational_state.json"), "r") as f:
+            state = json.load(f)
+            return f"Jeg bemærker du er i {state['context']} mode. {state['recommendation']}"
+    except:
+        return ""
+
 def generate_greeting():
     greeting = get_time_greeting()
     summary = get_system_summary()
     facts_count = get_new_fact_count()
     inactivity = check_project_inactivity()
+    situation = check_situational_mode()
     
-    full_message = f"{greeting}. {summary} Jeg har indsamlet {facts_count} nye indsigter siden sidst. En vigtig bemærkning: {inactivity} Skal jeg give dig ugens overblik?"
+    full_message = f"{greeting}. {summary} Jeg har indsamlet {facts_count} nye indsigter siden sidst. {situation} En vigtig bemærkning: {inactivity} Skal jeg give dig ugens overblik?"
     return full_message
 
 if __name__ == "__main__":
