@@ -128,7 +128,30 @@ def get_fact_chunks(query):
     chunks.append("Skal jeg dykke dybere ned i nogle af dem?")
     return chunks
 
-def thinking_out_loud_sim(user_query):
+import os
+import sys
+import time
+import random
+import json
+import glob
+from datetime import datetime, timezone
+import voice_proactive
+
+# Pathing
+_PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+FACTS_FILE = os.path.join(_PROJECT_ROOT, "data/extracted_facts.json")
+REPORT_DIR = os.path.join(_PROJECT_ROOT, "memory/weekly_reports")
+
+def thinking_out_loud_sim(user_query=None):
+    # 0. Start med proaktiv hilsen hvis ingen query
+    if not user_query:
+        print(f"\n--- Yggdra Voice Session Start ---")
+        greeting = voice_proactive.generate_greeting()
+        for chunk in greeting.split('. '):
+            print(f"[VOICE - PROACTIVE]: {chunk.strip().rstrip('.')}.")
+            time.sleep(1.5)
+        return
+
     # 1. Acknowledge hurtigt (The 300ms Rule)
     print(f"\n[USER]: {user_query}")
     time.sleep(0.3)

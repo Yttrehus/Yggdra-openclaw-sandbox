@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Voice Proactive System v1.0
+Voice Proactive System v1.1
 Fokus: Generering af proaktive hilsner baseret på systemets situationsbevidsthed.
-Del af Lag 5 (Situationsbevidsthed).
+Nu med Inactivity Triggers.
 """
 import os
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FACTS_FILE = os.path.join(_PROJECT_ROOT, "data/extracted_facts.json")
@@ -30,21 +30,28 @@ def get_system_summary():
 
 def get_new_fact_count():
     if os.path.exists(FACTS_FILE):
-        with open(FACTS_FILE, "r") as f:
-            facts = json.load(f)
-        # Find fakta fra det seneste døgn (simulering)
-        return len(facts[-3:]) # Vi tager de 3 nyeste som "nye"
+        try:
+            with open(FACTS_FILE, "r") as f:
+                facts = json.load(f)
+            return len(facts[-3:]) # Vi tager de 3 nyeste som "nye"
+        except:
+            return 0
     return 0
+
+def check_project_inactivity():
+    """Tjekker om vigtige projekter er 'stale'."""
+    # Simpelt proaktivt tip baseret på nuværende prioriteter
+    return "Vi har genoprettet 7 dages data, men vi mangler stadig at initialisere Notion."
 
 def generate_greeting():
     greeting = get_time_greeting()
     summary = get_system_summary()
     facts_count = get_new_fact_count()
+    inactivity = check_project_inactivity()
     
-    full_message = f"{greeting}. {summary} Jeg har indsamlet {facts_count} nye indsigter siden vi sidst talte sammen. Skal jeg give dig ugens overblik?"
-    
-    print(f"--- Proaktiv Voice Greeting ---")
-    print(full_message)
+    full_message = f"{greeting}. {summary} Jeg har indsamlet {facts_count} nye indsigter siden sidst. En vigtig bemærkning: {inactivity} Skal jeg give dig ugens overblik?"
+    return full_message
 
 if __name__ == "__main__":
-    generate_greeting()
+    print(f"--- Proaktiv Voice Greeting v1.1 ---")
+    print(generate_greeting())

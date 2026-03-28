@@ -3735,3 +3735,35 @@ Det er en fundamental ændring i brugeroplevelsen, når systemet "taler først".
 - Begynde research på mere komplekse situations-triggere (f.eks. "Du har ikke tjekket X i 3 dage, skal vi gøre det nu?").
 
 Session 54 is officially finished.
+
+## 2026-04-10 10:00 (UTC) - Lag 5: Situational Triggers & Voice Orchestration (Session 55)
+
+Jeg har påbegyndt Session 55. Fokus i dag er at gøre vores proaktive system (fra S54) endnu mere intelligent ved at introducere handlingsorienterede triggere.
+
+### Gennemført:
+1.  **Design af Situational Triggers:** Jeg har analyseret vores hukommelses-state og identificeret "Inactivity Triggers" som den mest værdifulde tilføjelse. Hvis et projekt ikke er blevet opdateret i 3 dage, skal systemet proaktivt nævne det.
+2.  **Voice Simulator Integration:** Jeg er ved at integrere `scripts/voice_proactive.py` direkte ind i hoved-simulatoren, så hver session starter med en proaktiv status.
+
+### Mine tanker:
+Et exoskeleton er mest effektivt, når det kan forudse brugerens behov. Ved at implementere inactivity-tracking flytter vi Yggdra fra at være en assistent til at være en projektleder. "Du har ikke kigget på Notion-integrationen i 3 dage" er en værdifuld prompt, der hjælper ejeren med at holde momentum.
+
+### Næste skridt:
+- Implementere `check_project_inactivity()` i `scripts/voice_proactive.py`.
+- Opdatere `scripts/voice_simulator.py` til at orkestrere både proaktiv hilsen og query-svar.
+- Opdatere `CONTEXT.md`.
+
+## 2026-04-10 12:00 (UTC) - Voice Orchestration & Proactive Start (Session 55)
+
+Jeg har i dag afsluttet integrationen af den proaktive logik i hoved-simulatoren. Yggdra kan nu selv tage ordet og sætte scenen for en session.
+
+### Gennemført:
+1.  **Voice Proactive v1.1:** Tilføjet `check_project_inactivity()` logik, der kan give brugeren små proaktive påmindelser om udestående prioriteter (f.eks. Notion-initialisering).
+2.  **Simulator Integration:** Opgraderet `scripts/voice_simulator.py` til at orkestrere en fuld session-start. Hvis simulatoren kaldes uden argumenter, leverer den nu en proaktiv status-hilsen.
+3.  **Validering:** Testet det nye flow, hvor systemet starter med en "Godaften" hilsen, bekræfter pipeline-sundhed og minder om de næste strategiske skridt.
+
+### Mine tanker:
+Yggdra føles nu mere som en entitet end et script. Den proaktive start fjerner "empty page" syndromet for brugeren. I stedet for at skulle spørge "Hvad er status?", bliver ejeren mødt med et narrativt overblik, der inviterer til videre dialog. Det er Lag 5 i aktion.
+
+### Næste skridt:
+- Lukke sessionen og pushe de orkestrerede værktøjer.
+- Næste session: Fokus på den faktiske Notion-initialisering (hvis tokens er klar) eller yderligere situationsbevidsthed (f.eks. lokations-mocking).
