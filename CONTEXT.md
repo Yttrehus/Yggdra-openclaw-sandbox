@@ -6,13 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (63 — 2026-04-17)
-- **Session 63 (Gennemført):**
-  - **Integration:** `scripts/multimodal_demo.py` v1.1 implementeret med fuld "Accept Logik" (ja/nej/senere).
-  - **Synergi:** Broen mellem proaktiv Voice (Lag 5) og automatiseret Notion sync (Lag 4) er nu teknisk valideret.
-  - **Resultat:** Systemet kan nu orkestrere data-flow på tværs af platforme og respektere brugerens prioriteter.
+### Seneste Agent Sessioner (67 — 2026-04-21)
+- **Session 67 (I gang):**
+  - **Voice:** `scripts/voice_simulator.py` opgraderet til v1.4 med tale-rensning.
+  - **Optimering:** Automatisk fjernelse af markdown og visuelle stjerne-ratings i tale-output.
+  - **Resultat:** Renere og mere naturlig formidling af ugerapporter og statusopdateringer.
+  - **Mål:** Færdiggørelse af "V5 Readiness" pakken og merge-forberedelse.
 
-### Tidligere Agent Sessioner (62 — 2026-04-16)
+### Tidligere Agent Sessioner (66 — 2026-04-20)
 - **Session 62 (Gennemført):**
   - **Voice:** `scripts/voice_proactive.py` opgraderet med kvalitets-metrikker (Confidence %).
   - **Situationsbevidsthed:** Assistenten verbaliserer nu sin egen usikkerhed og hukommelsens generelle sundhed (Lag 5).

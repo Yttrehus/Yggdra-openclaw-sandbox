@@ -4,6 +4,7 @@ import time
 import random
 import json
 import glob
+import re
 from datetime import datetime, timezone
 import voice_proactive
 
@@ -42,10 +43,12 @@ def parse_report_to_chunks(report_content):
             if "Læringer" in current_section:
                 chunks.append("Jeg har opsummeret ugens læringer.")
         elif line.startswith('- ') and "Læringer" in current_section:
-            # Rens markdown og tilføj til chunks
+            # Rens markdown og stjerner for tale
             fact = line.replace('- ', '').strip()
+            fact = fact.split(' *(Kilde:')[0].strip() # Fjern kilde metadata
+            fact = fact.replace('⭐', '') # Fjern stjerner fra tale-output
             chunks.append(fact)
-            if len(chunks) > 6: # Begræns antal chunks for voice brevity (3-sentence rule inspiration)
+            if len(chunks) > 6: # Begræns antal chunks for voice brevity
                 break
     
     chunks.append("Det var ugens overblik. Skal jeg gå i dybden med noget?")
@@ -53,7 +56,6 @@ def parse_report_to_chunks(report_content):
 
 def format_relative_time(dt_str):
     try:
-        # ISO format: 2026-03-24T04:30:22.881481
         dt = datetime.fromisoformat(dt_str)
         if dt.tzinfo is None:
             dt = dt.replace(tzinfo=timezone.utc)
@@ -107,7 +109,6 @@ def get_fact_chunks(query):
     if not facts:
         return ["Jeg kunne ikke indlæse fakta fra databasen.", "Tjek venligst data/extracted_facts.json."]
     
-    # Simpel filter baseret på query ord (mocking retrieval)
     keywords = query.lower().split()
     relevant = []
     for f in facts:
@@ -115,7 +116,6 @@ def get_fact_chunks(query):
             relevant.append(f)
     
     if not relevant:
-        # Fallback til de 3 nyeste fakta
         relevant = sorted(facts, key=lambda x: x.get('timestamp', ''), reverse=True)[:3]
         prefix = "Jeg fandt ikke specifikke matches, men her er det nyeste fra min hukommelse:"
     else:
@@ -130,20 +130,16 @@ def get_fact_chunks(query):
     return chunks
 
 def thinking_out_loud_sim(user_query=None):
-    # 0. Start med proaktiv hilsen hvis ingen query
     if user_query is None:
         print(f"\n--- Yggdra Voice Session Start ---")
         greeting = voice_proactive.generate_greeting()
-        # Split ved punktum for at simulerere chunks, men pas på med decimaltal
-        # Vi leder efter punktum efterfulgt af mellemrum
         chunks = re.split(r'\. ', greeting)
         for chunk in chunks:
             if chunk.strip():
                 print(f"[VOICE - PROACTIVE]: {chunk.strip().rstrip('.')}.")
-                time.sleep(1.5)
+                time.sleep(1.2)
         return
 
-    # 1. Acknowledge hurtigt (The 300ms Rule)
     print(f"\n[USER]: {user_query}")
     time.sleep(0.3)
     
@@ -154,27 +150,22 @@ def thinking_out_loud_sim(user_query=None):
         "Lad mig se hvad jeg ved om det..."
     ]
     
-    # Special ack for rapporter
     if any(keyword in user_query.lower() for keyword in ["rapport", "overblik", "uge", "resume"]):
         print("[VOICE - ACK]: Jeg henter ugens overblik til dig...")
     else:
         print(f"[VOICE - ACK]: {random.choice(acknowledgements)}")
     
-    # 2. Simulerer LLM "deep thinking" latency (Data Retrieval)
     print("[... Deep Thinking (LLM & Fact Retrieval) ...]")
-    time.sleep(1.5)
+    time.sleep(1.2)
     
-    # 3. Hent faktiske data fra disken
     response_chunks = get_fact_chunks(user_query)
     
-    # 4. Leverer svaret i korte bidder (chunks for hurtigere TTS start)
     for chunk in response_chunks:
-        print(f"[VOICE - CHUNK]: {chunk}")
-        # Simulerer TTS afspilnings-tid per chunk (ca. 4 ord pr sekund)
-        delay = len(chunk.split()) * 0.25 + 0.5
+        # Rens for stjerner i alle chunks
+        clean_chunk = chunk.replace('⭐', '')
+        print(f"[VOICE - CHUNK]: {clean_chunk}")
+        delay = len(clean_chunk.split()) * 0.25 + 0.5
         time.sleep(delay)
-
-import re
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
