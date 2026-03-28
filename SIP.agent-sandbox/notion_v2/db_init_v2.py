@@ -39,6 +39,7 @@ def create_yggdra_projects_db():
                 {"name": "PoC", "color": "yellow"}
             ]}},
             "Næste Step": {"rich_text": {}},
+            "Confidence": {"rich_text": {}}, # Tilføjet til match med notion_sync.py v1.1
             "Sidst Opdateret": {"date": {}},
             "Mobil-Noter": {"rich_text": {}},
             "URL": {"url": {}}

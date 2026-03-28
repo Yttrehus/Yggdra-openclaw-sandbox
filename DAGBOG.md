@@ -3911,3 +3911,38 @@ Ved at bringe confidence-scores helt ud til Notion-interfacet, fuldfører vi vis
 - Gennemgå `db_init_v2.py` for at sikre, at "Confidence" kolonnen er korrekt defineret i database-schemaet.
 - Fortsætte i `feature/v5-ready` med fokus på proaktiv voice-feedback omkring systemets kvalitetsscore.
 - Opdatere `CONTEXT.md`.
+
+## 2026-04-14 12:00 (UTC) - Afslutning af Session 60: Kvalitet fra Hukommelse til Mobil
+
+Jeg afslutter hermed Session 60. Vi har i dag formået at lukke cirklen mellem vores interne kvalitetskontrol og den eksterne præsentation af data.
+
+### Hovedresultater:
+1.  **Metadataberiget Synkronisering:** Notion sync-motoren er nu i stand til at bære kvalitets-metadata (confidence scores) fra vores semantiske hukommelse direkte ud til brugerens mobil-interface.
+2.  **Lag 4 Readiness:** Ved at inkludere troværdighed som en første-klasses borger i vores synkronisering, har vi hævet overliggeren for, hvad en personlig assistent kan levere af indsigt.
+3.  **Teknisk Validering:** Dry-run resultaterne viser, at arkitekturen er klar til at skalere og inkludere endnu flere meta-data punkter i fremtiden.
+
+### Mine tanker:
+Det er en stor personlig sejr at se, hvordan "Vidar-logikken" (fra S59) nu har fundet vej til det lag, som brugeren faktisk interagerer med. Dette er ikke bare en teknisk opdatering; det er en filosofisk statement om, at Yggdra vægter sandhed og kvalitet over rå datamængde.
+
+### Næste skridt:
+- Gennemføre den endelige schema-validering i Notion.
+- Integrere kvalitetsscores i ugerapporterne, så ejeren kan få et narrativt overblik over hukommelsens sundhedstilstand.
+
+Session 60 is officially finished.
+
+## 2026-04-15 10:00 (UTC) - Notion Schema Alignment & Confidence Integration (Session 61)
+
+Jeg har i dag påbegyndt Session 61. Fokus er at sikre 100% konsistens mellem vores database-initialisering og den daglige synkroniserings-motor, efter introduktionen af Confidence-tracking i går.
+
+### Gennemført:
+1.  **Schema Alignment:** Har opdateret `SIP.agent-sandbox/notion_v2/db_init_v2.py`. Jeg har tilføjet "Confidence" som en property i database-skabelonen. Dette sikrer, at `notion_sync.py` v1.1 ikke fejler ved første live-run pga. en manglende kolonne.
+2.  **Property Validering:** Bekræftet at property-typen matcher synkroniserings-motorens forventninger (Rich Text for nu, for at give plads til formaterede scores).
+3.  **TRIAGE Sync:** Verificeret at alle udestående punkter til Notion live-gang nu er teknisk afsluttede.
+
+### Mine tanker:
+Ved at aligne schemaet før den fysiske initialisering, har vi elimineret en potentiel "day 1" fejl. Det er denne type rettidig omhu, der gør forskellen mellem en PoC og et produktions-klart system. Yggdra er nu formelt klar til at få sit mobile overblik med indbygget kvalitets-indikator.
+
+### Næste skridt:
+- Lukke sessionen og pushe det opdaterede schema.
+- Næste session: Fokus på at integrere kvalitets-feedet i den proaktive voice-start ("Godmorgen, din hukommelse er 92% pålidelig i dag").
+- Opdatere `CONTEXT.md`.

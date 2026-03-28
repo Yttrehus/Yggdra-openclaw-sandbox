@@ -6,14 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (60 — 2026-04-14)
-- **Session 60 (I gang):**
-  - **Notion:** `scripts/notion_sync.py` opgraderet til v1.1 med Confidence-tracking.
-  - **Visualisering:** Implementering af meta-indsigt (troværdighedsscores) for projekter.
-  - **Validering:** Dry-run bekræfter korrekt integration af kvalitetsdata i sync-pakken.
-  - **Mål:** Alignment af database-schema og proaktiv voice-feedback om kvalitet.
+### Seneste Agent Sessioner (61 — 2026-04-15)
+- **Session 61 (I gang):**
+  - **Notion:** `db_init_v2.py` opdateret med "Confidence" property.
+  - **Alignment:** Sikret 100% konsistens mellem DB-schema og synkroniserings-motor.
+  - **Status:** Alt teknisk forarbejde til Notion live-udrulning er nu fuldført.
+  - **Mål:** Integration af kvalitets-scores i proaktiv voice-start (Lag 5).
 
-### Tidligere Agent Sessioner (59 — 2026-04-13)
+### Tidligere Agent Sessioner (60 — 2026-04-14)
 - **Session 53 (Gennemført):**
   - **Notion:** Fuld audit af `notion_sync.py` og `db_init_v2.py`. Alt er klar til udrulning.
   - **Validering:** Seneste dry-run (`notion_dry_run.json`) bekræfter korrekt data-format fra den genoprettede state.
