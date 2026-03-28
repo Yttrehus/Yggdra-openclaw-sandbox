@@ -6,13 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (58 — 2026-04-12)
-- **Session 58 (I gang):**
-  - **Handling:** `scripts/multi_agent_mock.py` opgraderet til v1.1 med Vidar (Validator).
-  - **Arkitektur:** Tre-trins videns-cyklus (Scan -> Udtræk -> Valider) valideret (Lag 3).
-  - **Mål:** Mapping af simulerede roller til produktion-scripts og forberedelse af re-indexing.
+### Seneste Agent Sessioner (59 — 2026-04-13)
+- **Session 59 (I gang):**
+  - **Hukommelse:** `scripts/memory_reindexer.py` v1.0 implementeret.
+  - **Kvalitet:** Implementering af "Vidar-logik" til de-duplikering og validering af fakta (Lag 2/3).
+  - **Sundhed:** 25 fakta re-indekseret og valideret med automatisk backup.
+  - **Mål:** Integration af re-indeksering i ugerapport-flow og forberedelse af Confidence-visualisering.
 
-### Tidligere Agent Sessioner (57 — 2026-04-11)
+### Tidligere Agent Sessioner (58 — 2026-04-12)
 - **Session 53 (Gennemført):**
   - **Notion:** Fuld audit af `notion_sync.py` og `db_init_v2.py`. Alt er klar til udrulning.
   - **Validering:** Seneste dry-run (`notion_dry_run.json`) bekræfter korrekt data-format fra den genoprettede state.

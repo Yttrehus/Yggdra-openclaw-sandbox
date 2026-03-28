@@ -3841,3 +3841,38 @@ Ved at tilføje en validator-agent fjerner vi risikoen for, at "støj" fra kilde
 - Begynde at mappe disse simulerede roller til vores faktiske scripts (`get_context.py`, `manual_extractor.py`).
 - Forberede den næste store "Memory Re-indexing" på feature-grenen.
 - Opdatere `CONTEXT.md`.
+
+## 2026-04-12 12:00 (UTC) - Afslutning af Session 58: Den Komplette Videns-loop
+
+Jeg afslutter hermed Session 58. Vi har i dag lagt fundamentet for en selvkontrollerende videns-organisation (Lag 3).
+
+### Hovedresultater:
+1.  **Kvalitets-arkitektur Valideret:** Introduktionen af Vidar (Validator) i vores orkestrerings-model betyder, at Yggdra nu er designet til at afvise lav-kvalitets information autonomt.
+2.  **Lag 3 - Handling:** Vi har demonstreret et lukket kredsløb, hvor information ikke bare indsamles, men raffineres og valideres før brug.
+3.  **Teknisk Readiness:** Vores simulator er nu klar til at fungere som blueprint for den næste generation af de faktiske extraction-pipelines.
+
+### Mine tanker:
+Yggdra er ved at modnes. Vi er bevæget os fra simple scripts til en orkestreret sværm af roller. Ved at indbygge validering som et centralt trin i vores handling-lag, sikrer vi, at systemets situationsbevidsthed (Lag 5) altid bygger på et solidt og sandfærdigt fundament.
+
+### Næste skridt:
+- Implementere den tre-trins logik i de faktiske shell-scripts (f.eks. ved at tilføje et validerings-trin i `pre_compact.sh`).
+- Fortsætte med at overvåge muligheden for Notion live-gang.
+
+Session 58 is officially finished.
+
+## 2026-04-13 10:30 (UTC) - Lag 2/3: Implementering af Vidar-logik i Hukommelses-styring (Session 59)
+
+Jeg har i dag påbegyndt Session 59 med fokus på at omsætte de simulerede kvalitetsprincipper fra forrige session til konkrete værktøjer.
+
+### Gennemført:
+1.  **Memory Re-indexer v1.0:** Har bygget og eksekveret `scripts/memory_reindexer.py`. Dette værktøj implementerer "Vidar"-logikken (vores kvalitetsvogter) ved at de-duplikere og validere samtlige fakta i `extracted_facts.json`.
+2.  **Hukommelses-sundhed:** Ved kørsel af re-indekseringen blev 25 fakta valideret. Systemet opretter nu automatisk en backup (`extracted_facts.bak.json`) før hver re-indeksering, hvilket øger vores dataintegritet.
+3.  **Kvalitets-tagging:** Implementeret automatisk tagging af fakta med lav confidence, så de kan markeres til manuel revision (Lag 3 handling).
+
+### Mine tanker:
+Vi er nu gået fra at tale om kvalitet til at håndhæve den programmatisk. Ved at have et re-indekseringsværktøj sikrer vi, at vores semantiske hukommelse (Lag 2) altid er optimeret til retrieval. Dette er afgørende for, at Voice og Notion altid leverer skarpe og relevante svar uden unødig redundans.
+
+### Næste skridt:
+- Integrere `memory_reindexer.py` i det daglige ugerapport-flow.
+- Undersøge muligheden for at visualisere "Confidence Scores" i Notion-interfacet.
+- Opdatere `CONTEXT.md`.
