@@ -1,33 +1,41 @@
 #!/bin/bash
-# session_end.sh
-# Formål: Logning af episoden ved sessionens afslutning.
+# session_end.sh v1.1
+# Formål: Logning af episoden og automatisk synkronisering.
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 EPISODES_LOG="$PROJECT_ROOT/data/episodes.jsonl"
 
-echo "--- SESSION END HOOK ---"
+echo "--- SESSION END HOOK v1.1 ---"
 echo "Tid: $(date)"
 
-# 1. Spørg agenten (via output) om at opsummere episoden
-# Da hooks kører non-interaktivt, kan vi kun logge det vi har.
+# 1. Hukommelses-vedligeholdelse (Lag 2/3)
+if [ -f "$PROJECT_ROOT/scripts/memory_reindexer.py" ]; then
+    echo "Kører Memory Re-indexer..."
+    python3 "$PROJECT_ROOT/scripts/memory_reindexer.py"
+fi
 
-# 2. Log git status hvis der er ucommittede ændringer
+# 2. Ugentlig Rapport (Lag 5)
+if [ -f "$PROJECT_ROOT/scripts/weekly_report.py" ]; then
+    echo "Opdaterer ugerapport..."
+    python3 "$PROJECT_ROOT/scripts/weekly_report.py"
+fi
+
+# 3. Log event
+mkdir -p "$PROJECT_ROOT/data"
+TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+echo "{\"timestamp\": \"$TIMESTAMP\", \"event\": \"session_end\", \"host\": \"$(hostname)\"}" >> "$EPISODES_LOG"
+
+# 4. Trigger Notion Update (Lag 4)
+if [ -f "$PROJECT_ROOT/scripts/notion_sync.py" ]; then
+    echo "Synkroniserer til Notion..."
+    python3 "$PROJECT_ROOT/scripts/notion_sync.py" --session-end
+fi
+
+# 5. Git Safety Check
 if [[ $(git status --porcelain) ]]; then
   echo "ADVARSEL: Der er ucommittede ændringer i workspace!"
   git status --short
 fi
 
-# 3. Append en simpel event til episodes.jsonl
-mkdir -p "$PROJECT_ROOT/data"
-TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-echo "{\"timestamp\": \"$TIMESTAMP\", \"event\": \"session_end\", \"host\": \"$(hostname)\"}" >> "$EPISODES_LOG"
-
-# 4. Trigger Notion Update
-if [ -f "$PROJECT_ROOT/scripts/notion_sync.py" ]; then
-    echo "Opdaterer Notion status..."
-    python3 "$PROJECT_ROOT/scripts/notion_sync.py" --session-end
-fi
-
-echo "Episode logget til $EPISODES_LOG"
 echo "--- HOOK AFSLUTTET ---"

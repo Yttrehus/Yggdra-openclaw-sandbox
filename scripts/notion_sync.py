@@ -48,7 +48,9 @@ class NotionClient:
         
         if confidence is not None:
             # Vi bruger rich_text til Confidence indtil vi ved om det er et Number i DB
-            properties["Confidence"] = {"rich_text": [{"text": {"content": f"{confidence:.2f}"}}]}
+            # Tilføjer stjerne-rating for visuel feedback (v1.2)
+            stars = "⭐" * int(confidence * 5)
+            properties["Confidence"] = {"rich_text": [{"text": {"content": f"{confidence:.2f} {stars}"}}]}
 
         if page_id:
             # Opdater eksisterende side
@@ -84,7 +86,8 @@ class DryRunClient:
             "timestamp": datetime.now().isoformat()
         }
         self.updates.append(update)
-        conf_str = f" (Conf: {confidence:.2f})" if confidence else ""
+        stars = "⭐" * int(confidence * 5) if confidence else ""
+        conf_str = f" (Conf: {confidence:.2f} {stars})" if confidence else ""
         print(f"  [DRY RUN] {project}: {status}{conf_str}")
 
     def finalize(self):
@@ -143,7 +146,7 @@ def get_project_confidence(project_name):
 
 def sync_to_notion(dry_run=False):
     """Syncs current project status from CONTEXT.md to Notion."""
-    print(f"--- Notion Sync Engine v1.1 ({datetime.now().strftime('%Y-%m-%d %H:%M')}) ---")
+    print(f"--- Notion Sync Engine v1.2 ({datetime.now().strftime('%Y-%m-%d %H:%M')}) ---")
     token = os.environ.get("NOTION_API_KEY")
     db_id = os.environ.get("NOTION_DATABASE_ID")
     
