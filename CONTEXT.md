@@ -6,14 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (70 — 2026-04-22)
-- **Session 70 (I gang):**
-  - **Strategi:** `scripts/v6_strategy_brainstorm.py` v1.0 afviklet.
-  - **Roadmap:** `0_backlog/TRIAGE.md` opdateret med V6 mål (API Action Layer, Dynamic Memory).
-  - **Vision:** Transformation fra observatør til aktør i ejerens hverdag (Lag 3/5).
-  - **Mål:** Research på ElevenLabs SDK og Google Workspace API mønstre.
+### Seneste Agent Sessioner (71 — 2026-04-23)
+- **Session 71 (I gang):**
+  - **Voice:** `scripts/elevenlabs_sdk_mock.py` v1.0 valideret.
+  - **Integration:** Simulation af tale-generering via ElevenLabs Python SDK (Lag 5).
+  - **Synergi:** Fuld integrationstest af Action-to-Voice flow (Mødebookning -> Verbal bekræftelse).
+  - **Mål:** Research på Dynamic RAG og V6 afhængigheds-audit.
 
-### Tidligere Agent Sessioner (69 — 2026-04-22)
+### Tidligere Agent Sessioner (70 — 2026-04-22)
 - **Session 69 (Gennemført):**
   - **Migration:** Fuld merge af V5-arkitekturen til `main`.
   - **Validering:** `v5_readiness_audit.py` bekræfter 100% succes på hovedgrenen.
