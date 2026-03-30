@@ -1,20 +1,19 @@
 # Triage — Prioriteret overblik
 
-Sidst opdateret: 2026-03-24 (Session 35)
+Sidst opdateret: 2026-05-23 (Session 100)
 
-## V4 Handlinger (fra HOLISTIC_EVALUATION)
+## V7 Roadmap (Real-world API Integration)
 
-Prioriteret efter impact × (1/effort).
+Prioriteret efter teknisk afhængighed.
 
-| 1 | Fix RSS feed bug (tilføj `fetch_rss_feeds()` kald i ai_intelligence.py) | 15 min | videns-vedligeholdelse | Afventer VPS sync |
-| 2 | Genaktivér heartbeat.py (uncomment i crontab) | 5 min | ai-frontier GAPS P1 | **PoC OK (S35)** |
-| 3 | Tilføj reranking i ctx (Cohere API efter Qdrant top-20) | 2-4 timer | ai-frontier WHAT_IF #2 | **DEPLOYED (v2.1)** |
-| 4 | Pipeline health check i daily_sweep.py | 2-3 timer | videns-vedligeholdelse | **DEPLOYED (audit)** |
-| 5 | Temporal decay i ctx (`score *= exp(-age_days/30)`) | 1-2 timer | ai-frontier GAPS P2 | **DEPLOYED (v2.1)** |
-| 6 | Blog RSS feeds (Anthropic + OpenAI blog) | 2-3 timer | videns-vedligeholdelse | **PoC OK (S34)** |
-| 7 | VPS→PC sync design (git eller rsync) | 4-6 timer | YGGDRA_SCAN | **Planlagt (S35 Tool ready)** |
+| ID | Handling | Estimat | Kategori | Status |
+|----|----------|---------|----------|--------|
+| 1 | Google OAuth2 - Fra Mock til Reel (Secret Management) | 4-6 timer | Infrastructure | Planlagt (V7.1) |
+| 2 | Notion DB Init & Live Sync (VPS Deployment) | 3-4 timer | Accessibility | Planlagt (V7.1) |
+| 3 | ElevenLabs SDK Integration (SSML Support) | 2-3 timer | Voice | Planlagt (V7.1) |
+| 4 | Geo-Fencing Integration (Real GPS Triggers) | 4-8 timer | Context | Research (V7.2) |
 
-## Aktive Projekter (Klar til eksekvering)
+## Aktive Projekter (READY for V7)
 
 | Projekt | Stage | Mål | Næste Step |
 |---------|-------|-----|------------|
