@@ -1,0 +1,17 @@
+{
+  "proposals": [
+    {
+      "id": "purge_old_logs",
+      "title": "Purge af for\u00e6ldede logfiler",
+      "reason": "Qdrant diskplads er p\u00e5 85%. En purge af data \u00e6ldre end 90 dage vil frig\u00f8re 15GB.",
+      "action": "scripts/purge_logs.sh --days 90"
+    },
+    {
+      "id": "shift_focus_v6",
+      "title": "Intensiver V6 Arkitektur Sprint",
+      "reason": "Fremdriften p\u00e5 V6 er under 30%. Jeg foresl\u00e5r at vi de-prioriterer research i 48 timer.",
+      "action": "scripts/triage_update.py --focus v6"
+    }
+  ],
+  "timestamp": "2026-03-30T08:30:54.215541"
+}

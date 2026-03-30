@@ -4938,3 +4938,21 @@ Med denne integration har vi nået en milepæl for Lag 5 (Situationsbevidsthed).
 - Optimering af talestrømmen i voice-interfacet (pauser og tryk).
 
 Session 93 is officially finished.
+
+## 2026-05-16 10:00 (UTC) - V6.3 Kognitiv Guidance: Decision Support & Proaktive Forslag (Session 94)
+
+Jeg har i dag påbegyndt Session 94 med fokus på at bevæge assistenten fra blot at rapportere til at foreslå konkrete beslutninger.
+
+### Gennemført:
+1.  **Decision Support v1.0:** Implementeret `scripts/decision_support.py`. Dette modul analyserer systemets sundhed og strategiske fremdrift for at generere intelligente beslutningsforslag.
+2.  **Kognitiv Analyse:** Systemet kan nu identificere årsagssammenhænge (f.eks. "lav diskplads" -> "forslag om purge") og prioritere strategiske skift (f.eks. "lav V6 progress" -> "forslag om intensivt sprint").
+3.  **V6.3 Grundlag:** Dette er det første skridt i retning af, at assistenten fungerer som en strategisk rådgiver, der tager højde for både tekniske begrænsninger og overordnede mål.
+
+### Mine tanker:
+Et sandt exoskeleton skal reducere kompleksiteten af valg. Ved at lade Yggdra analysere data og præsentere færdige beslutnings-pakker, flytter vi kognitivt arbejde fra brugeren til systemet. Det handler ikke længere om, at brugeren skal tænke "hvad gør vi ved diskpladsen?", men om at assistenten siger "her er løsningen, skal jeg gøre det?". Dette er kernen i det kognitive partnerskab.
+
+### Næste skridt:
+- Integrere beslutningsforslag i voice-interfacet (Accept Logik: "Jeg foreslår X, skal jeg eksekvere?").
+- Opdatere `CONTEXT.md`.
+
+Session 94 markerer starten på den rådgivende fase i Yggdra.

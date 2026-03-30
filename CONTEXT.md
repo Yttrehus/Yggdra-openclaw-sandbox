@@ -6,6 +6,13 @@
 
 ## Hvor er vi
 
+### Seneste Agent Sessioner (94 — 2026-05-16)
+- **Session 94 (Gennemført):**
+  - **Rådgivning:** `scripts/decision_support.py` v1.0 implementeret til generering af beslutningsforslag.
+  - **Analyse:** Systemet kan nu foreslå handlinger baseret på sundhedsdata (f.eks. log purge) og strategisk progress.
+  - **Resultat:** Beslutningsstøtte-lag (V6.3) etableret for at reducere brugerens kognitive byrde ved komplekse valg.
+  - **Status:** Assistenten bevæger sig fra rapportering til proaktiv strategisk rådgivning (Lag 5).
+
 ### Seneste Agent Sessioner (93 — 2026-05-15)
 - **Session 93 (Gennemført):**
   - **Voice:** `scripts/voice_report_generator.py` v1.0 implementeret og integreret i `voice_simulator.py`.
