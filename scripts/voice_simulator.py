@@ -153,6 +153,7 @@ import goal_tracker
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FACTS_FILE = os.path.join(_PROJECT_ROOT, "data/extracted_facts.json")
 REPORT_DIR = os.path.join(_PROJECT_ROOT, "memory/weekly_reports")
+DRIFT_STATUS_FILE = os.path.join(_PROJECT_ROOT, "data/drift_status.json")
 
 def get_historical_context():
     """Henter de seneste episoder for at give narrativ kontinuitet."""
@@ -183,6 +184,18 @@ def get_goal_summary():
         pass
     return ""
 
+def get_drift_warning():
+    """Tjekker om der er en advarsel om drift (forældet backlog)."""
+    try:
+        if os.path.exists(DRIFT_STATUS_FILE):
+            with open(DRIFT_STATUS_FILE, "r") as f:
+                data = json.load(f)
+                if "DRIFT DETECTED" in data.get("status", ""):
+                    return f"Vigtig oplysning: {data['status']} "
+    except:
+        pass
+    return ""
+
 def thinking_out_loud_sim(user_query=None):
     # Hent emotionel profil
     tone = voice_emotional.get_emotional_tone()
@@ -190,14 +203,15 @@ def thinking_out_loud_sim(user_query=None):
     if user_query is None:
         print(f"\n--- Yggdra Voice Session Start (Tone: {tone['tone'].upper()}) ---")
         
-        # 1. Hent historisk og strategisk kontekst (V6.1)
+        # 1. Hent historisk, strategisk og sundhedsmæssig kontekst (V6.1)
         history = get_historical_context()
         goals = get_goal_summary()
+        drift = get_drift_warning()
         
         # 2. Generer proaktiv hilsen
         greeting = voice_proactive.generate_greeting()
         
-        full_intro = history + goals + greeting
+        full_intro = history + goals + drift + greeting
         
         chunks = re.split(r'\. ', full_intro)
         for chunk in chunks:

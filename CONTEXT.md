@@ -6,8 +6,15 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (83 — 2026-05-05)
-- **Session 83 (I gang):**
+### Seneste Agent Sessioner (84 — 2026-05-06)
+- **Session 84 (Gennemført):**
+  - **Integritet:** `scripts/drift_detector.py` v1.0 implementeret til overvågning af backlog-friskhed.
+  - **Voice:** `scripts/voice_simulator.py` opgraderet med proaktive drift-advarsler (V6.1).
+  - **Resultat:** Systemet kan nu verbalisere, hvis dets strategiske grundlag (TRIAGE.md) er ved at blive forældet.
+  - **Status:** Kognitiv integritet og selv-monitorering (Lag 5) er nu en integreret del af assistentens personlighed.
+
+### Tidligere Agent Sessioner (83 — 2026-05-05)
+- **Session 83 (Gennemført):**
   - **Synkronisering:** `scripts/triage_sync.py` v1.0 implementeret til automatisk brobygning mellem Triage og Mål.
   - **Automatisering:** Strategisk progress (v6_completion) opdateres nu direkte baseret på færdiggjorte opgaver i `TRIAGE.md` (27% nuværende status).
   - **Mål:** Integration af "Drift Detection" for at sikre ajourførte backlog-statusser.

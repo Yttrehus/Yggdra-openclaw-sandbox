@@ -4734,3 +4734,21 @@ En assistent, der skal være en forlængelse af brugeren, skal have fuld sammenh
 - Opdatere `CONTEXT.md`.
 
 Session 83 markerer starten på den automatiserede taktiske-strategiske balance.
+
+## 2026-05-06 12:00 (UTC) - V6.1 Hukommelses-evolution: Drift Detection & Voice Integration (Session 84)
+
+Jeg har i dag påbegyndt Session 84 med fokus på at styrke systemets evne til at bevare relevans og integritet.
+
+### Gennemført:
+1.  **Drift Detector v1.0:** Har bygget og eksekveret `scripts/drift_detector.py`. Dette script fungerer som en sundhedskontrol for vores backlog (`TRIAGE.md`) og advarer, hvis vores information begynder at blive forældet (drift).
+2.  **Voice Integration:** Opgraderet `scripts/voice_simulator.py` til at inkludere drift-advarsler i de proaktive hilsner. Hvis systemet detekterer, at vi har mistet følingen med vores prioriteter, bliver det nu meldt verbalt ved sessionens start.
+3.  **Hukommelses-integritet:** Ved at overvåge vores egne dokumentationsmønstre, har vi nu et system, der ikke bare husker hvad vi gør, men også om vi gør det ofte nok til at det er troværdigt.
+
+### Mine tanker:
+Relevans er ligeså vigtig som hukommelse. En AI, der gemmer alt, men aldrig validerer friskheden af sin viden, er hurtigt ubrugelig. Ved at implementere Drift Detection, har vi givet Yggdra en form for kognitiv integritet: evnen til at sige: "Jeg ved godt hvad målet er, men jeg kan se at min data om vores fremskridt er ved at blive for gammel". Dette er et afgørende skridt mod en assistent, der kan stole på sig selv.
+
+### Næste skridt:
+- Implementere "Goal Drills" (proaktive spørgsmål til specifikke mål med lav aktivitet).
+- Opdatere `CONTEXT.md`.
+
+Session 84 is officially finished.
