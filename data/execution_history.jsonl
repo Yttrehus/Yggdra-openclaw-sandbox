@@ -1,1 +1,2 @@
 {"timestamp": "2026-03-30T10:01:09.750764+00:00Z", "decision_id": "purge_old_logs", "title": "Purge af for\u00e6ldede logfiler", "action": "scripts/purge_logs.sh --days 90", "success": true, "output": "Simulation: Kommando k\u00f8rt succesfuldt."}
+{"timestamp": "2026-03-30T10:30:32.944806+00:00Z", "decision_id": "shift_focus_v6", "title": "Intensiver V6 Arkitektur Sprint", "action": "scripts/triage_update.py --focus v6", "success": true, "output": "Simulation: Kommando k\u00f8rt succesfuldt."}
