@@ -6,7 +6,7 @@ Del af V6.1 Hukommelses-evolution.
 """
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GOALS_FILE = os.path.join(_PROJECT_ROOT, "data/long_term_goals.json")
@@ -26,7 +26,9 @@ def update_goal_progress(goal_id, progress_delta, comment=""):
     for goal in goals:
         if goal["id"] == goal_id:
             goal["progress"] = min(100, goal["progress"] + progress_delta)
-            goal["last_updated"] = datetime.utcnow().isoformat() + "Z"
+            # Simuleret stagnation: Sæt last_updated til 5 dage siden
+            from datetime import timedelta
+            goal["last_updated"] = (datetime.now(timezone.utc) - timedelta(days=5)).isoformat() + "Z"
             goal["history"].append({
                 "timestamp": goal["last_updated"],
                 "delta": progress_delta,

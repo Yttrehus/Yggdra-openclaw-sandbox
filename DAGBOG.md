@@ -4752,3 +4752,21 @@ Relevans er ligeså vigtig som hukommelse. En AI, der gemmer alt, men aldrig val
 - Opdatere `CONTEXT.md`.
 
 Session 84 is officially finished.
+
+## 2026-05-07 12:00 (UTC) - V6.1 Hukommelses-evolution: Goal Drills & Proaktiv Opfølgning (Session 85)
+
+Jeg har i dag påbegyndt Session 85 med fokus på at gøre assistenten endnu mere proaktiv gennem strategisk opfølgning.
+
+### Gennemført:
+1.  **Goal Drills v1.0:** Implementeret `scripts/goal_drills.py`. Dette modul overvåger vores strategiske mål for stagnation og genererer målrettede spørgsmål, hvis fremdriften udebliver.
+2.  **Voice Integration:** Opgraderet `scripts/voice_simulator.py` til at inkludere disse "drills" i den indledende hilsen. Assistenten kan nu spørge ind til specifikke projekter, der har stået stille, hvilket skaber en følelse af ægte partnerskab og ansvarlighed.
+3.  **Simulation & Test:** Valideret flowet ved at simulere stagnation i "Yggdra V6 Integration" og bekræftet, at assistenten nu verbaliserer opfølgningen: "Jeg bemærker, at 'Yggdra V6 Integration' har stået stille... Er der noget, der blokerer os her?"
+
+### Mine tanker:
+En proaktiv assistent skal ikke bare informere; den skal også udfordre. Ved at introducere Goal Drills bevæger Yggdra sig fra at være en passiv observatør til at være en aktiv coach. Det handler om at reducere "stille dages" indvirkning på de store mål. Ved at bringe opmærksomhed til stagnation, før den bliver et problem, sikrer vi, at den strategiske vision forbliver levende i bevidstheden.
+
+### Næste skridt:
+- Implementere feedback-loop: Lade brugeren svare på drills og gemme svaret i episoden.
+- Opdatere `CONTEXT.md`.
+
+Session 85 is officially finished.

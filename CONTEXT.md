@@ -6,7 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (84 — 2026-05-06)
+### Seneste Agent Sessioner (85 — 2026-05-07)
+- **Session 85 (Gennemført):**
+  - **Coaching:** `scripts/goal_drills.py` v1.0 implementeret til proaktiv opfølgning på stagnante mål.
+  - **Voice:** `scripts/voice_simulator.py` opgraderet med "Goal Drills" (V6.1).
+  - **Resultat:** Systemet kan nu verbalisere opfølgningsspørgsmål til specifikke mål, der ikke har haft fremdrift (f.eks. "Jeg bemærker, at 'Yggdra V6 Integration' har stået stille...").
+  - **Status:** Proaktiv coaching og strategisk udfordring (Lag 5) er nu en del af assistentens personlighed.
+
+### Tidligere Agent Sessioner (84 — 2026-05-06)
 - **Session 84 (Gennemført):**
   - **Integritet:** `scripts/drift_detector.py` v1.0 implementeret til overvågning af backlog-friskhed.
   - **Voice:** `scripts/voice_simulator.py` opgraderet med proaktive drift-advarsler (V6.1).
