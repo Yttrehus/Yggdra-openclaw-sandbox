@@ -147,6 +147,7 @@ from datetime import datetime, timezone
 import voice_proactive
 import voice_emotional
 import episode_search
+import voice_report_generator
 import goal_tracker
 
 # Pathing
@@ -245,7 +246,7 @@ def thinking_out_loud_sim(user_query=None):
         
         # 1. Hent historisk, strategisk, sundhedsmæssig, drill og task kontekst (V6.2)
         history = get_historical_context()
-        goals = get_goal_summary()
+        voice_status = voice_report_generator.generate_voice_report()
         drift = get_drift_warning()
         drills = get_drill_prompts()
         tasks = get_task_suggestions()
@@ -253,7 +254,7 @@ def thinking_out_loud_sim(user_query=None):
         # 2. Generer proaktiv hilsen
         greeting = voice_proactive.generate_greeting()
         
-        full_intro = history + goals + drift + drills + tasks + greeting
+        full_intro = history + voice_status + " " + drift + drills + tasks + greeting
         
         chunks = re.split(r'\. ', full_intro)
         for chunk in chunks:
