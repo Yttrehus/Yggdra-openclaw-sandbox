@@ -3,8 +3,9 @@
     {
       "id": "notion_init_task_1",
       "title": "Ops\u00e6t NOTION_API_KEY i milj\u00f8et",
-      "status": "pending",
-      "created_at": "2026-03-30T03:30:14.952990+00:00Z"
+      "status": "completed",
+      "created_at": "2026-03-30T03:30:14.952990+00:00Z",
+      "completed_at": "2026-03-30T04:30:23.373300+00:00Z"
     },
     {
       "id": "notion_init_task_2",

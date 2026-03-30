@@ -31,9 +31,15 @@
   {
     "id": "notion_init",
     "title": "Notion Live Initialization",
-    "progress": 40,
+    "progress": 65,
     "category": "Infrastructure",
-    "last_updated": "2026-03-30T01:00:15.240838Z",
-    "history": []
+    "last_updated": "2026-03-25T04:30:23.373620+00:00Z",
+    "history": [
+      {
+        "timestamp": "2026-03-25T04:30:23.373620+00:00Z",
+        "delta": 25,
+        "comment": "F\u00e6rdiggjort opgave: notion_init_task_1. API n\u00f8gle (mock) er klar i sandbox-milj\u00f8et"
+      }
+    ]
   }
 ]
