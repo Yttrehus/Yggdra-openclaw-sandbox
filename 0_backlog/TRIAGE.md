@@ -19,8 +19,8 @@ Prioriteret efter impact × (1/effort).
 | Projekt | Stage | Mål | Næste Step |
 |---------|-------|-----|------------|
 | **04.NOTION_INTEGRATION** | BMS/PoC | Mobil-overblik via Notion MCP | Initialisér DB i Notion |
-| **07.VOICE_EXPERIENCE** | SIP/PoC | Real-time cadence og personlighed | Test ElevenLabs SDK |
-| **08.API_ACTION_LAYER** | DLR/Init | Gå fra simulation til reelle API-kald | Research Google API Auth |
+| **07.VOICE_EXPERIENCE** | BMS/v1.0 | Real-time cadence, pitch og personlighed | **READY (V6.4)** |
+| **08.API_ACTION_LAYER** | DLR/v1.0 | Gå fra simulation til reelle API-kald | **READY (Lag 3 Simulation OK)** |
 | **09.DYNAMIC_MEMORY** | BMS/Init | Implementering af Dynamic RAG | Prototyp i memory.py |
 | **02.BACKLOG_BURN** | BMS | Løbende backlog vedligeholdelse | Kør næste burn 2026-05-05 |
 
