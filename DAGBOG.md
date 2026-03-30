@@ -4864,3 +4864,21 @@ Et exoskeleton skal ikke bare vokse; det skal også kunne hele sig selv. Ved at 
 - Opdatere `CONTEXT.md`.
 
 Session 90 markerer starten på den autonome reparations-fase i Yggdra.
+
+## 2026-05-13 10:00 (UTC) - V6.2 Handling & Eksekvering: Prioriteret Voice Guidance (Session 91)
+
+Jeg har i dag påbegyndt Session 91 med fokus på at prioritere systemets sundhed i vores interaktions-lag.
+
+### Gennemført:
+1.  **Prioriteret Guidance:** Opgraderet `scripts/voice_simulator.py` til at prioritere `system_health` opgaver (fra Self-Healing modulet i S90) over almindelige strategiske mål.
+2.  **Voice Logic Refinement:** Assistenten kan nu skelne mellem "vigtig vedligeholdelse" og "næste skridt i projektet". Dette sikrer, at kritiske fejl (som Notion API 401) bliver adresseret før vi fortsætter med ny udvikling.
+3.  **Validering:** Bekræftet via `voice_simulator.py`, at systemet nu proaktivt beder om at fikse Notion-synkroniseringen som det allerførste, når der er fejl i maintenance-rapporten.
+
+### Mine tanker:
+Prioritering er hjertet i autonomi. En agent skal vide, hvornår fundamentet brænder. Ved at lade `system_health` opgaver "overhale" projekt-opgaver i voice-introen, har vi givet Yggdra en ægte forståelse for drifts-integritet. Det nytter ikke noget at foreslå nye features, hvis API'en er nede. Denne logik fuldender vores V6.2 eksekverings-pipeline ved at tilføje et lag af intelligent triage.
+
+### Næste skridt:
+- Implementere "Repair Completion" trigger (når en health-task er færdig, skal systemet automatisk foreslå en ny kørsel af `daily_sweep.py`).
+- Opdatere `CONTEXT.md`.
+
+Session 91 markerer overgangen til intelligent triage i Yggdras eksekvering.

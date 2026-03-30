@@ -220,8 +220,15 @@ def get_task_suggestions():
             with open(TASKS_FILE, "r") as f:
                 all_tasks = json.load(f)
             
-            # Find første pending task fra ethvert mål
+            # Prioriter system_health tasks (V6.2 Self-Healing)
+            if "system_health" in all_tasks:
+                for task in all_tasks["system_health"]:
+                    if task.get("status") == "pending":
+                        return f"Vigtig system-vedligeholdelse kræves: {task['title']}. "
+
+            # Find første pending task fra ethvert andet mål
             for goal_id, tasks in all_tasks.items():
+                if goal_id == "system_health": continue
                 for task in tasks:
                     if task.get("status") == "pending":
                         return f"Som næste skridt foreslår jeg, at vi kigger på: {task['title']}. "

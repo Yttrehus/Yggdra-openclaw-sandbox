@@ -6,19 +6,19 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (90 — 2026-05-12)
+### Seneste Agent Sessioner (91 — 2026-05-13)
+- **Session 91 (Gennemført):**
+  - **Prioritering:** `scripts/voice_simulator.py` opgraderet med intelligent triage-logik (V6.2).
+  - **Triage:** Systemet prioriterer nu `system_health` opgaver (fra Self-Healing) over almindelige mål i proaktiv guidance.
+  - **Resultat:** Systemet beder proaktivt om at fikse kritiske fejl (f.eks. Notion API 401) før det foreslår nye udviklings-opgaver.
+  - **Status:** Intelligent triage og drifts-bevidst eksekvering (Lag 3-5) er nu integreret i brugeroplevelsen.
+
+### Tidligere Agent Sessioner (90 — 2026-05-12)
 - **Session 90 (Gennemført):**
   - **Reparation:** `scripts/self_healing_tasks.py` v1.0 implementeret til automatisk generering af healing-tasks.
   - **Overvågning:** Systemet scanner nu `maintenance_report.md` for fejl og advarsler (f.eks. Notion API 401).
   - **Resultat:** Automatisk oprettelse af reparations-opgaver under målet 'system_health' (V6.2).
   - **Status:** Autonom selv-monitorering og reparations-generering (Lag 5) er nu en del af systemets drift-integritet.
-
-### Tidligere Agent Sessioner (89 — 2026-05-11)
-- **Session 89 (Gennemført):**
-  - **Eksekvering:** `scripts/task_completion.py` v1.0 implementeret til markering af færdiggjorte subtasks.
-  - **Automatisering:** Færdiggørelse af subtasks opdaterer nu automatisk progress på strategiske mål via `goal_tracker.py`.
-  - **Resultat:** Den første opgave ("Opsæt NOTION_API_KEY") er markeret færdig, og målet "Notion Live Initialization" er løftet til 65% progress (V6.2).
-  - **Status:** Systemet kan nu automatisk koble teknisk eksekvering til overordnet strategisk fremdrift (Lag 3-5).
 
 ### Tidligere Agent Sessioner (87 — 2026-05-09)
 - **Session 83 (Gennemført):**
