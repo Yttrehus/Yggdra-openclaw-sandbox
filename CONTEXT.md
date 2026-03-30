@@ -6,7 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (86 — 2026-05-08)
+### Seneste Agent Sessioner (87 — 2026-05-09)
+- **Session 87 (Gennemført):**
+  - **Eksekvering:** `scripts/task_breakdown.py` v1.0 implementeret til nedbrydning af mål til konkrete opgaver.
+  - **Mapping:** Målet "Notion Live Initialization" er nu nedbrudt i 4 tekniske subtasks i `subtasks.json`.
+  - **Resultat:** Systemet kan nu transformere strategiske visioner til granulære, eksekverbare skridt (V6.2).
+  - **Status:** Fundamentet for aktiv guidance og opgave-styring (Lag 3-5) er på plads.
+
+### Tidligere Agent Sessioner (86 — 2026-05-08)
 - **Session 86 (Gennemført):**
   - **Dialog:** `scripts/feedback_loop.py` v1.0 implementeret til indsamling af brugerens svar på Goal Drills.
   - **Hukommelse:** Bruger-feedback logges nu i både `episodes.jsonl` (narrativ) og `long_term_goals.json` (strategisk).
@@ -14,13 +21,6 @@
   - **Status:** To-vejs strategisk dialog (Lag 5) er nu en del af assistentens personlighed.
 
 ### Tidligere Agent Sessioner (85 — 2026-05-07)
-- **Session 85 (Gennemført):**
-  - **Coaching:** `scripts/goal_drills.py` v1.0 implementeret til proaktiv opfølgning på stagnante mål.
-  - **Voice:** `scripts/voice_simulator.py` opgraderet med "Goal Drills" (V6.1).
-  - **Resultat:** Systemet kan nu verbalisere opfølgningsspørgsmål til specifikke mål, der ikke har haft fremdrift (f.eks. "Jeg bemærker, at 'Yggdra V6 Integration' har stået stille...").
-  - **Status:** Proaktiv coaching og strategisk udfordring (Lag 5) er nu en del af assistentens personlighed.
-
-### Tidligere Agent Sessioner (84 — 2026-05-06)
 - **Session 83 (Gennemført):**
   - **Synkronisering:** `scripts/triage_sync.py` v1.0 implementeret til automatisk brobygning mellem Triage og Mål.
   - **Automatisering:** Strategisk progress (v6_completion) opdateres nu direkte baseret på færdiggjorte opgaver i `TRIAGE.md` (27% nuværende status).

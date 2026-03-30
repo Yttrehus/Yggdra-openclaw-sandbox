@@ -1,0 +1,28 @@
+{
+  "notion_init": [
+    {
+      "id": "notion_init_task_1",
+      "title": "Ops\u00e6t NOTION_API_KEY i milj\u00f8et",
+      "status": "pending",
+      "created_at": "2026-03-30T03:30:14.952990+00:00Z"
+    },
+    {
+      "id": "notion_init_task_2",
+      "title": "K\u00f8r db_init_v2.py for at oprette databaser",
+      "status": "pending",
+      "created_at": "2026-03-30T03:30:14.952990+00:00Z"
+    },
+    {
+      "id": "notion_init_task_3",
+      "title": "Verificer synkronisering med notion_sync.py",
+      "status": "pending",
+      "created_at": "2026-03-30T03:30:14.952990+00:00Z"
+    },
+    {
+      "id": "notion_init_task_4",
+      "title": "Valider dashboard visning p\u00e5 mobil",
+      "status": "pending",
+      "created_at": "2026-03-30T03:30:14.952990+00:00Z"
+    }
+  ]
+}

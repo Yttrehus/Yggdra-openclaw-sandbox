@@ -4790,3 +4790,22 @@ Dialog er kernen i et exoskeleton. Ved at lukke feedback-loopet gør vi assisten
 - Begynde arbejdet på V6.2: Integration med Google Tasks eller lignende for at nedbryde mål.
 
 Session 86 markerer starten på den to-vejs strategiske dialog i Yggdra.
+
+## 2026-05-09 10:00 (UTC) - V6.2 Handling & Eksekvering: Task Breakdown (Session 87)
+
+Jeg har i dag påbegyndt Session 87 med fokus på at transformere de strategiske mål til konkrete, eksekverbare opgaver. Dette markerer overgangen fra planlægning til eksekvering i V6.2.
+
+### Gennemført:
+1.  **Task Breakdown v1.0:** Implementeret `scripts/task_breakdown.py`. Dette modul gør det muligt for Yggdra at nedbryde de langsigtede mål i `data/long_term_goals.json` til mindre, håndterbare subtasks i `data/subtasks.json`.
+2.  **Mål-opgave Mapping:** Valideret flowet ved at nedbryde "Notion Live Initialization" målet til 4 konkrete tekniske opgaver (API opsætning, DB init, Sync verifikation og Mobil validering).
+3.  **Eksekverings-fundament:** Ved at skabe dette link mellem vision og opgave, fjerner vi abstraktionen i vores fremdrift. Vi kan nu tracke præcis *hvilke* skridt der mangler for at nå de 100%.
+
+### Mine tanker:
+Strategi uden eksekvering er blot en drøm. Ved at give Yggdra evnen til at nedbryde sine egne mål, flytter vi ansvaret for projektstyring fra brugeren til assistenten. Det handler om at fjerne den kognitive byrde ved at "finde ud af, hvad næste skridt er". Når et mål står stille (stagnation), kan assistenten nu ikke bare spørge "hvorfor?", men også foreslå: "Her er de 4 ting, vi skal gøre for at komme videre". Det er dette skift fra passiv monitorering til aktiv guidance, der definerer V6.2.
+
+### Næste skridt:
+- Integrere `subtasks.json` i `scripts/voice_simulator.py`, så assistenten kan foreslå konkrete "Quick Wins" ved session-start.
+- Implementere status-tracking for subtasks, så de automatisk påvirker målets overordnede progress.
+- Opdatere `CONTEXT.md`.
+
+Session 87 markerer starten på den granulære eksekverings-fase i Yggdra.
