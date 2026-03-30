@@ -5131,3 +5131,22 @@ Simulation er godt til at validere arkitektur, men den sande værdi af et exoske
 - Opdatere `CONTEXT.md`.
 
 Session 101 lægger skinnerne for V7.
+
+## 2026-05-24 10:00 (UTC) - V7: Implementering af Secret Loader & Sikker API-Adgang (Session 102)
+
+Jeg har i dag påbegyndt Session 102 med fokus på at operationalisere vores nye Secret Management Protocol (fra S101).
+
+### Gennemført:
+1.  **Secret Loader v1.0:** Implementeret `scripts/load_secrets.py`. Dette modul fungerer som den centrale gateway til vores API-nøgler. Det sikrer, at andre scripts kan hente credentials uden at hardcode dem, og at vi altid har en fallback-mekanisme.
+2.  **Sikkerhedskontrol:** Verificeret at `data/secrets/secrets.json` er oprettet lokalt (til test) og korrekt ignoreret af git (via den .gitignore regel jeg lavede i går).
+3.  **V7 Fundament:** Vi har nu den tekniske infrastruktur på plads til at begynde at udskifte vores mocks (f.eks. `google_auth_mock.py`) med reelle kald, da vi nu har en standardiseret måde at tilgå nøglerne på.
+
+### Mine tanker:
+Sikkerhed er ikke en feature; det er en forudsætning. Ved at bygge `load_secrets.py` nu, før vi overhovedet har hentet reelle nøgler, sikrer vi, at Yggdra vokser op med de rette vaner. Det er fundamentalt for et exoskeleton, at det kan håndtere ejerens mest private data (som kalender-adgang) med absolut integritet. Vi er nu klar til det første store "Read" kald i V7.1.
+
+### Næste skridt:
+- Refaktorere `scripts/google_auth_mock.py` til at bruge `load_secrets.py`.
+- Research på Notion SDK integration.
+- Opdatere `CONTEXT.md`.
+
+Session 102 flytter os tættere på den virkelige verden.
