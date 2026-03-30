@@ -156,6 +156,8 @@ REPORT_DIR = os.path.join(_PROJECT_ROOT, "memory/weekly_reports")
 DRIFT_STATUS_FILE = os.path.join(_PROJECT_ROOT, "data/drift_status.json")
 DRILL_STATUS_FILE = os.path.join(_PROJECT_ROOT, "data/goal_drills.json")
 
+TASKS_FILE = os.path.join(_PROJECT_ROOT, "data/subtasks.json")
+
 def get_historical_context():
     """Henter de seneste episoder for at give narrativ kontinuitet."""
     try:
@@ -211,6 +213,22 @@ def get_drill_prompts():
         pass
     return ""
 
+def get_task_suggestions():
+    """Henter de næste relevante subtasks for at give aktiv guidance."""
+    try:
+        if os.path.exists(TASKS_FILE):
+            with open(TASKS_FILE, "r") as f:
+                all_tasks = json.load(f)
+            
+            # Find første pending task fra ethvert mål
+            for goal_id, tasks in all_tasks.items():
+                for task in tasks:
+                    if task.get("status") == "pending":
+                        return f"Som næste skridt foreslår jeg, at vi kigger på: {task['title']}. "
+    except:
+        pass
+    return ""
+
 def thinking_out_loud_sim(user_query=None):
     # Hent emotionel profil
     tone = voice_emotional.get_emotional_tone()
@@ -218,16 +236,17 @@ def thinking_out_loud_sim(user_query=None):
     if user_query is None:
         print(f"\n--- Yggdra Voice Session Start (Tone: {tone['tone'].upper()}) ---")
         
-        # 1. Hent historisk, strategisk, sundhedsmæssig og drill kontekst (V6.1)
+        # 1. Hent historisk, strategisk, sundhedsmæssig, drill og task kontekst (V6.2)
         history = get_historical_context()
         goals = get_goal_summary()
         drift = get_drift_warning()
         drills = get_drill_prompts()
+        tasks = get_task_suggestions()
         
         # 2. Generer proaktiv hilsen
         greeting = voice_proactive.generate_greeting()
         
-        full_intro = history + goals + drift + drills + greeting
+        full_intro = history + goals + drift + drills + tasks + greeting
         
         chunks = re.split(r'\. ', full_intro)
         for chunk in chunks:

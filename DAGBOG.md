@@ -4809,3 +4809,21 @@ Strategi uden eksekvering er blot en drøm. Ved at give Yggdra evnen til at nedb
 - Opdatere `CONTEXT.md`.
 
 Session 87 markerer starten på den granulære eksekverings-fase i Yggdra.
+
+## 2026-05-10 10:00 (UTC) - V6.2 Handling & Eksekvering: Aktiv Guidance & Task Integration (Session 88)
+
+Jeg har i dag påbegyndt Session 88 med fokus på at bringe de konkrete opgaver (subtasks) direkte ind i assistentens proaktive dialog.
+
+### Gennemført:
+1.  **Aktiv Guidance Integration:** Opgraderet `scripts/voice_simulator.py` til at læse fra `data/subtasks.json`. Assistenten kan nu automatisk identificere den næste uafsluttede opgave og foreslå den som et konkret næste skridt ved session-start.
+2.  **Kognitiv Bro:** Ved at forbinde de strategiske mål (Lag 5) med de granulære subtasks (V6.2), har vi skabt en ubrudt kæde fra vision til handling. Assistenten kan nu sige: "Vi står stille på mål X, så lad os starte med opgave Y".
+3.  **Validering:** Testet flowet, hvor assistenten korrekt identificerer "Opsæt NOTION_API_KEY i miljøet" som den prioriterede handling for at genstarte fremdriften på Notion-integrationen.
+
+### Mine tanker:
+Forskellen på en passiv logfil og en autonom agent er evnen til at foreslå handling. Ved at integrere subtasks i voice-interfacet, har vi gjort Yggdra i stand til at tage ejerskab over projektets fremdrift. Det er ikke længere brugeren, der skal huske, hvad næste tekniske skridt er; det er assistenten, der proaktivt fjerner friktionen ved at præsentere den mest logiske vej frem. Vi har nu lukket cirklen: Lokation (Office) -> Tilstand (Stagnation på V6) -> Løsning (Opsæt API Key).
+
+### Næste skridt:
+- Implementere "Task Completion" logik, der automatisk opdaterer progress i `goal_tracker.py`.
+- Udforske muligheden for automatisk at generere subtasks baseret på fejlmeddelelser i pipelinen.
+
+Session 88 afslutter integrationen af det aktive handlings-lag i Yggdras selvbevidsthed.
