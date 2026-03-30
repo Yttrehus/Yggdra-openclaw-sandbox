@@ -2,14 +2,19 @@
   {
     "id": "v6_completion",
     "title": "Yggdra V6 Integration",
-    "progress": 87,
+    "progress": 27,
     "category": "Architecture",
-    "last_updated": "2026-03-30T01:00:15.241247Z",
+    "last_updated": "2026-03-30T01:30:16.947411Z",
     "history": [
       {
         "timestamp": "2026-03-30T01:00:15.241247Z",
         "delta": 2,
         "comment": "Implementeret Goal Tracker PoC"
+      },
+      {
+        "timestamp": "2026-03-30T01:30:16.947411Z",
+        "delta": -60,
+        "comment": "Auto-sync fra TRIAGE.md (5/18)"
       }
     ]
   },
