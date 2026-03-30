@@ -149,6 +149,7 @@ import voice_emotional
 import episode_search
 import voice_report_generator
 import goal_tracker
+import decision_support
 
 # Pathing
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -237,6 +238,30 @@ def get_task_suggestions():
         pass
     return ""
 
+def get_decision_proposals():
+    """Henter de seneste beslutningsforslag for at give kognitiv guidance."""
+    try:
+        proposals = decision_support.analyze_and_propose()
+        if proposals:
+            # Vælg det vigtigste forslag
+            p = proposals[0]
+            return f"Baseret på min analyse foreslår jeg følgende beslutning: {p['title']}. {p['reason']} Skal jeg eksekvere dette? "
+    except:
+        pass
+    return ""
+
+def get_decision_proposals():
+    """Henter de seneste beslutningsforslag for at give kognitiv guidance."""
+    try:
+        proposals = decision_support.analyze_and_propose()
+        if proposals:
+            # Vælg det vigtigste forslag
+            p = proposals[0]
+            return f"Baseret på min analyse foreslår jeg følgende beslutning: {p['title']}. {p['reason']} Skal jeg eksekvere dette? "
+    except:
+        pass
+    return ""
+
 def thinking_out_loud_sim(user_query=None):
     # Hent emotionel profil
     tone = voice_emotional.get_emotional_tone()
@@ -244,17 +269,18 @@ def thinking_out_loud_sim(user_query=None):
     if user_query is None:
         print(f"\n--- Yggdra Voice Session Start (Tone: {tone['tone'].upper()}) ---")
         
-        # 1. Hent historisk, strategisk, sundhedsmæssig, drill og task kontekst (V6.2)
+        # 1. Hent historisk, strategisk, sundhedsmæssig, drill, task og beslutnings kontekst (V6.3)
         history = get_historical_context()
         voice_status = voice_report_generator.generate_voice_report()
         drift = get_drift_warning()
         drills = get_drill_prompts()
         tasks = get_task_suggestions()
+        proposals = get_decision_proposals()
         
         # 2. Generer proaktiv hilsen
         greeting = voice_proactive.generate_greeting()
         
-        full_intro = history + voice_status + " " + drift + drills + tasks + greeting
+        full_intro = history + voice_status + " " + drift + drills + tasks + proposals + greeting
         
         chunks = re.split(r'\. ', full_intro)
         for chunk in chunks:

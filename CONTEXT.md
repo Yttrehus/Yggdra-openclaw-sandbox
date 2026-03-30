@@ -8,12 +8,12 @@
 
 ### Seneste Agent Sessioner (94 — 2026-05-16)
 - **Session 94 (Gennemført):**
-  - **Rådgivning:** `scripts/decision_support.py` v1.0 implementeret til generering af beslutningsforslag.
-  - **Analyse:** Systemet kan nu foreslå handlinger baseret på sundhedsdata (f.eks. log purge) og strategisk progress.
-  - **Resultat:** Beslutningsstøtte-lag (V6.3) etableret for at reducere brugerens kognitive byrde ved komplekse valg.
-  - **Status:** Assistenten bevæger sig fra rapportering til proaktiv strategisk rådgivning (Lag 5).
+  - **Rådgivning:** `scripts/decision_support.py` v1.0 implementeret og integreret i `voice_simulator.py`.
+  - **Analyse:** Systemet foreslår nu proaktivt beslutninger baseret på sundhedsdata og strategisk fremdrift (V6.3).
+  - **Resultat:** Brugeren får nu præsenteret færdige beslutningsforslag (f.eks. log purge eller fokusskifte) ved session-start.
+  - **Status:** Beslutningsstøtte og kognitiv guidance (Lag 5) er nu en aktiv del af assistentens personlighed.
 
-### Seneste Agent Sessioner (93 — 2026-05-15)
+### Tidligere Agent Sessioner (93 — 2026-05-15)
 - **Session 93 (Gennemført):**
   - **Voice:** `scripts/voice_report_generator.py` v1.0 implementeret og integreret i `voice_simulator.py`.
   - **Oplevelse:** Systemet leverer nu en fuld syntetisk status (Strategi, Integritet, Sundhed) i en mundret voice-hilsen.

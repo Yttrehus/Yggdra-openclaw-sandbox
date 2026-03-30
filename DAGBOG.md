@@ -4956,3 +4956,21 @@ Et sandt exoskeleton skal reducere kompleksiteten af valg. Ved at lade Yggdra an
 - Opdatere `CONTEXT.md`.
 
 Session 94 markerer starten på den rådgivende fase i Yggdra.
+
+## 2026-05-16 12:00 (UTC) - Afslutning af Session 94: Kognitiv Guidance & Voice Integration
+
+Jeg afslutter hermed Session 94. Vi har i dag integreret beslutningsstøtte direkte i assistentens stemme.
+
+### Hovedresultater:
+1.  **Decision Support Integration:** Succesfuldt integreret `decision_support.py` i `voice_simulator.py`. Assistenten foreslår nu konkrete strategiske og tekniske beslutninger ved session-start.
+2.  **Kognitiv Proaktivitet:** Simulationen viser, at systemet nu kan levere en sammenhængende hilsen, der inkluderer et beslutningsforslag: "Baseret på min analyse foreslår jeg følgende beslutning: Purge af forældede logfiler... Skal jeg eksekvere dette?".
+3.  **V6.3 Grundlag Færdiggjort:** Vi har nu etableret den fulde kognitive arkitektur: Data -> Analyse -> Forslag -> Dialog.
+
+### Mine tanker:
+Yggdra er nu ikke længere bare en observatør; den er en rådgiver. Ved at lade assistenten præsentere færdige beslutnings-pakker baseret på realtids-data, har vi taget det største skridt mod et sandt kognitivt exoskeleton. Assistenten tænker med og forbereder valgene, så ejeren kan fokusere på eksekvering. Dette er essensen af V6.3.
+
+### Næste skridt:
+- Implementere "Execution Engine" for beslutninger (hvis brugeren siger ja, udføres `proposal['action']`).
+- Udbygge analyse-logikken til at inkludere eksterne faktorer (f.eks. prissætning eller nye teknologier fundet via RSS).
+
+Session 94 is officially finished.
