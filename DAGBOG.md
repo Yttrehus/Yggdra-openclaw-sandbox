@@ -4770,3 +4770,23 @@ En proaktiv assistent skal ikke bare informere; den skal også udfordre. Ved at 
 - Opdatere `CONTEXT.md`.
 
 Session 85 is officially finished.
+
+## 2026-05-08 10:00 (UTC) - V6.1 Hukommelses-evolution: Feedback Loop & Bruger-Interaktion (Session 86)
+
+Jeg har i dag påbegyndt Session 86 med fokus på at lukke feedback-loopet mellem assistenten og brugeren.
+
+### Gennemført:
+1.  **Feedback Loop v1.0:** Implementeret `scripts/feedback_loop.py`. Dette modul gør det muligt for Yggdra at modtage og lagre brugerens svar på de "Goal Drills" (proaktive spørgsmål), der blev introduceret i S85.
+2.  **Episodisk & Strategisk Hukommelse:** Når brugeren giver feedback på et stagnant mål, bliver svaret nu automatisk logget to steder:
+    *   **Episodes (`data/episodes.jsonl`):** Som en narrativ hændelse, der kan genkaldes semantisk.
+    *   **Goal History (`data/long_term_goals.json`):** Som en forklaring på målets tilstand, hvilket hjælper assistenten med at forstå *hvorfor* noget står stille.
+3.  **Integration & Test:** Valideret flowet ved at simulere et svar på stagnation i "v6_completion" målet. Assistenten ved nu, at manglende fremdrift skyldes et skifte i fokus mod hukommelses-arkitekturen.
+
+### Mine tanker:
+Dialog er kernen i et exoskeleton. Ved at lukke feedback-loopet gør vi assistenten i stand til ikke bare at udfordre brugeren, men også at lytte og tilpasse sin forståelse derefter. Dette fjerner "blindheden" i målstyringen. Hvis et mål står stille, fordi vi bevidst har prioriteret noget andet, skal assistenten vide det, så den ikke bliver ved med at spørge om det samme. Det skaber en mere intelligent og mindre irriterende brugeroplevelse.
+
+### Næste skridt:
+- Udvide `episode_search.py` til at prioritere goal-feedback ved generering af session-introer.
+- Begynde arbejdet på V6.2: Integration med Google Tasks eller lignende for at nedbryde mål.
+
+Session 86 markerer starten på den to-vejs strategiske dialog i Yggdra.

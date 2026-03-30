@@ -1,2 +1,3 @@
 {"timestamp": "2026-03-15T05:00:20Z", "event": "session_end", "host": "srv1181537"}
 {"timestamp": "2026-03-28T09:30:22Z", "event": "session_end", "host": "srv1181537"}
+{"timestamp": "2026-03-30T03:00:16.846694+00:00Z", "event": "goal_drill_feedback", "goal_id": "v6_completion", "feedback": "Vi har fokuseret p\u00e5 hukommelses-arkitekturen i de sidste sessioner, hvilket forklarer de manglende commits p\u00e5 selve integrationen.", "type": "user_interaction"}

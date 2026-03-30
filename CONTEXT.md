@@ -6,7 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (85 — 2026-05-07)
+### Seneste Agent Sessioner (86 — 2026-05-08)
+- **Session 86 (Gennemført):**
+  - **Dialog:** `scripts/feedback_loop.py` v1.0 implementeret til indsamling af brugerens svar på Goal Drills.
+  - **Hukommelse:** Bruger-feedback logges nu i både `episodes.jsonl` (narrativ) og `long_term_goals.json` (strategisk).
+  - **Resultat:** Systemet kan nu forstå *hvorfor* mål står stille og justere sin opfølgning derefter.
+  - **Status:** To-vejs strategisk dialog (Lag 5) er nu en del af assistentens personlighed.
+
+### Tidligere Agent Sessioner (85 — 2026-05-07)
 - **Session 85 (Gennemført):**
   - **Coaching:** `scripts/goal_drills.py` v1.0 implementeret til proaktiv opfølgning på stagnante mål.
   - **Voice:** `scripts/voice_simulator.py` opgraderet med "Goal Drills" (V6.1).
@@ -14,13 +21,6 @@
   - **Status:** Proaktiv coaching og strategisk udfordring (Lag 5) er nu en del af assistentens personlighed.
 
 ### Tidligere Agent Sessioner (84 — 2026-05-06)
-- **Session 84 (Gennemført):**
-  - **Integritet:** `scripts/drift_detector.py` v1.0 implementeret til overvågning af backlog-friskhed.
-  - **Voice:** `scripts/voice_simulator.py` opgraderet med proaktive drift-advarsler (V6.1).
-  - **Resultat:** Systemet kan nu verbalisere, hvis dets strategiske grundlag (TRIAGE.md) er ved at blive forældet.
-  - **Status:** Kognitiv integritet og selv-monitorering (Lag 5) er nu en integreret del af assistentens personlighed.
-
-### Tidligere Agent Sessioner (83 — 2026-05-05)
 - **Session 83 (Gennemført):**
   - **Synkronisering:** `scripts/triage_sync.py` v1.0 implementeret til automatisk brobygning mellem Triage og Mål.
   - **Automatisering:** Strategisk progress (v6_completion) opdateres nu direkte baseret på færdiggjorte opgaver i `TRIAGE.md` (27% nuværende status).
