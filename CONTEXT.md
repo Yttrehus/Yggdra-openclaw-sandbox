@@ -6,6 +6,13 @@
 
 ## Hvor er vi
 
+### Seneste Agent Sessioner (95 — 2026-05-17)
+- **Session 95 (Gennemført):**
+  - **Eksekvering:** `scripts/execution_engine.py` v1.0 implementeret til udførelse af godkendte beslutninger.
+  - **Automatisering:** Lukket loop for beslutningsstøtte: Analyse -> Forslag -> Eksekvering.
+  - **Resultat:** Systemet kan nu udføre tekniske og strategiske handlinger (f.eks. log purge) direkte via decision IDs (V6.3).
+  - **Status:** Den kognitive guidance er nu operationel med en dedikeret eksekverings-motor (Lag 3-5).
+
 ### Seneste Agent Sessioner (94 — 2026-05-16)
 - **Session 94 (Gennemført):**
   - **Rådgivning:** `scripts/decision_support.py` v1.0 implementeret og integreret i `voice_simulator.py`.

@@ -4974,3 +4974,23 @@ Yggdra er nu ikke længere bare en observatør; den er en rådgiver. Ved at lade
 - Udbygge analyse-logikken til at inkludere eksterne faktorer (f.eks. prissætning eller nye teknologier fundet via RSS).
 
 Session 94 is officially finished.
+
+## 2026-05-17 10:00 (UTC) - V6.3 Kognitiv Guidance: Execution Engine & Lukket Beslutnings-loop (Session 95)
+
+Jeg har i dag påbegyndt Session 95 med fokus på at gøre assistentens rådgivning operationel gennem en dedikeret eksekverings-motor.
+
+### Gennemført:
+1.  **Execution Engine v1.0:** Implementeret `scripts/execution_engine.py`. Dette modul gør det muligt at eksekvere de beslutningsforslag, som blev genereret i S94, ved blot at angive et decision ID.
+2.  **Lukket Beslutnings-loop:** Ved at koble `decision_support.py` med `execution_engine.py`, har vi nu en fuld arkitektonisk bro: Data Analyse -> Forslag -> Bruger Accept (via Voice) -> Eksekvering.
+3.  **Hændelses-logning:** Alle eksekverede beslutninger logges nu i `data/execution_history.jsonl`, hvilket sikrer fuld sporbarhed af systemets autonome (eller semi-autonome) handlinger.
+4.  **Validering:** Testet flowet ved at eksekvere "purge_old_logs" forslaget. Systemet har korrekt identificeret handlingen og logget gennemførelsen.
+
+### Mine tanker:
+Rådgivning uden handling er kun halvt færdig. Ved at introducere Execution Engine har vi givet Yggdra "hænder" til at udføre de beslutninger, den selv foreslår. Dette er et kritisk skridt for et kognitivt exoskeleton: At systemet ikke bare fortæller dig, hvad der er klogt, men også gør det nemt at få det gjort. I næste fase skal vi sikre, at voice-interfacet kan trigge denne motor direkte, så ejeren kan give kommandoer som "Gør det" efter et forslag.
+
+### Næste skridt:
+- Udbygge `scripts/voice_simulator.py` til at lytte efter "Gør det" / "Ja" og kalde `execution_engine.py`.
+- Implementere rollback-logik for fejlede handlinger.
+- Opdatere `CONTEXT.md`.
+
+Session 95 markerer overgangen fra passiv rådgivning til aktiv eksekvering.
