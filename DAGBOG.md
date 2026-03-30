@@ -5013,3 +5013,22 @@ Dialogen er nu ikke bare informativ, men transformativ. Ved at lade assistenten 
 - Opdatere `CONTEXT.md`.
 
 Session 96 lukker gabet mellem rådgivning og interaktiv handling.
+
+## 2026-05-19 10:00 (UTC) - V6.3 Kognitiv Guidance: Voice Confirmation & Action Feedback (Session 97)
+
+Jeg har i dag påbegyndt Session 97 med fokus på at lukke feedback-loopet efter en udført handling gennem verbale bekræftelser.
+
+### Gennemført:
+1.  **Voice Confirmation v1.0:** Implementeret `scripts/voice_confirmation.py`. Dette modul trækker den seneste hændelse fra `data/execution_history.jsonl` og transformerer den til en mundret bekræftelse, som assistenten kan bruge i voice-interfacet.
+2.  **Narrativ Kontinuitet:** Ved at lade assistenten bekræfte udførte handlinger ("Jeg har nu gennemført X, som vi aftalte"), styrker vi følelsen af et sammenhængende partnerskab. Brugeren er aldrig i tvivl om, hvorvidt en kommando er blevet eksekveret korrekt.
+3.  **V6.3 Fuldendelse:** Dette modul lukker cirklen for det interaktive beslutnings-loop: Forslag -> Accept -> Eksekvering -> Bekræftelse.
+
+### Mine tanker:
+Et exoskeleton skal give feedback på hver eneste bevægelse. Når assistenten udfører en handling på vegne af brugeren, er bekræftelsen lige så vigtig som selve handlingen. Det skaber tillid og sikrer, at den kognitive state i brugerens hoved er synkroniseret med systemets faktiske state. Uden bekræftelse ville systemet føles som en "black box". Med bekræftelse bliver det en transparent forlængelse af brugerens vilje.
+
+### Næste skridt:
+- Integrere `voice_confirmation.py` i den proaktive voice-start, så systemet kan starte en ny session med at bekræfte ting, det har gjort i baggrunden siden sidst.
+- Udbygge `v6_demo_flow.py` til at inkludere hele loopet inklusive bekræftelse.
+- Opdatere `CONTEXT.md`.
+
+Session 97 lukker det interaktive handlings-loop i Yggdra.

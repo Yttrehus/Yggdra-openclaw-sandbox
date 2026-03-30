@@ -6,6 +6,13 @@
 
 ## Hvor er vi
 
+### Seneste Agent Sessioner (97 — 2026-05-19)
+- **Session 97 (Gennemført):**
+  - **Feedback:** `scripts/voice_confirmation.py` v1.0 implementeret til verbale bekræftelser på udførte handlinger.
+  - **Kontinuitet:** Systemet kan nu proaktivt bekræfte succes (eller fejl) for eksekverede beslutninger (V6.3).
+  - **Resultat:** Det interaktive beslutnings-loop er nu lukket: Forslag -> Accept -> Handling -> Bekræftelse.
+  - **Status:** Den kognitive guidance (Lag 5) yder nu fuld gennemsigtighed og feedback for alle autonome handlinger.
+
 ### Seneste Agent Sessioner (96 — 2026-05-18)
 - **Session 96 (Gennemført):**
   - **Interaktion:** `scripts/execution_trigger_mock.py` v1.0 implementeret til simulation af verbal bruger-accept.
