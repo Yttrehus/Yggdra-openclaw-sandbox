@@ -6,14 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (102 — 2026-05-24)
-- **Session 102 (Gennemført):**
-  - **Sikkerhed:** `scripts/load_secrets.py` v1.0 implementeret til central håndtering af API-nøgler.
-  - **V7 Forberedelse:** Infrastruktur til sikker indlæsning af credentials uden for git-kontrol er på plads.
-  - **Resultat:** Systemet kan nu sikkert tilgå hemmeligheder i `data/secrets/` jf. S101 protokollen.
-  - **Status:** Klar til at påbegynde den reelle integration af eksterne API'er.
+### Seneste Agent Sessioner (104 — 2026-05-26)
+- **Session 104 (Gennemført):**
+  - **Integration:** `scripts/google_calendar_read.py` v1.0 implementeret til dags-agenda udtræk.
+  - **Data:** Systemet kan nu indhente dags-events via hybrid-auth (V7.1).
+  - **Resultat:** Fundamentet for tids-baseret planlægning og proaktive kalender-rapporter er lagt.
+  - **Status:** Klar til at verbalisere dagens agenda i voice-interfacet.
 
-### Seneste Agent Sessioner (101 — 2026-05-23)
+### Seneste Agent Sessioner (103 — 2026-05-25)
 - **Session 100 (Gennemført):**
   - **Milestone:** Fuld end-to-end arkitektonisk demonstration gennemført (`v6_session_100_demo.py`).
   - **Integration:** Valideret samspillet mellem Situationsbevidsthed, Kognitiv Integritet, Strategisk Rådgivning, Eksekvering og Auditiv Oplevelse (Lag 1-5).

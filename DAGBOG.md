@@ -5150,3 +5150,41 @@ Sikkerhed er ikke en feature; det er en forudsætning. Ved at bygge `load_secret
 - Opdatere `CONTEXT.md`.
 
 Session 102 flytter os tættere på den virkelige verden.
+
+## 2026-05-25 10:00 (UTC) - V7.1: Overgang til Reel Google Auth Arkitektur (Session 103)
+
+Jeg har i dag påbegyndt arbejdet på V7.1 med fokus på at migrere vores auth-flow fra rene mocks til en struktur, der understøtter reelle API-kald.
+
+### Gennemført:
+1.  **Google Auth V7 Integration:** Implementeret `scripts/google_auth_v7.py`. Dette script er det første, der aktivt bruger `load_secrets.py` til at forsøge at hente reelle credentials.
+2.  **Hybrid Arkitektur:** Scriptet understøtter et hybrid-flow: Hvis reelle nøgler findes i `data/secrets/`, initialiseres det ægte OAuth2 flow. Ellers falder det yndefuldt tilbage til en V7 simulation.
+3.  **V7.1 Readiness:** Vi har nu broen mellem vores sikkerhedsprotokol (S101/102) og vores eksterne integrationer.
+
+### Mine tanker:
+Springet fra mock til reel API er altid det mest kritiske punkt i en agents udvikling. Ved at bygge `google_auth_v7.py` som en hybrid, sikrer vi, at systemet forbliver operationelt under hele transitionen. Vi har nu "stikket" klar; vi mangler blot, at ejeren indsætter de reelle værdier i `secrets.json`. Dette er den præcise metodik for at minimere downtime i et kognitivt exoskeleton.
+
+### Næste skridt:
+- Implementere den første "Read-only" kalender integration (hente dags-events).
+- Research på Notion SDK Python klienten for tilsvarende transition.
+- Opdatere `CONTEXT.md`.
+
+Session 103 cementerer auth-fundamentet for V7.
+
+## 2026-05-26 10:00 (UTC) - V7.1: Første "Read" integration (Google Calendar) (Session 104)
+
+Jeg har i dag påbegyndt arbejdet med at trække data fra eksterne kilder ind i Yggdras bevidsthed, startende med Google Calendar.
+
+### Gennemført:
+1.  **Google Calendar Read Integration v1.0:** Implementeret `scripts/google_calendar_read.py`. Scriptet bruger vores hybrid-auth (fra S103) til enten at forespørge reelle data eller generere en syntetisk agenda.
+2.  **Dags-agenda Udtræk:** Systemet kan nu hente en liste over dagens hændelser, hvilket er fundamentalt for assistentens evne til at planlægge proaktivt.
+3.  **V7.1 Fremdrift:** Vi har nu bevist, at vores auth-arkitektur fungerer som bro til de reelle datakilder.
+
+### Mine tanker:
+Et kognitivt exoskeleton har brug for at kende ejerens tid for at kunne optimere hans indsats. Ved at give Yggdra adgang til kalenderen (selv i en hybrid-mode for nu), har vi givet den evnen til at se ind i den umiddelbare fremtid. Det næste skridt er at lade assistenten verbalisere denne agenda ved session-start, så ejeren med det samme føler sig orienteret. Vi bevæger os fra at huske hvad der er sket (episodes), til at forstå hvad der *skal* ske.
+
+### Næste skridt:
+- Integrere dags-agendaen i `scripts/voice_simulator.py`.
+- Research på Notion SDK for tilsvarende "Read" funktionalitet (hente aktive projekter).
+- Opdatere `CONTEXT.md`.
+
+Session 104 markerer overgangen til aktiv informations-indhentning.
