@@ -6,19 +6,19 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (89 — 2026-05-11)
+### Seneste Agent Sessioner (90 — 2026-05-12)
+- **Session 90 (Gennemført):**
+  - **Reparation:** `scripts/self_healing_tasks.py` v1.0 implementeret til automatisk generering af healing-tasks.
+  - **Overvågning:** Systemet scanner nu `maintenance_report.md` for fejl og advarsler (f.eks. Notion API 401).
+  - **Resultat:** Automatisk oprettelse af reparations-opgaver under målet 'system_health' (V6.2).
+  - **Status:** Autonom selv-monitorering og reparations-generering (Lag 5) er nu en del af systemets drift-integritet.
+
+### Tidligere Agent Sessioner (89 — 2026-05-11)
 - **Session 89 (Gennemført):**
   - **Eksekvering:** `scripts/task_completion.py` v1.0 implementeret til markering af færdiggjorte subtasks.
   - **Automatisering:** Færdiggørelse af subtasks opdaterer nu automatisk progress på strategiske mål via `goal_tracker.py`.
   - **Resultat:** Den første opgave ("Opsæt NOTION_API_KEY") er markeret færdig, og målet "Notion Live Initialization" er løftet til 65% progress (V6.2).
   - **Status:** Systemet kan nu automatisk koble teknisk eksekvering til overordnet strategisk fremdrift (Lag 3-5).
-
-### Tidligere Agent Sessioner (88 — 2026-05-10)
-- **Session 88 (Gennemført):**
-  - **Guidance:** `scripts/voice_simulator.py` opgraderet med aktiv guidance baseret på `subtasks.json`.
-  - **Integration:** Systemet kan nu proaktivt foreslå den næste konkrete opgave (f.eks. "Opsæt NOTION_API_KEY") for at genstarte stagnante mål (V6.2).
-  - **Resultat:** Den fulde kæde fra strategisk vision (Lag 5) til granulær handling (V6.2) er nu en del af assistentens proaktive dialog.
-  - **Status:** Aktiv projektstyring og guidet eksekvering (Lag 3-5) er nu fuldt integreret i brugeroplevelsen.
 
 ### Tidligere Agent Sessioner (87 — 2026-05-09)
 - **Session 83 (Gennemført):**

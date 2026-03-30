@@ -25,5 +25,19 @@
       "status": "pending",
       "created_at": "2026-03-30T03:30:14.952990+00:00Z"
     }
+  ],
+  "system_health": [
+    {
+      "id": "system_health_task_1",
+      "title": "Fix: Notion API sync fejler (401 Unauthorized)",
+      "status": "pending",
+      "created_at": "2026-03-30T05:00:19.780908+00:00Z"
+    },
+    {
+      "id": "system_health_task_2",
+      "title": "Fix: Qdrant disk space lav (85% brugt)",
+      "status": "pending",
+      "created_at": "2026-03-30T05:00:19.780908+00:00Z"
+    }
   ]
 }

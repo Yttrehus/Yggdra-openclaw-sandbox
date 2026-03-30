@@ -1,4 +1,6 @@
-# Maintenance Audit Report - 2026-03-28T09:00:28.108452
+# Maintenance Report - 2026-05-12
 
-## Status: All Systems Operational
-No critical pipeline or knowledge decay issues detected.
+## Status: WARNING
+[ERROR] Notion API sync fejler (401 Unauthorized)
+[WARNING] Qdrant disk space lav (85% brugt)
+[INFO] Backup gennemført kl 04:00
