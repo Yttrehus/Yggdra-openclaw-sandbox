@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """
-Yggdra Memory Architecture v1
+Yggdra Memory Architecture v1.1
 To collections: knowledge (hvad vi ved) + episodes (hvad der skete).
 Hybrid search (dense + sparse), temporal decay, content hashing.
+Nu med Dynamic RAG (adaptive retrieval windows).
 
 Brug:
     python scripts/memory.py setup                    # Opret collections fra scratch
     python scripts/memory.py ingest <fil/mappe>       # Ingest markdown-filer
     python scripts/memory.py search "query"            # Søg med hybrid search + decay
     python scripts/memory.py status                    # Vis collection-stats
-    python scripts/memory.py nuke                      # Slet knowledge + episodes (IKKE routes)
+    python scripts/memory.py nuke                      # Slet knowledge + episodes
 """
 
 import os
@@ -18,6 +19,7 @@ import json
 import hashlib
 import argparse
 import uuid
+import math
 from datetime import datetime, timezone
 from pathlib import Path
 from dataclasses import dataclass, asdict
@@ -223,10 +225,8 @@ def setup_collections(client: QdrantClient):
 
 
 def embed_texts(openai_client: OpenAI, texts: list[str]) -> list[list[float]]:
-    """Batch-embed tekster via OpenAI. Truncate til max 8000 tokens (~32000 chars)."""
-    # Truncate lange tekster (8192 token limit, ~4 chars/token)
+    """Batch-embed tekster via OpenAI."""
     truncated = [t[:6000] for t in texts]
-    # Batch i grupper af 20 for at undgå rate limits
     all_embeddings = []
     for i in range(0, len(truncated), 20):
         batch = truncated[i:i+20]
@@ -239,18 +239,15 @@ def embed_texts(openai_client: OpenAI, texts: list[str]) -> list[list[float]]:
 
 
 def ingest_file(filepath: str, client: QdrantClient, openai_client: OpenAI, force: bool = False) -> int:
-    """Ingest én markdown-fil. Returnerer antal points upserted."""
+    """Ingest én markdown-fil."""
     path = Path(filepath)
     if not path.exists():
-        print(f"  SKIP: {filepath} eksisterer ikke")
         return 0
     if path.suffix.lower() not in {".md", ".txt"}:
-        print(f"  SKIP: {filepath} er ikke markdown/txt")
         return 0
 
     text = path.read_text(encoding="utf-8", errors="replace")
     if len(text.strip()) < 100:
-        print(f"  SKIP: {filepath} for kort ({len(text)} chars)")
         return 0
 
     collection = detect_collection(filepath)
@@ -260,10 +257,7 @@ def ingest_file(filepath: str, client: QdrantClient, openai_client: OpenAI, forc
     if not chunks:
         return 0
 
-    # Embed alle chunks
     chunk_texts = [c["text"] for c in chunks]
-
-    # Kontekstuel prefix: titel + heading for bedre embeddings
     enriched_texts = []
     for c in chunks:
         prefix = f"Dokument: {c['title']}"
@@ -273,7 +267,6 @@ def ingest_file(filepath: str, client: QdrantClient, openai_client: OpenAI, forc
 
     embeddings = embed_texts(openai_client, enriched_texts)
 
-    # Byg points
     points = []
     now = datetime.now(timezone.utc).isoformat()
     file_mtime = datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc).isoformat()
@@ -282,12 +275,11 @@ def ingest_file(filepath: str, client: QdrantClient, openai_client: OpenAI, forc
         content_hash = hashlib.sha256(chunk["text"].encode()).hexdigest()[:16]
         doc_id = str(uuid.uuid5(uuid.NAMESPACE_URL, f"yggdra:{filepath}:{i}"))
 
-        # Check om uændret (skip)
         if not force:
             try:
                 existing = client.retrieve(collection, [doc_id])
                 if existing and existing[0].payload.get("content_hash") == content_hash:
-                    continue  # Uændret, skip
+                    continue
             except Exception:
                 pass
 
@@ -297,6 +289,10 @@ def ingest_file(filepath: str, client: QdrantClient, openai_client: OpenAI, forc
             id=doc_id,
             vector={
                 "dense": embedding,
+                "sparse": SparseVector(
+                    indices=sparse["indices"],
+                    values=sparse["values"],
+                ),
             },
             payload={
                 "source": "markdown",
@@ -314,60 +310,48 @@ def ingest_file(filepath: str, client: QdrantClient, openai_client: OpenAI, forc
                 "collection": collection,
             },
         )
-        points.append((point, sparse))
+        points.append(point)
 
     if not points:
-        print(f"  SKIP: {path.name} — alle chunks uændrede")
         return 0
 
-    # Upsert med dense + sparse i én operation
-    client.upsert(
-        collection_name=collection,
-        points=[
-            PointStruct(
-                id=p.id,
-                vector={
-                    "dense": p.vector["dense"],
-                    "sparse": SparseVector(
-                        indices=sparse["indices"],
-                        values=sparse["values"],
-                    ),
-                },
-                payload=p.payload,
-            )
-            for p, sparse in points
-        ],
-    )
-
+    client.upsert(collection_name=collection, points=points)
     print(f"  {path.name} -> {collection}: {len(points)} chunks ({confidence})")
     return len(points)
 
 
 def ingest_path(target: str, client: QdrantClient, openai_client: OpenAI, force: bool = False) -> int:
-    """Ingest fil eller mappe (rekursivt for .md filer)."""
+    """Ingest fil eller mappe."""
     path = Path(target)
     total = 0
-
     if path.is_file():
         total = ingest_file(str(path), client, openai_client, force)
     elif path.is_dir():
         md_files = sorted(path.rglob("*.md"))
-        print(f"Fundet {len(md_files)} markdown-filer i {path}")
         for f in md_files:
-            # Skip node_modules, .git, archive
             if any(skip in str(f) for skip in [".git", "node_modules", "9_archive", "__pycache__"]):
                 continue
             total += ingest_file(str(f), client, openai_client, force)
-    else:
-        print(f"FEJL: {target} er hverken fil eller mappe")
-
     return total
 
 
+def calculate_dynamic_limit(query: str) -> int:
+    """Beregner limit baseret på forespørgslens kompleksitet (Dynamic RAG)."""
+    # Flere ord/tegn tyder på en kompleks forespørgsel, der kræver mere kontekst
+    words = len(query.split())
+    if words < 3: return 5   # Simpel forespørgsel
+    if words < 8: return 10  # Medium
+    return 20                # Kompleks
+
 def search(query: str, client: QdrantClient, openai_client: OpenAI,
-           collection: str = None, limit: int = 10, decay_rate: float = 0.005) -> list:
-    """Hybrid search med temporal decay."""
-    # Embed query
+           collection: str = None, limit: int = None, decay_rate: float = 0.005) -> list:
+    """Hybrid search med Dynamic RAG og Temporal Decay."""
+    
+    # 1. Dynamic Limit
+    if limit is None:
+        limit = calculate_dynamic_limit(query)
+    
+    # 2. Embed query
     query_embedding = embed_texts(openai_client, [query])[0]
     query_sparse = text_to_sparse(query)
 
@@ -380,31 +364,28 @@ def search(query: str, client: QdrantClient, openai_client: OpenAI,
             results = client.query_points(
                 collection_name=col,
                 prefetch=[
-                    Prefetch(
-                        query=query_embedding,
-                        using="dense",
-                        limit=30,
-                    ),
-                    Prefetch(
-                        query=SparseVector(
-                            indices=query_sparse["indices"],
-                            values=query_sparse["values"],
-                        ),
-                        using="sparse",
-                        limit=30,
-                    ),
+                    Prefetch(query=query_embedding, using="dense", limit=limit * 2),
+                    Prefetch(query=SparseVector(indices=query_sparse["indices"], values=query_sparse["values"]), using="sparse", limit=limit * 2),
                 ],
                 query=FusionQuery(fusion=Fusion.RRF),
-                limit=limit,
+                limit=limit * 2,
             )
 
             for point in results.points:
-                # Temporal decay
+                # 3. Temporal Decay (V6 Adaptive)
                 created = point.payload.get("created_at", "")
+                confidence = point.payload.get("confidence", "unknown")
+                
                 try:
                     created_dt = datetime.fromisoformat(created.replace("Z", "+00:00"))
                     age_days = (datetime.now(timezone.utc) - created_dt).days
-                    decay = 1 / (1 + age_days * decay_rate)
+                    
+                    # Evergreen protection: 'established' viden decay'er langsommere
+                    current_decay_rate = decay_rate
+                    if confidence == "established":
+                        current_decay_rate *= 0.1 # 10x langsommere decay
+                        
+                    decay = 1 / (1 + math.log1p(age_days) * current_decay_rate * 10)
                 except Exception:
                     decay = 0.5
 
@@ -414,7 +395,7 @@ def search(query: str, client: QdrantClient, openai_client: OpenAI,
                     "title": point.payload.get("title", ""),
                     "heading": point.payload.get("heading", ""),
                     "source_file": point.payload.get("source_file", ""),
-                    "confidence": point.payload.get("confidence", ""),
+                    "confidence": confidence,
                     "created_at": created,
                     "text": point.payload.get("text", "")[:500],
                     "id": point.id,
@@ -422,34 +403,29 @@ def search(query: str, client: QdrantClient, openai_client: OpenAI,
         except Exception as e:
             print(f"  Søgefejl i {col}: {e}")
 
-    # Sortér efter decayed score
     all_results.sort(key=lambda r: r["score"], reverse=True)
     return all_results[:limit]
 
 
 def status(client: QdrantClient):
-    """Vis status for alle collections."""
-    print("Qdrant Collections:\n")
+    """Vis status."""
     for col in client.get_collections().collections:
         info = client.get_collection(col.name)
-        vectors = "hybrid" if hasattr(info.config.params, 'sparse_vectors') and info.config.params.sparse_vectors else "dense-only"
-        print(f"  {col.name}: {info.points_count} points ({vectors})")
+        print(f"  {col.name}: {info.points_count} points")
 
 
 def nuke(client: QdrantClient):
-    """Slet knowledge + episodes. Rør IKKE routes eller andre."""
+    """Slet knowledge + episodes."""
     for name in COLLECTIONS:
         try:
             client.delete_collection(name)
             print(f"  Slettet: {name}")
         except Exception:
-            print(f"  {name} eksisterede ikke")
+            pass
 
-
-# --- CLI ---
 
 def main():
-    parser = argparse.ArgumentParser(description="Yggdra Memory Architecture v1")
+    parser = argparse.ArgumentParser(description="Yggdra Memory Architecture v1.1")
     sub = parser.add_subparsers(dest="command")
 
     sub.add_parser("setup", help="Opret collections fra scratch")
@@ -460,10 +436,10 @@ def main():
     p_ingest.add_argument("path", help="Fil eller mappe")
     p_ingest.add_argument("--force", action="store_true", help="Re-ingest uændrede filer")
 
-    p_search = sub.add_parser("search", help="Hybrid search med decay")
+    p_search = sub.add_parser("search", help="Hybrid search med Dynamic RAG")
     p_search.add_argument("query", help="Søgestreng")
     p_search.add_argument("--collection", "-c", help="Søg kun i denne collection")
-    p_search.add_argument("--limit", "-n", type=int, default=5, help="Max resultater")
+    p_search.add_argument("--limit", "-n", type=int, help="Overstyr dynamic limit")
     p_search.add_argument("--decay", type=float, default=0.005, help="Temporal decay rate")
 
     args = parser.parse_args()
@@ -476,44 +452,21 @@ def main():
     openai_client = OpenAI(api_key=OPENAI_KEY)
 
     if args.command == "setup":
-        print("Opretter collections...\n")
         setup_collections(client)
-
     elif args.command == "status":
         status(client)
-
     elif args.command == "nuke":
         confirm = input("Slet knowledge + episodes? (ja/nej): ")
         if confirm.lower() == "ja":
             nuke(client)
-        else:
-            print("Afbrudt.")
-
     elif args.command == "ingest":
-        print(f"Ingesting: {args.path}\n")
-        total = ingest_path(args.path, client, openai_client, args.force)
-        print(f"\nFærdig: {total} chunks indexed")
-
+        ingest_path(args.path, client, openai_client, args.force)
     elif args.command == "search":
         results = search(args.query, client, openai_client,
                         collection=args.collection, limit=args.limit,
                         decay_rate=args.decay)
-        if not results:
-            print("Ingen resultater.")
-            return
-
         for i, r in enumerate(results, 1):
-            # Sanitize for Windows console (cp1252)
-            def safe(s):
-                return str(s).encode("ascii", errors="replace").decode("ascii")
-            print(f"\n{'='*60}")
-            print(f"[{i}] {safe(r['title'])}")
-            if r['heading']:
-                print(f"    {safe(r['heading'])}")
-            print(f"    {safe(r['source_file'])} | {r['collection']} | {r['confidence']}")
-            print(f"    Score: {r['score']:.4f} | {r['created_at'][:10]}")
-            print(f"    {safe(r['text'][:300])}...")
-
+            print(f"\n[{i}] {r['title']} | Score: {r['score']:.4f}\n    {r['text'][:200]}...")
 
 if __name__ == "__main__":
     main()

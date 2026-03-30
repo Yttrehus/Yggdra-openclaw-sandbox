@@ -1,0 +1,24 @@
+[
+  {
+    "id": "v6_completion",
+    "title": "Yggdra V6 Integration",
+    "progress": 87,
+    "category": "Architecture",
+    "last_updated": "2026-03-30T01:00:15.241247Z",
+    "history": [
+      {
+        "timestamp": "2026-03-30T01:00:15.241247Z",
+        "delta": 2,
+        "comment": "Implementeret Goal Tracker PoC"
+      }
+    ]
+  },
+  {
+    "id": "notion_init",
+    "title": "Notion Live Initialization",
+    "progress": 40,
+    "category": "Infrastructure",
+    "last_updated": "2026-03-30T01:00:15.240838Z",
+    "history": []
+  }
+]

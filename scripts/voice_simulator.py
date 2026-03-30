@@ -7,6 +7,7 @@ import glob
 import re
 from datetime import datetime, timezone
 import voice_proactive
+import voice_emotional
 
 # Pathing
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -82,62 +83,129 @@ def format_relative_time(dt_str):
     except Exception:
         return "tidligere"
 
+def calculate_dynamic_limit(query):
+    """Beregner limit baseret på forespørgslens kompleksitet (fra memory.py v1.1)."""
+    words = len(query.split())
+    if words < 3: return 5
+    if words < 8: return 10
+    return 20
+
 def get_fact_chunks(query):
-    # Tjek om brugeren beder om system status / sundhed
+    # Check if user asks specifically for status/health
     if any(keyword in query.lower() for keyword in ["status", "sundhed", "fejl", "audit"]):
-        report_path = os.path.join(_PROJECT_ROOT, "data/maintenance_report.md")
-        if os.path.exists(report_path):
-            with open(report_path, "r") as f:
-                content = f.read()
-            issues = [line.strip("- ") for line in content.split('\n') if "[CRITICAL]" in line or "[HIGH]" in line]
-            if issues:
-                return ["Jeg har fundet kritiske fejl i pipelinen.", f"Der er {len(issues)} advarsler lige nu."] + issues[:2] + ["Du bør tjekke recovery guiden."]
-            else:
-                return ["Systemet kører optimalt.", "Alle fødekæder er grønne."]
-        else:
-            return ["Jeg kan ikke finde den seneste audit rapport."]
+        if len(query.split()) < 4:
+            report_path = os.path.join(_PROJECT_ROOT, "data/maintenance_report.md")
+            if os.path.exists(report_path):
+                with open(report_path, "r") as f:
+                    content = f.read()
+                issues = [line.strip("- ") for line in content.split('\n') if "[CRITICAL]" in line or "[HIGH]" in line]
+                if issues:
+                    return ["Jeg har fundet kritiske fejl i pipelinen.", f"Der er {len(issues)} advarsler lige nu."] + issues[:2] + ["Du bør tjekke recovery guiden."]
+                else:
+                    return ["Systemet kører optimalt.", "Alle fødekæder er grønne."]
 
     # Tjek om brugeren beder om en rapport
     if any(keyword in query.lower() for keyword in ["rapport", "overblik", "uge", "resume"]):
         report = load_latest_report()
         if report:
             return parse_report_to_chunks(report)
-        else:
-            return ["Jeg kunne ikke finde en ugerapport.", "Du kan køre scripts/weekly_report.py for at generere en."]
 
     facts = load_facts()
     if not facts:
-        return ["Jeg kunne ikke indlæse fakta fra databasen.", "Tjek venligst data/extracted_facts.json."]
+        return ["Jeg kunne ikke indlæse fakta fra databasen."]
     
-    keywords = query.lower().split()
+    limit = calculate_dynamic_limit(query)
+    query_words = set(re.findall(r'\w+', query.lower()))
     relevant = []
     for f in facts:
-        if any(k in f['fact'].lower() for k in keywords):
+        fact_words = set(re.findall(r'\w+', f['fact'].lower()))
+        if query_words.intersection(fact_words):
             relevant.append(f)
     
     if not relevant:
         relevant = sorted(facts, key=lambda x: x.get('timestamp', ''), reverse=True)[:3]
         prefix = "Jeg fandt ikke specifikke matches, men her er det nyeste fra min hukommelse:"
     else:
-        prefix = f"Jeg har fundet {len(relevant)} relevante fakta om det emne."
+        prefix = f"Jeg har fundet {len(relevant)} relevante fakta. Her er de {min(limit, len(relevant))} vigtigste:"
 
     chunks = [prefix]
-    for r in relevant[:3]:
+    for r in relevant[:limit]:
         time_context = format_relative_time(r.get('timestamp', ''))
         chunks.append(f"{r['fact']} (lært {time_context}).")
     
     chunks.append("Skal jeg dykke dybere ned i nogle af dem?")
     return chunks
 
+import os
+import sys
+import time
+import random
+import json
+import glob
+import re
+from datetime import datetime, timezone
+import voice_proactive
+import voice_emotional
+import episode_search
+import goal_tracker
+
+# Pathing
+_PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+FACTS_FILE = os.path.join(_PROJECT_ROOT, "data/extracted_facts.json")
+REPORT_DIR = os.path.join(_PROJECT_ROOT, "memory/weekly_reports")
+
+def get_historical_context():
+    """Henter de seneste episoder for at give narrativ kontinuitet."""
+    try:
+        episodes = episode_search.search_episodes("session_end")
+        if not episodes:
+            return ""
+        
+        last_episode = episodes[-1]
+        ts = last_episode.get('timestamp', '')
+        if ts:
+            rel_time = "sidst" # Forenklet for demo
+            return f"Siden vi sidst afsluttede en session {rel_time}, har jeg holdt øje med dine prioriteter. "
+    except:
+        pass
+    return ""
+
+def get_goal_summary():
+    """Henter de seneste strategiske mål for at give strategisk fokus."""
+    try:
+        goals = goal_tracker.load_goals()
+        if not goals:
+            return ""
+        
+        main_goal = goals[0] # Antager første mål er vigtigst
+        return f"Vi er nu {main_goal['progress']}% i mål med {main_goal['title']}. "
+    except:
+        pass
+    return ""
+
 def thinking_out_loud_sim(user_query=None):
+    # Hent emotionel profil
+    tone = voice_emotional.get_emotional_tone()
+    
     if user_query is None:
-        print(f"\n--- Yggdra Voice Session Start ---")
+        print(f"\n--- Yggdra Voice Session Start (Tone: {tone['tone'].upper()}) ---")
+        
+        # 1. Hent historisk og strategisk kontekst (V6.1)
+        history = get_historical_context()
+        goals = get_goal_summary()
+        
+        # 2. Generer proaktiv hilsen
         greeting = voice_proactive.generate_greeting()
-        chunks = re.split(r'\. ', greeting)
+        
+        full_intro = history + goals + greeting
+        
+        chunks = re.split(r'\. ', full_intro)
         for chunk in chunks:
             if chunk.strip():
                 print(f"[VOICE - PROACTIVE]: {chunk.strip().rstrip('.')}.")
-                time.sleep(1.2)
+                # Juster delay baseret på hastighed
+                delay = 0.8 if tone['speed'] == "faster" else 1.2
+                time.sleep(delay)
         return
 
     print(f"\n[USER]: {user_query}")
@@ -155,17 +223,23 @@ def thinking_out_loud_sim(user_query=None):
     else:
         print(f"[VOICE - ACK]: {random.choice(acknowledgements)}")
     
-    print("[... Deep Thinking (LLM & Fact Retrieval) ...]")
-    time.sleep(1.2)
+    # Dynamic RAG feedback (V6)
+    limit = calculate_dynamic_limit(user_query)
+    if limit > 10:
+        print(f"[VOICE - INTERNAL]: Kompleks forespørgsel detekteret. Udvidet retrieval aktiv.")
+
+    print(f"[VOICE - INTERNAL]: Emotionel profil: {tone['description']}")
+    time.sleep(1.0)
     
     response_chunks = get_fact_chunks(user_query)
     
     for chunk in response_chunks:
-        # Rens for stjerner i alle chunks
         clean_chunk = chunk.replace('⭐', '')
         print(f"[VOICE - CHUNK]: {clean_chunk}")
-        delay = len(clean_chunk.split()) * 0.25 + 0.5
-        time.sleep(delay)
+        # Juster formidlings-delay baseret på hastighed
+        base_delay = len(clean_chunk.split()) * 0.25 + 0.5
+        actual_delay = base_delay * 0.7 if tone['speed'] == "faster" else base_delay
+        time.sleep(actual_delay)
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
