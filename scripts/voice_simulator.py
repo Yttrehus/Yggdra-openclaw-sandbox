@@ -14,6 +14,7 @@ import goal_tracker
 import decision_support
 import voice_cadence_protocol
 import voice_pitch_shift
+import agenda_vocalizer
 
 # Pathing
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -189,6 +190,13 @@ def get_decision_proposals():
     except: pass
     return ""
 
+def get_agenda_context():
+    """Henter dags-agenda for at give tids-bevidsthed (V7.1)."""
+    try:
+        return agenda_vocalizer.get_agenda_vocalized()
+    except: pass
+    return ""
+
 def vocalize(text):
     """Integrerer Pitch og Cadence i outputtet."""
     pitch = voice_pitch_shift.get_pitch_instruction(text)
@@ -202,13 +210,14 @@ def thinking_out_loud_sim(user_query=None):
         print(f"\n--- Yggdra Voice Session Start (Tone: {tone['tone'].upper()}) ---")
         history = get_historical_context()
         voice_status = voice_report_generator.generate_voice_report()
+        agenda = get_agenda_context()
         drift = get_drift_warning()
         drills = get_drill_prompts()
         tasks = get_task_suggestions()
         proposals = get_decision_proposals()
         greeting = voice_proactive.generate_greeting()
         
-        full_intro = history + voice_status + " " + drift + drills + tasks + proposals + greeting
+        full_intro = history + voice_status + " " + agenda + drift + drills + tasks + proposals + greeting
         vocalize(full_intro)
         return
 

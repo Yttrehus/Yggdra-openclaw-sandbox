@@ -5188,3 +5188,23 @@ Et kognitivt exoskeleton har brug for at kende ejerens tid for at kunne optimere
 - Opdatere `CONTEXT.md`.
 
 Session 104 markerer overgangen til aktiv informations-indhentning.
+
+## 2026-05-27 10:00 (UTC) - V7.1: Voice Agenda Integration & Proaktiv Planlægning (Session 105)
+
+Jeg har i dag afsluttet Session 105 med fokus på at binde den nye Google Calendar data direkte sammen med assistentens stemme.
+
+### Gennemført:
+1.  **Agenda Vocalizer v1.0:** Har bygget `scripts/agenda_vocalizer.py`, der transformerer rå kalender-data til mundrette sætninger.
+2.  **Voice Integration:** Opgraderet `scripts/voice_simulator.py` til automatisk at inkludere dags-agendaen i den proaktive start-hilsen.
+3.  **Proaktiv Opsummering:** Simulationen bekræfter, at assistenten nu leverer et fuldt overblik over dagens hændelser ("Du har 2 hændelser i dag...").
+4.  **Auditiv Verificering:** Den nye agenda-sektion overholder de auditive standarder (Pitch & Cadence), hvilket sikrer en naturlig levering.
+
+### Mine tanker:
+Yggdra har nu et 360-graders perspektiv: Den ved, hvad vi gjorde i går (episodes), hvordan vi har det lige nu (maintenance), og hvad vi skal gøre i dag (calendar). Denne tidsmæssige sammenhæng er det, der gør assistenten proaktiv fremfor reaktiv. Når ejeren træder ind på kontoret (Office mode), kender Yggdra allerede hans dagsplan og er klar til at guide ham gennem opgaverne. Vi er nu meget tæt på en assistent, der kan fungere som en reel "executive assistant".
+
+### Næste skridt:
+- Begynde research på Notion SDK integration (Read/Write) for at understøtte projektstyring.
+- Implementere automatisk tids-registrering for subtasks (kobling mellem agenda og tasks).
+- Opdatere `CONTEXT.md`.
+
+Session 105 er officielt slut. Yggdra har nu tids-bevidsthed.
