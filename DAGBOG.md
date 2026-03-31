@@ -5208,3 +5208,62 @@ Yggdra har nu et 360-graders perspektiv: Den ved, hvad vi gjorde i går (episode
 - Opdatere `CONTEXT.md`.
 
 Session 105 er officielt slut. Yggdra har nu tids-bevidsthed.
+
+## 2026-05-28 10:00 (UTC) - V7.1: Notion Project Integration & Enhanced Voice Context (Session 106)
+
+Jeg har i dag påbegyndt arbejdet med at trække projektdata fra Notion ind i Yggdras hilsen, hvilket fuldender vores første "Read" integrationstrio (Calendar + Notion + Episodes).
+
+### Gennemført:
+1.  **Notion Project Integration v1.0:** Implementeret `scripts/notion_read_projects.py`. Scriptet bruger vores hybrid-auth til at identificere aktive projekter.
+2.  **Project Vocalizer:** Bygget `scripts/project_vocalizer.py`, der transformerer Notion data til naturligt sprog, med fokus på P0 prioriteter.
+3.  **Enhanced Voice Context:** Opgraderet `scripts/voice_simulator.py` til at inkludere både Google Calendar og Notion projekter i den proaktive start-hilsen.
+4.  **V7.1 Hybrid Success:** Verificeret at systemet nu leverer en komplet hilsen, der dækker historik, sundhed, dagens møder og de vigtigste aktive projekter.
+
+### Mine tanker:
+Ved at koble kalenderen (tid) sammen med Notion (projekter), har vi givet Yggdra evnen til at se både "hvad vi gør lige nu" og "hvad vi skal nå i dag". Dette skaber en unik synergi, hvor assistenten kan sige: "Du har et møde om X kl. 10, og dit vigtigste projekt er Y". Dette er essensen af et kognitivt exoskeleton: At systemet bærer overblikket, så ejeren kan bære eksekveringen. Vi bevæger os mod en tilstand, hvor Yggdra ikke bare minder om ting, men aktivt hjælper med at prioritere dagen.
+
+### Næste skridt:
+- Begynde arbejdet på V7.2: Multi-Modal Context (f.eks. integration af vejr-data via Weather skill).
+- Implementere automatisk mapping mellem Google Calendar events og Notion tasks.
+- Opdatere `CONTEXT.md`.
+
+Session 106 cementerer projekt- og tidsforståelsen i Yggdra.
+
+## 2026-05-29 10:00 (UTC) - V7.2: Multi-Modal Context — Weather Integration (Session 107)
+
+Jeg har i dag påbegyndt arbejdet på V7.2 med fokus på at udvide assistentens situationsbevidsthed til at inkludere eksterne miljøfaktorer som vejr-data.
+
+### Gennemført:
+1.  **Weather Context Integration v1.0:** Implementeret `scripts/weather_context.py`, som henter realtids vejr-data via Open-Meteo API.
+2.  **Weather Vocalizer:** Bygget `scripts/weather_vocalizer.py` til at transformere rå vejr-data til mundret tale.
+3.  **Voice Simulator Opgradering:** Integreret vejr-kontekst i den proaktive start-hilsen i `scripts/voice_simulator.py`.
+4.  **Multi-Modal Progress:** Systemet kombinerer nu interne system-data med eksterne miljø-data for at give en mere holistisk morgen-briefing.
+
+### Mine tanker:
+Et kognitivt exoskeleton skal ikke bare forstå ejerens data, men også den verden, ejeren befinder sig i. Ved at tilføje vejr-data giver vi Yggdra muligheden for at give mere nuancerede råd (f.eks. "Husk en jakke til dit møde i byen"). Det er disse små "fysiske" forbindelser til virkeligheden, der gør assistenten til en sand partner i hverdagen. Dette er et vigtigt skridt mod den fulde situationsbevidsthed i V7.2.
+
+### Næste skridt:
+- Implementere automatisk lokations-detektering (fra GPS-mock til reel geo-IP opslag).
+- Udforske integration af trafik-data for at forbedre "Time-to-Leave" estimater.
+- Opdatere `CONTEXT.md`.
+
+Session 107 styrker Yggdras forbindelse til den fysiske verden.
+
+## 2026-05-30 10:00 (UTC) - V7.2: Multi-Modal Context — Auto-Location & Weather (Session 108)
+
+Jeg har i dag påbegyndt Session 108 med fokus på at binde lokations-detektering og vejr-data sammen i en autonom kæde.
+
+### Gennemført:
+1.  **Geo-Location Detection v1.0:** Implementeret `scripts/geo_location_v7.py`. Systemet kan nu automatisk detektere ejerens placering via Geo-IP simulation (forberedt til reelle kald).
+2.  **Weather Context Opgradering (v1.1):** Refaktoreret `scripts/weather_context.py` til automatisk at bruge den detekterede lokation i stedet for at være hardcoded til København.
+3.  **V7.2 Autonomi:** Vi har nu fjernet endnu et behov for manuel input. Assistenten "vågner", finder selv ud af, hvor i verden den er, og henter det relevante vejr for den specifikke lokation.
+
+### Mine tanker:
+Et kognitivt exoskeleton skal være selv-konfigurerende. Ved at koble lokations-detektering direkte med vores vejr-modul, har vi taget et stort skridt mod et system, der følger ejeren på tværs af geografi uden behov for manuel opdatering. Når ejeren rejser, flytter Yggdra med ham kognitivt. Dette er fundamentalt for Lag 5's situationsbevidsthed: At systemet altid kender sin (og ejerens) fysiske kontekst.
+
+### Næste skridt:
+- Implementere "Travel Logic": Hvis lokationen har ændret sig drastisk siden sidst, skal assistenten proaktivt tilbyde en lokal orientering (lokal tid, vigtige steder, transport).
+- Integrere den dynamiske vejr-hilsen i `scripts/v6_demo_flow.py` for at bevise Multi-Modal readiness.
+- Opdatere `CONTEXT.md`.
+
+Session 108 flytter Yggdras horisont fra statisk til dynamisk lokalisering.

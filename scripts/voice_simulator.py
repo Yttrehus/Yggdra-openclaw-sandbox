@@ -15,6 +15,8 @@ import decision_support
 import voice_cadence_protocol
 import voice_pitch_shift
 import agenda_vocalizer
+import project_vocalizer
+import weather_vocalizer
 
 # Pathing
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -177,7 +179,7 @@ def get_task_suggestions():
                 if goal_id == "system_health": continue
                 for task in tasks:
                     if task.get("status") == "pending":
-                        return f"Som næste skridt foreslår jeg, at vi kigger på: {task['title']}. "
+                        return f"Som næste skridt foreslår jeg, at we kigger på: {task['title']}. "
     except: pass
     return ""
 
@@ -197,6 +199,20 @@ def get_agenda_context():
     except: pass
     return ""
 
+def get_notion_context():
+    """Henter vigtigste Notion projekter for proaktiv planlægning (V7.1)."""
+    try:
+        return project_vocalizer.get_projects_vocalized()
+    except: pass
+    return ""
+
+def get_weather_context():
+    """Henter vejrdata for multi-modal situationsbevidsthed (V7.2)."""
+    try:
+        return weather_vocalizer.get_weather_vocalized()
+    except: pass
+    return ""
+
 def vocalize(text):
     """Integrerer Pitch og Cadence i outputtet."""
     pitch = voice_pitch_shift.get_pitch_instruction(text)
@@ -211,13 +227,15 @@ def thinking_out_loud_sim(user_query=None):
         history = get_historical_context()
         voice_status = voice_report_generator.generate_voice_report()
         agenda = get_agenda_context()
+        notion = get_notion_context()
+        weather = get_weather_context()
         drift = get_drift_warning()
         drills = get_drill_prompts()
         tasks = get_task_suggestions()
         proposals = get_decision_proposals()
         greeting = voice_proactive.generate_greeting()
         
-        full_intro = history + voice_status + " " + agenda + drift + drills + tasks + proposals + greeting
+        full_intro = history + voice_status + " " + weather + agenda + notion + drift + drills + tasks + proposals + greeting
         vocalize(full_intro)
         return
 
