@@ -19,6 +19,7 @@ import project_vocalizer
 import weather_vocalizer
 import travel_logic_v7
 import time_of_day_v7
+import routine_engine_v7
 
 # Pathing
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -213,11 +214,17 @@ def get_weather_context():
     return ""
 
 def get_travel_context():
-    """Henter rejse-briefing for proaktiv velkomst (V7.2)."""
     try:
         change = travel_logic_v7.check_for_travel()
         if change:
             return change['message'] + " "
+    except: pass
+    return ""
+
+def get_routine_context():
+    """Henter kontekstuelle rutine-forslag (V7.2)."""
+    try:
+        return routine_engine_v7.get_routine_suggestion()
     except: pass
     return ""
 
@@ -237,18 +244,17 @@ def thinking_out_loud_sim(user_query=None):
         weather = get_weather_context()
         agenda = get_agenda_context()
         notion = get_notion_context()
+        routine = get_routine_context()
         drift = get_drift_warning()
         drills = get_drill_prompts()
         tasks = get_task_suggestions()
         proposals = get_decision_proposals()
         
-        # 2. Generer proaktiv hilsen baseret på lokal tid (V7.2)
         time_greeting = time_of_day_v7.get_time_of_day_greeting()
         base_greeting = voice_proactive.generate_greeting()
-        # Udskift standard hilsen med tids-baseret hvis muligt
         final_greeting = base_greeting.replace("Godaften", time_greeting).replace("Godmorgen", time_greeting).replace("Goddag", time_greeting)
         
-        full_intro = history + voice_status + " " + travel + weather + agenda + notion + drift + drills + tasks + proposals + final_greeting
+        full_intro = history + voice_status + " " + travel + weather + agenda + notion + routine + drift + drills + tasks + proposals + final_greeting
         vocalize(full_intro)
         return
 
