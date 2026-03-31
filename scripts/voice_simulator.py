@@ -219,6 +219,18 @@ def vocalize(text):
     print(f"[{pitch}]")
     voice_cadence_protocol.speak_with_cadence(text)
 
+import travel_logic_v7
+
+def get_travel_context():
+    """Henter rejse-briefing for proaktiv velkomst (V7.2)."""
+    try:
+        change = travel_logic_v7.check_for_travel()
+        if change:
+            return change['message'] + " "
+    except:
+        pass
+    return ""
+
 def thinking_out_loud_sim(user_query=None):
     tone = voice_emotional.get_emotional_tone()
     
@@ -226,6 +238,7 @@ def thinking_out_loud_sim(user_query=None):
         print(f"\n--- Yggdra Voice Session Start (Tone: {tone['tone'].upper()}) ---")
         history = get_historical_context()
         voice_status = voice_report_generator.generate_voice_report()
+        travel = get_travel_context()
         agenda = get_agenda_context()
         notion = get_notion_context()
         weather = get_weather_context()
@@ -235,7 +248,7 @@ def thinking_out_loud_sim(user_query=None):
         proposals = get_decision_proposals()
         greeting = voice_proactive.generate_greeting()
         
-        full_intro = history + voice_status + " " + weather + agenda + notion + drift + drills + tasks + proposals + greeting
+        full_intro = history + voice_status + " " + travel + weather + agenda + notion + drift + drills + tasks + proposals + greeting
         vocalize(full_intro)
         return
 

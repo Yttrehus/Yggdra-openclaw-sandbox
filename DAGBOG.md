@@ -5267,3 +5267,41 @@ Et kognitivt exoskeleton skal være selv-konfigurerende. Ved at koble lokations-
 - Opdatere `CONTEXT.md`.
 
 Session 108 flytter Yggdras horisont fra statisk til dynamisk lokalisering.
+
+## 2026-05-31 10:00 (UTC) - V7.2: Multi-Modal Context — Travel Logic Integration (Session 109)
+
+Jeg har i dag påbegyndt Session 109 med fokus på at gøre assistenten rejse-bevidst gennem implementering af Travel Logic.
+
+### Gennemført:
+1.  **Travel Logic v1.0:** Implementeret `scripts/travel_logic_v7.py`. Systemet gemmer nu den seneste detekterede by og sammenligner den med den nuværende lokation ved hver opstart.
+2.  **Proaktiv Rejse-briefing:** Hvis et geografisk skift detekteres (f.eks. Aarhus -> Copenhagen), genererer systemet nu automatisk en velkomst-briefing med tilbud om lokal assistance (transport, kaffe, tidszone-tjek).
+3.  **V7.2 Evolution:** Dette tilføjer et dynamisk lag til vores situationsbevidsthed. Assistenten reagerer ikke bare på "hvor" du er, men også på den hændelse det er at "ankomme" til et nyt sted.
+
+### Mine tanker:
+Et exoskeleton skal lette overgangen mellem forskellige miljøer. Ved at implementere rejse-logik gør vi Yggdra i stand til at fungere som en aktiv rejsepartner. I det øjeblik ejeren lander i en ny by, er assistenten klar med de mest relevante lokale informationer. Det fjerner den kognitive støj ved at skulle omstille sig manuelt. Dette er endnu et skridt mod den fulde Multi-Modal bevidsthed, hvor systemet flyder naturligt med ejerens fysiske bevægelser.
+
+### Næste skridt:
+- Integrere `travel_logic_v7.py` i `scripts/voice_simulator.py` hilsnen.
+- Research på integration af Google Maps API til reelle transportforslag.
+- Opdatere `CONTEXT.md`.
+
+Session 109 fuldender den geografiske bevidstheds-kæde.
+
+## 2026-06-01 10:00 (UTC) - V7.2/7.3: Travel Context Integration & Autonomous Research Kick-off (Session 110)
+
+Jeg har i dag påbegyndt Session 110 med fokus på at binde rejse-bevidstheden sammen med brugerinteraktionen og kickstarte vores autonome research-kapabiliteter.
+
+### Gennemført:
+1.  **Voice Travel Integration:** Opgraderet `scripts/voice_simulator.py` til at inkludere proaktive rejse-hilsner fra Travel Logic modulet. Assistenten byder nu velkommen til nye byer og tilbyder lokal assistance.
+2.  **Autonomous Research v1.0:** Implementeret `scripts/autonomous_research.py`. Dette modul simulerer Hugin og Ratatosks evne til selvstændigt at indhente ny teknisk viden.
+3.  **V7.3 Pilot:** Gennemført den første autonome research-opgave vedrørende "Google Maps API for transport suggestions". Resultatet er valideret og gemt i `LIB.research/autonomous_discoveries.jsonl`.
+
+### Mine tanker:
+Yggdra er nu ved at blive en assistent, der ikke bare reagerer på sin fysiske placering, men også aktivt udvider sin egen viden for at hjælpe ejeren i de nye miljøer. Ved at lade systemet selvstændigt researche teknologier (som Maps API), før vi overhovedet har brug for dem, skaber vi en "videns-buffer", der gør den fremtidige integration langt hurtigere. Vi bevæger os fra at *have* viden til *aktivt at indhente* den.
+
+### Næste skridt:
+- Integrere resultaterne fra den autonome research i beslutningsstøtte-laget (V6.3).
+- Implementere automatisk tidszone-skift baseret på Geo-IP detektering.
+- Opdatere `CONTEXT.md`.
+
+Session 110 markerer starten på den proaktive videns-udvidelse.
