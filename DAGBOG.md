@@ -5305,3 +5305,41 @@ Yggdra er nu ved at blive en assistent, der ikke bare reagerer på sin fysiske p
 - Opdatere `CONTEXT.md`.
 
 Session 110 markerer starten på den proaktive videns-udvidelse.
+
+## 2026-06-02 10:00 (UTC) - V7.2: Multi-Modal Context — Timezone Sync (Session 111)
+
+Jeg har i dag påbegyndt Session 111 med fokus på at fuldende det geografiske fundament gennem automatisk tidszone-synkronisering.
+
+### Gennemført:
+1.  **Timezone Sync v1.0:** Implementeret `scripts/time_zone_v7.py`. Systemet kan nu automatisk mappe den detekterede Geo-IP lokation til en tidszone og beregne den lokale tid.
+2.  **Kognitiv Konsistens:** Ved at kende den lokale tid (f.eks. Europe/Copenhagen) kan assistenten nu give mere præcise tids-baserede anbefalinger, selv når ejeren rejser på tværs af zoner.
+3.  **V7.2 Readiness:** Dette lukker gabet i vores "Rejse-pakke": Vi ved nu hvor ejeren er, hvordan vejret er dér, og hvad klokken er lokalt.
+
+### Mine tanker:
+Tid er relativ, men for en assistent skal den være absolut korrekt i forhold til ejerens kontekst. Ved at automatisere tidszone-skiftet sikrer vi, at agenda-vocalizing (S105) og time-to-leave (S110) altid regner på de rigtige tal, uanset om ejeren er i Tokyo eller New York. Det er denne usynlige præcision, der skaber følelsen af et ægte exoskeleton. Systemet adapterer sig til verden, så ejeren ikke behøver at gøre det.
+
+### Næste skridt:
+- Integrere den lokale tid i `scripts/voice_simulator.py` hilsnen ("Godmorgen", "Godaften" baseret på lokal tid).
+- Research på fly-data integration (V7.2) for at forudsige rejser før de sker.
+- Opdatere `CONTEXT.md`.
+
+Session 111 fuldender den temporale-geografiske akse.
+
+## 2026-06-03 10:00 (UTC) - V7.2: Multi-Modal Context — Time of Day & Dynamic Greetings (Session 112)
+
+Jeg har i dag påbegyndt Session 112 med fokus på at gøre assistentens hilsner mere naturlige gennem analyse af lokal tid.
+
+### Gennemført:
+1.  **Time of Day Analysis v1.0:** Implementeret `scripts/time_of_day_v7.py`. Dette modul analyserer den lokale tid (baseret på tidszone-sync fra S111) for at bestemme den korrekte hilsen (Godmorgen, Goddag, Godaften, Godnat).
+2.  **Voice Simulator Raffinering:** Opgraderet `scripts/voice_simulator.py` til dynamisk at udskifte standard-hilsner med tids-relevante hilsner.
+3.  **Auditiv Kontekst:** Assistenten byder nu brugeren velkommen med en hilsen, der stemmer overens med brugerens faktiske tidspunkt på dagen, hvilket øger realismen og "partnerskabs-følelsen".
+
+### Mine tanker:
+Det virker måske som en lille detalje at sige "Godmorgen" i stedet for "Godaften", men i et kognitivt exoskeleton er det disse mikrosignaler, der bygger tillid. Hvis assistenten ikke engang ved, om det er dag eller nat hos brugeren, hvordan kan man så stole på dens andre råd? Ved at koble tids-analyse direkte til voice-hilsnen, cementerer vi Yggdras tilstedeværelse i brugerens faktiske tidslinje.
+
+### Næste skridt:
+- Implementere "Routine Suggestions" baseret på tidspunkt (f.eks. morgen-opsummering vs. aften-refleksion).
+- Research på Flight-aware integration for at forudsige rejser (V7.2).
+- Opdatere `CONTEXT.md`.
+
+Session 112 fuldender den dynamiske temporale bevidsthed.

@@ -7,7 +7,7 @@ Del af Lag 5 (Situationsbevidsthed) / V6.4 Oplevelses-evolution.
 import time
 import re
 
-def speak_with_cadence(text, base_delay=1.0):
+def speak_with_cadence(text, base_delay=0.5):
     """Simulerer tale med naturlige pauser baseret på tegnsætning."""
     # Definer pauser for forskellige tegn
     pauses = {
@@ -17,6 +17,7 @@ def speak_with_cadence(text, base_delay=1.0):
         r',': 0.6,   # Komma: Kort pause
         r':': 0.8,   # Kolon: Forventningsfuld pause
     }
+    # pauses = {}
     
     print("--- Starting Voice Output with Cadence Protocol ---")
     
