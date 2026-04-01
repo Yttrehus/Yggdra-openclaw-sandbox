@@ -1,0 +1,35 @@
+{
+  "version": "1.1",
+  "layout": "split-screen",
+  "urgency_highlight": {
+    "active": true,
+    "level": "CRITICAL",
+    "color_hex": "#FF0000",
+    "animation": "pulse"
+  },
+  "left_panel": {
+    "title": "Weather & Environment",
+    "content": "Vejret i Copenhagen er lige nu 4.3 grader med en vindhastighed p\u00e5 5.4 kilometer i timen. ",
+    "theme": "dynamic-skyline"
+  },
+  "right_panel": {
+    "title": "Today's Mission",
+    "events": [
+      {
+        "time": "10:00",
+        "title": "V7 Integrations Sprint",
+        "location": "Office"
+      },
+      {
+        "time": "14:30",
+        "title": "Review: Cognitive Exoskeleton Pipeline",
+        "location": "Remote"
+      }
+    ],
+    "theme": "cyber-notion"
+  },
+  "footer": {
+    "system_status": "Status: CRITICAL",
+    "timestamp": "2026-04-01T02:01:43.501416"
+  }
+}
