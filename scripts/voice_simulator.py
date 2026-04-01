@@ -21,6 +21,7 @@ import travel_logic_v7
 import time_of_day_v7
 import routine_engine_v7
 import auto_execution_feedback
+import context_voice_summary
 
 # Pathing
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -229,9 +230,15 @@ def get_routine_context():
     return ""
 
 def get_auto_feedback_context():
-    """Henter feedback om autonome handlinger (V7.4)."""
     try:
         return auto_execution_feedback.get_recent_auto_actions()
+    except: pass
+    return ""
+
+def get_context_tasks_context():
+    """Henter opsummering af kontekst-baserede opgaver (V7.5)."""
+    try:
+        return context_voice_summary.get_context_tasks_vocalized()
     except: pass
     return ""
 
@@ -253,6 +260,7 @@ def thinking_out_loud_sim(user_query=None):
         notion = get_notion_context()
         routine = get_routine_context()
         auto_feedback = get_auto_feedback_context()
+        context_tasks = get_context_tasks_context()
         drift = get_drift_warning()
         drills = get_drill_prompts()
         tasks = get_task_suggestions()
@@ -262,7 +270,7 @@ def thinking_out_loud_sim(user_query=None):
         base_greeting = voice_proactive.generate_greeting()
         final_greeting = base_greeting.replace("Godaften", time_greeting).replace("Godmorgen", time_greeting).replace("Goddag", time_greeting)
         
-        full_intro = history + voice_status + " " + travel + weather + agenda + notion + routine + auto_feedback + drift + drills + tasks + proposals + final_greeting
+        full_intro = history + voice_status + " " + travel + weather + agenda + notion + routine + auto_feedback + context_tasks + drift + drills + tasks + proposals + final_greeting
         vocalize(full_intro)
         return
 

@@ -6,14 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (119 — 2026-06-10)
-- **Session 119 (Gennemført):**
-  - **Proaktivitet:** `scripts/context_task_generator.py` v1.0 implementeret til automatisk opgave-generering.
-  - **Analyse:** Systemet analyserer nu vejr, agenda og fly-data for at skabe relevante subtasks (f.eks. pakke taske, tjekke AV-udstyr).
-  - **Resultat:** Etableret en direkte bro mellem situationsbevidsthed og konkret handling (V7.5).
-  - **Status:** Assistenten kan nu proaktivt forberede ejeren på fremtidige hændelser baseret på kontekst.
+### Seneste Agent Sessioner (120 — 2026-06-11)
+- **Session 120 (Gennemført):**
+  - **Voice:** `scripts/context_voice_summary.py` v1.0 integreret i voice-hilsen.
+  - **Autonomi:** Systemet rapporterer nu proaktivt om gennemførte auto-execution handlinger og nyoprettede kontekst-opgaver.
+  - **Resultat:** Brugeren får nu en fuld "while you were away" briefing ved hver start (V7.5).
+  - **Status:** Den kognitive proaktive cyklus (Analyse -> Handling -> Feedback) er nu fuldt operationel.
 
-### Seneste Agent Sessioner (118 — 2026-06-09)
+### Seneste Agent Sessioner (119 — 2026-06-10)
 
 ### Seneste Agent Sessioner (117 — 2026-06-08)
 - **Session 115 (Gennemført):**

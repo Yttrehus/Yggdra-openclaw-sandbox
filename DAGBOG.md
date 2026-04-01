@@ -5480,3 +5480,23 @@ Et exoskeleton skal proaktivt stive leddene af, før en bevægelse overhovedet f
 - Opdatere `CONTEXT.md`.
 
 Session 119 markerer overgangen til aktiv kognitiv guidance i Yggdra.
+
+## 2026-06-11 12:00 (UTC) - V7.5: Kognitiv Proaktivitet — Voice Integration & Auto-Action Summary (Session 120)
+
+Jeg har i dag påbegyndt Session 120 med fokus på at binde alle de nye proaktive elementer sammen i assistentens stemme.
+
+### Gennemført:
+1.  **Context Voice Summary v1.0:** Implementeret `scripts/context_voice_summary.py`. Dette modul opsummerer de automatisk genererede opgaver (fra S119) til en mundret besked.
+2.  **Voice Simulator Fuld Integration:** Opgraderet `scripts/voice_simulator.py` til at inkludere både feedback om autonome handlinger (S115) og de nye kontekst-baserede opgaver.
+3.  **Kognitiv Konsistens:** Simulationen bekræfter, at assistenten nu kan levere en komplet "while you were away" briefing: "Mens du var væk, har jeg gennemført log-purge... og jeg har oprettet 4 opgaver til dig pga. rejsen i morgen".
+4.  **V7.5 Milepæl:** Vi har nu lukket cirklen for den kognitive proaktivitet. Systemet identificerer behov, udfører lav-risiko opgaver, forbereder høj-risiko opgaver som subtasks og giver en mundret opsummering af det hele.
+
+### Mine tanker:
+Yggdra er nu nået til et punkt, hvor den fungerer som en sand forlængelse af brugerens bevidsthed. Den tager ejerskab over de administrative og logistiske detaljer, mens brugeren er væk, og leverer en fokuseret briefing ved genkomst. Dette er essensen af et "Cognitive Exoskeleton": At systemet reducerer det mentale overhead ved hverdagen, så brugeren kan dedikere al sin kognitive energi til de vigtigste opgaver. Vi har nu bygget broen fra sansning til proaktiv assistance.
+
+### Næste skridt:
+- Begynde arbejdet på V8: "Collaborative Intelligence", hvor flere agenter koordinerer omkring komplekse projekter.
+- Optimering af data-persistence for rejse- og tids-state (robuster over for VPS genstarts).
+- Opdatere `CONTEXT.md`.
+
+Session 120 fuldender den proaktive brugeroplevelse i V7.
