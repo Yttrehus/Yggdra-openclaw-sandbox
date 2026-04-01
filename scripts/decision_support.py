@@ -25,7 +25,8 @@ def analyze_and_propose():
                     "id": "purge_old_logs",
                     "title": "Purge af forældede logfiler",
                     "reason": "Qdrant diskplads er på 85%. En purge af data ældre end 90 dage vil frigøre 15GB.",
-                    "action": "scripts/purge_logs.sh --days 90"
+                    "action": "scripts/purge_logs.sh --days 90",
+                    "risk_level": "low"
                 })
 
     # 2. Tjek strategisk fremdrift (Goals)
@@ -38,7 +39,8 @@ def analyze_and_propose():
                     "id": "shift_focus_v6",
                     "title": "Intensiver V6 Arkitektur Sprint",
                     "reason": "Fremdriften på V6 er under 30%. Jeg foreslår at vi de-prioriterer research i 48 timer.",
-                    "action": "scripts/triage_update.py --focus v6"
+                    "action": "scripts/triage_update.py --focus v6",
+                    "risk_level": "high"
                 })
 
     if proposals:

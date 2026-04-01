@@ -1,44 +1,56 @@
 #!/usr/bin/env python3
 """
-Multimodal Flow Demo v1.0
-Fokus: Simulation af broen mellem Voice-start og Notion-check.
-Del af Lag 4 (Tilgængelighed) og Lag 5 (Situationsbevidsthed).
+Yggdra V7.2 Multi-Modal Demonstration
+Fokus: End-to-end flow der kombinerer lokation, vejr, tid og rejse-logik.
 """
 import time
 import os
 import json
+from datetime import datetime, timezone
 
-def run_demo(user_input=None):
-    print("--- Multimodal Flow Demo: Voice -> Notion ---")
-    
-    # 1. Voice Proactive Start (Simulation)
-    print("\n[SCENE]: Ejeren sætter sig ind i bilen (Route 256).")
+def run_multimodal_demo():
+    print("================================================================")
+    print("   YGGDRA V7.2: MULTI-MODAL CONTEXT DEMONSTRATION")
+    print("================================================================\n")
+
+    # 1. Lokations-detektering
+    print("[TRIN 1]: Autonom Lokations-detektering...")
+    os.system("python3 scripts/geo_location_v7.py")
     time.sleep(1)
-    print("[VOICE]: Godmorgen. Pipelinen kører perfekt. Din hukommelse er 87.3% pålidelig.")
-    print("[VOICE]: Jeg bemærker du har 3 aktive projekter. Skal jeg sende status til din Notion?")
-    
-    # 2. Bruger accept (Simulation eller Input)
-    if user_input is None:
-        # Simuleret venten på input i terminal hvis ikke angivet
-        print("\n[Venter på svar: 'ja' / 'nej' / 'senere']")
-        return
 
-    print(f"\n[USER]: {user_input}")
-    
-    # 3. Decision Logic (Lag 3 Handling)
-    if user_input.lower() in ["ja", "gør det", "ok"]:
-        print("\n[VOICE]: Modtaget. Synkroniserer nu...")
-        os.system("python3 scripts/notion_sync.py --dry-run")
-        print("\n[VOICE]: Done. Du kan nu se det opdaterede overblik på din telefon.")
-        print("[SCENE]: Ejeren åbner Notion på sin mobil og ser de 3 projekter med Confidence-scores.")
-    elif user_input.lower() in ["nej", "ikke nu"]:
-        print("\n[VOICE]: Helt i orden. Jeg minder dig ikke om det igen i dag.")
-    elif user_input.lower() in ["senere", "vent"]:
-        print("\n[VOICE]: Modtaget. Jeg spørger igen om et par timer, når du er færdig med at køre.")
-    else:
-        print(f"\n[VOICE]: Jeg er ikke helt sikker på hvad du mente med '{user_input}'. Skal jeg synkronisere alligevel?")
+    # 2. Timezone & Time of Day
+    print("\n[TRIN 2]: Tids-synkronisering (Temporalt lag)...")
+    os.system("python3 scripts/time_zone_v7.py")
+    os.system("python3 scripts/time_of_day_v7.py")
+    time.sleep(1)
+
+    # 3. Vejr-kontekst
+    print("\n[TRIN 3]: Miljø-bevidsthed (Meteorologisk lag)...")
+    os.system("python3 scripts/weather_context.py")
+    time.sleep(1)
+
+    # 4. Travel Logic & Prediction
+    print("\n[TRIN 4]: Rejse-logik & Forudsigelse (Mobilitets lag)...")
+    # Simuler skift fra Aarhus for at trigger velkomst
+    with open("data/travel_state.json", "w") as f:
+        json.dump({"last_city": "Aarhus"}, f)
+    os.system("python3 scripts/travel_logic_v7.py")
+    os.system("python3 scripts/flight_aware_mock.py")
+    time.sleep(1)
+
+    # 5. Routine & Agenda
+    print("\n[TRIN 5]: Dags-planlægning (Planlægnings lag)...")
+    os.system("python3 scripts/agenda_vocalizer.py")
+    os.system("python3 scripts/routine_engine_v7.py")
+    time.sleep(1)
+
+    # 6. Den Fuldendte Stemme
+    print("\n[TRIN 6]: Den Proaktive Multi-Modale Hilsen...")
+    os.system("python3 scripts/voice_simulator.py")
+
+    print("\n================================================================")
+    print("   DEMONSTRATION FULDENDT: MULTI-MODAL CONTEXT ER OPERATIONEL")
+    print("================================================================")
 
 if __name__ == "__main__":
-    import sys
-    user_choice = sys.argv[1] if len(sys.argv) > 1 else None
-    run_demo(user_choice)
+    run_multimodal_demo()

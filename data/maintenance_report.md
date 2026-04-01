@@ -1,6 +1,4 @@
-# Maintenance Report - 2026-05-12
+# Maintenance Report - 2026-06-06
 
 ## Status: WARNING
-[ERROR] Notion API sync fejler (401 Unauthorized)
 [WARNING] Qdrant disk space lav (85% brugt)
-[INFO] Backup gennemført kl 04:00
