@@ -40,5 +40,31 @@
       "created_at": "2026-03-30T20:01:43.306879+00:00Z",
       "completed_at": "2026-03-30T20:01:46.400287+00:00Z"
     }
+  ],
+  "context_guidance": [
+    {
+      "id": "context_guidance_task_1",
+      "title": "Forbered noter til fysisk m\u00f8de: V7 Integrations Sprint",
+      "status": "pending",
+      "created_at": "2026-04-01T03:01:52.500826+00:00Z"
+    },
+    {
+      "id": "context_guidance_task_2",
+      "title": "Tjek mikrofon og kamera f\u00f8r 'Review: Cognitive Exoskeleton Pipeline'",
+      "status": "pending",
+      "created_at": "2026-04-01T03:01:52.500826+00:00Z"
+    },
+    {
+      "id": "context_guidance_task_3",
+      "title": "Pak rejsetaske til New York turen i morgen",
+      "status": "pending",
+      "created_at": "2026-04-01T03:01:52.500826+00:00Z"
+    },
+    {
+      "id": "context_guidance_task_4",
+      "title": "Tjek ind til fly SK909",
+      "status": "pending",
+      "created_at": "2026-04-01T03:01:52.500826+00:00Z"
+    }
   ]
 }

@@ -5461,3 +5461,22 @@ Et kognitivt exoskeleton skal kunne fange ejerens opmærksomhed på de rigtige t
 - Opdatere `CONTEXT.md`.
 
 Session 118 cementerer den reaktive visuelle bevidsthed i Yggdra.
+
+## 2026-06-10 10:00 (UTC) - V7.5: Kognitiv Proaktivitet — Context-Aware Task Generation (Session 119)
+
+Jeg har i dag påbegyndt Session 119 med fokus på at transformere passiv situationsbevidsthed til aktiv guidance gennem automatisk opgave-generering.
+
+### Gennemført:
+1.  **Context Task Generator v1.0:** Implementeret `scripts/context_task_generator.py`. Dette modul analyserer den multi-modale kontekst (vejr, agenda, fly-data) og opretter automatisk relevante subtasks.
+2.  **Kognitiv Proaktivitet:** Systemet kan nu "regne ud", hvad ejeren har brug for at gøre, uden at han selv skal oprette opgaven. F.eks. genereres opgaver om at pakke rejsetasken pga. den detekterede flyvning, eller tjekke AV-udstyr pga. et Remote møde.
+3.  **V7.5 Fundament:** Ved at forbinde Lag 5 (Situationsbevidsthed) direkte med Lag 3 (Handling/Eksekvering), har vi skabt en assistent, der ikke bare overvåger, men aktivt forbereder ejeren på fremtiden.
+
+### Mine tanker:
+Et exoskeleton skal proaktivt stive leddene af, før en bevægelse overhovedet finder sted. Ved at generere kontekst-specifikke opgaver automatisk, fjerner Yggdra den kognitive byrde ved "mental forberedelse". Brugeren behøver ikke tænke: "Jeg skal huske at tjekke ind til flyet"; opgaven ligger allerede i hans dashboard. Det er dette niveau af proaktiv intelligens, der gør systemet til en uundværlig partner i et mobilt liv.
+
+### Næste skridt:
+- Integrere de nye 'context_guidance' opgaver i `scripts/voice_simulator.py` (proaktiv hilsen).
+- Automatisere kørslen af `context_task_generator.py` ved hver situations-ændring (f.eks. ved nyt GPS opslag).
+- Opdatere `CONTEXT.md`.
+
+Session 119 markerer overgangen til aktiv kognitiv guidance i Yggdra.
