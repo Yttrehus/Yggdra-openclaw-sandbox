@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-04-01T09:33:02.745354",
+  "units": "USD per 1M tokens",
+  "pricing": {
+    "google/gemini-1.5-flash": 0.075,
+    "anthropic/claude-3-haiku": 0.25,
+    "openai/gpt-4o-mini": 0.15
+  }
+}

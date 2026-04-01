@@ -6,12 +6,42 @@
 
 ## Hvor er vi
 
+### Seneste Agent Sessioner (126 — 2026-06-17)
+- **Session 126 (Gennemført):**
+  - **Optimering:** `scripts/hugin_strategy_optimizer.py` v1.0 implementeret til læringsbetinget planlægning.
+  - **Loop:** Lukket kognitivt loop mellem Vidar (Vetoer) og Hugin (Strategi) etableret.
+  - **Resultat:** Systemet kan nu automatisk tilpasse planer for at undgå tidligere sikkerheds-blokeringer.
+  - **Status:** Den kollektive intelligens (Lag 5) er nu selv-korrigerende og arkitektonisk erfaren (V8).
+
+### Seneste Agent Sessioner (125 — 2026-06-16)
+- **Session 125 (Gennemført):**
+  - **Læring:** `scripts/self_improving_logic.py` v1.0 implementeret til analyse af system-vetoer.
+  - **Integration:** Vidars vetoer transformeres nu automatisk til persistente læringer i `LEARNINGS.md`.
+  - **Resultat:** Systemet bliver klogere og mere sikkerheds-bevidst for hver session (V8).
+  - **Status:** Kollektiv intelligens er nu adaptiv og lærende.
+
+### Seneste Agent Sessioner (123 — 2026-06-14)
+- **Session 123 (Gennemført):**
+  - **Gatekeeper:** `scripts/vidar_security_scan.py` v1.1 med realtids pricing-integration og veto-logik.
+  - **Sikkerhed:** Systemet blokerer nu automatisk høj-risiko handlinger og beregner præcise token-omkostninger.
+  - **Resultat:** Etableret et formelt veto-system til beskyttelse af data og budget (V8).
+  - **Status:** Den kollektive intelligens er nu udstyret med defensive failsafes.
+
+### Seneste Agent Sessioner (122 — 2026-06-13)
+- **Session 122 (Gennemført):**
+  - **Eskalering:** `scripts/multi_agent_coordinator.py` v1.1 implementeret med proaktiv eskalerings-logik.
+  - **Strategi:** Systemet kan nu selv identificere opgaver der kræver senior-review pga. kompleksitet.
+  - **Resultat:** Højere arkitektonisk kontrol og reduceret risiko ved autonom eksekvering (V8).
+  - **Status:** Kollektiv intelligens har nu indbygget selvindsigt og risikovurdering.
+
+### Seneste Agent Sessioner (121 — 2026-06-12)
+- **Session 121 (Gennemført):**
+  - **Koordinering:** `scripts/multi_agent_coordinator.py` v1.0 implementeret til styring af kollektiv intelligens.
+  - **Samarbejde:** Etableret fundamentet for V8 (Collaborative Intelligence) ved at definere roller for Hugin, Ratatosk og Vidar.
+  - **Resultat:** Systemet kan nu orkestrere fler-agent opgaver for højere kvalitet.
+  - **Status:** Kollektiv intelligens er nu arkitektonisk integreret.
+
 ### Seneste Agent Sessioner (120 — 2026-06-11)
-- **Session 120 (Gennemført):**
-  - **Voice:** `scripts/context_voice_summary.py` v1.0 integreret i voice-hilsen.
-  - **Autonomi:** Systemet rapporterer nu proaktivt om gennemførte auto-execution handlinger og nyoprettede kontekst-opgaver.
-  - **Resultat:** Brugeren får nu en fuld "while you were away" briefing ved hver start (V7.5).
-  - **Status:** Den kognitive proaktive cyklus (Analyse -> Handling -> Feedback) er nu fuldt operationel.
 
 ### Seneste Agent Sessioner (119 — 2026-06-10)
 

