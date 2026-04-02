@@ -248,5 +248,12 @@
     "confidence": 0.95,
     "timestamp": "2026-04-02T04:01:01.581315+00:00Z",
     "source": "Notion Synthesis"
+  },
+  {
+    "subject": "Notion API Status",
+    "fact": "VPS-Cloud rapporterer: API er online.",
+    "confidence": 0.99,
+    "timestamp": "2026-04-02T07:00:19.892177+00:00Z",
+    "source": "VPS-Cloud"
   }
 ]

@@ -6,6 +6,13 @@
 
 ## Hvor er vi
 
+### Seneste Agent Sessioner (150 — 2026-04-05)
+- **Session 150 (Gennemført):**
+  - **Neural Swarm:** `scripts/v12_conflict_resolution.py` v1.0 implementeret til konfliktløsning mellem instanser.
+  - **Konflikt-Håndtering:** Systemet kan nu vægte modstridende fakta baseret på timestamp og confidence.
+  - **Resultat:** Yggdra har nu fundamentet for kollektiv sandhed i et distribueret miljø (V12.1.2).
+  - **Status:** Neural Swarm arkitekturen er nu udvidet med robust konfliktløsnings-logik.
+
 ### Seneste Agent Sessioner (149 — 2026-04-04)
 - **Session 149 (Gennemført):**
   - **Swarm Optimization:** `scripts/v12_swarm_optimization.py` PoC implementeret til autonom ressource-balancering.
