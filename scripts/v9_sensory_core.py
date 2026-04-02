@@ -38,16 +38,26 @@ def analyze_visual_input(source_path, mode="document"):
             "entities": ["Vector Database", "Temporal Decay", "Semantic Pruning"],
             "confidence": 0.94
         }
-    else:
+    elif mode == "ui_screenshot":
         result = {
             "type": "UI Screenshot",
             "app": "Notion",
             "state": "Dashboard Active",
-            "confidence": 0.88
+            "active_elements": ["Sidebar", "Project Table", "Status Dropdown"],
+            "detected_intent": "Monitoring project progress",
+            "confidence": 0.91
+        }
+    else:
+        result = {
+            "type": "Generic Visual",
+            "description": "Unidentified visual input",
+            "confidence": 0.50
         }
 
     print(f"[SUCCESS]: Analyse færdig. Type: {result['type']}.")
     return result
 
 if __name__ == "__main__":
-    analyze_visual_input("mock_doc.png", mode="document")
+    import sys
+    m = sys.argv[1] if len(sys.argv) > 1 else "document"
+    analyze_visual_input("mock_input.png", mode=m)

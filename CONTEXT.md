@@ -6,6 +6,12 @@
 
 ## Hvor er vi
 
+### Seneste Agent Sessioner (137 — 2026-06-28)
+- **Session 137 (Gennemført):**
+  - **Sensory Expansion:** `scripts/v9_sensory_core.py` udvidet til at håndtere UI-screenshot analyse (V9.1.2).
+  - **Resultat:** Systemet kan nu identificere aktive applikationer og UI-elementer i screenshots, hvilket forbedrer situationsbevidstheden.
+  - **Status:** V9 Roadmap (Sensory Expansion) er nu udvidet med UI-analyse og klar til yderligere integration.
+
 ### Seneste Agent Sessioner (136 — 2026-06-27)
 - **Session 136 (Gennemført):**
   - **Sensory Expansion:** `scripts/v9_sensory_core.py` v1.0 implementeret til visuel dokument-analyse.
