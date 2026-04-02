@@ -224,5 +224,29 @@
     "section_id": 1,
     "source_date": "2026-03-27",
     "method": "manual_recovery"
+  },
+  {
+    "fact": "Dags-agenda fokuseret p\u00e5: V7 Integrations Sprint, Review: Cognitive Exoskeleton Pipeline.",
+    "confidence": 0.9,
+    "timestamp": "2026-04-02T03:30:28.492233+00:00Z",
+    "source": "Google Calendar Synthesis"
+  },
+  {
+    "fact": "Prim\u00e6rt strategisk fokus er projektet 'Yggdra V7 Integration'.",
+    "confidence": 0.95,
+    "timestamp": "2026-04-02T03:30:28.492233+00:00Z",
+    "source": "Notion Synthesis"
+  },
+  {
+    "fact": "Dags-agenda fokuseret p\u00e5: V7 Integrations Sprint, Review: Cognitive Exoskeleton Pipeline.",
+    "confidence": 0.9,
+    "timestamp": "2026-04-02T04:01:01.581315+00:00Z",
+    "source": "Google Calendar Synthesis"
+  },
+  {
+    "fact": "Prim\u00e6rt strategisk fokus er projektet 'Yggdra V7 Integration'.",
+    "confidence": 0.95,
+    "timestamp": "2026-04-02T04:01:01.581315+00:00Z",
+    "source": "Notion Synthesis"
   }
 ]
