@@ -8,5 +8,20 @@
       "project": "Yggdra"
     },
     "embedding_sim": "vec_sim_Gennemf\u00f8rt"
+  },
+  {
+    "id": "20260402063022",
+    "timestamp": "2026-04-02T06:30:22.471479+00:00",
+    "content": "Beslutning truffet efter debat: Baseret p\u00e5 Notion screenshot (Status: Dashboard Active), skal vi automatisk arkivere f\u00e6rdiggjorte opgaver?. Resultat: GODKENDT.",
+    "metadata": {
+      "source": "V9 Stress Test",
+      "sensory_type": "UI Screenshot",
+      "agents_involved": [
+        "Hugin",
+        "Ratatosk",
+        "Vidar"
+      ]
+    },
+    "embedding_sim": "vec_sim_Beslutning"
   }
 ]
