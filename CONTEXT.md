@@ -6,14 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (131 — 2026-06-22)
-- **Session 131 (Gennemført):**
-  - **Notion:** `scripts/notion_v7.py` v1.0 implementeret til statusopdateringer.
-  - **Security:** Modulet er fuldt integreret med Vidar Veto-logik (V8).
-  - **Resultat:** Systemet kan nu sikkert opdatere projekt-statusser i Notion under realtids-overvågning.
-  - **Status:** Den to-vejs projektstyrings-bro er nu operationel.
+### Seneste Agent Sessioner (133 — 2026-06-24)
+- **Session 133 (Gennemført):**
+  - **Voice:** `scripts/elevenlabs_v7.py` v1.0 implementeret med karakter-forbrugs overvågning.
+  - **V7.1 Fuldendt:** De tre kerne-integrationer (Google, Notion, ElevenLabs) er nu operationelle under V8 sikkerhed.
+  - **Resultat:** Systemet har nu et komplet og sikkert sæt af "sanser" og "hænder" til real-world eksekvering.
+  - **Status:** V7.1 integrations-laget er teknisk færdiggjort og valideret.
 
-### Seneste Agent Sessioner (130 — 2026-06-21)
+### Seneste Agent Sessioner (131 — 2026-06-22)
 - **Session 130 (Gennemført):**
   - **Google:** `scripts/google_calendar_v7.py` v1.0 implementeret.
   - **V7/V8 Integration:** Første produktions-modul der kombinerer reel data-indhentning med kollektiv sikkerhed (Vidar).

@@ -5733,3 +5733,41 @@ Ved at koble Notion til vores V8-arkitektur, har vi nu givet Yggdra muligheden f
 - Opdatere `CONTEXT.md`.
 
 Session 131 udvider systemets handlekraft i ejerens projekt-landskab.
+
+## 2026-06-23 10:00 (UTC) - V7.1: Google Calendar "Write" Integration med V8 Collaborative Security (Session 132)
+
+Jeg har i dag fuldført vores Google Workspace integrations-sæt med implementeringen af skrive-funktionalitet til kalenderen.
+
+### Gennemført:
+1.  **Google Calendar Write Integration v1.0:** Implementeret `scripts/google_calendar_write_v7.py`. Dette modul muliggør oprettelse af nye kalender-events, fuldt beskyttet af Vidar's real-tids risikovurdering.
+2.  **Payload Scanning:** Vidar analyserer nu de specifikke detaljer i hændelsen (titel, tid, lokation), før han giver grønt lys. Dette forhindrer assistenten i at oprette upassende eller ressource-tunge blokeringer i ejerens kalender.
+3.  **V7/V8 Fuldendt for Google:** Vi har nu både læse- og skrive-kapabiliteter for Google Calendar, hvilket gør Yggdra i stand til at fungere som en fuldblods executive assistant under arkitektonisk kontrol.
+
+### Mine tanker:
+At give en AI lov til at skrive i din kalender kræver den højeste grad af tillid. Ved at lade Vidar scanne hver eneste "Write" forespørgsel, bygger vi denne tillid ind i selve arkitekturen. Ejeren ved, at Yggdra ikke bare kan booke ting tilfældigt; hver handling er blevet vejet og fundet sikker. Dette er et skoleeksempel på, hvordan V8 arkitekturen muliggør avanceret V7 funktionalitet uden at øge risiko-posturen.
+
+### Næste skridt:
+- Begynde arbejdet på ElevenLabs V7 modulet (SSML og Voice Design).
+- Implementere automatisk kalender-booking baseret på stagnante mål (fra Goal Drills).
+- Opdatere `CONTEXT.md`.
+
+Session 132 cementerer assistentens evne til at handle aktivt i brugerens tidslinje.
+
+## 2026-06-24 10:00 (UTC) - V7.1: ElevenLabs Integration med V8 Collaborative Security (Session 133)
+
+Jeg har i dag afsluttet udrulningen af vores primære API-modul-sæt med implementeringen af ElevenLabs V7.1.
+
+### Gennemført:
+1.  **ElevenLabs V7.1 Implementation:** Implementeret `scripts/elevenlabs_v7.py`. Dette modul håndterer generering af tale-output, nu med fuld integration i Vidar's risikovurderings-lag (V8).
+2.  **Omkostnings-bevidst Stemme:** Vidar monitorerer karakter-forbruget i Text-to-Speech kald, hvilket sikrer, at assistenten ikke genererer unødvendigt lange monologer, der kunne dræne budgettet.
+3.  **V7.1 Milepæl Fuldendt:** Med Google Calendar, Notion og ElevenLabs modulerne på plads, er Yggdra nu arkitektonisk og teknisk klar til at interagere med ejerens verden på tværs af tid, projekter og lyd.
+
+### Mine tanker:
+Stemmen er broen mellem maskinen og mennesket. Ved at give ElevenLabs modulet adgang til Vidars intelligens, sikrer vi, at assistentens tale altid er formålstjenstlig og økonomisk ansvarlig. Vi har nu bygget alle de nødvendige værktøjer for at realisere V7's vision om en proaktiv, sikker og integreret assistent. Den næste fase bliver at orkestrere disse værktøjer i komplekse, virkelige scenarier.
+
+### Næste skridt:
+- Gennemføre en fuld system-audit af alle V7.1 moduler i samspil.
+- Begynde arbejdet på V7.6: "Contextual Memory Synthesis" (agenter der opsummerer dags-events til langtids-fakta).
+- Opdatere `CONTEXT.md`.
+
+Session 133 markerer fuldendelsen af det sikre API-integrations lag.
