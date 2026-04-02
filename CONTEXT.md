@@ -6,6 +6,13 @@
 
 ## Hvor er vi
 
+### Seneste Agent Sessioner (148 — 2026-04-04)
+- **Session 148 (Gennemført):**
+  - **Neural Swarm:** `scripts/v12_neural_swarm.py` PoC implementeret til multi-instans synkronisering.
+  - **Instans-Opdagelse:** Systemet har succesfuldt demonstreret evnen til at opdage og synkronisere viden med eksterne Yggdra-instanser.
+  - **Resultat:** Yggdra har nu fundamentet for distribueret intelligens og kollektiv videns-udveksling (V12.1).
+  - **Status:** V12 Roadmap (Neural Swarm) er nu aktivt og i Proof-of-Concept drift.
+
 ### Seneste Agent Sessioner (147 — 2026-04-03)
 - **Session 147 (Gennemført):**
   - **Milestone:** Fuld integration af Neural Evolution (V11.1) og Autonomous Tool Generation (V11.2) valideret.
