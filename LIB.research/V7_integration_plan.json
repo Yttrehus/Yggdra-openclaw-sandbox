@@ -1,0 +1,30 @@
+{
+  "google_workspace": {
+    "libraries": [
+      "google-auth-oauthlib",
+      "google-api-python-client"
+    ],
+    "auth_pattern": "OAuth2 installed app flow with token.json persistence",
+    "scopes": [
+      "https://www.googleapis.com/auth/calendar.readonly"
+    ]
+  },
+  "notion": {
+    "libraries": [
+      "notion-client"
+    ],
+    "auth_pattern": "Internal Integration Token (Permanent)",
+    "base_url": "https://api.notion.com/v1"
+  },
+  "elevenlabs": {
+    "libraries": [
+      "elevenlabs"
+    ],
+    "auth_pattern": "API Key in Header",
+    "features": [
+      "SSML",
+      "Speech-to-Speech",
+      "Voice Design"
+    ]
+  }
+}

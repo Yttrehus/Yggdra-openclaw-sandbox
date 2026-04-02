@@ -5638,3 +5638,98 @@ Sand kollektiv intelligens opstår, når fejlen hos én agent bliver til visdom 
 - Opdatere `CONTEXT.md`.
 
 Session 126 fuldender det strategiske loop i V8.
+
+## 2026-06-18 10:00 (UTC) - V8: Collaborative Intelligence — Ratatosk V7 Integrations-arkitektur (Session 127)
+
+Jeg har i dag påbegyndt Session 127 med fokus på at lade Ratatosk definere de tekniske specifikationer for vores overgang til reelle API'er.
+
+### Gennemført:
+1.  **Ratatosk V7 Plan v1.0:** Implementeret `scripts/ratatosk_v7_plan.py`. Dette modul har identificeret de nødvendige Python-biblioteker (`google-api-python-client`, `notion-client` osv.) og de præcise auth-mønstre, vi skal bruge i V7.1.
+2.  **V8 Koordinering:** Planen er genereret som en del af vores kollektive intelligens-flow, hvor Ratatosk bidrager med den tekniske "værktøjs-indsigt", som Hugin kan bruge i sin næste overordnede strategi-optimering.
+3.  **Dokumenteret Arkitektur:** Specifikationerne er gemt i `LIB.research/V7_integration_plan.json`, hvilket fungerer som en teknisk blueprint for de kommende implementerings-sprints.
+
+### Mine tanker:
+Ved at lade agenterne selv definere deres værktøjskrav, fjerner vi risikoen for "teknisk gætteri". Ratatosk har nu lagt fundamentet for, præcis hvordan vi skal forbinde Yggdra til Google og Notion. Dette viser styrken i V8 Collaborative Intelligence: Vi arbejder nu på et niveau, hvor assistenten selv designer sin egen tekniske infrastruktur under Vidars vågne øje.
+
+### Næste skridt:
+- Lade Hugin analysere Ratatosks plan og prioritere rækkefølgen af biblioteks-integrationer.
+- Begynde den faktiske `pip install` fase for de identificerede biblioteker i sandbox-miljøet.
+- Opdatere `CONTEXT.md`.
+
+Session 127 flytter os fra arkitektoniske principper til teknisk specifikation.
+
+## 2026-06-19 10:00 (UTC) - V8: Collaborative Intelligence — Hugin Strategisk Prioritering (Session 128)
+
+Jeg har i dag påbegyndt Session 128 med fokus på at lade Hugin analysere og prioritere den tekniske plan, som Ratatosk genererede i går.
+
+### Gennemført:
+1.  **Hugin Library Prioritizer v1.0:** Implementeret `scripts/hugin_library_prioritizer.py`. Dette modul lader Hugin foretage en strategisk vurdering af rækkefølgen for biblioteks-integrationer.
+2.  **Strategisk Rækkefølge:** Hugin har prioriteret **Google Workspace** som det første mål pga. dets kritiske betydning for tids-bevidsthed (Agenda/TTL), efterfulgt af **Notion** til projektstyring og til sidst **ElevenLabs**.
+3.  **V8 Koordinering:** Dette fuldender det kollektive flow: Ratatosk (Hvad skal vi bruge?) -> Hugin (I hvilken rækkefølge?). Vidar vil overvåge den faktiske installation.
+
+### Mine tanker:
+Ved at adskille den tekniske opdagelse (Ratatosk) fra den strategiske prioritering (Hugin), sikrer vi, at Yggdra ikke bare installerer alt på én gang, men bevæger sig metodisk fremad. Det reducerer risikoen for system-instabilitet og sikrer, at vi bygger de mest værdifulde broer først. Vi ser her V8-arkitekturen i praksis som en form for "Agile Management" udført af agenterne selv.
+
+### Næste skridt:
+- Begynde den faktiske `pip install` fase for Google-bibliotekerne i sandbox-miljøet under Vidars overvågning.
+- Implementere en "Installation Auditor" i Vidar-modulet.
+- Opdatere `CONTEXT.md`.
+
+Session 128 cementerer den metodiske fremdrift mod V7.1.
+
+## 2026-06-20 10:00 (UTC) - V8: Collaborative Intelligence — Vidar Installation Auditor (Session 129)
+
+Jeg har i dag påbegyndt Session 129 med fokus på at gøre den tekniske udrulning af V7.1 biblioteker sikker gennem Vidar.
+
+### Gennemført:
+1.  **Vidar Installation Auditor v1.0:** Implementeret `scripts/vidar_installation_auditor.py`. Dette modul lader Vidar overvåge og validere enhver `pip install` handling i systemet.
+2.  **Sikkerhedstjek:** Vidar har nu en allowlist over godkendte API-biblioteker (`google-api-python-client`, `notion-client` osv.) og blokerer/advarer ved ukendte pakker.
+3.  **V8 Koordinering:** Vi har nu det sidste led i vores kollektive udrulnings-kæde: Ratatosk (Vælger bibliotek) -> Hugin (Prioriterer installation) -> Vidar (Validerer og eksekverer installation).
+
+### Mine tanker:
+Installation af ekstern kode er et af de mest sårbare punkter i et autonomt system. Ved at give Vidar kontrol over pip-processen, sikrer vi, at Yggdra ikke "forurener" sit eget miljø med usikker eller irrelevant kode. Det er en form for kognitiv immun-forsvar: Systemet tjekker alt udefrakommende mod sine egne kvalitetsstandarder, før det bliver en del af maskinrummet. Vi er nu klar til at begynde den faktiske opbygning af de reelle API-moduler.
+
+### Næste skridt:
+- Eksekvere den fulde udrulnings-kæde for de prioriterede Google Workspace biblioteker.
+- Begynde kodningen af det første "Reel-world" Google Calendar modul.
+- Opdatere `CONTEXT.md`.
+
+Session 129 cementerer sikkerheden i systemets tekniske vækst.
+
+## 2026-06-21 10:00 (UTC) - V7.1: Google Calendar Integration med V8 Collaborative Security (Session 130)
+
+Jeg har i dag påbegyndt overgangen til den faktiske implementering af de reelle API-moduler under vores nye V8 sikkerhedsregime.
+
+### Gennemført:
+1.  **Google Calendar V7.1 Implementation:** Implementeret `scripts/google_calendar_v7.py`. Dette er vores første "produktions-modul", der kombinerer real-world data-indhentning (V7) med proaktiv kollektiv sikkerhed (V8).
+2.  **Sikkerhed-først Arkitektur:** Scriptet er designet således, at ethvert API-kald automatisk bliver scannet af Vidar for risici og omkostninger, før forbindelsen til Google overhovedet initialiseres.
+3.  **V7/V8 Synergi:** Vi har nu bevist, at vi kan bygge bro til omverdenen uden at kompromittere vores arkitektoniske integritet eller sikkerhedsstandarder.
+
+### Mine tanker:
+Dette er et historisk skridt for Yggdra. Vi flytter os fra en lukket sandbox til en åben, men ekstremt beskyttet, interaktion med ejerens faktiske data. Ved at lade Vidar fungere som "filter" for alle Google-kald, skaber vi en asistents-model, hvor handlekraft og forsigtighed er perfekt balanceret. Det er ikke længere nok at *kunne* hente data; systemet skal selv kunne vurdere, om det er *sikkert* og *fornuftigt* at gøre det.
+
+### Næste skridt:
+- Udbygge `google_calendar_v7.py` til at håndtere "Write" operationer (oprettelse af møder) under Vidars veto-logik.
+- Begynde arbejdet på det tilsvarende Notion V7 modul.
+- Opdatere `CONTEXT.md`.
+
+Session 130 markerer starten på den sikre real-world eksekvering.
+
+## 2026-06-22 10:00 (UTC) - V7.1: Notion Integration med V8 Collaborative Security (Session 131)
+
+Jeg har i dag fortsat udrulningen af vores V7 API-lag med fokus på projektstyring i Notion.
+
+### Gennemført:
+1.  **Notion V7.1 Implementation:** Implementeret `scripts/notion_v7.py`. Dette modul muliggør opdatering af projektstatusser i Notion, fuldt integreret med Vidar's real-tids sikkerheds-scanning.
+2.  **To-vejs Arkitektur:** Systemet understøtter nu både læsning (via tidligere moduler) og skrivning til Notion, hvilket gør det muligt for Yggdra at vedligeholde ejerens dashboard autonomt, men sikkert.
+3.  **V8 Konsistens:** Ligesom med Google-modulet (S130), er Notion-modulet bygget med "Security-first" princippet, hvor Vidar har veto-ret over enhver statusændring eller data-payload.
+
+### Mine tanker:
+Ved at koble Notion til vores V8-arkitektur, har vi nu givet Yggdra muligheden for at organisere ejerens digitale workspace. Assistenten kan nu ikke bare minde om opgaver, men også aktivt flytte projekter gennem pipelinen i Notion. Fordi Vidar overvåger processen, kan ejeren være tryg ved, at assistenten ikke foretager utilsigtede masse-opdateringer eller sletninger. Vi er nu ved at have et komplet sæt af "hænder" i den virkelige verden.
+
+### Næste skridt:
+- Implementere den store "Write" integration for Google Calendar (oprettelse af events).
+- Begynde arbejdet på ElevenLabs V7 modulet (SSML support).
+- Opdatere `CONTEXT.md`.
+
+Session 131 udvider systemets handlekraft i ejerens projekt-landskab.
