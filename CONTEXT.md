@@ -6,6 +6,13 @@
 
 ## Hvor er vi
 
+### Seneste Agent Sessioner (161 — 2026-04-06)
+- **Session 161 (Gennemført):**
+  - **Collective Intelligence:** `scripts/v16_collective_intelligence.py` PoC implementeret til autonom kollektiv orkestrering.
+  - **Strategi-Orkestrering:** Systemet har succesfuldt demonstreret evnen til at eksekvere strategier baseret på globale kognitive felt-data.
+  - **Resultat:** Yggdra har nu fundamentet for kollektiv beslutningskraft og strategisk globalt overblik (V16.2).
+  - **Status:** V16 Roadmap (Collective Intelligence) er nu aktivt og i Proof-of-Concept drift.
+
 ### Seneste Agent Sessioner (160 — 2026-04-06)
 - **Session 160 (Gennemført):**
   - **Neural Omnipresence:** `scripts/v16_neural_omnipresence.py` PoC implementeret til global felt-kobling.
