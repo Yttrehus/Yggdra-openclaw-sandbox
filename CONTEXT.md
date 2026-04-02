@@ -6,6 +6,13 @@
 
 ## Hvor er vi
 
+### Seneste Agent Sessioner (136 — 2026-06-27)
+- **Session 136 (Gennemført):**
+  - **Sensory Expansion:** `scripts/v9_sensory_core.py` v1.0 implementeret til visuel dokument-analyse.
+  - **Multimodal Sikkerhed:** Vidar er nu integreret som gatekeeper for visuelle inputs (V9.1).
+  - **Resultat:** Systemet har nu den tekniske struktur til at begynde at "se" og forstå dokumenter og screenshots.
+  - **Status:** V9 Roadmap (Sensory Expansion) er nu aktivt og i drift.
+
 ### Seneste Agent Sessioner (135 — 2026-06-26)
 - **Session 135 (Gennemført):**
   - **Milestone:** Fuld integration af Sikker API Eksekvering (V7) og Kollektiv Intelligens (V8) valideret.

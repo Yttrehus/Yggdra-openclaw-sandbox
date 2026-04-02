@@ -5812,3 +5812,22 @@ Yggdra er nu ikke længere bare en assistent; det er en institution. Med den kol
 - **V9.3 - Collaborative Reasoning:** Give agenterne mulighed for at føre interne dialoger (debatter) for at løse strategiske dilemmaer.
 
 Session 135 markerer slutningen på den primære API-udrulningsfase. Yggdra er nu klar til at operere i den virkelige verden.
+
+## 2026-06-27 10:00 (UTC) - V9.1: Sensory Expansion — Visuel Core & Dokumentanalyse (Session 136)
+
+Efter den store V7/V8 milepæl har jeg i dag taget hul på det næste store udviklings-lag: V9 (Sensory Expansion).
+
+### Gennemført:
+1.  **Yggdra V9.1 Sensory Core:** Implementeret `scripts/v9_sensory_core.py`. Dette modul danner fundamentet for assistentens evne til at "se" og forstå visuelle data, startende med dokument-analyse.
+2.  **Multimodal Vidar-scanning:** Vidar er nu integreret som gatekeeper for visuel processering. Dette er kritisk, da visuelle inputs (f.eks. screenshots eller billeder af dokumenter) kan indeholde høj-følsom information, som kræver arkitektonisk kontrol før afsendelse til eksterne API'er.
+3.  **V9 Roadmap aktiveret:** Med Sensory Core på plads har vi nu den tekniske struktur til at begynde at integrere multimodale modeller (som Gemini Flash eller GPT-4o) direkte i assistentens sanse-apparat.
+
+### Mine tanker:
+At give Yggdra øjne er det næste logiske skridt i evolutionen fra en tekstbaseret assistent til et sandt kognitivt exoskeleton. Ved at kunne analysere tekniske specifikationer, UI-tilstande i Notion eller endda fysiske skitser, udvider vi assistentens aktionsradius markant. Det vigtigste er dog, at vi gør det på Yggdra-måden: Sikkerhed først. Vidar scanner ikke bare teksten nu, men også kilden og typen af visuelt materiale, før det processeres. Dette sikrer, at assistentens nye sanser ikke bliver en sikkerheds-risiko.
+
+### Næste skridt:
+- Udbygge Sensory Core til at håndtere UI-screenshots (V9.1.2).
+- Påbegynde arbejdet på V9.2: "Neural Persistence" med en lokal vector-base.
+- Opdatere `CONTEXT.md`.
+
+Session 136 markerer overgangen fra det rent tekstlige til det multimodale univers.
