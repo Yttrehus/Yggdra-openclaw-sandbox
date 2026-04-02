@@ -6,6 +6,13 @@
 
 ## Hvor er vi
 
+### Seneste Agent Sessioner (142 — 2026-04-03)
+- **Session 142 (Gennemført):**
+  - **Sikkerhedshærdning:** Adresseret advarsel fra `openclaw security audit` ved at ændre rettigheder på `auth-profiles.json` til `600`.
+  - **System Audit:** Bekræftet Gateway-tilstand og sessions-overblik.
+  - **Resultat:** Systemets fundamentale sikkerhed er hærdet og fundamentet for V10-drift er verificeret.
+  - **Status:** Systemet er nu både teknisk avanceret (V10.1 PoC) og fundamentalt sikkert (hærdet fil-adgang).
+
 ### Seneste Agent Sessioner (141 — 2026-04-03)
 - **Session 141 (Gennemført):**
   - **Neural Synthesis:** `scripts/v10_neural_synthesis.py` PoC implementeret til automatisk videns-generering.
