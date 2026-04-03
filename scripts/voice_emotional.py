@@ -1,13 +1,12 @@
-#!/usr/bin/env python3
 """
-Voice Emotional Intelligence v1.1
-Fokus: Tilpasning af stemmeleje og tone baseret på system-sundhed OG lokation.
-Nu med 'Casual/Soft' tone for home mode.
+Voice Emotional Intelligence v1.2
+Fokus: Tilpasning af stemmeleje og tone baseret på system-sundhed, lokation OG Vocal Sentiment.
+Integration med V21.1 Neural Empathy.
 """
 import os
 import json
 
-def get_emotional_tone():
+def get_emotional_tone(vocal_sentiment=None):
     # 1. Hent situatonal state (lokation)
     loc_context = "office"
     situational_file = "data/situational_state.json"
@@ -24,7 +23,17 @@ def get_emotional_tone():
             if "[CRITICAL]" in content:
                 is_critical = True
 
-    # 3. Beslut tone
+    # 3. Integrer Vocal Sentiment (V21.1)
+    # Hvis brugeren er frustreret, skal assistenten være ekstra 'soft' og rolig.
+    if vocal_sentiment and vocal_sentiment.get("state") == "Frustreret":
+        return {
+            "tone": "empathic_support",
+            "pitch": "slightly_lower",
+            "speed": "slower",
+            "description": "Brugeren virker frustreret. Formidlingen er ekstra rolig, anerkendende og langsom for at de-eskalerer."
+        }
+
+    # 4. Beslut standard tone
     if is_critical:
         return {
             "tone": "urgent",
@@ -49,7 +58,9 @@ def get_emotional_tone():
     }
 
 if __name__ == "__main__":
-    tone = get_emotional_tone()
-    print("--- Emotional Intelligence Analysis v1.1 ---")
+    # Test med simuleret frustration
+    mock_sentiment = {"state": "Frustreret", "confidence": 0.89}
+    tone = get_emotional_tone(vocal_sentiment=mock_sentiment)
+    print("--- Emotional Intelligence Analysis v1.2 (Integrated) ---")
     print(f"Detekteret tone: {tone['tone'].upper()}")
     print(f"Beskrivelse: {tone['description']}")
