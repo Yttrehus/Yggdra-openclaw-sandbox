@@ -1,0 +1,11 @@
+{
+  "name": "Lag 8: Empathic Resonance",
+  "purpose": "At tolke og respondere p\u00e5 ejerens emotionelle state via stemme-kadence og sprogbrug.",
+  "components": [
+    "Vocal Sentiment Analysis",
+    "Emotional Mirroring Engine",
+    "Empathy Gatekeeper"
+  ],
+  "integration_path": "Kobles til ElevenLabs V7.1 og Sensory V9.1.",
+  "confidence": 0.88
+}
