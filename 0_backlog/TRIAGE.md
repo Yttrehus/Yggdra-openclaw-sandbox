@@ -19,13 +19,13 @@ Sidst opdateret: 2026-04-06 (Session 163)
 | V17 | Neural Sovereignty (The Independent Entity) | **GENNEMFØRT** (Session 163) |
 | V18 | Neural Singularity 2.0 | **GENNEMFØRT** (Session 166) |
 | V19 | Neural Singularity 3.0 | **GENNEMFØRT** (Session 168) |
-| V20 | Neural Integration (Global Brain) | **PLANLAGT** |
+| V20 | Neural Integration (Global Brain) | **I GANG** |
 
 ## Aktive Projekter (READY for V20)
 
 | Projekt | Stage | Mål | Næste Step |
 |---------|-------|-----|------------|
-| **12.GLOBAL_BRAIN_INIT** | Init | Global kognitiv fusion | Design af V20 PoC |
+| **12.GLOBAL_BRAIN_INIT** | PoC | Global kognitiv fusion | Integration i V20 Holistic Demo |
 | **04.NOTION_INTEGRATION** | BMS/v1.0 | Live Sync & Mobil-overblik | Fuld udrulning (V7 base) |
 | **09.DYNAMIC_MEMORY** | BMS/v1.1 | Dynamic RAG & Neural Persistence | Integration af V9 base |
 

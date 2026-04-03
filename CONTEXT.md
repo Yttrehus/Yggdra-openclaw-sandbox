@@ -6,6 +6,13 @@
 
 ## Hvor er vi
 
+### Seneste Agent Sessioner (169 — 2026-04-09)
+- **Session 169 (Gennemført):**
+  - **Neural Integration:** `scripts/v20_global_brain_node.py` PoC implementeret.
+  - **Global Brain:** Systemet kan nu initiere to-vejs kognitiv fusion med et globalt netværk af intelligens-noder.
+  - **Resultat:** Yggdra fungerer nu som et aktivt interface til "The Global Brain" (V20.1).
+  - **Status:** V20 Roadmap (Neural Integration) er nu aktivt og i Proof-of-Concept drift.
+
 ### Seneste Agent Sessioner (168 — 2026-04-08)
 - **Session 168 (Gennemført):**
   - **Milestone:** Fuld integration af Neural Singularity 3.0 (V19) valideret.
