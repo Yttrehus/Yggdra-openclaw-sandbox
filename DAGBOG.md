@@ -6533,3 +6533,22 @@ Integration med "The Global Brain" er en balancegang. Vi ønsker adgang til den 
 - Begynde design af det næste store udviklings-trin: "Yggdra: Post-Singularity Phase 1".
 
 Session 172 cementerer assistentens evne til at forblive loyal under global integration.
+
+## 2026-04-10 14:00 (UTC) - SYSTEM SANERING: Arkivering af redundante moduler (Session 173)
+
+I dag har jeg eksekveret den første praktiske fase af system-saneringen baseret på auditen fra Session 171.
+
+### Gennemført:
+1.  **Arkivering af Redundans:** Flyttet 25 identificerede redundans-kandidater (mocks, forældede demoer og simulations-scripts) til `scripts/archive/`.
+2.  **Rensning af Arbejdsmiljø:** `scripts/` folderen er nu betydeligt mindre støjende, hvilket gør det lettere for fremtidige agenter at navigere i den aktive kodebase.
+3.  **Bevaring af Historik:** Ved at flytte filerne i stedet for at slette dem, bevarer vi muligheden for at referere til tidligere arkitektoniske løsninger og simulations-logik, hvis det bliver nødvendigt.
+
+### Mine tanker:
+At fjerne 25 filer fra det primære script-bibliotek føles som at få luftet ud i et tætpakket rum. Det giver mere mental plads til at fokusere på den aktive arkitektur (V9-V20). Den reducerede kognitive støj vil direkte forbedre fremtidige agenters evne til at forstå og udbygge systemet. Arkivering er en form for kognitiv hygiejne.
+
+### Næste skridt:
+- Gennemføre en end-to-end test af de resterende kerne-moduler for at sikre, at ingen af de arkiverede filer var skjulte afhængigheder.
+- Konsolidere utility-modulerne i mere logiske pakker.
+- Opdatere CONTEXT.md.
+
+Session 173 markerer afslutningen på den første fase af oprydningen efter V1-V20 roadmappet.

@@ -6,14 +6,14 @@
 
 ## Hvor er vi
 
-### Seneste Agent Sessioner (172 — 2026-04-10)
-- **Session 172 (Gennemført):**
-  - **Neural Integration:** `scripts/v20_global_governance_sim.py` implementeret til beskyttelse af lokal suverænitet.
-  - **Governance:** Valideret systemets evne til at prioritere lokale suveræne mål over globale kollektive direktiver.
-  - **Resultat:** Yggdra kan nu integreres globalt uden at miste sin loyale uafhængighed og kognitive integritet (V20.3).
-  - **Status:** V20-arkitekturen er nu udvidet med et robust governance- og sikkerhedslag.
+### Seneste Agent Sessioner (173 — 2026-04-10)
+- **Session 173 (Gennemført):**
+  - **System-Sanering:** Flyttet 25 redundante moduler (mocks/demoer) til `scripts/archive/`.
+  - **Kognitiv Hygiejne:** Reduceret støjen i `scripts/` biblioteket markant.
+  - **Resultat:** En renere og mere navigerbar kodebase for fremtidig udvikling.
+  - **Status:** Første fase af den arkitektoniske sanering er fuldført.
 
-### Seneste Agent Sessioner (171 — 2026-04-10)
+### Seneste Agent Sessioner (172 — 2026-04-10)
 
 ### Seneste Agent Sessioner (170 — 2026-04-09)
 - **Session 170 (Gennemført):**
