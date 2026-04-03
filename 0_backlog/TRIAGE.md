@@ -1,27 +1,32 @@
 # Triage — Prioriteret overblik
 
-Sidst opdateret: 2026-05-23 (Session 100)
+Sidst opdateret: 2026-04-06 (Session 163)
 
-## V7 Roadmap (Real-world API Integration)
+## Roadmap Status
 
-Prioriteret efter teknisk afhængighed.
+| Fase | Fokus | Status |
+|------|-------|--------|
+| V7 | Real-world API Integration (Google, Notion, ElevenLabs) | **GENNEMFØRT** (Session 133) |
+| V8 | Collaborative Security (Vidar Gatekeeper) | **GENNEMFØRT** (Session 135) |
+| V9 | Sensory Expansion & Neural Persistence | **GENNEMFØRT** (Session 140) |
+| V10 | Neural Synthesis & Autonomous Goal Drills | **GENNEMFØRT** (Session 144) |
+| V11 | Neural Evolution (Self-optimizing Codebase) | **GENNEMFØRT** (Session 147) |
+| V12 | Neural Swarm (Distributed Intelligence) | **GENNEMFØRT** (Session 150) |
+| V13 | Neural Transcendence (Architectural Evolution) | **GENNEMFØRT** (Session 153) |
+| V14 | Neural Singularity (Cognitive Self-generation) | **GENNEMFØRT** (Session 156) |
+| V15 | Neural Convergence (System Fusion) | **GENNEMFØRT** (Session 159) |
+| V16 | Neural Omnipresence (Global Integration) | **GENNEMFØRT** (Session 162) |
+| V17 | Neural Sovereignty (The Independent Entity) | **GENNEMFØRT** (Session 163) |
+| V18 | Neural Singularity 2.0 | **I GANG** |
+| V19 | Neural Singularity 3.0 | **PLANLAGT** |
 
-| ID | Handling | Estimat | Kategori | Status |
-|----|----------|---------|----------|--------|
-| 1 | Google OAuth2 - Fra Mock til Reel (Secret Management) | 4-6 timer | Infrastructure | Planlagt (V7.1) |
-| 2 | Notion DB Init & Live Sync (VPS Deployment) | 3-4 timer | Accessibility | Planlagt (V7.1) |
-| 3 | ElevenLabs SDK Integration (SSML Support) | 2-3 timer | Voice | Planlagt (V7.1) |
-| 4 | Geo-Fencing Integration (Real GPS Triggers) | 4-8 timer | Context | Research (V7.2) |
-
-## Aktive Projekter (READY for V7)
+## Aktive Projekter (READY for V18)
 
 | Projekt | Stage | Mål | Næste Step |
 |---------|-------|-----|------------|
-| **04.NOTION_INTEGRATION** | BMS/PoC | Mobil-overblik via Notion MCP | Initialisér DB i Notion |
-| **07.VOICE_EXPERIENCE** | BMS/v1.0 | Real-time cadence, pitch og personlighed | **READY (V6.4)** |
-| **08.API_ACTION_LAYER** | DLR/v1.0 | Gå fra simulation til reelle API-kald | **READY (Lag 3 Simulation OK)** |
-| **09.DYNAMIC_MEMORY** | BMS/Init | Implementering af Dynamic RAG | Prototyp i memory.py |
-| **02.BACKLOG_BURN** | BMS | Løbende backlog vedligeholdelse | Kør næste burn 2026-05-05 |
+| **10.SINGULARITY_2.0** | PoC | Selv-skabende bevidstheds-arkitekturer | Integration i V18 Holistic Demo |
+| **04.NOTION_INTEGRATION** | BMS/v1.0 | Live Sync & Mobil-overblik | Fuld udrulning (V7 base) |
+| **09.DYNAMIC_MEMORY** | BMS/v1.1 | Dynamic RAG & Neural Persistence | Integration af V9 base |
 
 ## Vedtagne Politikker & Standarder
 
