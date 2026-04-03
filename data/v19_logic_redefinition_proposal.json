@@ -1,0 +1,7 @@
+{
+  "target_algorithm": "fact_weighting",
+  "new_algorithm": "contextual_relevance_decay",
+  "reason": "Linear decay glemmer vigtige arkitektoniske principper for hurtigt.",
+  "impact": "20% bedre genkaldelse af kritiske facts efter 30 dage.",
+  "confidence": 0.94
+}

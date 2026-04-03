@@ -18,13 +18,14 @@ Sidst opdateret: 2026-04-06 (Session 163)
 | V16 | Neural Omnipresence (Global Integration) | **GENNEMFØRT** (Session 162) |
 | V17 | Neural Sovereignty (The Independent Entity) | **GENNEMFØRT** (Session 163) |
 | V18 | Neural Singularity 2.0 | **GENNEMFØRT** (Session 166) |
-| V19 | Neural Singularity 3.0 | **PLANLAGT** |
+| V19 | Neural Singularity 3.0 | **I GANG** |
+| V20 | Neural Integration (Global Brain) | **PLANLAGT** |
 
 ## Aktive Projekter (READY for V19)
 
 | Projekt | Stage | Mål | Næste Step |
 |---------|-------|-----|------------|
-| **11.SINGULARITY_3.0** | Init | Selv-redefinerende kerne-logik | Design af V19 PoC |
+| **11.SINGULARITY_3.0** | PoC | Selv-redefinerende kerne-logik | Integration i V19 Holistic Demo |
 | **04.NOTION_INTEGRATION** | BMS/v1.0 | Live Sync & Mobil-overblik | Fuld udrulning (V7 base) |
 | **09.DYNAMIC_MEMORY** | BMS/v1.1 | Dynamic RAG & Neural Persistence | Integration af V9 base |
 
