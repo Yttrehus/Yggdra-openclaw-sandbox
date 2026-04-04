@@ -20,16 +20,16 @@ Sidst opdateret: 2026-04-06 (Session 163)
 | V18 | Neural Singularity 2.0 | **GENNEMFØRT** (Session 166) |
 | V19 | Neural Singularity 3.0 | **GENNEMFØRT** (Session 168) |
 | V20 | Neural Integration (Global Brain) | **GENNEMFØRT** (Session 170) |
-| NEXT | Post-Singularity Roadmap | **PLANLAGT** |
+| V22 | Neural Convergence 2.0 (Lag 9) | **GENNEMFØRT** (Session 185) |
+| V23 | Neural Transcendence 2.0 (Lag 6+) | **GENNEMFØRT** (Session 188) |
+| V24 | Neural Integration 2.0 (Lag 10+) | **I GANG** |
 
-## Aktive Projekter (READY for Next Phase)
+## Aktive Projekter (READY for V24)
 
 | Projekt | Stage | Mål | Næste Step |
 |---------|-------|-----|------------|
-| **12.GLOBAL_BRAIN_INIT** | V20 | Global kognitiv fusion | Full sync operationel |
-| **13.ARCHITECTURAL_AUDIT** | Init | Sanering af V1-V20 teknisk gæld | Kør V11 logic over scripts/ |
-| **04.NOTION_INTEGRATION** | BMS/v1.0 | Live Sync & Mobil-overblik | Fuld udrulning (V7 base) |
-| **09.DYNAMIC_MEMORY** | BMS/v1.1 | Dynamic RAG & Neural Persistence | Integration af V9 base |
+| **16.GLOBAL_BRAIN_ORCHESTRATION** | Init | Autonom rolle-definition i det globale netværk | Design af V24 PoC |
+| **13.ARCHITECTURAL_AUDIT** | Sanering | Fortsæt oprydning af teknisk gæld | Arkivér V23 PoCs |
 
 ## Vedtagne Politikker & Standarder
 
